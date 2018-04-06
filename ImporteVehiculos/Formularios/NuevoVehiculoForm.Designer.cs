@@ -418,7 +418,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label17.Location = new System.Drawing.Point(221, 44);
+            this.label17.Location = new System.Drawing.Point(211, 44);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(19, 25);
             this.label17.TabIndex = 109;
@@ -494,7 +494,7 @@
             this.restante_RD_lbl.AutoSize = true;
             this.restante_RD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.restante_RD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restante_RD_lbl.Location = new System.Drawing.Point(233, 94);
+            this.restante_RD_lbl.Location = new System.Drawing.Point(223, 94);
             this.restante_RD_lbl.Name = "restante_RD_lbl";
             this.restante_RD_lbl.Size = new System.Drawing.Size(29, 19);
             this.restante_RD_lbl.TabIndex = 103;
@@ -516,7 +516,7 @@
             this.totalRD_lbl.AutoSize = true;
             this.totalRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalRD_lbl.Location = new System.Drawing.Point(236, 49);
+            this.totalRD_lbl.Location = new System.Drawing.Point(226, 49);
             this.totalRD_lbl.Name = "totalRD_lbl";
             this.totalRD_lbl.Size = new System.Drawing.Size(29, 19);
             this.totalRD_lbl.TabIndex = 101;
@@ -560,7 +560,7 @@
             this.precioCompraRd_lbl.AutoSize = true;
             this.precioCompraRd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.precioCompraRd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioCompraRd_lbl.Location = new System.Drawing.Point(236, 19);
+            this.precioCompraRd_lbl.Location = new System.Drawing.Point(226, 19);
             this.precioCompraRd_lbl.Name = "precioCompraRd_lbl";
             this.precioCompraRd_lbl.Size = new System.Drawing.Size(29, 19);
             this.precioCompraRd_lbl.TabIndex = 98;
