@@ -30,12 +30,31 @@ begin
 end
 
 GO
+ALTER procedure actualizar_cliente
+@idCliente int,@cliente varchar(200), @cedulaRNC varchar(50), @tel varchar(50), @estado bit, @mensaje int output,
+@direccion varchar(200), @idPais int, @idCiudad int
+as
+set @mensaje = 0
+
+begin
+
+	
+	update Clientes set cliente = @cliente, rnc_cedula = @cedulaRNC, telefono = @tel, estado = @estado, 
+	direccion = @direccion, id_pais = @idPais, id_ciudad = @idCiudad
+	where id = @idCliente
+	set @mensaje = 1
+
+end
+
+GO
 ALTER procedure obtener_todos_clientes
 as
 begin
 
-	select id as ID, cliente as CLIENTE, rnc_cedula as 'RNC/CEDULA',direccion as DIRECCION ,telefono as 'TEL.', estado as HABILITADO
-	from Clientes
+	select C.id as ID, C.cliente as CLIENTE, C.rnc_cedula as 'RNC/CEDULA', C.direccion as DIRECCION ,
+	telefono as 'TEL.',P.pais as PAIS, Ci.ciudad as CIUDAD ,C.estado as HABILITADO
+	
+	from Clientes C left join Paises P on P.id = C.id_pais left join Ciudades Ci on Ci.id = C.id_ciudad
 	
 end
 
