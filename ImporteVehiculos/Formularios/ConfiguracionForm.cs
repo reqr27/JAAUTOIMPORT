@@ -184,5 +184,19 @@ namespace ImporteVehiculos.Formularios
                 frm.Show();
             }
         }
+
+        private void colores_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["ColoresForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+            }
+            else
+            {
+                ColoresForm frm = new ColoresForm();
+                frm.Show();
+            }
+        }
     }
 }

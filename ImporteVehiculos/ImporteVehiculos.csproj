@@ -170,6 +170,12 @@
     <Compile Include="Formularios\CobrosCuentasCobrarForm.Designer.cs">
       <DependentUpon>CobrosCuentasCobrarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\ColoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ColoresForm.Designer.cs">
+      <DependentUpon>ColoresForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\ConfiguracionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\CobrosCuentasCobrarForm.resx">
       <DependentUpon>CobrosCuentasCobrarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ColoresForm.resx">
+      <DependentUpon>ColoresForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\ConfiguracionForm.resx">
       <DependentUpon>ConfiguracionForm.cs</DependentUpon>
@@ -660,6 +669,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car.ico" />
+    <None Include="Resources\brush.png" />
     <None Include="Resources\cross.png" />
     <None Include="Resources\bank.png" />
     <None Include="Resources\minimize %281%291.png" />

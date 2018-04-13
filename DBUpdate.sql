@@ -79,11 +79,28 @@ GO
 IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertar_imagenes_clientes' AND type = 'P')
 DROP PROCEDURE insertar_imagenes_clientes 
 GO
-create procedure [dbo].[insertar_imagenes_clientes] 
+create procedure insertar_imagenes_clientes
 @img varbinary(max), @mensaje int output
 as
 set @mensaje = 0;
 declare @idCliente int = (select MAX(id) from Clientes)
+begin
+	insert into ImagenesClientes(idCliente,img)
+	Values (@idCliente, @img)
+	set @mensaje = 1;
+	
+end
+GO
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'actualizar_imagenes_clientes' AND type = 'P')
+DROP PROCEDURE actualizar_imagenes_clientes
+Go
+
+create procedure actualizar_imagenes_clientes
+@img varbinary(max), @mensaje int output, @idCliente int
+as
+set @mensaje = 0;
+
 begin
 	insert into ImagenesClientes(idCliente,img)
 	Values (@idCliente, @img)
@@ -255,3 +272,69 @@ if not exists (select * from sysobjects where name='Paises' and xtype='U')
 	end
 
 	Go
+
+	
+Drop table Colores
+go
+if not exists (select * from sysobjects where name='Colores' and xtype='U')
+	BEGIN
+		CREATE TABLE Colores (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		color varchar(100),
+		estado bit
+		);
+	END
+Go
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'registrar_color' AND type = 'P')
+	DROP PROCEDURE registrar_color
+	GO
+
+	create procedure registrar_color
+	@color varchar(100), @estado bit, @mensaje int output
+	as
+	set @mensaje = 0;
+	begin
+		insert into Colores (color,estado)
+		Values (@color, @estado)
+		set @mensaje = 1;
+	
+	end
+
+	GO
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_todos_colores' AND type = 'P')
+	DROP PROCEDURE obtener_todos_colores
+	GO
+	create procedure obtener_todos_colores
+	as
+	
+	begin
+		select id as ID, color as COLOR, estado as ESTADO from Colores 
+	end
+	Go
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'actualizar_color' AND type = 'P')
+	DROP PROCEDURE actualizar_color
+	GO
+	
+
+	create procedure actualizar_color
+	@idColor int, @color varchar(100), @estadoColor bit, @mensaje int output
+	as
+	set @mensaje = 0
+	begin
+		Update Colores set color = @color, estado = @estadoColor where id = @idColor
+		set @mensaje = 1
+	end
+	GO
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_colores_activos' AND type = 'P')
+	DROP PROCEDURE obtener_colores_activos
+	GO
+
+	create procedure obtener_colores_activos
+	as
+	
+	begin
+		select id as ID, color as COLOR, estado as ESTADO from Colores  where estado = 1
+	end

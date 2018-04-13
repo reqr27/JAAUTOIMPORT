@@ -44,7 +44,6 @@
             this.precio_txt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.vin_txt = new System.Windows.Forms.TextBox();
-            this.color_txt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -99,6 +98,7 @@
             this.idtipoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.color_cb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -252,14 +252,6 @@
             this.vin_txt.Name = "vin_txt";
             this.vin_txt.Size = new System.Drawing.Size(130, 20);
             this.vin_txt.TabIndex = 4;
-            // 
-            // color_txt
-            // 
-            this.color_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.color_txt.Location = new System.Drawing.Point(103, 230);
-            this.color_txt.Name = "color_txt";
-            this.color_txt.Size = new System.Drawing.Size(129, 20);
-            this.color_txt.TabIndex = 3;
             // 
             // label10
             // 
@@ -874,12 +866,26 @@
             this.panel5.Size = new System.Drawing.Size(136, 29);
             this.panel5.TabIndex = 107;
             // 
+            // color_cb
+            // 
+            this.color_cb.DropDownHeight = 180;
+            this.color_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.color_cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.color_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.color_cb.FormattingEnabled = true;
+            this.color_cb.IntegralHeight = false;
+            this.color_cb.Location = new System.Drawing.Point(103, 230);
+            this.color_cb.Name = "color_cb";
+            this.color_cb.Size = new System.Drawing.Size(223, 23);
+            this.color_cb.TabIndex = 99;
+            // 
             // NuevoVehiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             this.ClientSize = new System.Drawing.Size(776, 705);
+            this.Controls.Add(this.color_cb);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pagos_dtg);
@@ -903,7 +909,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.color_txt);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.vin_txt);
             this.Controls.Add(this.label6);
@@ -953,7 +958,6 @@
         private System.Windows.Forms.TextBox precio_txt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox vin_txt;
-        private System.Windows.Forms.TextBox color_txt;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
@@ -1008,5 +1012,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox color_cb;
     }
 }

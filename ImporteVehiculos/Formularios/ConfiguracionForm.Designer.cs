@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfiguracionForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
+            this.colores_btn = new System.Windows.Forms.Button();
             this.ciudades_btn = new System.Windows.Forms.Button();
             this.pais_btn = new System.Windows.Forms.Button();
             this.dolares_btn = new System.Windows.Forms.Button();
@@ -69,6 +70,22 @@
             this.label27.Size = new System.Drawing.Size(164, 24);
             this.label27.TabIndex = 29;
             this.label27.Text = "Configuración";
+            // 
+            // colores_btn
+            // 
+            this.colores_btn.FlatAppearance.BorderSize = 0;
+            this.colores_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colores_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colores_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.colores_btn.Image = global::ImporteVehiculos.Properties.Resources.brush;
+            this.colores_btn.Location = new System.Drawing.Point(432, 363);
+            this.colores_btn.Name = "colores_btn";
+            this.colores_btn.Size = new System.Drawing.Size(204, 139);
+            this.colores_btn.TabIndex = 17;
+            this.colores_btn.Text = "COLORES";
+            this.colores_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.colores_btn.UseVisualStyleBackColor = true;
+            this.colores_btn.Click += new System.EventHandler(this.colores_btn_Click);
             // 
             // ciudades_btn
             // 
@@ -264,6 +281,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(880, 533);
+            this.Controls.Add(this.colores_btn);
             this.Controls.Add(this.ciudades_btn);
             this.Controls.Add(this.pais_btn);
             this.Controls.Add(this.dolares_btn);
@@ -303,5 +321,6 @@
         private System.Windows.Forms.Button dolares_btn;
         private System.Windows.Forms.Button pais_btn;
         private System.Windows.Forms.Button ciudades_btn;
+        private System.Windows.Forms.Button colores_btn;
     }
 }

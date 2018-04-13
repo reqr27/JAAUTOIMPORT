@@ -66,7 +66,7 @@
             // telefono1_txt
             // 
             this.telefono1_txt.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefono1_txt.Location = new System.Drawing.Point(154, 219);
+            this.telefono1_txt.Location = new System.Drawing.Point(165, 219);
             this.telefono1_txt.Name = "telefono1_txt";
             this.telefono1_txt.Size = new System.Drawing.Size(262, 22);
             this.telefono1_txt.TabIndex = 5;
@@ -84,7 +84,7 @@
             // rncCedula_txt
             // 
             this.rncCedula_txt.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rncCedula_txt.Location = new System.Drawing.Point(154, 84);
+            this.rncCedula_txt.Location = new System.Drawing.Point(165, 84);
             this.rncCedula_txt.Name = "rncCedula_txt";
             this.rncCedula_txt.Size = new System.Drawing.Size(262, 22);
             this.rncCedula_txt.TabIndex = 1;
@@ -95,9 +95,9 @@
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(27, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 14);
+            this.label1.Size = new System.Drawing.Size(135, 14);
             this.label1.TabIndex = 41;
-            this.label1.Text = "RNC/CEDULA:";
+            this.label1.Text = "LICENCIA/CEDULA:";
             // 
             // label6
             // 
@@ -136,7 +136,7 @@
             // cliente_txt
             // 
             this.cliente_txt.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cliente_txt.Location = new System.Drawing.Point(154, 53);
+            this.cliente_txt.Location = new System.Drawing.Point(165, 53);
             this.cliente_txt.Name = "cliente_txt";
             this.cliente_txt.Size = new System.Drawing.Size(262, 22);
             this.cliente_txt.TabIndex = 0;
@@ -167,7 +167,7 @@
             // direccion_txt
             // 
             this.direccion_txt.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.direccion_txt.Location = new System.Drawing.Point(154, 185);
+            this.direccion_txt.Location = new System.Drawing.Point(165, 185);
             this.direccion_txt.Name = "direccion_txt";
             this.direccion_txt.Size = new System.Drawing.Size(262, 22);
             this.direccion_txt.TabIndex = 4;
@@ -318,7 +318,7 @@
             this.ciudad_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ciudad_cb.FormattingEnabled = true;
             this.ciudad_cb.IntegralHeight = false;
-            this.ciudad_cb.Location = new System.Drawing.Point(154, 149);
+            this.ciudad_cb.Location = new System.Drawing.Point(165, 149);
             this.ciudad_cb.Name = "ciudad_cb";
             this.ciudad_cb.Size = new System.Drawing.Size(262, 22);
             this.ciudad_cb.TabIndex = 3;
@@ -331,7 +331,7 @@
             this.pais_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pais_cb.FormattingEnabled = true;
             this.pais_cb.IntegralHeight = false;
-            this.pais_cb.Location = new System.Drawing.Point(154, 117);
+            this.pais_cb.Location = new System.Drawing.Point(165, 117);
             this.pais_cb.Name = "pais_cb";
             this.pais_cb.Size = new System.Drawing.Size(262, 22);
             this.pais_cb.TabIndex = 2;

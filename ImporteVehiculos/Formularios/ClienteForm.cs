@@ -143,8 +143,6 @@ namespace ImporteVehiculos.Formularios
                 if (respuesta == "1")
                 {
                     //MessageBox.Show("Cliente fue Registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    resetCampos();
-                    LlenarDtgClientes();
 
                     foreach (var img1 in imgsList)
                     {
@@ -153,7 +151,7 @@ namespace ImporteVehiculos.Formularios
                         BinaryReader br = new BinaryReader(fs);
                         img = br.ReadBytes((int)fs.Length);
                         P.Img = img;
-                        string msj2 = P.InsertarImagen();
+                        string msj2 = P.InsertarImagenCliente();
                         if(msj2 == "0")
                         {
                             errors += img1 + "\n";
@@ -172,12 +170,14 @@ namespace ImporteVehiculos.Formularios
 
                     }
                     RemoveAllPhotos();
+                    resetCampos();
+                    LlenarDtgClientes();
 
 
                 }
                 else if (respuesta == "2")
                 {
-                    MessageBox.Show("CLiente ya se encuentra registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Cliente ya se encuentra registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
                 else
@@ -191,12 +191,12 @@ namespace ImporteVehiculos.Formularios
         public void ActualizarCliente()
         {
             string errors = "";
-            string[] valores = { cliente_txt.Text, rncCedula_txt.Text, telefono1_txt.Text, direccion_txt.Text};
+            string[] valores = { cliente_txt.Text, rncCedula_txt.Text, telefono1_txt.Text, direccion_txt.Text, pais_cb.Text, ciudad_cb.Text};
 
             string msj = GF.ValidarCampoString(valores);
             if (msj != "OK")
             {
-                MessageBox.Show("Campo Cliente y RNC/CEDULA son necesarios", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Todos los campos son necesarios", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
@@ -215,8 +215,7 @@ namespace ImporteVehiculos.Formularios
                 if (respuesta == "1")
                 {
                     //MessageBox.Show("Cliente fue Actualizado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    resetCampos();
-                    LlenarDtgClientes();
+                    
                     foreach (var img1 in imgsList)
                     {
                         byte[] img = null;
@@ -224,7 +223,8 @@ namespace ImporteVehiculos.Formularios
                         BinaryReader br = new BinaryReader(fs);
                         img = br.ReadBytes((int)fs.Length);
                         P.Img = img;
-                        string msj2 = P.InsertarImagen();
+                        P.Id = idEvento;
+                        string msj2 = P.ActualizarImagenCliente();
                         if (msj2 == "0")
                         {
                             errors += img1 + "\n";
@@ -234,7 +234,8 @@ namespace ImporteVehiculos.Formularios
                     imgsList.Clear();
                     if (errors == "")
                     {
-                       
+                        resetCampos();
+                        LlenarDtgClientes();
                         MessageBox.Show("Cliente fue Actualizado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
@@ -245,6 +246,7 @@ namespace ImporteVehiculos.Formularios
 
                     }
                     RemoveAllPhotos();
+                   
                 }
 
                 else

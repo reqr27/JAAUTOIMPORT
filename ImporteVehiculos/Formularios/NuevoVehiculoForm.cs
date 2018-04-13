@@ -62,6 +62,19 @@ namespace ImporteVehiculos.Formularios
             año_cb.Text = selectedYear.ToString();
         }
 
+        public void LLenarColoresCb()
+        {
+            color_cb.DataSource = null;
+            DataTable dt = new DataTable();
+            dt = P.ObtenerColoresActivos();
+            color_cb.DataSource = dt;
+            color_cb.DisplayMember = "COLOR";
+            color_cb.ValueMember = "ID";
+            color_cb.SelectedIndex = -1;
+           
+
+        }
+
         public void LLenarFabricanteCb()
         {
             fabricante_cbox.DataSource = null;
@@ -130,7 +143,7 @@ namespace ImporteVehiculos.Formularios
 
         public void RegistrarVehiculo()
         {
-            string[] valores = { fabricante_cbox.Text, modelo_cb.Text, año_cb.Text, propietario_cb.Text, vin_txt.Text, color_txt.Text, nota_txt.Text, ubicacion_txt.Text };
+            string[] valores = { fabricante_cbox.Text, modelo_cb.Text, año_cb.Text, propietario_cb.Text, vin_txt.Text, color_cb.Text, nota_txt.Text, ubicacion_txt.Text };
             string[] numeros = { año_cb.Text, precio_txt.Text};
             string msj = GF.ValidarCampoString(valores);
             string msj1 = GF.ValidarCampoNumerico(numeros);
@@ -151,7 +164,7 @@ namespace ImporteVehiculos.Formularios
                 P.IdPropietario = Convert.ToInt32(propietario_cb.SelectedValue);
                 P.Vin = vin_txt.Text;
                 P.Fecha = fecha_dtp.Value;
-                P.Color = color_txt.Text;
+                P.Color = color_cb.Text;
                 P.Ubicacion = ubicacion_txt.Text;
                 P.ActoVenta = acto_venta_chbox.Checked;
                 P.CedulaVendedor = cedula_chbox.Checked;
@@ -218,7 +231,7 @@ namespace ImporteVehiculos.Formularios
             fabricante_cbox.SelectedIndex = -1;
             modelo_cb.SelectedIndex = -1;
             año_cb.Text = "2013";
-            color_txt.Text = "";
+            color_cb.Text = "";
             vin_txt.Text = "";
             precio_txt.Text = "";
             propietario_cb.SelectedIndex = -1;

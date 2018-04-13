@@ -41,8 +41,11 @@ namespace ImporteVehiculos.Classes
         bool MestadoCiudad;
         int MidPais;
         int MidCiudad;
+        bool MestadoColor;
+        int MidColor;
         int MidPropietario;
         int MidVehiculo;
+
         DateTime Mdesde;
         DateTime Mfecha;
         DateTime Mhasta;
@@ -112,6 +115,18 @@ namespace ImporteVehiculos.Classes
         {
             get { return MidCiudad; }
             set { MidCiudad = value; }
+        }
+
+        public int IdColor
+        {
+            get { return MidColor; }
+            set { MidColor = value; }
+        }
+
+        public bool EstadoColor
+        {
+            get { return MestadoColor; }
+            set { MestadoColor = value; }
         }
 
         public int IdPais
@@ -1647,19 +1662,33 @@ namespace ImporteVehiculos.Classes
             return mensaje;
         }
 
-        public string InsertarImagen()
+        public string InsertarImagenCliente()
         {
             string mensaje = "";
             List<clsParametros> lst = new List<clsParametros>();
 
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
-
             lst.Add(new clsParametros("@img", Mimg));
 
             C.EjecutarSP("insertar_imagenes_clientes", ref lst);
             mensaje = lst[0].Valor.ToString();
             return mensaje;
         }
+
+        public string ActualizarImagenCliente()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idCliente", Mid));
+            lst.Add(new clsParametros("@img", Mimg));
+
+            C.EjecutarSP("actualizar_imagenes_clientes", ref lst);
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
 
         public DataTable ObtenerImagenesCliente()
         {
@@ -1757,6 +1786,49 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idPais", MidPais));
             return dt = C.Listado("obtener_ciudades_activos", lst);
+        }
+
+        public string RegistrarColor()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@color", Mcolor));
+            lst.Add(new clsParametros("@estado", MestadoColor));
+            C.EjecutarSP("registrar_color", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string ActualizarColor()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@color",Mcolor));
+            lst.Add(new clsParametros("@estadoColor", MestadoColor));
+            lst.Add(new clsParametros("@idColor", MidColor));
+            C.EjecutarSP("actualizar_color", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerTodosColores()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_todos_colores", lst);
+        }
+
+        public DataTable ObtenerColoresActivos()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_colores_activos", lst);
         }
 
     }
