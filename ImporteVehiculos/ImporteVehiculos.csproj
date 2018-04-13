@@ -152,6 +152,12 @@
     <Compile Include="Formularios\AgregarFabricantesModelosForm.Designer.cs">
       <DependentUpon>AgregarFabricantesModelosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\CiudadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\CiudadForm.Designer.cs">
+      <DependentUpon>CiudadForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\ClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,12 @@
     <Compile Include="Formularios\PagosCuentasPagarForm.Designer.cs">
       <DependentUpon>PagosCuentasPagarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\PaisesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PaisesForm.Designer.cs">
+      <DependentUpon>PaisesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\PiezasRepuestosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +307,9 @@
     <EmbeddedResource Include="Formularios\AgregarFabricantesModelosForm.resx">
       <DependentUpon>AgregarFabricantesModelosForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\CiudadForm.resx">
+      <DependentUpon>CiudadForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\ClienteForm.resx">
       <DependentUpon>ClienteForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -336,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\PagosCuentasPagarForm.resx">
       <DependentUpon>PagosCuentasPagarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PaisesForm.resx">
+      <DependentUpon>PaisesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\PiezasRepuestosForm.resx">
       <DependentUpon>PiezasRepuestosForm.cs</DependentUpon>
@@ -642,6 +660,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car.ico" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\bank.png" />
+    <None Include="Resources\minimize %281%291.png" />
+    <None Include="Resources\minimize %281%29.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\worldwide %281%29.png" />
+    <None Include="Resources\close %281%291.png" />
+    <None Include="Resources\close %281%29.png" />
+    <None Include="Resources\close.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

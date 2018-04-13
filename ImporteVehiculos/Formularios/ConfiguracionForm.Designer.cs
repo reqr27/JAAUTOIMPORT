@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfiguracionForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.ciudades_btn = new System.Windows.Forms.Button();
+            this.pais_btn = new System.Windows.Forms.Button();
+            this.dolares_btn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.dolares_btn = new System.Windows.Forms.Button();
             this.propietarios_btn = new System.Windows.Forms.Button();
             this.gastos_btn = new System.Windows.Forms.Button();
             this.taller_btn = new System.Windows.Forms.Button();
@@ -53,9 +55,68 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(687, 48);
+            this.panel1.Size = new System.Drawing.Size(880, 48);
             this.panel1.TabIndex = 13;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label27.Location = new System.Drawing.Point(12, 9);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(164, 24);
+            this.label27.TabIndex = 29;
+            this.label27.Text = "Configuración";
+            // 
+            // ciudades_btn
+            // 
+            this.ciudades_btn.FlatAppearance.BorderSize = 0;
+            this.ciudades_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ciudades_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ciudades_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ciudades_btn.Image = global::ImporteVehiculos.Properties.Resources.bank;
+            this.ciudades_btn.Location = new System.Drawing.Point(222, 363);
+            this.ciudades_btn.Name = "ciudades_btn";
+            this.ciudades_btn.Size = new System.Drawing.Size(204, 139);
+            this.ciudades_btn.TabIndex = 16;
+            this.ciudades_btn.Text = "CIUDADES";
+            this.ciudades_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ciudades_btn.UseVisualStyleBackColor = true;
+            this.ciudades_btn.Click += new System.EventHandler(this.ciudades_btn_Click);
+            // 
+            // pais_btn
+            // 
+            this.pais_btn.FlatAppearance.BorderSize = 0;
+            this.pais_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pais_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pais_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pais_btn.Image = global::ImporteVehiculos.Properties.Resources.worldwide__1_;
+            this.pais_btn.Location = new System.Drawing.Point(16, 363);
+            this.pais_btn.Name = "pais_btn";
+            this.pais_btn.Size = new System.Drawing.Size(204, 139);
+            this.pais_btn.TabIndex = 15;
+            this.pais_btn.Text = "PAISES";
+            this.pais_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.pais_btn.UseVisualStyleBackColor = true;
+            this.pais_btn.Click += new System.EventHandler(this.pais_btn_Click);
+            // 
+            // dolares_btn
+            // 
+            this.dolares_btn.FlatAppearance.BorderSize = 0;
+            this.dolares_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dolares_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dolares_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dolares_btn.Image = global::ImporteVehiculos.Properties.Resources.billete;
+            this.dolares_btn.Location = new System.Drawing.Point(642, 218);
+            this.dolares_btn.Name = "dolares_btn";
+            this.dolares_btn.Size = new System.Drawing.Size(204, 139);
+            this.dolares_btn.TabIndex = 14;
+            this.dolares_btn.Text = "TASA DOLARES";
+            this.dolares_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.dolares_btn.UseVisualStyleBackColor = true;
+            this.dolares_btn.Click += new System.EventHandler(this.dolares_btn_Click);
             // 
             // button3
             // 
@@ -63,7 +124,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(626, 3);
+            this.button3.Location = new System.Drawing.Point(818, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(26, 26);
             this.button3.TabIndex = 33;
@@ -77,40 +138,13 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(658, 3);
+            this.button2.Location = new System.Drawing.Point(850, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 26);
             this.button2.TabIndex = 32;
             this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label27.Location = new System.Drawing.Point(12, 9);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(164, 24);
-            this.label27.TabIndex = 29;
-            this.label27.Text = "Configuración";
-            // 
-            // dolares_btn
-            // 
-            this.dolares_btn.FlatAppearance.BorderSize = 0;
-            this.dolares_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dolares_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dolares_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dolares_btn.Image = global::ImporteVehiculos.Properties.Resources.billete;
-            this.dolares_btn.Location = new System.Drawing.Point(222, 363);
-            this.dolares_btn.Name = "dolares_btn";
-            this.dolares_btn.Size = new System.Drawing.Size(204, 139);
-            this.dolares_btn.TabIndex = 14;
-            this.dolares_btn.Text = "TASA DOLARES";
-            this.dolares_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.dolares_btn.UseVisualStyleBackColor = true;
-            this.dolares_btn.Click += new System.EventHandler(this.dolares_btn_Click);
             // 
             // propietarios_btn
             // 
@@ -119,7 +153,7 @@
             this.propietarios_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.propietarios_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.propietarios_btn.Image = global::ImporteVehiculos.Properties.Resources.icon__1_;
-            this.propietarios_btn.Location = new System.Drawing.Point(432, 218);
+            this.propietarios_btn.Location = new System.Drawing.Point(222, 218);
             this.propietarios_btn.Name = "propietarios_btn";
             this.propietarios_btn.Size = new System.Drawing.Size(204, 139);
             this.propietarios_btn.TabIndex = 11;
@@ -135,7 +169,7 @@
             this.gastos_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gastos_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gastos_btn.Image = global::ImporteVehiculos.Properties.Resources.efectivo__1_;
-            this.gastos_btn.Location = new System.Drawing.Point(12, 363);
+            this.gastos_btn.Location = new System.Drawing.Point(432, 218);
             this.gastos_btn.Name = "gastos_btn";
             this.gastos_btn.Size = new System.Drawing.Size(204, 139);
             this.gastos_btn.TabIndex = 12;
@@ -151,7 +185,7 @@
             this.taller_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.taller_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.taller_btn.Image = global::ImporteVehiculos.Properties.Resources.taller_mecanico_de_coches__1_;
-            this.taller_btn.Location = new System.Drawing.Point(222, 218);
+            this.taller_btn.Location = new System.Drawing.Point(12, 218);
             this.taller_btn.Name = "taller_btn";
             this.taller_btn.Size = new System.Drawing.Size(204, 139);
             this.taller_btn.TabIndex = 10;
@@ -183,7 +217,7 @@
             this.clientes_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientes_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.clientes_btn.Image = global::ImporteVehiculos.Properties.Resources.servicio_al_cliente;
-            this.clientes_btn.Location = new System.Drawing.Point(12, 218);
+            this.clientes_btn.Location = new System.Drawing.Point(642, 73);
             this.clientes_btn.Name = "clientes_btn";
             this.clientes_btn.Size = new System.Drawing.Size(204, 139);
             this.clientes_btn.TabIndex = 9;
@@ -229,7 +263,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
-            this.ClientSize = new System.Drawing.Size(687, 533);
+            this.ClientSize = new System.Drawing.Size(880, 533);
+            this.Controls.Add(this.ciudades_btn);
+            this.Controls.Add(this.pais_btn);
             this.Controls.Add(this.dolares_btn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.propietarios_btn);
@@ -265,5 +301,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button dolares_btn;
+        private System.Windows.Forms.Button pais_btn;
+        private System.Windows.Forms.Button ciudades_btn;
     }
 }

@@ -35,6 +35,12 @@ namespace ImporteVehiculos.Classes
         string Mdescripcion;
         string Mpropietario;
         string Mvin;
+        string Mpais;
+        string Mciudad;
+        bool MestadoPais;
+        bool MestadoCiudad;
+        int MidPais;
+        int MidCiudad;
         int MidPropietario;
         int MidVehiculo;
         DateTime Mdesde;
@@ -48,6 +54,7 @@ namespace ImporteVehiculos.Classes
         string Mcolor;
         string Mubicacion;
         string MtipoPago;
+        byte[] Mimg;
 
         bool McedulaVendedor;
         bool MactoVenta;
@@ -82,6 +89,48 @@ namespace ImporteVehiculos.Classes
         //string Mmantenimiento;
         //DateTime Mdesde;
         //DateTime Mhasta;
+
+        public byte[] Img
+        {
+            get { return Mimg; }
+            set { Mimg = value; }
+        }
+
+        public string Pais
+        {
+            get { return Mpais; }
+            set { Mpais = value; }
+        }
+
+        public string Ciudad
+        {
+            get { return Mciudad; }
+            set { Mciudad = value; }
+        }
+
+        public int IdCiudad
+        {
+            get { return MidCiudad; }
+            set { MidCiudad = value; }
+        }
+
+        public int IdPais
+        {
+            get { return MidPais; }
+            set { MidPais = value; }
+        }
+
+        public bool EstadoCiudad
+        {
+            get { return MestadoCiudad; }
+            set { MestadoCiudad = value; }
+        }
+
+        public bool EstadoPais
+        {
+            get { return MestadoPais; }
+            set { MestadoPais = value; }
+        }
 
         public string Ubicacion     
         {
@@ -539,7 +588,8 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@cedulaRNC", McedulaRnc));
             lst.Add(new clsParametros("@tel", Mtelefono1));
             lst.Add(new clsParametros("@direccion", Mdireccion));
-
+            lst.Add(new clsParametros("@idPais", MidPais));
+            lst.Add(new clsParametros("@idCiudad", MidCiudad));
             lst.Add(new clsParametros("@estado", Mestado));
 
 
@@ -966,6 +1016,8 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@idCliente", Mid));
             lst.Add(new clsParametros("@estado", Mestado));
             lst.Add(new clsParametros("@direccion", Mdireccion));
+            lst.Add(new clsParametros("@idPais", MidPais));
+            lst.Add(new clsParametros("@idCiudad", MidCiudad));
 
 
             C.EjecutarSP("actualizar_cliente", ref lst);
@@ -1577,6 +1629,134 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             return dt = C.Listado("obtener_tasa_dolar", lst);
 
+        }
+
+        public string EliminarImagen()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+
+            lst.Add(new clsParametros("@id", Mid));
+
+
+
+            C.EjecutarSP("borrar_imagen_cliente", ref lst);
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string InsertarImagen()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+
+            lst.Add(new clsParametros("@img", Mimg));
+
+            C.EjecutarSP("insertar_imagenes_clientes", ref lst);
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerImagenesCliente()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idCliente", Mid));
+            return dt = C.Listado("obtener_imagenes_clientes ", lst);
+        }
+
+        public string RegistrarPais()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@pais", Mpais));
+            lst.Add(new clsParametros("@estado", MestadoPais));
+            C.EjecutarSP("registrar_pais", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string ActualizarPais()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@pais", Mpais));
+            lst.Add(new clsParametros("@estadoPais", MestadoPais));
+            lst.Add(new clsParametros("@idPais", MidPais));
+            C.EjecutarSP("actualizar_pais", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerTodosPaises()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_todos_paises", lst);
+        }
+
+        public DataTable ObtenerPaisesActivos()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_paises_activos", lst);
+        }
+
+        public DataTable ObtenerTodosCiudades()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idPais", MidPais));
+            return dt = C.Listado("obtener_todos_ciudades", lst);
+        }
+
+        public string RegistrarCiudad()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@ciudad", Mciudad));
+            lst.Add(new clsParametros("@estado", MestadoCiudad));
+            lst.Add(new clsParametros("@idPais", MidPais));
+            C.EjecutarSP("registrar_ciudad", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string ActualizarCiudad()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@ciudad", Mciudad));
+            lst.Add(new clsParametros("@estado", MestadoCiudad));
+            lst.Add(new clsParametros("@idPais", MidPais));
+            lst.Add(new clsParametros("@idCiudad", MidCiudad));
+            C.EjecutarSP("actualizar_ciudad", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerCiudadesActivos()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idPais", MidPais));
+            return dt = C.Listado("obtener_ciudades_activos", lst);
         }
 
     }

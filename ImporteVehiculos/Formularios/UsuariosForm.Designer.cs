@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuariosForm));
-            this.cancelar_btn = new System.Windows.Forms.Button();
-            this.agregarEditarUsuario_btn = new System.Windows.Forms.Button();
             this.usuarios_dtg = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.actualizarTasaDiario_chbox = new System.Windows.Forms.CheckBox();
             this.modificarVehiculo_chbox = new System.Windows.Forms.CheckBox();
             this.cuentasCobrar_chbox = new System.Windows.Forms.CheckBox();
             this.cuentasPagar_chbox = new System.Windows.Forms.CheckBox();
@@ -63,48 +62,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.actualizarTasaDiario_chbox = new System.Windows.Forms.CheckBox();
+            this.agregarEditarUsuario_btn = new System.Windows.Forms.Button();
+            this.cancelar_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cancelar_btn
-            // 
-            this.cancelar_btn.Enabled = false;
-            this.cancelar_btn.FlatAppearance.BorderSize = 0;
-            this.cancelar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.cancelar_btn.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.cancelar_btn.Location = new System.Drawing.Point(726, 3);
-            this.cancelar_btn.Name = "cancelar_btn";
-            this.cancelar_btn.Size = new System.Drawing.Size(124, 76);
-            this.cancelar_btn.TabIndex = 36;
-            this.cancelar_btn.Text = "Cancelar";
-            this.cancelar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.cancelar_btn.UseVisualStyleBackColor = true;
-            this.cancelar_btn.Click += new System.EventHandler(this.cancelar_btn_Click);
-            // 
-            // agregarEditarUsuario_btn
-            // 
-            this.agregarEditarUsuario_btn.FlatAppearance.BorderSize = 0;
-            this.agregarEditarUsuario_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarEditarUsuario_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarEditarUsuario_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.agregarEditarUsuario_btn.Image = global::ImporteVehiculos.Properties.Resources.disquete;
-            this.agregarEditarUsuario_btn.Location = new System.Drawing.Point(600, 3);
-            this.agregarEditarUsuario_btn.Name = "agregarEditarUsuario_btn";
-            this.agregarEditarUsuario_btn.Size = new System.Drawing.Size(126, 76);
-            this.agregarEditarUsuario_btn.TabIndex = 33;
-            this.agregarEditarUsuario_btn.Text = "Registrar";
-            this.agregarEditarUsuario_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.agregarEditarUsuario_btn.UseVisualStyleBackColor = true;
-            this.agregarEditarUsuario_btn.Click += new System.EventHandler(this.agregarEditarUsuario_btn_Click);
             // 
             // usuarios_dtg
             // 
@@ -151,6 +119,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(462, 267);
             this.panel1.TabIndex = 31;
+            // 
+            // actualizarTasaDiario_chbox
+            // 
+            this.actualizarTasaDiario_chbox.AutoSize = true;
+            this.actualizarTasaDiario_chbox.Checked = true;
+            this.actualizarTasaDiario_chbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.actualizarTasaDiario_chbox.Location = new System.Drawing.Point(270, 243);
+            this.actualizarTasaDiario_chbox.Name = "actualizarTasaDiario_chbox";
+            this.actualizarTasaDiario_chbox.Size = new System.Drawing.Size(183, 19);
+            this.actualizarTasaDiario_chbox.TabIndex = 25;
+            this.actualizarTasaDiario_chbox.Text = "Actualizar Diariamente Tasa";
+            this.actualizarTasaDiario_chbox.UseVisualStyleBackColor = true;
             // 
             // modificarVehiculo_chbox
             // 
@@ -463,6 +443,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(99)))), ((int)(((byte)(130)))));
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.agregarEditarUsuario_btn);
             this.panel2.Controls.Add(this.cancelar_btn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -483,6 +464,17 @@
             this.panel3.Size = new System.Drawing.Size(865, 44);
             this.panel3.TabIndex = 47;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label11.Location = new System.Drawing.Point(11, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(127, 24);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "USUARIOS";
             // 
             // button3
             // 
@@ -512,33 +504,55 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label11
+            // agregarEditarUsuario_btn
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label11.Location = new System.Drawing.Point(11, 9);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 24);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "USUARIOS";
+            this.agregarEditarUsuario_btn.FlatAppearance.BorderSize = 0;
+            this.agregarEditarUsuario_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarEditarUsuario_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarEditarUsuario_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.agregarEditarUsuario_btn.Image = global::ImporteVehiculos.Properties.Resources.disquete;
+            this.agregarEditarUsuario_btn.Location = new System.Drawing.Point(600, 3);
+            this.agregarEditarUsuario_btn.Name = "agregarEditarUsuario_btn";
+            this.agregarEditarUsuario_btn.Size = new System.Drawing.Size(126, 67);
+            this.agregarEditarUsuario_btn.TabIndex = 33;
+            this.agregarEditarUsuario_btn.Text = "Registrar";
+            this.agregarEditarUsuario_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.agregarEditarUsuario_btn.UseVisualStyleBackColor = true;
+            this.agregarEditarUsuario_btn.Click += new System.EventHandler(this.agregarEditarUsuario_btn_Click);
             // 
-            // actualizarTasaDiario_chbox
+            // cancelar_btn
             // 
-            this.actualizarTasaDiario_chbox.AutoSize = true;
-            this.actualizarTasaDiario_chbox.Checked = true;
-            this.actualizarTasaDiario_chbox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.actualizarTasaDiario_chbox.Location = new System.Drawing.Point(270, 243);
-            this.actualizarTasaDiario_chbox.Name = "actualizarTasaDiario_chbox";
-            this.actualizarTasaDiario_chbox.Size = new System.Drawing.Size(183, 19);
-            this.actualizarTasaDiario_chbox.TabIndex = 25;
-            this.actualizarTasaDiario_chbox.Text = "Actualizar Diariamente Tasa";
-            this.actualizarTasaDiario_chbox.UseVisualStyleBackColor = true;
+            this.cancelar_btn.Enabled = false;
+            this.cancelar_btn.FlatAppearance.BorderSize = 0;
+            this.cancelar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.cancelar_btn.Image = global::ImporteVehiculos.Properties.Resources.close__1_1;
+            this.cancelar_btn.Location = new System.Drawing.Point(726, 3);
+            this.cancelar_btn.Name = "cancelar_btn";
+            this.cancelar_btn.Size = new System.Drawing.Size(124, 67);
+            this.cancelar_btn.TabIndex = 36;
+            this.cancelar_btn.Text = "Cancelar";
+            this.cancelar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.cancelar_btn.UseVisualStyleBackColor = true;
+            this.cancelar_btn.Click += new System.EventHandler(this.cancelar_btn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(14, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(255, 16);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Doble Click Campo Para Actualizar!";
             // 
             // UsuariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(865, 609);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -563,6 +577,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -610,5 +625,6 @@
         private System.Windows.Forms.CheckBox cuentasCobrar_chbox;
         private System.Windows.Forms.CheckBox cuentasPagar_chbox;
         private System.Windows.Forms.CheckBox actualizarTasaDiario_chbox;
+        private System.Windows.Forms.Label label1;
     }
 }

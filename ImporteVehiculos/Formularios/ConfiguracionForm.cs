@@ -156,5 +156,33 @@ namespace ImporteVehiculos.Formularios
                 frm.Show();
             }
         }
+
+        private void pais_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["PaisesForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+            }
+            else
+            {
+                PaisesForm frm = new PaisesForm();
+                frm.Show();
+            }
+        }
+
+        private void ciudades_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["CiudadForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+            }
+            else
+            {
+                CiudadForm frm = new CiudadForm();
+                frm.Show();
+            }
+        }
     }
 }
