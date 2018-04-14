@@ -290,6 +290,12 @@
     <Compile Include="Formularios\TalleresForm.Designer.cs">
       <DependentUpon>TalleresForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\UbicacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\UbicacionForm.Designer.cs">
+      <DependentUpon>UbicacionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\UsuariosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\TalleresForm.resx">
       <DependentUpon>TalleresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\UbicacionForm.resx">
+      <DependentUpon>UbicacionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\UsuariosForm.resx">
       <DependentUpon>UsuariosForm.cs</DependentUpon>
@@ -669,6 +678,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car.ico" />
+    <None Include="Resources\placeholder.png" />
     <None Include="Resources\brush.png" />
     <None Include="Resources\cross.png" />
     <None Include="Resources\bank.png" />

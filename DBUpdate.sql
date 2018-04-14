@@ -338,3 +338,78 @@ IF EXISTS (SELECT name FROM sysobjects WHERE name = 'registrar_color' AND type =
 	begin
 		select id as ID, color as COLOR, estado as ESTADO from Colores  where estado = 1
 	end
+
+	Go
+
+Drop table Ubicaciones
+go
+if not exists (select * from sysobjects where name='Ubicaciones' and xtype='U')
+	BEGIN
+		CREATE TABLE Ubicaciones (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_pais int,
+		id_ciudad int,
+		ubicacion  varchar(100),
+		estado bit
+		);
+	END
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'registrar_ubicacion' AND type = 'P')
+	DROP PROCEDURE registrar_ubicacion
+	GO
+
+	create procedure registrar_ubicacion
+	@ubicacion varchar(100),@idPais int, @idCiudad int ,@estado bit, @mensaje int output
+	as
+	set @mensaje = 0;
+	begin
+		insert into Ubicaciones(id_pais, id_ciudad, ubicacion, estado)
+		Values (@idPais, @idCiudad, @ubicacion ,@estado)
+		set @mensaje = 1;
+	
+	end
+
+GO
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_todos_ubicaciones' AND type = 'P')
+	DROP PROCEDURE obtener_todos_ubicaciones
+	GO
+	create procedure obtener_todos_ubicaciones
+	as
+	
+	begin
+		select U.id as ID, P.pais as PAIS, C.ciudad as CIUDAD, U.ubicacion as LUGAR, U.estado as ESTADO
+		from Ubicaciones U join Paises P on P.id = U.id_pais
+		join Ciudades C on C.id = U.id_ciudad
+	end
+	Go
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'actualizar_ubicacion' AND type = 'P')
+	DROP PROCEDURE actualizar_ubicacion
+	GO
+	
+
+	create procedure actualizar_ubicacion
+	@idUbicacion int, @ubicacion varchar(100), @estadoUbicacion bit, @mensaje int output, @idPais int,
+	@idCiudad int
+	as
+	set @mensaje = 0
+	begin
+		Update Ubicaciones set ubicacion = @ubicacion, estado = @estadoUbicacion,
+		id_pais = @idPais, id_ciudad = @idCiudad 
+		where id = @idUbicacion
+		set @mensaje = 1
+	end
+	GO
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_ubicaciones_activos' AND type = 'P')
+	DROP PROCEDURE obtener_ubicaciones_activos
+	GO
+
+	create procedure obtener_ubicaciones_activos
+	as
+	
+	begin
+		select id as ID, ubicacion as LUGAR, estado as ESTADO from Ubicaciones  where estado = 1
+	end

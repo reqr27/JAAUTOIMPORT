@@ -198,5 +198,20 @@ namespace ImporteVehiculos.Formularios
                 frm.Show();
             }
         }
+
+        private void ubicacion_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["UbicacionForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+            }
+            else
+            {
+                UbicacionForm frm = new UbicacionForm();
+                frm.Show();
+            }
+
+        }
     }
 }

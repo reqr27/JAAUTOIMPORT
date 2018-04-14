@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfiguracionForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
+            this.ubicacion_btn = new System.Windows.Forms.Button();
             this.colores_btn = new System.Windows.Forms.Button();
             this.ciudades_btn = new System.Windows.Forms.Button();
             this.pais_btn = new System.Windows.Forms.Button();
@@ -70,6 +71,22 @@
             this.label27.Size = new System.Drawing.Size(164, 24);
             this.label27.TabIndex = 29;
             this.label27.Text = "Configuración";
+            // 
+            // ubicacion_btn
+            // 
+            this.ubicacion_btn.FlatAppearance.BorderSize = 0;
+            this.ubicacion_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ubicacion_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ubicacion_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ubicacion_btn.Image = global::ImporteVehiculos.Properties.Resources.placeholder;
+            this.ubicacion_btn.Location = new System.Drawing.Point(642, 363);
+            this.ubicacion_btn.Name = "ubicacion_btn";
+            this.ubicacion_btn.Size = new System.Drawing.Size(204, 139);
+            this.ubicacion_btn.TabIndex = 18;
+            this.ubicacion_btn.Text = "UBICACIONES";
+            this.ubicacion_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ubicacion_btn.UseVisualStyleBackColor = true;
+            this.ubicacion_btn.Click += new System.EventHandler(this.ubicacion_btn_Click);
             // 
             // colores_btn
             // 
@@ -281,6 +298,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(880, 533);
+            this.Controls.Add(this.ubicacion_btn);
             this.Controls.Add(this.colores_btn);
             this.Controls.Add(this.ciudades_btn);
             this.Controls.Add(this.pais_btn);
@@ -322,5 +340,6 @@
         private System.Windows.Forms.Button pais_btn;
         private System.Windows.Forms.Button ciudades_btn;
         private System.Windows.Forms.Button colores_btn;
+        private System.Windows.Forms.Button ubicacion_btn;
     }
 }

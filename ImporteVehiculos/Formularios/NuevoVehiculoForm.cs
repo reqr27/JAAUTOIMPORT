@@ -44,6 +44,7 @@ namespace ImporteVehiculos.Formularios
             LLenarFabricanteCb();
             LLenarModeloCb();
             LLenarPropietarioCb();
+            LLenarColoresCb();
             CalcularTotal();
             FieldStatus(false);
             Permisos();

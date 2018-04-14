@@ -39,13 +39,14 @@ namespace ImporteVehiculos.Classes
         string Mciudad;
         bool MestadoPais;
         bool MestadoCiudad;
+        bool MestadoUbicacion;
         int MidPais;
         int MidCiudad;
         bool MestadoColor;
         int MidColor;
         int MidPropietario;
         int MidVehiculo;
-
+        int MidUbicacion;
         DateTime Mdesde;
         DateTime Mfecha;
         DateTime Mhasta;
@@ -117,6 +118,12 @@ namespace ImporteVehiculos.Classes
             set { MidCiudad = value; }
         }
 
+        public int IdUbicacion
+        {
+            get { return MidUbicacion; }
+            set { MidUbicacion = value; }
+        }
+
         public int IdColor
         {
             get { return MidColor; }
@@ -127,6 +134,12 @@ namespace ImporteVehiculos.Classes
         {
             get { return MestadoColor; }
             set { MestadoColor = value; }
+        }
+
+        public bool EstadoUbicacion
+        {
+            get { return MestadoUbicacion; }
+            set { MestadoUbicacion = value; }
         }
 
         public int IdPais
@@ -1829,6 +1842,56 @@ namespace ImporteVehiculos.Classes
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
             return dt = C.Listado("obtener_colores_activos", lst);
+        }
+
+        public string RegistrarUbicacion()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@ubicacion", Mubicacion));
+            lst.Add(new clsParametros("@estado", MestadoUbicacion));
+            lst.Add(new clsParametros("@idPais", MidPais));
+            lst.Add(new clsParametros("@idCiudad", MidCiudad));
+
+            C.EjecutarSP("registrar_ubicacion", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string ActualizarUbicacion()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@ubicacion", Mubicacion));
+            lst.Add(new clsParametros("@estadoUbicacion", MestadoUbicacion));
+            lst.Add(new clsParametros("@idPais", MidPais));
+            lst.Add(new clsParametros("@idCiudad", MidCiudad));
+            lst.Add(new clsParametros("@idUbicacion", MidUbicacion));
+
+
+            C.EjecutarSP("actualizar_ubicacion", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerTodosUbicaciones()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_todos_ubicaciones", lst);
+        }
+
+        public DataTable ObtenerUbicacionesActivos()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_ubicaciones_activos", lst);
         }
 
     }
