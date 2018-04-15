@@ -86,6 +86,11 @@ namespace ImporteVehiculos.Classes
         bool McuentasCobrar;
         bool McuentasPagar;
         bool MactualizarTasaDiario;
+        bool McrearPais;
+        bool McrearCiudad;
+        bool McrearSuplidor;
+        bool McrearUbicacion;
+        bool McrearColor;
 
         //double Msubtotal;
         //double Mtotal;
@@ -143,6 +148,8 @@ namespace ImporteVehiculos.Classes
             get { return MestadoColor; }
             set { MestadoColor = value; }
         }
+
+
 
         public bool EstadoUbicacion
         {
@@ -334,6 +341,36 @@ namespace ImporteVehiculos.Classes
         {
             get { return Mfacturacion; }
             set {Mfacturacion = value; }
+        }
+
+        public bool CrearPais
+        {
+            get { return McrearPais; }
+            set { McrearPais = value; }
+        }
+
+        public bool CrearCiudad
+        {
+            get { return McrearCiudad; }
+            set { McrearCiudad = value; }
+        }
+
+        public bool CrearSuplidor
+        {
+            get { return McrearSuplidor; }
+            set { McrearSuplidor = value; }
+        }
+
+        public bool CrearColor
+        {
+            get { return McrearColor; }
+            set { McrearColor = value; }
+        }
+
+        public bool CrearUbicacion
+        {
+            get { return McrearUbicacion; }
+            set { McrearUbicacion = value; }
         }
 
         public bool Reportes
@@ -862,6 +899,12 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@cuentasCobrar", McuentasCobrar));
             lst.Add(new clsParametros("@actualizarTasaDiario", MactualizarTasaDiario));
 
+            lst.Add(new clsParametros("@crearPais", McrearPais));
+            lst.Add(new clsParametros("@crearCiudad", McrearCiudad));
+            lst.Add(new clsParametros("@crearSuplidor", McrearSuplidor));
+            lst.Add(new clsParametros("@crearColor", McrearColor));
+            lst.Add(new clsParametros("@crearUbicacion", McrearUbicacion));
+
 
 
             lst.Add(new clsParametros("@estado", MestadoUsuario));
@@ -1132,6 +1175,12 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@cuentasPagar", McuentasPagar));
             lst.Add(new clsParametros("@cuentasCobrar", McuentasCobrar));
             lst.Add(new clsParametros("@actualizarTasaDiario", MactualizarTasaDiario));
+
+            lst.Add(new clsParametros("@crearPais", McrearPais));
+            lst.Add(new clsParametros("@crearCiudad", McrearCiudad));
+            lst.Add(new clsParametros("@crearSuplidor", McrearSuplidor));
+            lst.Add(new clsParametros("@crearColor", McrearColor));
+            lst.Add(new clsParametros("@crearUbicacion", McrearUbicacion));
 
             lst.Add(new clsParametros("@estado", MestadoUsuario));
             C.EjecutarSP("actualizar_usuarios", ref lst);

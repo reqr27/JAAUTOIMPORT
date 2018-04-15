@@ -120,6 +120,11 @@ namespace ImporteVehiculos.Formularios
                 P.CuentasCobrar = cuentasCobrar_chbox.Checked;
                 P.CuentasPagar = cuentasPagar_chbox.Checked;
                 P.ActualizarTasaDiario = actualizarTasaDiario_chbox.Checked;
+                P.CrearPais = paises_chbox.Checked;
+                P.CrearCiudad = ciudades_chbox.Checked;
+                P.CrearColor = colores_chbox.Checked;
+                P.CrearSuplidor = suplidores_chbox.Checked;
+                P.CrearUbicacion = ubicaciones_chbox.Checked;
                 string respuesta = P.RegistrarUsuario();
                 if (respuesta == "1")
                 {
@@ -191,6 +196,11 @@ namespace ImporteVehiculos.Formularios
                 P.ModificarVehiculo = modificarVehiculo_chbox.Checked;
                 P.CuentasCobrar = cuentasCobrar_chbox.Checked;
                 P.CuentasPagar = cuentasPagar_chbox.Checked;
+                P.CrearPais = paises_chbox.Checked;
+                P.CrearCiudad = ciudades_chbox.Checked;
+                P.CrearColor = colores_chbox.Checked;
+                P.CrearSuplidor = suplidores_chbox.Checked;
+                P.CrearUbicacion = ubicaciones_chbox.Checked;
                 P.ActualizarTasaDiario = actualizarTasaDiario_chbox.Checked;
                 string respuesta = P.ActualizarUsuario();
 
@@ -245,7 +255,11 @@ namespace ImporteVehiculos.Formularios
             estado_chbx.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[22].Value.ToString());
             clave_txt.Text = usuarios_dtg.CurrentRow.Cells[23].Value.ToString();
             confirmarClave_txt.Text = usuarios_dtg.CurrentRow.Cells[23].Value.ToString();
-            
+            paises_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[24].Value.ToString());
+            ciudades_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[25].Value.ToString());
+            colores_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[26].Value.ToString());
+            ubicaciones_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[27].Value.ToString());
+            suplidores_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[28].Value.ToString());
 
 
             //estadoCliente_chbox.Checked = Convert.ToBoolean(cliente_dtg.CurrentRow.Cells[4].Value);

@@ -73,6 +73,36 @@ namespace ImporteVehiculos.Formularios
             {
                 dolares_btn.Enabled = false;
             }
+
+            permiso = GF.ValidarPermisoTransaccion("AGREGAR PAISES");
+            if (!permiso)
+            {
+                pais_btn.Enabled = false;
+            }
+
+            permiso = GF.ValidarPermisoTransaccion("AGREGAR CIUDADES");
+            if (!permiso)
+            {
+                ciudades_btn.Enabled = false;
+            }
+
+            permiso = GF.ValidarPermisoTransaccion("AGREGAR COLORES");
+            if (!permiso)
+            {
+                colores_btn.Enabled = false;
+            }
+
+            permiso = GF.ValidarPermisoTransaccion("AGREGAR SUPLIDORES");
+            if (!permiso)
+            {
+                suplidores_btn.Enabled = false;
+            }
+
+            permiso = GF.ValidarPermisoTransaccion("AGREGAR UBICACIONES");
+            if (!permiso)
+            {
+                ubicacion_btn.Enabled = false;
+            }
         }
 
         private void crearUsuarios_btn_Click(object sender, EventArgs e)

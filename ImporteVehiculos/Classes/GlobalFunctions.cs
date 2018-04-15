@@ -181,6 +181,31 @@ namespace ImporteVehiculos.Classes
                 {
                     acceso = Convert.ToBoolean(dt.Rows[0]["ACTUALIZAR TASA DIARIO"]);
                 }
+
+                else if ((transaccion == "AGREGAR PAISES"))
+                {
+                    acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR PAISES"]);
+                }
+
+                else if ((transaccion == "AGREGAR CIUDADES"))
+                {
+                    acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR CIUDADES"]);
+                }
+
+                else if ((transaccion == "AGREGAR COLORES"))
+                {
+                    acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR COLORES"]);
+                }
+
+                else if ((transaccion == "AGREGAR SUPLIDORES"))
+                {
+                    acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR SUPLIDORES"]);
+                }
+
+                else if ((transaccion == "AGREGAR UBICACIONES"))
+                {
+                    acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR UBICACIONES"]);
+                }
             }
 
 
