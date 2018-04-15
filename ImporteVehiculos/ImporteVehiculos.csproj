@@ -284,6 +284,12 @@
     <Compile Include="Formularios\ReportesVentana.Designer.cs">
       <DependentUpon>ReportesVentana.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\SuplidoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\SuplidoresForm.Designer.cs">
+      <DependentUpon>SuplidoresForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\TalleresForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -384,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\ReportesVentana.resx">
       <DependentUpon>ReportesVentana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\SuplidoresForm.resx">
+      <DependentUpon>SuplidoresForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\TalleresForm.resx">
       <DependentUpon>TalleresForm.cs</DependentUpon>
@@ -678,6 +687,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car.ico" />
+    <None Include="Resources\salesman.png" />
     <None Include="Resources\placeholder.png" />
     <None Include="Resources\brush.png" />
     <None Include="Resources\cross.png" />

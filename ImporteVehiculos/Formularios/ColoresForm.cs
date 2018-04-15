@@ -25,6 +25,7 @@ namespace ImporteVehiculos.Formularios
         int idEvento = 0;
         GlobalFunctions GF = new GlobalFunctions();
         Procedimientos P = new Procedimientos();
+
         public ColoresForm()
         {
             InitializeComponent();

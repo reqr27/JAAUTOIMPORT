@@ -36,10 +36,12 @@ namespace ImporteVehiculos.Classes
         string Mpropietario;
         string Mvin;
         string Mpais;
+        string Msuplidor;
         string Mciudad;
         bool MestadoPais;
         bool MestadoCiudad;
         bool MestadoUbicacion;
+        bool MestadoSuplidor;
         int MidPais;
         int MidCiudad;
         bool MestadoColor;
@@ -106,6 +108,12 @@ namespace ImporteVehiculos.Classes
             set { Mpais = value; }
         }
 
+        public string Suplidor
+        {
+            get { return Msuplidor; }
+            set { Msuplidor = value; }
+        }
+
         public string Ciudad
         {
             get { return Mciudad; }
@@ -140,6 +148,12 @@ namespace ImporteVehiculos.Classes
         {
             get { return MestadoUbicacion; }
             set { MestadoUbicacion = value; }
+        }
+
+        public bool EstadoSuplidor
+        {
+            get { return MestadoSuplidor; }
+            set { MestadoSuplidor = value; }
         }
 
         public int IdPais
@@ -1892,6 +1906,63 @@ namespace ImporteVehiculos.Classes
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
             return dt = C.Listado("obtener_ubicaciones_activos", lst);
+        }
+
+        public string RegistrarSuplidor()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@suplidor", Msuplidor));
+            lst.Add(new clsParametros("@idPais", MidPais));
+            lst.Add(new clsParametros("@idCiudad", MidCiudad));
+            lst.Add(new clsParametros("@rnc_cedula", McedulaRnc));
+            lst.Add(new clsParametros("@direccion", Mdireccion));
+            lst.Add(new clsParametros("@telefono", Mtelefono1));
+            lst.Add(new clsParametros("@estado", MestadoSuplidor));
+            
+
+            C.EjecutarSP("registrar_suplidor", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string ActualizarSuplidor()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@suplidor", Msuplidor));
+            lst.Add(new clsParametros("@idPais", MidPais));
+            lst.Add(new clsParametros("@idCiudad", MidCiudad));
+            lst.Add(new clsParametros("@rnc_cedula", McedulaRnc));
+            lst.Add(new clsParametros("@direccion", Mdireccion));
+            lst.Add(new clsParametros("@telefono", Mtelefono1));
+            lst.Add(new clsParametros("@estado", MestadoSuplidor));
+            lst.Add(new clsParametros("@idSuplidor", Mid));
+
+
+            C.EjecutarSP("actualizar_suplidor", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerTodosSuplidores()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_todos_suplidores", lst);
+        }
+
+        public DataTable ObtenerSuplidoresActivos()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_suplidores_activos", lst);
         }
 
     }

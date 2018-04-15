@@ -413,3 +413,86 @@ GO
 	begin
 		select id as ID, ubicacion as LUGAR, estado as ESTADO from Ubicaciones  where estado = 1
 	end
+
+	Go
+
+
+Drop table Suplidores
+go
+if not exists (select * from sysobjects where name='Suplidores' and xtype='U')
+	BEGIN
+		CREATE TABLE Suplidores (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		suplidor varchar(100),
+		rnc_cedula varchar(100),
+		id_pais int,
+		id_ciudad int,
+		direccion varchar(100),
+		telefono varchar(100),
+		estado bit
+		);
+	END
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'registrar_suplidor' AND type = 'P')
+	DROP PROCEDURE registrar_suplidor
+	GO
+
+	create procedure registrar_suplidor
+	@suplidor varchar(100), @rnc_cedula varchar(100), @idPais int, @idCiudad int , @direccion varchar(100),
+	@telefono varchar(100) ,@estado bit, @mensaje int output
+	as
+	set @mensaje = 0;
+	begin
+		insert into Suplidores(suplidor, rnc_cedula,id_pais, id_ciudad, direccion, telefono, estado)
+		Values (@suplidor,@rnc_cedula,@idPais, @idCiudad, @direccion ,@telefono ,@estado)
+		set @mensaje = 1;
+	
+	end
+
+GO
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_todos_suplidores' AND type = 'P')
+	DROP PROCEDURE obtener_todos_suplidores
+	GO
+	create procedure obtener_todos_suplidores
+	as
+	
+	begin
+		select S.id as ID,S.suplidor as SUPLIDOR,S.rnc_cedula as 'RNC/CEDULA' ,P.pais as PAIS, C.ciudad as CIUDAD,
+		 S.direccion as DIRECCION,S.telefono ,S.estado as ESTADO
+		from Suplidores S join Paises P on P.id = S.id_pais
+		join Ciudades C on C.id = S.id_ciudad
+	end
+Go
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_suplidores_activos' AND type = 'P')
+	DROP PROCEDURE obtener_suplidores_activos
+	GO
+
+	create procedure obtener_suplidores_activos
+	as
+	
+	begin
+		select id as ID, suplidor as SUPLIDOR, estado as ESTADO from Suplidores  where estado = 1
+	end
+
+Go
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'actualizar_suplidor' AND type = 'P')
+	DROP PROCEDURE actualizar_suplidor
+	GO
+
+	create procedure actualizar_suplidor
+	@idSuplidor int, @suplidor varchar(100), @rnc_cedula varchar(100), @idPais int, @idCiudad int , @direccion varchar(100),
+	@telefono varchar(100) ,@estado bit, @mensaje int output
+	as
+	set @mensaje = 0;
+	begin
+		Update Suplidores set suplidor = @suplidor, rnc_cedula = @rnc_cedula, id_pais = @idPais, 
+		id_ciudad = @idCiudad, direccion = @direccion, telefono = @telefono, estado = @estado
+		where id = @idSuplidor
+		set @mensaje = 1;
+	
+	end
+
+GO

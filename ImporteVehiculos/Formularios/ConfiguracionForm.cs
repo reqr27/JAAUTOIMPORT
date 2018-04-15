@@ -213,5 +213,19 @@ namespace ImporteVehiculos.Formularios
             }
 
         }
+
+        private void suplidores_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["SuplidoresForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+            }
+            else
+            {
+                SuplidoresForm frm = new SuplidoresForm();
+                frm.Show();
+            }
+        }
     }
 }

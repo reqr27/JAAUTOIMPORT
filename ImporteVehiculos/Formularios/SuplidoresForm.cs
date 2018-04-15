@@ -11,10 +11,8 @@ using ImporteVehiculos.Classes;
 
 namespace ImporteVehiculos.Formularios
 {
-    public partial class UbicacionForm : Form
+    public partial class SuplidoresForm : Form
     {
-
-        public bool fillCombo;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -22,23 +20,57 @@ namespace ImporteVehiculos.Formularios
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-
+        bool fillCombo = false;
         bool evento = false;
         int idEvento = 0;
         GlobalFunctions GF = new GlobalFunctions();
         Procedimientos P = new Procedimientos();
-        public UbicacionForm()
+
+        public SuplidoresForm()
         {
             InitializeComponent();
         }
 
-        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        private void SuplidoresForm_Load(object sender, EventArgs e)
+        {
+            LLenarPaisesCB();
+            LlenarDtgSuplidores();
+
+        }
+
+        private void SuplidoresForm_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void resetCampos()
+        {
+            suplidor_txt.Text = "";
+            ciudad_cb.DataSource = null;
+            pais_cb.SelectedIndex = -1;
+            cancelar_btn.Enabled = false;
+            evento = false;
+            idEvento = 0;
+            estado_chbox.Checked = true;
+            direccion_txt.Text = "";
+            rncCedula_txt.Text = "";
+            telefono1_txt.Text = "";
+            agregar_btn.Text = "Registrar";
+            agregar_btn.Image = Properties.Resources.disquete;
         }
 
         public void LLenarPaisesCB()
@@ -64,17 +96,15 @@ namespace ImporteVehiculos.Formularios
             ciudad_cb.DisplayMember = "CIUDAD";
             ciudad_cb.ValueMember = "ID";
             ciudad_cb.SelectedIndex = -1;
-
-
         }
 
         public void LlenarDtgSuplidores()
         {
             DataTable dt = new DataTable();
-            ubicaciones_dtg.DataSource = null;
+            suplidores_dtg.DataSource = null;
 
             dt = P.ObtenerTodosSuplidores();
-            ubicaciones_dtg.DataSource = dt;
+            suplidores_dtg.DataSource = dt;
 
         }
 
@@ -87,65 +117,38 @@ namespace ImporteVehiculos.Formularios
             }
         }
 
-        private void UbicacionForm_Load(object sender, EventArgs e)
-        {
-            LLenarPaisesCB();
-            LlenarDtgSuplidores();
-        }
-
-
-        public void resetCampos()
-        {
-            ciudad_cb.DataSource = null;
-            pais_cb.SelectedIndex = -1;
-            cancelar_btn.Enabled = false;
-            evento = false;
-            idEvento = 0;
-            estadoUbicacion_chbox.Checked = true;
-            lugar_txt.Text = "";
-            agregar_btn.Text = "Registrar";
-            agregar_btn.Image = Properties.Resources.disquete;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void ubicaciones_dtg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             cancelar_btn.Enabled = true;
             evento = true;
             agregar_btn.Text = "Actualizar";
             agregar_btn.Image = Properties.Resources.rotacion;
-            idEvento = Convert.ToInt32(ubicaciones_dtg.CurrentRow.Cells[0].Value.ToString());
-            pais_cb.Text = ubicaciones_dtg.CurrentRow.Cells[1].Value.ToString();
-            ciudad_cb.Text = ubicaciones_dtg.CurrentRow.Cells[2].Value.ToString();
-            lugar_txt.Text = ubicaciones_dtg.CurrentRow.Cells[3].Value.ToString();
-            estadoUbicacion_chbox.Checked = Convert.ToBoolean(ubicaciones_dtg.CurrentRow.Cells[4].Value.ToString());
-            
+            idEvento = Convert.ToInt32(suplidores_dtg.CurrentRow.Cells[0].Value.ToString());
+            suplidor_txt.Text = suplidores_dtg.CurrentRow.Cells[1].Value.ToString();
+            rncCedula_txt.Text = suplidores_dtg.CurrentRow.Cells[2].Value.ToString();
+            pais_cb.Text = suplidores_dtg.CurrentRow.Cells[3].Value.ToString();
+            ciudad_cb.Text = suplidores_dtg.CurrentRow.Cells[4].Value.ToString();
+            direccion_txt.Text = suplidores_dtg.CurrentRow.Cells[5].Value.ToString();
+            telefono1_txt.Text = suplidores_dtg.CurrentRow.Cells[6].Value.ToString();
+            estado_chbox.Checked = Convert.ToBoolean(suplidores_dtg.CurrentRow.Cells[7].Value.ToString());
+
         }
 
         private void agregar_btn_Click(object sender, EventArgs e)
         {
             if (!evento)
             {
-                registrarUbicacion();
+                registrarSuplidor();
             }
             else
             {
-                ActualizarUbicacion();
+                ActualizarSuplidor();
             }
         }
 
-        public void registrarUbicacion()
+        public void registrarSuplidor()
         {
-            string[] valores = { lugar_txt.Text, ciudad_cb.Text, pais_cb.Text };
+            string[] valores = { suplidor_txt.Text, rncCedula_txt.Text,ciudad_cb.Text, pais_cb.Text, direccion_txt.Text, telefono1_txt.Text };
 
             string msj = GF.ValidarCampoString(valores);
 
@@ -155,13 +158,16 @@ namespace ImporteVehiculos.Formularios
             }
             else
             {
-                P.EstadoUbicacion = estadoUbicacion_chbox.Checked;
-                P.Ubicacion = lugar_txt.Text;
+                P.Suplidor = suplidor_txt.Text;
+                P.CedulaRNC = rncCedula_txt.Text;
                 P.IdCiudad = Convert.ToInt32(ciudad_cb.SelectedValue);
                 P.IdPais = Convert.ToInt32(pais_cb.SelectedValue);
+                P.Direccion = direccion_txt.Text;
+                P.Telefono1 = telefono1_txt.Text;
+                P.EstadoSuplidor = estado_chbox.Checked;
 
 
-                string respuesta = P.RegistrarUbicacion();
+                string respuesta = P.RegistrarSuplidor();
                 if (respuesta == "1")
                 {
                     MessageBox.Show("Registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -176,9 +182,9 @@ namespace ImporteVehiculos.Formularios
             }
         }
 
-        public void ActualizarUbicacion()
+        public void ActualizarSuplidor()
         {
-            string[] valores = { lugar_txt.Text, pais_cb.Text, ciudad_cb.Text };
+            string[] valores = { suplidor_txt.Text, rncCedula_txt.Text, ciudad_cb.Text, pais_cb.Text, direccion_txt.Text, telefono1_txt.Text };
 
             string msj = GF.ValidarCampoString(valores);
 
@@ -188,13 +194,16 @@ namespace ImporteVehiculos.Formularios
             }
             else
             {
-                P.EstadoUbicacion = estadoUbicacion_chbox.Checked;
-                P.Ubicacion = lugar_txt.Text;
+                P.Suplidor = suplidor_txt.Text;
+                P.CedulaRNC = rncCedula_txt.Text;
                 P.IdCiudad = Convert.ToInt32(ciudad_cb.SelectedValue);
                 P.IdPais = Convert.ToInt32(pais_cb.SelectedValue);
-                P.IdUbicacion = idEvento;
+                P.Direccion = direccion_txt.Text;
+                P.Telefono1 = telefono1_txt.Text;
+                P.EstadoSuplidor = estado_chbox.Checked;
+                P.Id = idEvento;
 
-                string respuesta = P.ActualizarUbicacion();
+                string respuesta = P.ActualizarSuplidor();
                 if (respuesta == "1")
                 {
                     MessageBox.Show("Actualizado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -207,6 +216,11 @@ namespace ImporteVehiculos.Formularios
 
                 }
             }
+        }
+
+        private void cancelar_btn_Click(object sender, EventArgs e)
+        {
+            resetCampos();
         }
     }
 }
