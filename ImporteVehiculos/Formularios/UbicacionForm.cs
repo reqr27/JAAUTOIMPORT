@@ -68,12 +68,12 @@ namespace ImporteVehiculos.Formularios
 
         }
 
-        public void LlenarDtgSuplidores()
+        public void LlenarDtgUbicaciones()
         {
             DataTable dt = new DataTable();
             ubicaciones_dtg.DataSource = null;
 
-            dt = P.ObtenerTodosSuplidores();
+            dt = P.ObtenerTodosUbicaciones();
             ubicaciones_dtg.DataSource = dt;
 
         }
@@ -90,7 +90,7 @@ namespace ImporteVehiculos.Formularios
         private void UbicacionForm_Load(object sender, EventArgs e)
         {
             LLenarPaisesCB();
-            LlenarDtgSuplidores();
+            LlenarDtgUbicaciones();
         }
 
 
@@ -166,7 +166,7 @@ namespace ImporteVehiculos.Formularios
                 {
                     MessageBox.Show("Registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     resetCampos();
-                    LlenarDtgSuplidores();
+                    LlenarDtgUbicaciones();
                 }
                 else
                 {
@@ -199,7 +199,7 @@ namespace ImporteVehiculos.Formularios
                 {
                     MessageBox.Show("Actualizado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     resetCampos();
-                    LlenarDtgSuplidores();
+                    LlenarDtgUbicaciones();
                 }
                 else
                 {

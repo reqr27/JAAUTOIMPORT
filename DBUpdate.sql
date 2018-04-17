@@ -1,6 +1,37 @@
 --**************************************************UPDATE***********************************************************************
 --*********************************************************************************************************************************
 --*********************************************************************************************************************************
+
+GO
+ALTER procedure actualizar_vehiculo
+@idVehiculo int,@vin varchar(50), @idPropietario int,
+@nota varchar(250), @mensaje int output, @color varchar(50),
+@idUbicacion varchar(50),
+@matriculaOriginal bit, @cedulaVendedor bit, @actoVenta bit,
+@rdPrecioVentaEstimado float,
+@usdPrecioVentaEstimado float, @placa varchar(30), @numeroMatricula varchar(100), @millaje varchar(100),
+@fuerzaMotriz varchar(30), @idSuplidor int, @año int, @fecha date
+as
+set @mensaje = 0
+
+begin
+
+    update Vehiculos set 
+	id_propietario = @idPropietario, vin = @vin, nota = @nota,
+	color = @color,id_ubicacion = @idUbicacion, 
+    matricula =	@matriculaOriginal, acto_venta = @actoVenta, cedula_vendedor =  @cedulaVendedor,
+	precio_estimado_rd = @rdPrecioVentaEstimado, precio_estimado_usd = @usdPrecioVentaEstimado, 
+	placa = @placa, numero_matricula = @numeroMatricula,
+	millaje = @millaje, fuerza_motriz = @fuerzaMotriz, id_suplidor = @idSuplidor, año = @año
+	where id = @idVehiculo
+	if not exists (select id from HistorialUbicaciones where id_vehiculo = @idVehiculo and id_ubicacion = @idUbicacion)
+		begin
+			insert into HistorialUbicaciones(id_vehiculo,id_ubicacion, fecha) 
+			Values (@idVehiculo, @idUbicacion, @fecha)
+		end
+	set @mensaje = 1
+end
+
 GO
 
 ALTER procedure obtener_detalle_vehiculo_especifico
@@ -733,3 +764,18 @@ Go
 	end
 
 GO
+
+
+
+Drop table HistorialUbicaciones
+go
+if not exists (select * from sysobjects where name='HistorialUbicaciones' and xtype='U')
+	BEGIN
+		CREATE TABLE HistorialUbicaciones (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		id_ubicacion int,
+		fecha date
+		);
+	END
+Go

@@ -70,11 +70,16 @@
             this.fuerzaMotriz_txt = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.millaje_txt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.fecha_dtp = new System.Windows.Forms.DateTimePicker();
+            this.ubicacionesHist_dtg = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ubicacionesHist_dtg)).BeginInit();
             this.SuspendLayout();
             // 
             // vin_txt
@@ -123,7 +128,7 @@
             this.nota_txt.Location = new System.Drawing.Point(541, 86);
             this.nota_txt.Multiline = true;
             this.nota_txt.Name = "nota_txt";
-            this.nota_txt.Size = new System.Drawing.Size(330, 103);
+            this.nota_txt.Size = new System.Drawing.Size(330, 64);
             this.nota_txt.TabIndex = 16;
             // 
             // label9
@@ -247,9 +252,9 @@
             this.guardar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardar_btn.ForeColor = System.Drawing.SystemColors.Control;
             this.guardar_btn.Image = global::ImporteVehiculos.Properties.Resources.un_par_de_flechas_cambiando_lugares;
-            this.guardar_btn.Location = new System.Drawing.Point(557, 311);
+            this.guardar_btn.Location = new System.Drawing.Point(541, 319);
             this.guardar_btn.Name = "guardar_btn";
-            this.guardar_btn.Size = new System.Drawing.Size(122, 59);
+            this.guardar_btn.Size = new System.Drawing.Size(122, 56);
             this.guardar_btn.TabIndex = 17;
             this.guardar_btn.Text = "Guardar";
             this.guardar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -264,9 +269,9 @@
             this.cancelar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelar_btn.ForeColor = System.Drawing.SystemColors.Control;
             this.cancelar_btn.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.cancelar_btn.Location = new System.Drawing.Point(740, 311);
+            this.cancelar_btn.Location = new System.Drawing.Point(749, 319);
             this.cancelar_btn.Name = "cancelar_btn";
-            this.cancelar_btn.Size = new System.Drawing.Size(122, 59);
+            this.cancelar_btn.Size = new System.Drawing.Size(122, 56);
             this.cancelar_btn.TabIndex = 18;
             this.cancelar_btn.Text = "Cancelar";
             this.cancelar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -541,19 +546,68 @@
             this.millaje_txt.Size = new System.Drawing.Size(203, 20);
             this.millaje_txt.TabIndex = 12;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(538, 159);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 14);
+            this.label1.TabIndex = 131;
+            this.label1.Text = "FECHA CAMBIO UBICACION:";
+            // 
+            // fecha_dtp
+            // 
+            this.fecha_dtp.CustomFormat = "dd/MM/yyyy";
+            this.fecha_dtp.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fecha_dtp.Location = new System.Drawing.Point(719, 157);
+            this.fecha_dtp.Name = "fecha_dtp";
+            this.fecha_dtp.Size = new System.Drawing.Size(105, 20);
+            this.fecha_dtp.TabIndex = 130;
+            // 
+            // ubicacionesHist_dtg
+            // 
+            this.ubicacionesHist_dtg.AllowUserToAddRows = false;
+            this.ubicacionesHist_dtg.AllowUserToDeleteRows = false;
+            this.ubicacionesHist_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ubicacionesHist_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.ubicacionesHist_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ubicacionesHist_dtg.Location = new System.Drawing.Point(541, 213);
+            this.ubicacionesHist_dtg.MultiSelect = false;
+            this.ubicacionesHist_dtg.Name = "ubicacionesHist_dtg";
+            this.ubicacionesHist_dtg.ReadOnly = true;
+            this.ubicacionesHist_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ubicacionesHist_dtg.Size = new System.Drawing.Size(330, 100);
+            this.ubicacionesHist_dtg.TabIndex = 132;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(538, 195);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(158, 14);
+            this.label15.TabIndex = 133;
+            this.label15.Text = "HISTORIAL UBICACIONES";
+            // 
             // ModificarVehiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 424);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.guardar_btn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cancelar_btn);
+            this.Controls.Add(this.fecha_dtp);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.guardar_btn);
-            this.Controls.Add(this.cancelar_btn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.nota_txt);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.ubicacionesHist_dtg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -571,6 +625,7 @@
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ubicacionesHist_dtg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -619,5 +674,9 @@
         private System.Windows.Forms.TextBox fuerzaMotriz_txt;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox millaje_txt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker fecha_dtp;
+        private System.Windows.Forms.DataGridView ubicacionesHist_dtg;
+        private System.Windows.Forms.Label label15;
     }
 }

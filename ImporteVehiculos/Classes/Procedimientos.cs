@@ -1268,8 +1268,7 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@fuerzaMotriz", MfuerzaMotriz));
             lst.Add(new clsParametros("@idSuplidor", MidSuplidor));
             lst.Add(new clsParametros("@año", Maño));
-
-
+            lst.Add(new clsParametros("@fecha", Mfecha));
 
             C.EjecutarSP("actualizar_vehiculo", ref lst);
             mensaje = lst[0].Valor.ToString();
@@ -2080,6 +2079,14 @@ namespace ImporteVehiculos.Classes
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
             return dt = C.Listado("obtener_suplidores_activos", lst);
+        }
+
+        public DataTable ObtenerHistorialUbicacion()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            return dt = C.Listado("obtener_historial_ubicaciones", lst);
         }
 
     }

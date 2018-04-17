@@ -127,6 +127,7 @@ namespace ImporteVehiculos.Formularios
                 P.NumeroMatricula = matricula_txt.Text;
                 P.Placa = placa_txt.Text;
                 P.Año = Convert.ToInt32(año_cb.Text);
+                P.Fecha = fecha_dtp.Value;
 
                 if (radioBtnRD_precio.Checked)
                 {
@@ -168,6 +169,7 @@ namespace ImporteVehiculos.Formularios
 
         private void ModificarVehiculoForm_Load(object sender, EventArgs e)
         {
+            LlenarDtgUbicacionesHist();
             Permisos();
             DataTable dt1 = new DataTable();
             dt1 = P.ObtenerTasaDolarYFecha();
@@ -185,14 +187,25 @@ namespace ImporteVehiculos.Formularios
 
         }
 
+        public void LlenarDtgUbicacionesHist()
+        {
+            DataTable dt = new DataTable();
+            ubicacionesHist_dtg.DataSource = null;
+
+            P.IdVehiculo = Program.GidVehiculo;
+            dt = P.ObtenerHistorialUbicacion();
+            ubicacionesHist_dtg.DataSource = dt;
+
+        }
+
         public void VerTodosDetallesVentana()
         {
             this.Text = "DETALLES VEHICULO";
             label11.Text = "TODOS LOS DETALLES";
-            foreach (Control c in this.Controls)
-            {
-                c.Enabled = false;
-            }
+            //foreach (Control c in this.Controls)
+            //{
+            //    c.Enabled = false;
+            //}
             EnableControls(button2);
             EnableControls(button3);
             guardar_btn.Visible = false;
