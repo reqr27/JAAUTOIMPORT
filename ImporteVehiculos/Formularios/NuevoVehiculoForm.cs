@@ -45,6 +45,8 @@ namespace ImporteVehiculos.Formularios
             LLenarModeloCb();
             LLenarPropietarioCb();
             LLenarColoresCb();
+            LLenarSuplidorCb();
+            LLenarUbicacionCb();
             CalcularTotal();
             FieldStatus(false);
             Permisos();
@@ -73,6 +75,32 @@ namespace ImporteVehiculos.Formularios
             color_cb.ValueMember = "ID";
             color_cb.SelectedIndex = -1;
            
+
+        }
+
+        public void LLenarSuplidorCb()
+        {
+            suplidor_cb.DataSource = null;
+            DataTable dt = new DataTable();
+            dt = P.ObtenerSuplidoresActivos();
+            suplidor_cb.DataSource = dt;
+            suplidor_cb.DisplayMember = "SUPLIDOR";
+            suplidor_cb.ValueMember = "ID";
+            suplidor_cb.SelectedIndex = -1;
+
+
+        }
+
+        public void LLenarUbicacionCb()
+        {
+            ubicacion_cb.DataSource = null;
+            DataTable dt = new DataTable();
+            dt = P.ObtenerUbicacionesActivos();
+            ubicacion_cb.DataSource = dt;
+            ubicacion_cb.DisplayMember = "LUGAR";
+            ubicacion_cb.ValueMember = "ID";
+            ubicacion_cb.SelectedIndex = -1;
+
 
         }
 
@@ -144,8 +172,10 @@ namespace ImporteVehiculos.Formularios
 
         public void RegistrarVehiculo()
         {
-            string[] valores = { fabricante_cbox.Text, modelo_cb.Text, año_cb.Text, propietario_cb.Text, vin_txt.Text, color_cb.Text, nota_txt.Text, ubicacion_txt.Text };
-            string[] numeros = { año_cb.Text, precio_txt.Text};
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
+            string[] valores = { fabricante_cbox.Text, modelo_cb.Text, año_cb.Text,  color_cb.Text,vin_txt.Text, placa_txt.Text, matricula_txt.Text, millaje_txt.Text, fuerzaMotriz_txt.Text, suplidor_cb.Text, propietario_cb.Text, ubicacion_cb.Text, nota_txt.Text };
+            string[] numeros = { año_cb.Text, precio_txt.Text, precioVentaEstimado_txt.Text};
             string msj = GF.ValidarCampoString(valores);
             string msj1 = GF.ValidarCampoNumerico(numeros);
             if (msj != "OK")
@@ -166,21 +196,40 @@ namespace ImporteVehiculos.Formularios
                 P.Vin = vin_txt.Text;
                 P.Fecha = fecha_dtp.Value;
                 P.Color = color_cb.Text;
-                P.Ubicacion = ubicacion_txt.Text;
+                P.Ubicacion = ubicacion_cb.Text;
                 P.ActoVenta = acto_venta_chbox.Checked;
                 P.CedulaVendedor = cedula_chbox.Checked;
                 P.MatriculaOriginal = mat_chbox.Checked;
+                P.IdUbicacion = Convert.ToInt32(ubicacion_cb.SelectedValue);
+                P.IdSuplidor = Convert.ToInt32(suplidor_cb.SelectedValue);
+                P.Millaje = millaje_txt.Text;
+                P.FuerzaMotriz = fuerzaMotriz_txt.Text;
+                P.NumeroMatricula = matricula_txt.Text;
+                P.Placa = placa_txt.Text;
+                
 
                 if (rdDinero_radiobtn.Checked)
                 {
                     P.PrecioRD = Convert.ToDouble(precio_txt.Text);
-                    P.PrecioUSD = Convert.ToDouble(precio_txt.Text) / Convert.ToDouble(Properties.Settings.Default.tasaDolar);
+                    P.PrecioUSD = Convert.ToDouble(precio_txt.Text) / Convert.ToDouble(dt1.Rows[0]["TASA"]);
                 }
                 else
                 {
                     P.PrecioUSD = Convert.ToDouble(precio_txt.Text);
-                    P.PrecioRD = Convert.ToDouble(precio_txt.Text) * Convert.ToDouble(Properties.Settings.Default.tasaDolar);
+                    P.PrecioRD = Convert.ToDouble(precio_txt.Text) * Convert.ToDouble(dt1.Rows[0]["TASA"]);
                 }
+
+                if (rdDinero_radiobtn3.Checked)
+                {
+                    P.PrecioVentaEstimadoRD = Convert.ToDouble(precioVentaEstimado_txt.Text);
+                    P.PrecioVentaEstimadoUSD = Convert.ToDouble(precioVentaEstimado_txt.Text) / Convert.ToDouble(dt1.Rows[0]["TASA"]);
+                }
+                else
+                {
+                    P.PrecioVentaEstimadoUSD = Convert.ToDouble(precioVentaEstimado_txt.Text);
+                    P.PrecioVentaEstimadoRD = Convert.ToDouble(precioVentaEstimado_txt.Text) * Convert.ToDouble(dt1.Rows[0]["TASA"]);
+                }
+
                 string respuesta = P.RegistrarVehiculo();
                 if (respuesta == "1")
                 {
@@ -229,6 +278,14 @@ namespace ImporteVehiculos.Formularios
 
         public void ResetFields()
         {
+            placa_txt.Text = "";
+            suplidor_cb.SelectedIndex = -1;
+            ubicacion_cb.SelectedIndex = -1;
+            matricula_txt.Text = "";
+            fuerzaMotriz_txt.Text = "";
+            color_cb.SelectedIndex = -1;
+            millaje_txt.Text = "";
+
             fabricante_cbox.SelectedIndex = -1;
             modelo_cb.SelectedIndex = -1;
             año_cb.Text = "2013";
@@ -250,7 +307,7 @@ namespace ImporteVehiculos.Formularios
             totalRD_lbl.Text = "0.00";
             totalUSD_lbl.Text = "0.00";
             nota_txt.Text = "";
-            ubicacion_txt.Text = "";
+            ubicacion_cb.Text = "";
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

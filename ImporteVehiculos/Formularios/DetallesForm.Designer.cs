@@ -67,6 +67,14 @@
             this.finalizarVenderProceso_btn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.USD_costo_total_lbl = new System.Windows.Forms.Label();
+            this.RD_costo_total_lbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.precioUSD_lbl = new System.Windows.Forms.Label();
+            this.precioRD_lbl = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
@@ -92,14 +100,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.precioUSD_lbl = new System.Windows.Forms.Label();
-            this.precioRD_lbl = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.USD_costo_total_lbl = new System.Windows.Forms.Label();
-            this.RD_costo_total_lbl = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.estimadoUSD_lbl = new System.Windows.Forms.Label();
+            this.estimadoRD_lbl = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gastosAduanales_dtg)).BeginInit();
             this.panel2.SuspendLayout();
@@ -530,9 +535,9 @@
             this.pagos_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.pagos_btn.Image = global::ImporteVehiculos.Properties.Resources.pago;
             this.pagos_btn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.pagos_btn.Location = new System.Drawing.Point(754, 3);
+            this.pagos_btn.Location = new System.Drawing.Point(517, 5);
             this.pagos_btn.Name = "pagos_btn";
-            this.pagos_btn.Size = new System.Drawing.Size(140, 71);
+            this.pagos_btn.Size = new System.Drawing.Size(140, 25);
             this.pagos_btn.TabIndex = 79;
             this.pagos_btn.Text = "button1";
             this.pagos_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -566,6 +571,7 @@
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.label27);
+            this.panel3.Controls.Add(this.pagos_btn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -576,6 +582,10 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Controls.Add(this.estimadoUSD_lbl);
+            this.panel4.Controls.Add(this.estimadoRD_lbl);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.USD_costo_total_lbl);
@@ -583,7 +593,6 @@
             this.panel4.Controls.Add(this.vehiculo_lbl);
             this.panel4.Controls.Add(this.finalizarVenderProceso_btn);
             this.panel4.Controls.Add(this.actualizar_btn);
-            this.panel4.Controls.Add(this.pagos_btn);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.precioUSD_lbl);
@@ -593,6 +602,94 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1181, 77);
             this.panel4.TabIndex = 59;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label5.Location = new System.Drawing.Point(297, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 16);
+            this.label5.TabIndex = 96;
+            this.label5.Text = "Costo Total($RD):";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label15.Location = new System.Drawing.Point(297, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(123, 16);
+            this.label15.TabIndex = 99;
+            this.label15.Text = "Costo Total($USD):";
+            // 
+            // USD_costo_total_lbl
+            // 
+            this.USD_costo_total_lbl.AutoSize = true;
+            this.USD_costo_total_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.USD_costo_total_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.USD_costo_total_lbl.Location = new System.Drawing.Point(437, 54);
+            this.USD_costo_total_lbl.Name = "USD_costo_total_lbl";
+            this.USD_costo_total_lbl.Size = new System.Drawing.Size(72, 16);
+            this.USD_costo_total_lbl.TabIndex = 98;
+            this.USD_costo_total_lbl.Text = "PrecioUSD";
+            // 
+            // RD_costo_total_lbl
+            // 
+            this.RD_costo_total_lbl.AutoSize = true;
+            this.RD_costo_total_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RD_costo_total_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.RD_costo_total_lbl.Location = new System.Drawing.Point(437, 32);
+            this.RD_costo_total_lbl.Name = "RD_costo_total_lbl";
+            this.RD_costo_total_lbl.Size = new System.Drawing.Size(63, 16);
+            this.RD_costo_total_lbl.TabIndex = 97;
+            this.RD_costo_total_lbl.Text = "precioRD";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label6.Location = new System.Drawing.Point(13, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(133, 16);
+            this.label6.TabIndex = 92;
+            this.label6.Text = "Precio Compra($RD):";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label4.Location = new System.Drawing.Point(13, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(141, 16);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "Precio Compra($USD):";
+            // 
+            // precioUSD_lbl
+            // 
+            this.precioUSD_lbl.AutoSize = true;
+            this.precioUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.precioUSD_lbl.Location = new System.Drawing.Point(153, 54);
+            this.precioUSD_lbl.Name = "precioUSD_lbl";
+            this.precioUSD_lbl.Size = new System.Drawing.Size(72, 16);
+            this.precioUSD_lbl.TabIndex = 94;
+            this.precioUSD_lbl.Text = "PrecioUSD";
+            // 
+            // precioRD_lbl
+            // 
+            this.precioRD_lbl.AutoSize = true;
+            this.precioRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.precioRD_lbl.Location = new System.Drawing.Point(153, 32);
+            this.precioRD_lbl.Name = "precioRD_lbl";
+            this.precioRD_lbl.Size = new System.Drawing.Size(63, 16);
+            this.precioRD_lbl.TabIndex = 93;
+            this.precioRD_lbl.Text = "precioRD";
             // 
             // button3
             // 
@@ -716,6 +813,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel5.Controls.Add(this.linkLabel1);
             this.panel5.Controls.Add(this.acto_venta_chbox);
             this.panel5.Controls.Add(this.matricula_chbox);
             this.panel5.Controls.Add(this.cedula_chbox);
@@ -839,9 +937,9 @@
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label20.Location = new System.Drawing.Point(7, 3);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(286, 24);
+            this.label20.Size = new System.Drawing.Size(270, 24);
             this.label20.TabIndex = 106;
-            this.label20.Text = "OTRAS INFORMACIONES";
+            this.label20.Text = "DETALLES RESUMIDOS";
             // 
             // estado_lbl
             // 
@@ -897,93 +995,62 @@
             this.panel7.Size = new System.Drawing.Size(381, 333);
             this.panel7.TabIndex = 108;
             // 
-            // label4
+            // label16
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label4.Location = new System.Drawing.Point(13, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 16);
-            this.label4.TabIndex = 95;
-            this.label4.Text = "Precio Compra($USD):";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label16.Location = new System.Drawing.Point(584, 32);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(157, 16);
+            this.label16.TabIndex = 100;
+            this.label16.Text = "P. Estimado Venta($RD):";
             // 
-            // precioUSD_lbl
+            // label19
             // 
-            this.precioUSD_lbl.AutoSize = true;
-            this.precioUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioUSD_lbl.Location = new System.Drawing.Point(153, 54);
-            this.precioUSD_lbl.Name = "precioUSD_lbl";
-            this.precioUSD_lbl.Size = new System.Drawing.Size(72, 16);
-            this.precioUSD_lbl.TabIndex = 94;
-            this.precioUSD_lbl.Text = "PrecioUSD";
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label19.Location = new System.Drawing.Point(584, 54);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(165, 16);
+            this.label19.TabIndex = 103;
+            this.label19.Text = "P. Estimado Venta($USD):";
             // 
-            // precioRD_lbl
+            // estimadoUSD_lbl
             // 
-            this.precioRD_lbl.AutoSize = true;
-            this.precioRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioRD_lbl.Location = new System.Drawing.Point(153, 32);
-            this.precioRD_lbl.Name = "precioRD_lbl";
-            this.precioRD_lbl.Size = new System.Drawing.Size(63, 16);
-            this.precioRD_lbl.TabIndex = 93;
-            this.precioRD_lbl.Text = "precioRD";
+            this.estimadoUSD_lbl.AutoSize = true;
+            this.estimadoUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estimadoUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.estimadoUSD_lbl.Location = new System.Drawing.Point(753, 52);
+            this.estimadoUSD_lbl.Name = "estimadoUSD_lbl";
+            this.estimadoUSD_lbl.Size = new System.Drawing.Size(72, 16);
+            this.estimadoUSD_lbl.TabIndex = 102;
+            this.estimadoUSD_lbl.Text = "PrecioUSD";
             // 
-            // label6
+            // estimadoRD_lbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label6.Location = new System.Drawing.Point(13, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(133, 16);
-            this.label6.TabIndex = 92;
-            this.label6.Text = "Precio Compra($RD):";
+            this.estimadoRD_lbl.AutoSize = true;
+            this.estimadoRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estimadoRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.estimadoRD_lbl.Location = new System.Drawing.Point(753, 32);
+            this.estimadoRD_lbl.Name = "estimadoRD_lbl";
+            this.estimadoRD_lbl.Size = new System.Drawing.Size(63, 16);
+            this.estimadoRD_lbl.TabIndex = 101;
+            this.estimadoRD_lbl.Text = "precioRD";
             // 
-            // label5
+            // linkLabel1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label5.Location = new System.Drawing.Point(362, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 16);
-            this.label5.TabIndex = 96;
-            this.label5.Text = "Costo Total($RD):";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label15.Location = new System.Drawing.Point(362, 54);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(123, 16);
-            this.label15.TabIndex = 99;
-            this.label15.Text = "Costo Total($USD):";
-            // 
-            // USD_costo_total_lbl
-            // 
-            this.USD_costo_total_lbl.AutoSize = true;
-            this.USD_costo_total_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.USD_costo_total_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.USD_costo_total_lbl.Location = new System.Drawing.Point(502, 54);
-            this.USD_costo_total_lbl.Name = "USD_costo_total_lbl";
-            this.USD_costo_total_lbl.Size = new System.Drawing.Size(72, 16);
-            this.USD_costo_total_lbl.TabIndex = 98;
-            this.USD_costo_total_lbl.Text = "PrecioUSD";
-            // 
-            // RD_costo_total_lbl
-            // 
-            this.RD_costo_total_lbl.AutoSize = true;
-            this.RD_costo_total_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RD_costo_total_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.RD_costo_total_lbl.Location = new System.Drawing.Point(502, 32);
-            this.RD_costo_total_lbl.Name = "RD_costo_total_lbl";
-            this.RD_costo_total_lbl.Size = new System.Drawing.Size(63, 16);
-            this.RD_costo_total_lbl.TabIndex = 97;
-            this.RD_costo_total_lbl.Text = "precioRD";
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.linkLabel1.Location = new System.Drawing.Point(297, 9);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(160, 16);
+            this.linkLabel1.TabIndex = 118;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Ver Todos los Detalles";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // DetallesForm
             // 
@@ -1096,5 +1163,10 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label USD_costo_total_lbl;
         private System.Windows.Forms.Label RD_costo_total_lbl;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label estimadoUSD_lbl;
+        private System.Windows.Forms.Label estimadoRD_lbl;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

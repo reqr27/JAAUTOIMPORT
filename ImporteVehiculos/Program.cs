@@ -9,6 +9,7 @@ namespace ImporteVehiculos
 {
     public static class Program
     {
+        public static bool VerDetalles = false;
         public static double GprecioTotalRD;
         public static double GprecioTotalUSD;
         public static int GidVehiculo;

@@ -95,7 +95,9 @@ namespace ImporteVehiculos.Formularios
             matricula_chbox.Checked = Convert.ToBoolean(dt.Rows[0]["MATRICULA ORIGINAL"]);
             cedula_chbox.Checked = Convert.ToBoolean(dt.Rows[0]["CEDULA VENDEDOR"]);
             acto_venta_chbox.Checked = Convert.ToBoolean(dt.Rows[0]["ACTO VENTA"]);
-            
+            estimadoRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ESTIMADO RD"])).ToString("#,###.00");
+            estimadoUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ESTIMADO USD"])).ToString("#,###.00");
+
             if (!terminado)
             {
                 VehiculoProceso();
@@ -487,6 +489,7 @@ namespace ImporteVehiculos.Formularios
 
         private void actualizar_btn_Click(object sender, EventArgs e)
         {
+            Program.VerDetalles = false;
             ModificarVehiculoForm form = new ModificarVehiculoForm();
             form.ShowDialog();
             ObtenerDetallesVehiculo();
@@ -551,6 +554,20 @@ namespace ImporteVehiculos.Formularios
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Program.VerDetalles = true;
+            
+            ModificarVehiculoForm form = new ModificarVehiculoForm();
+            form.ShowDialog();
+            ObtenerDetallesVehiculo();
+            LLenarDtgComponentes();
+            LLenarDtgGastos();
+            LLenarDtgAduanales();
+            CalcularTotales();
+            Permisos();
         }
     }
 }

@@ -44,6 +44,13 @@ namespace ImporteVehiculos.Classes
         bool MestadoSuplidor;
         int MidPais;
         int MidCiudad;
+        int MidSuplidor;
+        string MnumeroMatricula;
+        string Mplaca;
+        string Mmillaje;
+        string MfuerzaMotriz;
+        double MrdPrecioVentaEstimado;
+        double MusdPrecioVentaEstimado;
         bool MestadoColor;
         int MidColor;
         int MidPropietario;
@@ -91,6 +98,7 @@ namespace ImporteVehiculos.Classes
         bool McrearSuplidor;
         bool McrearUbicacion;
         bool McrearColor;
+
 
         //double Msubtotal;
         //double Mtotal;
@@ -191,6 +199,48 @@ namespace ImporteVehiculos.Classes
         {
             get { return Musuario; }
             set { Musuario = value; }
+        }
+
+        public string FuerzaMotriz
+        {
+            get { return MfuerzaMotriz; }
+            set { MfuerzaMotriz = value; }
+        }
+
+        public string NumeroMatricula
+        {
+            get { return MnumeroMatricula; }
+            set { MnumeroMatricula = value; }
+        }
+
+        public string Millaje
+        {
+            get { return Mmillaje; }
+            set { Mmillaje = value; }
+        }
+
+        public string Placa
+        {
+            get { return Mplaca; }
+            set { Mplaca = value; }
+        }
+
+        public double PrecioVentaEstimadoRD
+        {
+            get { return MrdPrecioVentaEstimado; }
+            set { MrdPrecioVentaEstimado = value; }
+        }
+
+        public double PrecioVentaEstimadoUSD
+        {
+            get { return MusdPrecioVentaEstimado; }
+            set { MusdPrecioVentaEstimado = value; }
+        }
+
+        public int IdSuplidor
+        {
+            get { return MidSuplidor; }
+            set { MidSuplidor = value; }
         }
 
         public string Color
@@ -737,7 +787,14 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@cedulaVendedor", McedulaVendedor));
             lst.Add(new clsParametros("@actoVenta", MactoVenta));
             lst.Add(new clsParametros("@matriculaOriginal", MmatriculaOriginal));
-            lst.Add(new clsParametros("@ubicacion", Mubicacion));
+            lst.Add(new clsParametros("@idUbicacion", MidUbicacion));
+            lst.Add(new clsParametros("@placa", Mplaca));
+            lst.Add(new clsParametros("@rdPrecioVentaEstimado", MrdPrecioVentaEstimado));
+            lst.Add(new clsParametros("@usdPrecioVentaEstimado", MusdPrecioVentaEstimado));
+            lst.Add(new clsParametros("@numeroMatricula", MnumeroMatricula));
+            lst.Add(new clsParametros("@millaje", Mmillaje));
+            lst.Add(new clsParametros("@fuerzaMotriz",MfuerzaMotriz));
+            lst.Add(new clsParametros("@idSuplidor", MidSuplidor));
 
             C.EjecutarSP("registrar_vehiculo", ref lst);
             mensaje = lst[0].Valor.ToString();
@@ -1202,7 +1259,18 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@cedulaVendedor", McedulaVendedor));
             lst.Add(new clsParametros("@actoVenta", MactoVenta));
             lst.Add(new clsParametros("@matriculaOriginal", MmatriculaOriginal));
-            lst.Add(new clsParametros("@ubicacion", Mubicacion));
+            lst.Add(new clsParametros("@idUbicacion", MidUbicacion));
+            lst.Add(new clsParametros("@placa", Mplaca));
+            lst.Add(new clsParametros("@rdPrecioVentaEstimado", MrdPrecioVentaEstimado));
+            lst.Add(new clsParametros("@usdPrecioVentaEstimado", MusdPrecioVentaEstimado));
+            lst.Add(new clsParametros("@numeroMatricula", MnumeroMatricula));
+            lst.Add(new clsParametros("@millaje", Mmillaje));
+            lst.Add(new clsParametros("@fuerzaMotriz", MfuerzaMotriz));
+            lst.Add(new clsParametros("@idSuplidor", MidSuplidor));
+            lst.Add(new clsParametros("@año", Maño));
+
+
+
             C.EjecutarSP("actualizar_vehiculo", ref lst);
             mensaje = lst[0].Valor.ToString();
             return mensaje;

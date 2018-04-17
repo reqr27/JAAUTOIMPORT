@@ -33,8 +33,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.propietario_cb = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.color_txt = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.nota_txt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,32 +41,57 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.nombreV_lbl = new System.Windows.Forms.Label();
-            this.ubicacion_txt = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.acto_venta_chbox = new System.Windows.Forms.CheckBox();
             this.cedula_chbox = new System.Windows.Forms.CheckBox();
             this.mat_chbox = new System.Windows.Forms.CheckBox();
             this.guardar_btn = new System.Windows.Forms.Button();
             this.cancelar_btn = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.radioBtnRD_precio = new System.Windows.Forms.RadioButton();
+            this.radioBtnUSD_precio = new System.Windows.Forms.RadioButton();
+            this.tasa_lbl = new System.Windows.Forms.LinkLabel();
+            this.precio_estimado_venta_txt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.año_cb = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.suplidor_cb = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.color_cb = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ubicacion_cb = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.matricula_txt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.placa_txt = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.fuerzaMotriz_txt = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.millaje_txt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // vin_txt
             // 
-            this.vin_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vin_txt.Location = new System.Drawing.Point(114, 86);
+            this.vin_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vin_txt.Location = new System.Drawing.Point(3, 144);
             this.vin_txt.Name = "vin_txt";
             this.vin_txt.Size = new System.Drawing.Size(203, 20);
-            this.vin_txt.TabIndex = 38;
+            this.vin_txt.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 86);
+            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 127);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 15);
+            this.label6.Size = new System.Drawing.Size(54, 14);
             this.label6.TabIndex = 37;
             this.label6.Text = "CHASIS:";
             // 
@@ -76,71 +99,53 @@
             // 
             this.propietario_cb.DropDownHeight = 180;
             this.propietario_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.propietario_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.propietario_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.propietario_cb.FormattingEnabled = true;
             this.propietario_cb.IntegralHeight = false;
-            this.propietario_cb.Location = new System.Drawing.Point(114, 123);
+            this.propietario_cb.Location = new System.Drawing.Point(3, 184);
             this.propietario_cb.Name = "propietario_cb";
-            this.propietario_cb.Size = new System.Drawing.Size(203, 23);
-            this.propietario_cb.TabIndex = 46;
+            this.propietario_cb.Size = new System.Drawing.Size(203, 22);
+            this.propietario_cb.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 126);
+            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 167);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 15);
+            this.label7.Size = new System.Drawing.Size(95, 14);
             this.label7.TabIndex = 47;
             this.label7.Text = "PROPIETARIO:";
             // 
-            // color_txt
-            // 
-            this.color_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.color_txt.Location = new System.Drawing.Point(114, 156);
-            this.color_txt.Name = "color_txt";
-            this.color_txt.Size = new System.Drawing.Size(203, 20);
-            this.color_txt.TabIndex = 49;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(15, 158);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 15);
-            this.label10.TabIndex = 48;
-            this.label10.Text = "COLOR:";
-            // 
             // nota_txt
             // 
-            this.nota_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nota_txt.Location = new System.Drawing.Point(18, 264);
+            this.nota_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nota_txt.Location = new System.Drawing.Point(541, 86);
             this.nota_txt.Multiline = true;
             this.nota_txt.Name = "nota_txt";
-            this.nota_txt.Size = new System.Drawing.Size(298, 104);
-            this.nota_txt.TabIndex = 52;
+            this.nota_txt.Size = new System.Drawing.Size(330, 103);
+            this.nota_txt.TabIndex = 16;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 246);
+            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(538, 68);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(139, 15);
+            this.label9.Size = new System.Drawing.Size(141, 14);
             this.label9.TabIndex = 51;
             this.label9.Text = "DETALLES VEHICULO:";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 62);
+            this.panel1.Size = new System.Drawing.Size(883, 62);
             this.panel1.TabIndex = 53;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -148,9 +153,9 @@
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
+            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimize__1_;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(409, 3);
+            this.button3.Location = new System.Drawing.Point(813, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(26, 26);
             this.button3.TabIndex = 61;
@@ -175,7 +180,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(441, 3);
+            this.button2.Location = new System.Drawing.Point(845, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 26);
             this.button2.TabIndex = 60;
@@ -185,12 +190,12 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
             this.panel2.Controls.Add(this.nombreV_lbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 386);
+            this.panel2.Location = new System.Drawing.Point(0, 378);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(474, 46);
+            this.panel2.Size = new System.Drawing.Size(883, 46);
             this.panel2.TabIndex = 54;
             // 
             // nombreV_lbl
@@ -204,51 +209,33 @@
             this.nombreV_lbl.TabIndex = 28;
             this.nombreV_lbl.Text = "MODIFICAR VEHICULO";
             // 
-            // ubicacion_txt
-            // 
-            this.ubicacion_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ubicacion_txt.Location = new System.Drawing.Point(114, 188);
-            this.ubicacion_txt.Name = "ubicacion_txt";
-            this.ubicacion_txt.Size = new System.Drawing.Size(203, 20);
-            this.ubicacion_txt.TabIndex = 59;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(15, 191);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 15);
-            this.label12.TabIndex = 58;
-            this.label12.Text = "UBICACION:";
-            // 
             // acto_venta_chbox
             // 
             this.acto_venta_chbox.AutoSize = true;
-            this.acto_venta_chbox.Location = new System.Drawing.Point(341, 151);
+            this.acto_venta_chbox.Location = new System.Drawing.Point(3, 228);
             this.acto_venta_chbox.Name = "acto_venta_chbox";
             this.acto_venta_chbox.Size = new System.Drawing.Size(94, 17);
-            this.acto_venta_chbox.TabIndex = 57;
+            this.acto_venta_chbox.TabIndex = 14;
             this.acto_venta_chbox.Text = "Acto de Venta";
             this.acto_venta_chbox.UseVisualStyleBackColor = true;
             // 
             // cedula_chbox
             // 
             this.cedula_chbox.AutoSize = true;
-            this.cedula_chbox.Location = new System.Drawing.Point(341, 178);
+            this.cedula_chbox.Location = new System.Drawing.Point(3, 251);
             this.cedula_chbox.Name = "cedula_chbox";
             this.cedula_chbox.Size = new System.Drawing.Size(108, 17);
-            this.cedula_chbox.TabIndex = 56;
+            this.cedula_chbox.TabIndex = 15;
             this.cedula_chbox.Text = "Cédula Vendedor";
             this.cedula_chbox.UseVisualStyleBackColor = true;
             // 
             // mat_chbox
             // 
             this.mat_chbox.AutoSize = true;
-            this.mat_chbox.Location = new System.Drawing.Point(340, 122);
+            this.mat_chbox.Location = new System.Drawing.Point(3, 205);
             this.mat_chbox.Name = "mat_chbox";
             this.mat_chbox.Size = new System.Drawing.Size(109, 17);
-            this.mat_chbox.TabIndex = 55;
+            this.mat_chbox.TabIndex = 13;
             this.mat_chbox.Text = "Matrícula Original";
             this.mat_chbox.UseVisualStyleBackColor = true;
             // 
@@ -260,10 +247,10 @@
             this.guardar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardar_btn.ForeColor = System.Drawing.SystemColors.Control;
             this.guardar_btn.Image = global::ImporteVehiculos.Properties.Resources.un_par_de_flechas_cambiando_lugares;
-            this.guardar_btn.Location = new System.Drawing.Point(340, 245);
+            this.guardar_btn.Location = new System.Drawing.Point(557, 311);
             this.guardar_btn.Name = "guardar_btn";
             this.guardar_btn.Size = new System.Drawing.Size(122, 59);
-            this.guardar_btn.TabIndex = 50;
+            this.guardar_btn.TabIndex = 17;
             this.guardar_btn.Text = "Guardar";
             this.guardar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.guardar_btn.UseVisualStyleBackColor = false;
@@ -277,37 +264,296 @@
             this.cancelar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelar_btn.ForeColor = System.Drawing.SystemColors.Control;
             this.cancelar_btn.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.cancelar_btn.Location = new System.Drawing.Point(340, 309);
+            this.cancelar_btn.Location = new System.Drawing.Point(740, 311);
             this.cancelar_btn.Name = "cancelar_btn";
             this.cancelar_btn.Size = new System.Drawing.Size(122, 59);
-            this.cancelar_btn.TabIndex = 51;
+            this.cancelar_btn.TabIndex = 18;
             this.cancelar_btn.Text = "Cancelar";
             this.cancelar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.cancelar_btn.UseVisualStyleBackColor = false;
             this.cancelar_btn.Click += new System.EventHandler(this.cancelar_btn_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.radioBtnRD_precio);
+            this.panel3.Controls.Add(this.radioBtnUSD_precio);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(126, 24);
+            this.panel3.TabIndex = 122;
+            // 
+            // radioBtnRD_precio
+            // 
+            this.radioBtnRD_precio.AutoSize = true;
+            this.radioBtnRD_precio.Checked = true;
+            this.radioBtnRD_precio.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBtnRD_precio.Location = new System.Drawing.Point(3, 3);
+            this.radioBtnRD_precio.Name = "radioBtnRD_precio";
+            this.radioBtnRD_precio.Size = new System.Drawing.Size(49, 19);
+            this.radioBtnRD_precio.TabIndex = 0;
+            this.radioBtnRD_precio.TabStop = true;
+            this.radioBtnRD_precio.Tag = "4";
+            this.radioBtnRD_precio.Text = "RD$";
+            this.radioBtnRD_precio.UseVisualStyleBackColor = true;
+            this.radioBtnRD_precio.CheckedChanged += new System.EventHandler(this.radioBtnRD_precio_CheckedChanged);
+            // 
+            // radioBtnUSD_precio
+            // 
+            this.radioBtnUSD_precio.AutoSize = true;
+            this.radioBtnUSD_precio.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBtnUSD_precio.Location = new System.Drawing.Point(57, 3);
+            this.radioBtnUSD_precio.Name = "radioBtnUSD_precio";
+            this.radioBtnUSD_precio.Size = new System.Drawing.Size(57, 19);
+            this.radioBtnUSD_precio.TabIndex = 1;
+            this.radioBtnUSD_precio.Text = "USD$";
+            this.radioBtnUSD_precio.UseVisualStyleBackColor = true;
+            // 
+            // tasa_lbl
+            // 
+            this.tasa_lbl.AutoSize = true;
+            this.tasa_lbl.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tasa_lbl.Location = new System.Drawing.Point(3, 30);
+            this.tasa_lbl.Name = "tasa_lbl";
+            this.tasa_lbl.Size = new System.Drawing.Size(83, 15);
+            this.tasa_lbl.TabIndex = 121;
+            this.tasa_lbl.TabStop = true;
+            this.tasa_lbl.Text = "1.00 USD$ ->";
+            this.tasa_lbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.tasa_lbl_LinkClicked);
+            // 
+            // precio_estimado_venta_txt
+            // 
+            this.precio_estimado_venta_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precio_estimado_venta_txt.Location = new System.Drawing.Point(3, 62);
+            this.precio_estimado_venta_txt.Name = "precio_estimado_venta_txt";
+            this.precio_estimado_venta_txt.Size = new System.Drawing.Size(203, 20);
+            this.precio_estimado_venta_txt.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 14);
+            this.label2.TabIndex = 123;
+            this.label2.Text = "PRECIO ESTIMADO VENTA:";
+            // 
+            // año_cb
+            // 
+            this.año_cb.DropDownHeight = 180;
+            this.año_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.año_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.año_cb.FormattingEnabled = true;
+            this.año_cb.IntegralHeight = false;
+            this.año_cb.Location = new System.Drawing.Point(3, 102);
+            this.año_cb.Name = "año_cb";
+            this.año_cb.Size = new System.Drawing.Size(203, 22);
+            this.año_cb.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 14);
+            this.label3.TabIndex = 126;
+            this.label3.Text = "AÑO:";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.tasa_lbl);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.precio_estimado_venta_txt);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.año_cb);
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.vin_txt);
+            this.flowLayoutPanel1.Controls.Add(this.label7);
+            this.flowLayoutPanel1.Controls.Add(this.propietario_cb);
+            this.flowLayoutPanel1.Controls.Add(this.label5);
+            this.flowLayoutPanel1.Controls.Add(this.suplidor_cb);
+            this.flowLayoutPanel1.Controls.Add(this.label10);
+            this.flowLayoutPanel1.Controls.Add(this.color_cb);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(16, 68);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(240, 302);
+            this.flowLayoutPanel1.TabIndex = 128;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 209);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 14);
+            this.label5.TabIndex = 129;
+            this.label5.Text = "SUPLIDOR:";
+            // 
+            // suplidor_cb
+            // 
+            this.suplidor_cb.DropDownHeight = 180;
+            this.suplidor_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.suplidor_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suplidor_cb.FormattingEnabled = true;
+            this.suplidor_cb.IntegralHeight = false;
+            this.suplidor_cb.Location = new System.Drawing.Point(3, 226);
+            this.suplidor_cb.Name = "suplidor_cb";
+            this.suplidor_cb.Size = new System.Drawing.Size(203, 22);
+            this.suplidor_cb.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 251);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 14);
+            this.label10.TabIndex = 130;
+            this.label10.Text = "COLOR:";
+            // 
+            // color_cb
+            // 
+            this.color_cb.DropDownHeight = 180;
+            this.color_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.color_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.color_cb.FormattingEnabled = true;
+            this.color_cb.IntegralHeight = false;
+            this.color_cb.Location = new System.Drawing.Point(3, 268);
+            this.color_cb.Name = "color_cb";
+            this.color_cb.Size = new System.Drawing.Size(203, 22);
+            this.color_cb.TabIndex = 7;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label12);
+            this.flowLayoutPanel2.Controls.Add(this.ubicacion_cb);
+            this.flowLayoutPanel2.Controls.Add(this.label4);
+            this.flowLayoutPanel2.Controls.Add(this.matricula_txt);
+            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.placa_txt);
+            this.flowLayoutPanel2.Controls.Add(this.label13);
+            this.flowLayoutPanel2.Controls.Add(this.fuerzaMotriz_txt);
+            this.flowLayoutPanel2.Controls.Add(this.label14);
+            this.flowLayoutPanel2.Controls.Add(this.millaje_txt);
+            this.flowLayoutPanel2.Controls.Add(this.mat_chbox);
+            this.flowLayoutPanel2.Controls.Add(this.acto_venta_chbox);
+            this.flowLayoutPanel2.Controls.Add(this.cedula_chbox);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(263, 68);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(269, 302);
+            this.flowLayoutPanel2.TabIndex = 129;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 14);
+            this.label12.TabIndex = 131;
+            this.label12.Text = "UBICACION:";
+            // 
+            // ubicacion_cb
+            // 
+            this.ubicacion_cb.DropDownHeight = 180;
+            this.ubicacion_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ubicacion_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ubicacion_cb.FormattingEnabled = true;
+            this.ubicacion_cb.IntegralHeight = false;
+            this.ubicacion_cb.Location = new System.Drawing.Point(3, 17);
+            this.ubicacion_cb.Name = "ubicacion_cb";
+            this.ubicacion_cb.Size = new System.Drawing.Size(203, 22);
+            this.ubicacion_cb.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 14);
+            this.label4.TabIndex = 134;
+            this.label4.Text = "# MATRICULA:";
+            // 
+            // matricula_txt
+            // 
+            this.matricula_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matricula_txt.Location = new System.Drawing.Point(3, 59);
+            this.matricula_txt.Name = "matricula_txt";
+            this.matricula_txt.Size = new System.Drawing.Size(203, 20);
+            this.matricula_txt.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 14);
+            this.label8.TabIndex = 137;
+            this.label8.Text = "PLACA:";
+            // 
+            // placa_txt
+            // 
+            this.placa_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placa_txt.Location = new System.Drawing.Point(3, 99);
+            this.placa_txt.Name = "placa_txt";
+            this.placa_txt.Size = new System.Drawing.Size(203, 20);
+            this.placa_txt.TabIndex = 10;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(3, 122);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(112, 14);
+            this.label13.TabIndex = 139;
+            this.label13.Text = "FUERZA MOTRIZ:";
+            // 
+            // fuerzaMotriz_txt
+            // 
+            this.fuerzaMotriz_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fuerzaMotriz_txt.Location = new System.Drawing.Point(3, 139);
+            this.fuerzaMotriz_txt.Name = "fuerzaMotriz_txt";
+            this.fuerzaMotriz_txt.Size = new System.Drawing.Size(203, 20);
+            this.fuerzaMotriz_txt.TabIndex = 11;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 162);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(66, 14);
+            this.label14.TabIndex = 141;
+            this.label14.Text = "MILLAJE:";
+            // 
+            // millaje_txt
+            // 
+            this.millaje_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.millaje_txt.Location = new System.Drawing.Point(3, 179);
+            this.millaje_txt.Name = "millaje_txt";
+            this.millaje_txt.Size = new System.Drawing.Size(203, 20);
+            this.millaje_txt.TabIndex = 12;
+            // 
             // ModificarVehiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 432);
+            this.ClientSize = new System.Drawing.Size(883, 424);
+            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guardar_btn);
             this.Controls.Add(this.cancelar_btn);
-            this.Controls.Add(this.ubicacion_txt);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.acto_venta_chbox);
-            this.Controls.Add(this.cedula_chbox);
-            this.Controls.Add(this.mat_chbox);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.nota_txt);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.color_txt);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.propietario_cb);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.vin_txt);
-            this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -319,6 +565,12 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,8 +582,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox propietario_cb;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox color_txt;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button guardar_btn;
         private System.Windows.Forms.TextBox nota_txt;
         private System.Windows.Forms.Label label9;
@@ -339,13 +589,35 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button cancelar_btn;
-        private System.Windows.Forms.TextBox ubicacion_txt;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox acto_venta_chbox;
         private System.Windows.Forms.CheckBox cedula_chbox;
         private System.Windows.Forms.CheckBox mat_chbox;
         private System.Windows.Forms.Label nombreV_lbl;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RadioButton radioBtnRD_precio;
+        private System.Windows.Forms.RadioButton radioBtnUSD_precio;
+        private System.Windows.Forms.LinkLabel tasa_lbl;
+        private System.Windows.Forms.TextBox precio_estimado_venta_txt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox año_cb;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox color_cb;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox matricula_txt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox suplidor_cb;
+        private System.Windows.Forms.ComboBox ubicacion_cb;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox placa_txt;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox fuerzaMotriz_txt;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox millaje_txt;
     }
 }

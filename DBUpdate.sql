@@ -1,4 +1,112 @@
 --**************************************************UPDATE***********************************************************************
+--*********************************************************************************************************************************
+--*********************************************************************************************************************************
+GO
+
+ALTER procedure obtener_detalle_vehiculo_especifico
+@idVehiculo int
+as
+
+begin
+	
+	select V.id as ID,F.fabricante as FABRICANTE, M.modelo as MODELO, V.año as AÑO, P.nombre as PROPIETARIO, 
+	 V.vin as VIN, V.nota as NOTA, format(V.fecha_importe, 'dd/MM/yyyy' )as 'FECHA COMPRADO', V.terminado as TERMINADO,
+	 V.fecha_vendido as 'FECHA VENDIDO', V.precioRD as 'PRECIO ($RD)',
+	 V.precioUSD as 'PRECIO ($USD)', V.vendido as VENDIDO, V.pagado as PAGADO, V.color as COLOR, V.nota as DETALLES,
+	 V.acto_venta as 'ACTO VENTA', V.matricula as 'MATRICULA ORIGINAL', v.cedula_vendedor as 'CEDULA VENDEDOR',
+	 U.ubicacion as UBICACION, format(V.fecha_terminado, 'dd/MM/yyyy' )as 'FECHA TERMINADO', S.suplidor as SUPLIDOR,
+	 V.placa as PLACA, V.numero_matricula as 'NUMERO MATRICULA', V.millaje as MILLAJE, V.precio_estimado_rd as 'PRECIO ESTIMADO RD',
+	 V.precio_estimado_usd as 'PRECIO ESTIMADO USD', V.fuerza_motriz as 'FUERZA MOTRIZ'
+	from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
+	join Propietarios P on V.id_propietario = P.id join Ubicaciones U on U.id = V.id_ubicacion
+	join Suplidores S on S.id = V.id_suplidor
+	where V.id = @idVehiculo
+		
+end
+
+
+
+GO
+ALTER procedure obtener_vehiculos
+@tipo varchar(50), @desde date, @hasta date
+as
+/*
+format(@desde,'dd/MM/yyyy') and format(@hasta,'dd/MM/yyyy')
+*/
+
+begin
+	if @tipo = 'proceso'
+		begin
+			select V.id as ID,F.fabricante as MARCA, M.modelo as MODELO, V.año as AÑO, V.color as COLOR ,total_invertido_rd as 'COSTO ($RD)',
+			total_invertido_usd as 'COSTO($USD)' , P.nombre as PROPIETARIO, 
+			V.vin as VIN, V.nota as DETALLES, format(V.fecha_importe, 'dd/MM/yyyy' )as 'FECHA COMPRA', V.acto_venta as 'ACTO DE VENTA',
+			v.matricula as 'MATRICULA ORIGINAL', V.cedula_vendedor as 'CEDULA VENDEDOR', U.ubicacion as 'UBICACION',  S.suplidor as SUPLIDOR, 
+			V.numero_matricula as '#Matrícula', V.placa as PLACA, V.millaje as MILLAJE, 
+			v.fuerza_motriz as 'FUERZA MOTRIZ'
+			from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
+			join Propietarios P on V.id_propietario = P.id join Ubicaciones U on U.id = V.id_ubicacion 
+			join Suplidores S on S.id = V.id_suplidor
+			where format(V.fecha_importe,'yyyy-MM-dd')  between  format(@desde,'yyyy-MM-dd') and format(@hasta,'yyyy-MM-dd')
+			and V.terminado = 0 and V.vendido = 0 and V.estado = 1
+			ORDER By ID DESC
+		end
+	else if @tipo = 'terminado'
+		begin
+			select V.id as ID,F.fabricante as MARCA, M.modelo as MODELO, V.año as AÑO, V.color as COLOR ,total_invertido_rd as 'COSTO($RD)',
+			total_invertido_usd as 'COSTO($USD)' , P.nombre as PROPIETARIO, 
+			V.vin as VIN, V.nota as DETALLES, format(V.fecha_importe, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
+			format(V.fecha_terminado, 'dd/MM/yyyy' )as 'FECHA INVENTARIO' , V.acto_venta as 'ACTO DE VENTA',
+			v.matricula as 'MATRICULA ORIGINAL', V.cedula_vendedor as 'CEDULA VENDEDOR', U.ubicacion as 'UBICACION',  S.suplidor as SUPLIDOR, 
+			V.numero_matricula as '#Matrícula', V.placa as PLACA, V.millaje as MILLAJE, 
+			v.fuerza_motriz as 'FUERZA MOTRIZ'  
+			from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
+			join Propietarios P on V.id_propietario = P.id join Ubicaciones U on U.id = V.id_ubicacion
+			join Suplidores S on S.id = V.id_suplidor
+			where format(V.fecha_importe,'yyyy-MM-dd')  between  format(@desde,'yyyy-MM-dd') and format(@hasta,'yyyy-MM-dd')
+			and V.terminado = 1 and vendido = 0 and V.estado = 1
+			ORDER By ID DESC
+		end
+	end
+
+
+GO
+ALTER procedure registrar_vehiculo
+@idFabricante int, @idModelo int, @año int, @precioUsd float,@vin varchar(50), @idPropietario int, @fecha date,
+@nota varchar(250),@precioRd float, @mensaje int output, @color varchar(50),
+@matriculaOriginal bit, @cedulaVendedor bit, @actoVenta bit, @idUbicacion int, @rdPrecioVentaEstimado float,
+@usdPrecioVentaEstimado float, @placa varchar(30), @numeroMatricula varchar(100), @millaje varchar(100),
+@fuerzaMotriz varchar(30), @idSuplidor int
+
+as
+set @mensaje = 0
+
+begin
+
+	insert into Vehiculos(fabricante_id, modelo_id, año, precioUSD, precioRD, id_propietario, terminado, 
+	vendido, pagado, fecha_importe, vin, nota, estado,total_invertido_rd, total_invertido_usd, color, matricula, acto_venta, cedula_vendedor, id_ubicacion,
+	precio_estimado_rd, precio_estimado_usd, placa, numero_matricula, millaje, fuerza_motriz, id_suplidor)
+	VALUES(@idFabricante, @idModelo, @año, @precioUsd, @precioRd, @idPropietario, 0,0,0,@fecha, @vin, @nota, 1, @precioRd,
+	@precioUsd, @color, @matriculaOriginal, @actoVenta, @cedulaVendedor, @idUbicacion, @rdPrecioVentaEstimado, @usdPrecioVentaEstimado,
+	@placa, @numeroMatricula, @millaje, @fuerzaMotriz, @idSuplidor)
+	set @mensaje = 1
+end
+Go
+
+if Not Exists(select * from sys.columns where Name = N'id_ubicacion'  and Object_ID = Object_ID(N'Vehiculos'))
+	begin
+		ALTER TABLE Vehiculos DROP COLUMN ubicacion
+		
+		alter Table Vehiculos 
+		Add id_suplidor int,
+		id_ubicacion int ,
+		precio_estimado_rd decimal(18,2),
+		precio_estimado_usd decimal(18,2),
+		placa varchar(30),
+		numero_matricula varchar(100),
+		millaje varchar(100),
+		fuerza_motriz varchar(30)	
+	end
+
 GO
 if Not Exists(select * from sys.columns where Name = N'agregar_paises'  and Object_ID = Object_ID(N'Usuarios'))
 	begin
@@ -187,6 +295,8 @@ end
 
 
 --***********************************************NEW*********************************************************************
+--*************************************************************************************************************************
+--*************************************************************************************************************************
 GO
 Drop table ImagenesClientes 
 GO

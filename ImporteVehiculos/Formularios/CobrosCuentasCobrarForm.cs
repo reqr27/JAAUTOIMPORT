@@ -176,7 +176,8 @@ namespace ImporteVehiculos.Formularios
 
         public void AgregarPagos()
         {
-
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
             string[] valores = { tipoPago_cb.Text };
             string[] numeros = { pago_txt.Text };
             string msj = GF.ValidarCampoString(valores);
@@ -200,12 +201,12 @@ namespace ImporteVehiculos.Formularios
                     if (rdDinero_radiobtn.Checked)
                     {
                         P.PrecioRD = Convert.ToDouble(pago_txt.Text);
-                        P.PrecioUSD = Convert.ToDouble(pago_txt.Text) / Convert.ToDouble(Properties.Settings.Default.tasaDolar);
+                        P.PrecioUSD = Convert.ToDouble(pago_txt.Text) / Convert.ToDouble(dt1.Rows[0]["TASA"]);
                     }
                     else
                     {
                         P.PrecioUSD = Convert.ToDouble(pago_txt.Text);
-                        P.PrecioRD = Convert.ToDouble(pago_txt.Text) * Convert.ToDouble(Properties.Settings.Default.tasaDolar);
+                        P.PrecioRD = Convert.ToDouble(pago_txt.Text) * Convert.ToDouble(dt1.Rows[0]["TASA"]);
                     }
                     string respuesta = P.RegistrarPagoCreditoCuentaCobrar();
                     if (respuesta == "1")
