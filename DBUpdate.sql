@@ -1,8 +1,184 @@
 --**************************************************UPDATE***********************************************************************
 --*********************************************************************************************************************************
 --*********************************************************************************************************************************
+ALTER procedure reporte_factura_obtener_monto_pendiente
+@idVehiculo int
+as
+
+begin
+	
+	begin
+		
+		select ISNULL(sum(monto_rd), 0) as PENDIENTERD, ISNULL(sum(monto_rd), 0) as PENDIENTEUSD 
+		from FormaVentaVehiculo
+		where id_vehiculo = @idVehiculo and id_tipo_pago = 3
+				
+					
+	
+	end
+	
+end
+Go
+ALTER procedure obtener_facturas
+@desde date, @hasta date
+as
+
+begin
+	select V.id, Fac.id as '# Factura', format(V.fecha_vendido,'dd/MM/yyyy') as FECHAVENDIDO, 
+	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+	(V.precioVentaRD + PS.precioRD + PT.precioRD) as PRECIORD, sum(pa.monto_rd) as PAGADORD,
+	(V.precioVentaUSD + PS.precioUSD + PT.precioUSD) as PRECIOUSD, sum(pa.monto_usd) as PAGADOUSD, C.cliente as CLIENTE
+	from facturas Fac join Vehiculos V on Fac.idVehiculo = V.id join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
+	join Propietarios P on V.id_propietario = P.id join FormaVentaVehiculo Pa on V.id=pa.id_vehiculo join Clientes C on V.id_cliente = C.id
+	join PreciosSeguroVehiculo PS on PS.id = Fac.idVehiculo join PreciosTraspasoVehiculo PT on PT.id_vehiculo = Fac.idVehiculo
+	where V.vendido = 1 and format(V.fecha_importe,'yyyy-MM-dd') between
+	format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+	GROUP BY Fac.id ,V.id,V.precioVentaRD, PT.precioRD, PT.precioUSD, PS.precioRD, PS.precioUSD, V.precioVentaUSD ,F.fabricante, M.modelo, V.año, V.total_invertido_usd,V.total_invertido_rd ,V.fecha_vendido, C.cliente, V.color
+	
+end
+
+
+Go
+ALTER procedure reporte_individual_vehiculo_pagos
+@idVehiculo int
+as
+-- PAGOS VENTA
+begin
+	
+	begin
+		
+		select P.monto_usd as PAGO, format(P.fecha,'dd/MM/yyyy') as FECHAPAGO, P.monto_rd as PAGORD,
+		P.nota as DETALLEPAGO, TP.formaPago as TIPOPAGO
+		from Vehiculos V join FormaVentaVehiculo P on V.id = P.id_vehiculo left join TiposPago TP on TP.id = P.id_tipo_pago
+		where V.id = @idVehiculo and P.id_transaccion = 1	
+	end
+	
+end
 
 GO
+if Not Exists(select * from sys.columns where Name = N'id_transaccion'  and Object_ID = Object_ID(N'DetallesEfectivoGeneral'))
+	begin
+		alter Table DetallesEfectivoGeneral
+		add id_transaccion int
+	end
+
+
+GO
+ALTER procedure vender_vehiculo
+@idVehiculo int, @fecha date ,@mensaje int output, 
+@idCliente int, @precioVentaRd float, @precioVentaUsd float,
+@precioTraspasoRd float, @precioTraspasoUsd float, @precioSeguroRd float, @precioSeguroUsd float,
+@idSeguro int, @duracion int
+as
+set @mensaje = 0
+
+
+
+begin
+		if (select vendido from Vehiculos where id = @idVehiculo) = 0
+		 begin
+			update Vehiculos set vendido = 1, fecha_vendido = @fecha, id_cliente = @idCliente,
+			precioVentaRD = @precioVentaRd, precioVentaUSD = @precioVentaUsd
+			where id = @idVehiculo
+
+			insert into SeguroVehiculo (id_vehiculo, id_seguro, duracion_dias)
+			Values (@idVehiculo, @idSeguro, @duracion)
+
+			insert into PreciosTraspasoVehiculo(id_vehiculo,precioRD, precioUSD )
+			Values (@idVehiculo, @precioTraspasoRd, @precioTraspasoUsd)
+
+			insert into PreciosSeguroVehiculo(id_vehiculo,precioRD, precioUSD )
+			Values (@idVehiculo, @precioSeguroRd, @precioSeguroUsd)
+			
+			 insert into CuentasPagar(id_factura, id_vendedor, id_transaccion, monto_rd, monto_usd,
+			 balance_rd, balance_usd, fecha, id_vehiculo)
+			 VALUES(0, @idCliente, 4, @precioSeguroRd, @precioSeguroUsd, @precioSeguroRd, @precioSeguroUsd,
+			 @fecha, @idVehiculo)
+			set @mensaje = 1	
+
+		 end
+				
+		--if @idTipoPago = 1
+		--	begin
+		--		 insert into DetallesEfectivoGeneral(idVehiculo, tipoCuenta, montoRD, montoUSD, fecha, documento, numeroDocumento)
+		--		 values (@idVehiculo, 2, @pagoRD, @pagoUSD, @fecha, 'Factura', (select id from facturas where id = (select max(id) from facturas)))
+		--	end
+				
+end
+go
+
+
+ALTER procedure insertar_factura
+@idVehiculo int, @mensaje int output, @idCliente int,
+@fecha date
+as
+set @mensaje = 0
+begin
+	insert into facturas(idVehiculo, id_cliente, fecha) VALUES (@idVehiculo, @idCliente, @fecha)
+	set @mensaje = 1
+end
+
+GO
+
+ALTER Procedure borrar_venta_y_detalles_pagos
+@idVehiculo int
+as
+--declare @idVehiculo int = 1;
+begin
+
+	update Vehiculos set vendido = 0, fecha_vendido = null, id_cliente = null,
+			precioVentaRD = null, precioVentaUSD = null
+			where id = @idVehiculo
+	Delete from CuentasPagar where id_vehiculo = @idVehiculo
+	Delete from CuentasCobrar where id_vehiculo = @idVehiculo
+	delete from facturas where idVehiculo = @idVehiculo
+	Delete from FormaVentaVehiculo where id_vehiculo = @idVehiculo
+	Delete from DetallesEfectivoGeneral where idVehiculo = @idVehiculo
+	Delete from SeguroVehiculo where id_vehiculo = @idVehiculo
+	Delete from PreciosTraspasoVehiculo where id_vehiculo = @idVehiculo
+	Delete from PreciosSeguroVehiculo where id_vehiculo = @idVehiculo
+	 
+
+end
+Go
+
+ALTER Procedure borrar_compra_y_detalles_pagos
+as
+
+begin
+
+	declare @idVehiculo int = (Select MAX(id) from Vehiculos)
+	Delete from Vehiculos where id = @idVehiculo
+	Delete from CuentasPagar where id_vehiculo = @idVehiculo
+	Delete from FormaCompraVehiculo where id_vehiculo = @idVehiculo
+	
+end
+
+GO
+if Not Exists(select * from sys.columns where Name = N'id_cliente'  and Object_ID = Object_ID(N'facturas'))
+	begin
+		alter Table facturas
+		add id_cliente int,
+		fecha date	
+	end
+
+GO
+ALTER procedure [dbo].[obtener_costo_chasis_vehiculo]
+@idVehiculo int
+as
+
+begin
+	
+	select V.vin as VIN, 
+	(V.total_invertido_rd) as COSTORD,
+	(V.total_invertido_usd) as COSTOUSD,
+	V.precio_estimado_rd as 'PRECIO VENTA ESTIMADO RD',
+	V.precio_estimado_usd as 'PRECIO VENTA ESTIMADO USD'
+	from  Vehiculos V where V.id = @idVehiculo
+	
+end
+GO
+
 ALTER procedure actualizar_vehiculo
 @idVehiculo int,@vin varchar(50), @idPropietario int,
 @nota varchar(250), @mensaje int output, @color varchar(50),
@@ -24,7 +200,9 @@ begin
 	placa = @placa, numero_matricula = @numeroMatricula,
 	millaje = @millaje, fuerza_motriz = @fuerzaMotriz, id_suplidor = @idSuplidor, año = @año
 	where id = @idVehiculo
-	if not exists (select id from HistorialUbicaciones where id_vehiculo = @idVehiculo and id_ubicacion = @idUbicacion)
+	
+	declare @ultimaUbicacion int= (SELECT TOP 1 id_ubicacion FROM HistorialUbicaciones where id_vehiculo = @idVehiculo ORDER BY ID DESC)
+	if @ultimaUbicacion != @idUbicacion
 		begin
 			insert into HistorialUbicaciones(id_vehiculo,id_ubicacion, fecha) 
 			Values (@idVehiculo, @idUbicacion, @fecha)
@@ -119,6 +297,9 @@ begin
 	VALUES(@idFabricante, @idModelo, @año, @precioUsd, @precioRd, @idPropietario, 0,0,0,@fecha, @vin, @nota, 1, @precioRd,
 	@precioUsd, @color, @matriculaOriginal, @actoVenta, @cedulaVendedor, @idUbicacion, @rdPrecioVentaEstimado, @usdPrecioVentaEstimado,
 	@placa, @numeroMatricula, @millaje, @fuerzaMotriz, @idSuplidor)
+	
+	insert into HistorialUbicaciones(id_vehiculo, id_ubicacion, fecha)
+	values ((SELECT MAX(id) from Vehiculos), @idUbicacion, @fecha)
 	set @mensaje = 1
 end
 Go
@@ -779,3 +960,407 @@ if not exists (select * from sysobjects where name='HistorialUbicaciones' and xt
 		);
 	END
 Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_historial_ubicaciones' AND type = 'P')
+	DROP PROCEDURE obtener_historial_ubicaciones
+	GO
+	create procedure obtener_historial_ubicaciones
+	@idVehiculo int
+	as
+	
+	begin
+		select format(HU.fecha, 'dd/MM/yyyy' ) as  FECHA ,U.ubicacion as UBICACION
+		from HistorialUbicaciones HU join Ubicaciones U on U.id = HU.id_ubicacion
+		where HU.id_vehiculo = @idVehiculo
+		 
+	end
+Go
+
+Drop table TipoTransaccion
+go
+if not exists (select * from sysobjects where name='TipoTransaccion' and xtype='U')
+	BEGIN
+		CREATE TABLE TipoTransaccion (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		transaccion varchar(100)
+		);
+		insert into TipoTransaccion(transaccion)
+		Values ('VENTA'),('COMPRA'),('TRASPASO'), ('SEGURO'), ('PIEZAS'),('TALLER MECANICO' )
+	END
+Go
+
+Drop table FormaVentaVehiculo
+go
+if not exists (select * from sysobjects where name='FormaVentaVehiculo' and xtype='U')
+	BEGIN
+		CREATE TABLE FormaVentaVehiculo (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		id_transaccion int,
+		id_tipo_pago int,
+		id_factura int,
+		monto_rd decimal (18,2),
+		monto_usd decimal (18,2),
+		nota varchar(100),
+		fecha date
+		);
+		
+	END
+Go
+
+Drop table FormaCompraVehiculo
+go
+if not exists (select * from sysobjects where name='FormaCompraVehiculo' and xtype='U')
+	BEGIN
+		CREATE TABLE FormaCompraVehiculo (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		id_transaccion int,
+		id_tipo_pago int,
+		id_factura int,
+		monto_rd decimal (18,2),
+		monto_usd decimal (18,2),
+		nota varchar(100),
+		fecha date
+		);
+		
+	END
+Go
+
+
+Drop table CuentasCobrar
+go
+if not exists (select * from sysobjects where name='CuentasCobrar' and xtype='U')
+	BEGIN
+		CREATE TABLE CuentasCobrar (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		id_factura int,
+		id_cliente int,
+		id_transaccion int,
+		monto_rd decimal (18,2),
+		monto_usd decimal (18,2),
+		balance_rd decimal (18,2),
+		balance_usd decimal (18,2),
+		fecha date
+		);
+		
+	END
+
+Go
+
+Drop table CuentasPagar
+go
+if not exists (select * from sysobjects where name='CuentasPagar' and xtype='U')
+	BEGIN
+		CREATE TABLE CuentasPagar (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		id_factura int,
+		id_vendedor int,
+		id_transaccion int,
+		monto_rd decimal (18,2),
+		monto_usd decimal (18,2),
+		balance_rd decimal (18,2),
+		balance_usd decimal (18,2),
+		fecha date
+		);
+		
+	END
+
+Go
+
+Drop table PagosCuentasCobrar
+go
+if not exists (select * from sysobjects where name='PagosCuentasCobrar' and xtype='U')
+	BEGIN
+		CREATE TABLE PagosCuentasCobrar (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_cuentaCobrar int,
+		id_tipoPago int,
+		monto_rd decimal (18,2),
+		monto_usd decimal (18,2),
+		fecha date
+		);
+		
+	END
+Go
+
+Drop table PagosCuentasPagar
+go
+if not exists (select * from sysobjects where name='PagosCuentasPagar' and xtype='U')
+	BEGIN
+		CREATE TABLE PagosCuentasPagar (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_cuentaPagar int,
+		id_tipoPago int,
+		monto_rd decimal (18,2),
+		monto_usd decimal (18,2),
+		fecha date
+		);
+		
+	END
+Go
+
+Drop table Seguros
+go
+if not exists (select * from sysobjects where name='Seguros' and xtype='U')
+	BEGIN
+		CREATE TABLE Seguros (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		nombre varchar(100),
+		telefono varchar(30),
+		estado bit
+		);
+		
+	END
+Go
+Drop Table ImagenesTraspasos
+if not exists (select * from sysobjects where name='ImagenesTraspasos' and xtype='U')
+	BEGIN
+		CREATE TABLE ImagenesTraspasos (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_factura int,
+		id_vehiculo int,
+		img varbinary(MAX)
+		);
+	END
+
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertar_imagenes_traspaso' AND type = 'P')
+DROP PROCEDURE insertar_imagenes_traspaso
+GO
+create procedure insertar_imagenes_traspaso
+@img varbinary(max), @mensaje int output
+as
+set @mensaje = 0;
+declare @idfactura int = (select MAX(id) from facturas)
+declare @idVehiculo int = (select idVehiculo from facturas where id = @idfactura)
+begin
+	insert into ImagenesTraspasos(id_vehiculo,id_factura,img)
+	Values (@idVehiculo,@idfactura, @img)
+	set @mensaje = 1;
+	
+end
+GO
+
+Drop Table SeguroVehiculo
+if not exists (select * from sysobjects where name='SeguroVehiculo' and xtype='U')
+	BEGIN
+		CREATE TABLE SeguroVehiculo (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		id_seguro int,
+		duracion_dias int
+		);
+	END
+
+Go
+
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_tipos_pagos_sin_vehiculo' AND type = 'P')
+	DROP PROCEDURE obtener_tipos_pagos_sin_vehiculo
+	GO
+	create procedure obtener_tipos_pagos_sin_vehiculo
+	
+	as
+	
+	begin
+		select id as ID, formaPago as TIPOPAGO from TiposPago
+		where id != 2
+		 
+	end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertarFormaTransaccionesFacturacion' AND type = 'P')
+	DROP PROCEDURE insertarFormaTransaccionesFacturacion
+	GO
+	create procedure insertarFormaTransaccionesFacturacion
+	@idVehiculo int, @idTransaccion int, @idTipoPago int, @montoRD float, @montoUSD float,
+	@nota varchar(100), @fecha date, @mensaje int output
+	as
+	declare @idFactura int = (select MAX(id) from facturas)
+	set @mensaje = 0;
+	begin
+		insert into FormaVentaVehiculo (id_vehiculo, id_transaccion, id_tipo_pago, id_factura, monto_rd, monto_usd, nota, fecha)
+		VALUES (@idVehiculo, @idTransaccion, @idTipoPago, @idFactura, @montoRD, @montoUSD, @nota, @fecha)
+		
+		
+		declare @idCliente int= (Select id_cliente from facturas where id = @idFactura)
+		
+		if @idTipoPago = 3
+			begin
+				 insert into CuentasCobrar (id_factura, id_cliente, id_transaccion, monto_rd, monto_usd,
+				  balance_rd, balance_usd, fecha, id_vehiculo)
+				  VALUES(@idFactura, @idCliente, @idTransaccion, @montoRD, @montoUSD, @montoRD, @montoUSD,
+				  @fecha, @idVehiculo)
+			end
+
+		if @idTipoPago = 1
+			begin
+				 insert into DetallesEfectivoGeneral(idVehiculo, tipoCuenta, montoRD, montoUSD, fecha, documento, numeroDocumento,id_transaccion)
+				 values (@idVehiculo, 2, @montoRD, @montoRD, @fecha, 'Factura', @idFactura, @idTransaccion)
+			end
+		
+		set @mensaje = 1;
+		 
+	end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertarFormaTransaccionesCompras' AND type = 'P')
+	DROP PROCEDURE insertarFormaTransaccionesCompras
+	GO
+	create procedure insertarFormaTransaccionesCompras
+	@idVehiculo int, @idTransaccion int, @idTipoPago int, @montoRD float, @montoUSD float,
+	@nota varchar(100), @fecha date, @mensaje int output
+	as
+	declare @idFactura int = 0
+	set @mensaje = 0;
+	set @idVehiculo = (select MAX(id) from Vehiculos)
+	begin
+		insert into FormaCompraVehiculo (id_vehiculo, id_transaccion, id_tipo_pago, id_factura, monto_rd, monto_usd, nota, fecha)
+		VALUES (@idVehiculo, @idTransaccion, @idTipoPago, @idFactura, @montoRD, @montoUSD, @nota, @fecha)
+		
+		
+		declare @idSuplidor int = (select id_suplidor from Vehiculos where id = (select MAX(id) from Vehiculos))
+		
+		if @idTipoPago = 3
+			begin
+				 insert into CuentasPagar (id_factura, id_vendedor, id_transaccion, monto_rd, monto_usd,
+				  balance_rd, balance_usd, fecha, id_vehiculo)
+				  VALUES(@idFactura, @idSuplidor, @idTransaccion, @montoRD, @montoUSD, @montoRD, @montoUSD,
+				  @fecha, @idVehiculo)
+			end
+
+		--if @idTipoPago = 1
+		--	begin
+		--		 insert into DetallesEfectivoGeneral(idVehiculo, tipoCuenta, montoRD, montoUSD, fecha, documento, numeroDocumento,id_transaccion)
+		--		 values (@idVehiculo, 2, @montoRD, @montoRD, @fecha, 'Factura', @idFactura, @idTransaccion)
+		--	end
+		
+		set @mensaje = 1;
+		 
+	end
+Go
+
+Drop Table PreciosSeguroVehiculo
+if not exists (select * from sysobjects where name='PreciosSeguroVehiculo' and xtype='U')
+	BEGIN
+		CREATE TABLE PreciosSeguroVehiculo (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		precioRD decimal(18,2),
+		precioUSD decimal(18,2)
+		);
+	END
+
+Go
+
+Drop Table PreciosTraspasoVehiculo
+if not exists (select * from sysobjects where name='PreciosTraspasoVehiculo' and xtype='U')
+	BEGIN
+		CREATE TABLE PreciosTraspasoVehiculo (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		precioRD decimal(18,2),
+		precioUSD decimal(18,2)
+		);
+	END
+
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_seguros_activos' AND type = 'P')
+	DROP PROCEDURE obtener_seguros_activos
+	GO
+	create procedure obtener_seguros_activos
+	
+	as
+	
+	begin
+		select id as ID, nombre as SEGURO from Seguros where estado = 1
+		 
+	end
+Go
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_detalle_traspaso_vehiculo' AND type = 'P')
+	DROP PROCEDURE reporte_detalle_traspaso_vehiculo
+	GO
+create procedure reporte_detalle_traspaso_vehiculo
+@idVehiculo int
+as
+-- PAGOS VENTA
+begin
+	
+	begin
+		
+		select P.monto_usd as PAGO, format(P.fecha,'dd/MM/yyyy') as FECHAPAGO, P.monto_rd as PAGORD,
+		P.nota as DETALLEPAGO, TP.formaPago as TIPOPAGO
+		from Vehiculos V join FormaVentaVehiculo P on V.id = P.id_vehiculo left join TiposPago TP on TP.id = P.id_tipo_pago
+		where V.id = @idVehiculo and P.id_transaccion = 3
+	end
+	
+end
+go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_factura_traspaso_precio' AND type = 'P')
+	DROP PROCEDURE reporte_factura_traspaso_precio
+	GO
+create procedure reporte_factura_traspaso_precio
+@idVehiculo int
+as
+
+begin
+	
+	begin
+		
+		select precioRD as PRECIORD, precioUSD as PRECIOUSD
+		from PreciosTraspasoVehiculo 
+		where id_vehiculo = @idVehiculo
+		
+	end
+	
+end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_factura_seguro_precio' AND type = 'P')
+	DROP PROCEDURE reporte_factura_seguro_precio
+	GO
+create procedure reporte_factura_seguro_precio
+@idVehiculo int
+as
+
+begin
+	
+	begin
+		
+		select S.nombre as SEGURO, PS.precioRD as PRECIORD, PS.precioUSD as PRECIOUSD
+		from PreciosSeguroVehiculo PS join SeguroVehiculo SV on SV.id_vehiculo = PS.id_vehiculo
+		join Seguros S on S.id = SV.id_seguro
+		where PS.id_vehiculo =@idVehiculo
+		Group by S.nombre, PS.precioRD , PS.precioUSD
+		
+	end
+	
+end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_detalle_seguro_vehiculo' AND type = 'P')
+	DROP PROCEDURE reporte_detalle_seguro_vehiculo
+	GO
+create procedure reporte_detalle_seguro_vehiculo
+@idVehiculo int
+as
+-- PAGOS VENTA
+begin
+	
+	begin
+		
+		select P.monto_usd as PAGO, format(P.fecha,'dd/MM/yyyy') as FECHAPAGO, P.monto_rd as PAGORD,
+		P.nota as DETALLEPAGO, TP.formaPago as TIPOPAGO
+		from Vehiculos V join FormaVentaVehiculo P on V.id = P.id_vehiculo left join TiposPago TP on TP.id = P.id_tipo_pago
+		where V.id = @idVehiculo and P.id_transaccion = 4
+	end
+	
+end
+
+

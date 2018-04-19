@@ -51,11 +51,21 @@ namespace ImporteVehiculos.Classes
         string MfuerzaMotriz;
         double MrdPrecioVentaEstimado;
         double MusdPrecioVentaEstimado;
+
+        double MprecioSeguroRD;
+        double MprecioSeguroUSD;
+        double MprecioTraspasoRD;
+        double MprecioTraspasoUSD;
+        
         bool MestadoColor;
         int MidColor;
         int MidPropietario;
         int MidVehiculo;
         int MidUbicacion;
+        int MidCliente;
+        int MidTransaccion;
+        int MidSeguro;
+        int Mduracion;
         DateTime Mdesde;
         DateTime Mfecha;
         DateTime Mhasta;
@@ -68,6 +78,8 @@ namespace ImporteVehiculos.Classes
         string Mubicacion;
         string MtipoPago;
         byte[] Mimg;
+        double MmontoRD;
+        double MmontoUSD;
 
         bool McedulaVendedor;
         bool MactoVenta;
@@ -137,6 +149,30 @@ namespace ImporteVehiculos.Classes
         {
             get { return MidCiudad; }
             set { MidCiudad = value; }
+        }
+
+        public int IdSeguro
+        {
+            get { return MidSeguro; }
+            set { MidSeguro = value; }
+        }
+
+        public int Duracion
+        {
+            get { return Mduracion; }
+            set { Mduracion = value; }
+        }
+
+        public int IdCliente
+        {
+            get { return MidCliente; }
+            set { MidCliente = value; }
+        }
+
+        public int IdTransaccion
+        {
+            get { return MidTransaccion; }
+            set { MidTransaccion = value; }
         }
 
         public int IdUbicacion
@@ -235,6 +271,42 @@ namespace ImporteVehiculos.Classes
         {
             get { return MusdPrecioVentaEstimado; }
             set { MusdPrecioVentaEstimado = value; }
+        }
+
+        public double PrecioTraspasoRD
+        {
+            get { return MprecioTraspasoRD; }
+            set {MprecioTraspasoRD = value; }
+        }
+
+        public double PrecioTraspasoUSD
+        {
+            get { return MprecioTraspasoUSD; }
+            set { MprecioTraspasoUSD = value; }
+        }
+
+        public double PrecioSeguroUSD
+        {
+            get { return MprecioSeguroUSD; }
+            set { MprecioSeguroUSD = value; }
+        }
+
+        public double PrecioSeguroRD
+        {
+            get { return MprecioSeguroRD; }
+            set { MprecioSeguroRD = value; }
+        }
+
+        public double MontoUSD
+        {
+            get { return MmontoUSD; }
+            set { MmontoUSD = value; }
+        }
+
+        public double MontoRD
+        {
+            get { return MmontoRD; }
+            set { MmontoRD = value; }
         }
 
         public int IdSuplidor
@@ -861,13 +933,15 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
             lst.Add(new clsParametros("@idCliente", Mid));
-            lst.Add(new clsParametros("@pagoUsd", MprecioUSD));
-            lst.Add(new clsParametros("@pagoRd", MprecioRD));
+            lst.Add(new clsParametros("@idSeguro", MidSeguro));
+            lst.Add(new clsParametros("@duracion", Mduracion));
             lst.Add(new clsParametros("@fecha", Mfecha));
-            lst.Add(new clsParametros("@detalles",Mdescripcion));
-            lst.Add(new clsParametros("@idtipoPago", MidTipoPago));
             lst.Add(new clsParametros("@precioVentaRd", MprecioVentaRD));
             lst.Add(new clsParametros("@precioVentaUsd", MprecioVentaUSD));
+            lst.Add(new clsParametros("@precioTraspasoRd", MprecioTraspasoRD));
+            lst.Add(new clsParametros("@precioTraspasoUsd", MprecioTraspasoUSD));
+            lst.Add(new clsParametros("@precioSeguroRd", MprecioSeguroRD));
+            lst.Add(new clsParametros("@precioSeguroUsd",MprecioSeguroUSD));
             C.EjecutarSP("vender_vehiculo", ref lst);
 
             mensaje = lst[0].Valor.ToString();
@@ -919,6 +993,9 @@ namespace ImporteVehiculos.Classes
 
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idCliente", MidCliente));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+
             C.EjecutarSP("insertar_factura", ref lst);
 
             mensaje = lst[0].Valor.ToString();
@@ -1688,6 +1765,14 @@ namespace ImporteVehiculos.Classes
             return dt = C.Listado("obtener_tipos_pagos_sin_credito", lst);
         }
 
+        public DataTable ObtenerTiposPagosSinVehiculo()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+
+            return dt = C.Listado("obtener_tipos_pagos_sin_vehiculo", lst);
+        }
+
         public DataTable ObtenerCostoChasisVehiculo()
         {
             DataTable dt = new DataTable();
@@ -2088,6 +2173,67 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
             return dt = C.Listado("obtener_historial_ubicaciones", lst);
         }
+
+        public string InsertarDetalleTransaccionFacturacion()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+            lst.Add(new clsParametros("@idTipoPago", MidTipoPago));
+            lst.Add(new clsParametros("@montoRD",MmontoRD));
+            lst.Add(new clsParametros("@montoUSD", MmontoUSD));
+            lst.Add(new clsParametros("@nota", Mnota));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+
+            C.EjecutarSP("insertarFormaTransaccionesFacturacion", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string InsertarDetalleTransaccionCompras()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+            lst.Add(new clsParametros("@idTipoPago", MidTipoPago));
+            lst.Add(new clsParametros("@montoRD", MmontoRD));
+            lst.Add(new clsParametros("@montoUSD", MmontoUSD));
+            lst.Add(new clsParametros("@nota", Mnota));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+
+            C.EjecutarSP("insertarFormaTransaccionesCompras", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+
+        public DataTable ObtenerSegurosActivos()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            
+            return dt = C.Listado("obtener_seguros_activos", lst);
+        }
+
+        public string InsertarImagenTraspaso()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@img", Mimg));
+
+            C.EjecutarSP("insertar_imagenes_trasapso", ref lst);
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
 
     }
 }

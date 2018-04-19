@@ -105,6 +105,35 @@ namespace ImporteVehiculos.Formularios
             rd3.Name = "DataSet3";
             rd3.Value = ds3.Tables["reporte_factura_obtener_monto_pendiente"];
 
+            CarsImportDataSet ds2 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_detalle_traspaso_vehiculoTableAdapter rds2 = new CarsImportDataSetTableAdapters.reporte_detalle_traspaso_vehiculoTableAdapter();
+            rds2.Fill(ds2.reporte_detalle_traspaso_vehiculo, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd2 = new ReportDataSource();
+            rd2.Name = "DataSet4";
+            rd2.Value = ds2.Tables["reporte_detalle_traspaso_vehiculo"];
+
+            CarsImportDataSet ds5 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_factura_traspaso_precioTableAdapter rds5 = new CarsImportDataSetTableAdapters.reporte_factura_traspaso_precioTableAdapter();
+            rds5.Fill(ds5.reporte_factura_traspaso_precio, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd5 = new ReportDataSource();
+            rd5.Name = "DataSet5";
+            rd5.Value = ds5.Tables["reporte_factura_traspaso_precio"];
+
+            CarsImportDataSet ds6 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_factura_seguro_precioTableAdapter rds6 = new CarsImportDataSetTableAdapters.reporte_factura_seguro_precioTableAdapter();
+            rds6.Fill(ds6.reporte_factura_seguro_precio, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd6 = new ReportDataSource();
+            rd6.Name = "DataSet6";
+            rd6.Value = ds6.Tables["reporte_factura_seguro_precio"];
+
+
+            CarsImportDataSet ds7 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_detalle_seguro_vehiculoTableAdapter rds7 = new CarsImportDataSetTableAdapters.reporte_detalle_seguro_vehiculoTableAdapter();
+            rds7.Fill(ds7.reporte_detalle_seguro_vehiculo, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd7 = new ReportDataSource();
+            rd7.Name = "DataSet7";
+            rd7.Value = ds7.Tables["reporte_detalle_seguro_vehiculo"];
+
             parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
             parametros[1] = new ReportParameter("rptNombre", Program.Greporte);
 
@@ -114,6 +143,10 @@ namespace ImporteVehiculos.Formularios
             lc.DataSources.Add(rd);
             lc.DataSources.Add(rd4);
             lc.DataSources.Add(rd3);
+            lc.DataSources.Add(rd2);
+            lc.DataSources.Add(rd5);
+            lc.DataSources.Add(rd6);
+            lc.DataSources.Add(rd7);
             this.reportViewer1.RefreshReport();
 
 

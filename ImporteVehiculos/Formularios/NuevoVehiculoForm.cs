@@ -239,6 +239,7 @@ namespace ImporteVehiculos.Formularios
                 
                 else
                 {
+                    
                     MessageBox.Show("Compra no pudo ser registrada!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
@@ -278,6 +279,7 @@ namespace ImporteVehiculos.Formularios
 
         public void ResetFields()
         {
+            precioVentaEstimado_txt.Text = "";
             placa_txt.Text = "";
             suplidor_cb.SelectedIndex = -1;
             ubicacion_cb.SelectedIndex = -1;
@@ -621,14 +623,19 @@ namespace ImporteVehiculos.Formularios
             int error = 0;
             foreach (DataGridViewRow row in pagos_dtg.Rows)
             {
-                
-               
-                P.Descripcion = row.Cells[3].Value.ToString();
-                P.IdTipoPago = Convert.ToInt32(row.Cells[5].Value);
-                P.PrecioRD = Convert.ToDouble(row.Cells[1].Value);
-                P.PrecioUSD = Convert.ToDouble(row.Cells[2].Value);
 
-                string respuesta = P.DetallePagoComprasVehiculo();
+
+                P.IdVehiculo = 0;
+                P.Fecha = fecha_dtp.Value;
+                P.Nota = row.Cells[3].Value.ToString();
+                P.IdTipoPago = Convert.ToInt32(row.Cells[5].Value);
+                P.MontoRD = Convert.ToDouble(row.Cells[1].Value); // pago rd
+                P.MontoUSD = Convert.ToDouble(row.Cells[2].Value); // pago usd
+                P.IdTransaccion = 2; //Compras
+
+
+                string respuesta = P.InsertarDetalleTransaccionCompras();
+                
                 if (respuesta != "1")
                 {
                     error++;
