@@ -163,7 +163,11 @@ namespace ImporteVehiculos.Formularios
             seguro_cb.DataSource = dt;
             seguro_cb.DisplayMember = "SEGURO";
             seguro_cb.ValueMember = "ID";
-            seguro_cb.SelectedIndex = 0;
+            if (dt.Rows.Count > 0)
+            {
+                seguro_cb.SelectedIndex = 0;
+            }
+            
 
 
         }
@@ -259,7 +263,7 @@ namespace ImporteVehiculos.Formularios
             DataTable dt1 = new DataTable();
             dt1 = P.ObtenerTasaDolarYFecha();
             
-            string[] valores = { cliente_cb.Text, seguro_cb.Text };
+            string[] valores = { cliente_cb.Text, seguro_cb.Text, seguro_cb.Text };
             string msj = GF.ValidarCampoString(valores);
 
             if (msj != "OK")

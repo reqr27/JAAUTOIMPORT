@@ -110,8 +110,8 @@ namespace ImporteVehiculos.Formularios
                 vehiculos_dtg.Columns[1].DefaultCellStyle.Format = "D7";
                 vehiculos_dtg.Columns[4].DefaultCellStyle.Format = "N2";
                 vehiculos_dtg.Columns[5].DefaultCellStyle.Format = "N2";
-                vehiculos_dtg.Columns[6].DefaultCellStyle.Format = "N2";
-                vehiculos_dtg.Columns[7].DefaultCellStyle.Format = "N2";
+                //vehiculos_dtg.Columns[6].DefaultCellStyle.Format = "N2";
+                //vehiculos_dtg.Columns[7].DefaultCellStyle.Format = "N2";
             }
 
             else if (reportes_cb.Text == "Cuentas por Pagar")
@@ -184,6 +184,7 @@ namespace ImporteVehiculos.Formularios
                 vehiculos_dtg.Columns[1].DefaultCellStyle.Format = "D7";
                 vehiculos_dtg.Columns[3].DefaultCellStyle.Format = "N2";
                 vehiculos_dtg.Columns[4].DefaultCellStyle.Format = "N2";
+                vehiculos_dtg.Columns[5].DefaultCellStyle.Format = "D7";
 
             }
 
@@ -426,6 +427,7 @@ namespace ImporteVehiculos.Formularios
             {
                 if (vehiculos_dtg.Rows.Count > 0)
                 {
+                    Program.GidCCRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[5].Value);
                     Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[0].Value);
                     Program.Greporte = "Recibo de Pago";
                     Program.GtipoRecibo = "Historial Recibo";

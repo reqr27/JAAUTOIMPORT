@@ -1479,7 +1479,7 @@
         </Field>
         <Field Name="PRECIORD">
           <DataField>PRECIORD</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="PAGADORD">
           <DataField>PAGADORD</DataField>
@@ -1487,7 +1487,7 @@
         </Field>
         <Field Name="PRECIOUSD">
           <DataField>PRECIOUSD</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="PAGADOUSD">
           <DataField>PAGADOUSD</DataField>
