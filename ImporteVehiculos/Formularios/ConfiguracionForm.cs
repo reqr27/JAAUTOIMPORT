@@ -257,5 +257,19 @@ namespace ImporteVehiculos.Formularios
                 frm.Show();
             }
         }
+
+        private void seguros_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["SegurosForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+            }
+            else
+            {
+                SegurosForm frm = new SegurosForm();
+                frm.Show();
+            }
+        }
     }
 }

@@ -2248,5 +2248,43 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             return dt = C.Listado("obtener_tipos_transacciones_cp", lst);
         }
+
+        public string RegistrarSeguro()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@nombre", Mnombre));
+            lst.Add(new clsParametros("@telefono", Mtelefono1));
+            lst.Add(new clsParametros("@estado", Mestado));
+            C.EjecutarSP("registrar_seguro", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string ActualizarSeguro()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@nombre", Mnombre));
+            lst.Add(new clsParametros("@telefono", Mtelefono1));
+            lst.Add(new clsParametros("@estado", Mestado));
+            lst.Add(new clsParametros("@idSeguro", Mid));
+            C.EjecutarSP("actualizar_seguro", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerTodosSeguros()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_todos_Seguros", lst);
+        }
     }
 }

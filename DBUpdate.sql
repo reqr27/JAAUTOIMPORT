@@ -2,6 +2,102 @@
 --*********************************************************************************************************************************
 --*********************************************************************************************************************************
 
+ALTER procedure [dbo].[reporte_resultados_usd]
+@desde date, @hasta date
+as
+
+begin
+
+
+	select format(V.fecha_vendido,'dd/MM/yyyy') as FECHAVENDIDO, 
+	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+	V.precioVentaUSD as PRECIOUSD,  V.total_invertido_usd as COSTOUSD,
+	(V.precioVentaUSD - V.total_invertido_usd) as RESULTADOUSD,
+	C.cliente as CLIENTE,
+	ISNULL((select monto_usd from FormaVentaVehiculo where id_transaccion = 1 and id_tipo_pago = 1),0) as EFECTIVO, 
+	ISNULL((select monto_usd from FormaVentaVehiculo where id_transaccion = 1 and id_tipo_pago = 2),0) as VRECIBIDO,
+	ISNULL((select monto_usd from FormaVentaVehiculo where id_transaccion = 1 and id_tipo_pago = 3),0) as CREDITO, 
+	ISNULL((select monto_usd from FormaVentaVehiculo where id_transaccion = 1 and id_tipo_pago = 4),0) as OTROS
+	from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
+	join Propietarios P on V.id_propietario = P.id 
+	join Clientes C on V.id_cliente = C.id 
+	and format(V.fecha_vendido,'yyyy-MM-dd') between
+	format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+	where V.vendido = 1
+	
+
+end
+
+Go
+ALTER procedure [dbo].[reporte_resultados_rd]
+@desde date, @hasta date
+as
+
+begin
+
+	select format(V.fecha_vendido,'dd/MM/yyyy') as FECHAVENDIDO, 
+	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+	V.precioVentaRD as PRECIORD,  V.total_invertido_rd as COSTORD,
+	(V.precioVentaRD - V.total_invertido_rd) as RESULTADORD,
+	C.cliente as CLIENTE,
+	ISNULL((select monto_rd from FormaVentaVehiculo where id_transaccion = 1 and id_tipo_pago = 1),0) as EFECTIVO, 
+	ISNULL((select monto_rd from FormaVentaVehiculo where id_transaccion = 1 and id_tipo_pago = 2),0) as VRECIBIDO,
+	ISNULL((select monto_rd from FormaVentaVehiculo where id_transaccion = 1 and id_tipo_pago = 3),0) as CREDITO, 
+	ISNULL((select monto_rd from FormaVentaVehiculo where id_transaccion = 1 and id_tipo_pago = 4),0) as OTROS
+	from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
+	join Propietarios P on V.id_propietario = P.id 
+	join Clientes C on V.id_cliente = C.id 
+	and format(V.fecha_vendido,'yyyy-MM-dd') between
+	format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+	where V.vendido = 1
+
+end
+
+
+GO
+ALTER procedure [dbo].[reporte_cuentas_pagar]
+@desde date, @hasta date, @idTransaccion int
+as
+
+begin
+
+	
+	if @idTransaccion = 2
+		begin
+			select CP.id as CUENTAPAGAR,TP.transaccion as TRANSACCION , V.fecha_importe as  FECHACOMPRA ,S.suplidor as PROPIETARIO,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+			CP.monto_rd as TOTALPAGARRD, CP.monto_usd as TOTALPAGARUSD,
+			(CP.monto_rd - CP.balance_rd) as PAGADORD, (CP.monto_usd - CP.balance_usd) as PAGADOUSD,
+			CP.balance_rd as PENDIENTERD, CP.balance_usd as PENDIENTEUSD,
+			ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+			format (GETDATE(), 'yyyy-MM-dd')), 0) as DIASVIGENTE
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Suplidores S on S.id = V.id_suplidor
+			join Fabricantes F on F.id = V.fabricante_id join Modelos M on M.id = V.modelo_id
+			join TipoTransaccion TP on TP.id = CP.id_transaccion
+			where CP.balance_rd > 0 and CP.balance_usd > 0 and CP.id_transaccion = @idTransaccion
+			and format(CP.fecha,'yyyy-MM-dd') between
+			format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+		end
+	 else if @idTransaccion = 4
+		begin
+			select CP.id as CUENTAPAGAR,TP.transaccion as TRANSACCION ,V.fecha_importe as  FECHACOMPRA ,S.nombre as PROPIETARIO,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+			CP.monto_rd as TOTALPAGARRD, CP.monto_usd as TOTALPAGARUSD,
+			(CP.monto_rd - CP.balance_rd) as PAGADORD, (CP.monto_usd - CP.balance_usd) as PAGADOUSD,
+			CP.balance_rd as PENDIENTERD, CP.balance_usd as PENDIENTEUSD,
+			ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+			format (GETDATE(), 'yyyy-MM-dd')), 0) as DIASVIGENTE
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Seguros S on S.id = V.id_suplidor
+			join Fabricantes F on F.id = V.fabricante_id join Modelos M on M.id = V.modelo_id
+			join TipoTransaccion TP on TP.id = CP.id_transaccion
+			where CP.balance_rd > 0 and CP.balance_usd > 0 and CP.id_transaccion = 4
+			and format(CP.fecha,'yyyy-MM-dd') between
+			format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+		end
+end
+	
+
+Go
 ALTER procedure [dbo].[obtener_recibos_cobros]
 @desde date, @hasta date, @cliente varchar(50)
 as
@@ -1779,18 +1875,6 @@ if not exists (select * from sysobjects where name='PreciosTraspasoVehiculo' and
 
 Go
 
-IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_seguros_activos' AND type = 'P')
-	DROP PROCEDURE obtener_seguros_activos
-	GO
-	create procedure obtener_seguros_activos
-	
-	as
-	
-	begin
-		select id as ID, nombre as SEGURO from Seguros where estado = 1
-		 
-	end
-Go
 IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_detalle_traspaso_vehiculo' AND type = 'P')
 	DROP PROCEDURE reporte_detalle_traspaso_vehiculo
 	GO
@@ -2101,5 +2185,58 @@ begin
 end
 
 Go
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'registrar_seguro' AND type = 'P')
+	DROP PROCEDURE registrar_seguro
+	GO
+
+	create procedure registrar_seguro
+	@nombre varchar(100),@telefono varchar(50) ,@estado bit, @mensaje int output
+	as
+	set @mensaje = 0;
+	begin
+		insert into Seguros (nombre, telefono, estado)
+		Values (@nombre,@telefono ,@estado)
+		set @mensaje = 1;
+	
+	end
+	GO
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_todos_seguros' AND type = 'P')
+	DROP PROCEDURE obtener_todos_seguros
+	GO
+	create procedure obtener_todos_seguros
+	as
+	
+	begin
+		select id as ID, nombre as NOMBRE,telefono as TELEFONO ,estado as ESTADO from Seguros 
+	end
+	Go
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'actualizar_seguro' AND type = 'P')
+	DROP PROCEDURE actualizar_seguro
+	GO
+
+	create procedure actualizar_seguro
+	@idSeguro int, @nombre varchar(100),@telefono varchar(50) ,@estado bit, @mensaje int output
+	as
+	set @mensaje = 0
+	begin
+		Update Seguros set nombre = @nombre,telefono = @telefono ,estado = @estado where id = @idSeguro
+		set @mensaje = 1
+	end
+	GO
+
+	IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_seguros_activos' AND type = 'P')
+	DROP PROCEDURE obtener_seguros_activos
+	GO
+
+	create procedure obtener_seguros_activos
+	as
+	
+	begin
+		select id as ID, nombre as SEGURO, estado as ESTADO from Seguros  where estado = 1
+	end
+	Go
 
 

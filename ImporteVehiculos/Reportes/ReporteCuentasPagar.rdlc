@@ -9,28 +9,31 @@
               <Width>0.85417in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.13943in</Width>
+              <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.81745in</Width>
+              <Width>0.71952in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.89423in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.72877in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.07654in</Width>
+              <Width>0.92029in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.99517in</Width>
+              <Width>0.8204in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.88337in</Width>
+              <Width>0.95629in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.95347in</Width>
+              <Width>0.90139in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.66667in</Width>
+              <Width>0.54167in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -77,6 +80,44 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Transacción</Value>
+                              <Style>
+                                <FontFamily>Bookman Old Style</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#ecf0f1</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox43">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -84,7 +125,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Chasis</Value>
+                              <Value># CUENTA PAGAR</Value>
                               <Style>
                                 <FontFamily>Bookman Old Style</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -426,24 +467,64 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CHASIS">
+                    <Textbox Name="TRANSACCION">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!CHASIS.Value</Value>
+                              <Value>=Fields!TRANSACCION.Value</Value>
                               <Style>
                                 <FontFamily>Bookman Old Style</FontFamily>
                                 <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>TRANSACCION</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#ecf0f1</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Style>None</Style>
+                        </BottomBorder>
+                        <VerticalAlign>Top</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="CUENTAPAGAR">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!CUENTAPAGAR.Value</Value>
+                              <Style>
+                                <FontFamily>Bookman Old Style</FontFamily>
+                                <FontSize>8pt</FontSize>
+                                <Format>D7</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>CHASIS</rd:DefaultName>
+                      <rd:DefaultName>CUENTAPAGAR</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#ecf0f1</Color>
@@ -805,6 +886,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -824,7 +906,7 @@
         <Top>0.20833in</Top>
         <Left>0.125in</Left>
         <Height>0.625in</Height>
-        <Width>8.11504in</Width>
+        <Width>8.33672in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -835,7 +917,7 @@
     <Height>0.97917in</Height>
     <Style />
   </Body>
-  <Width>8.4in</Width>
+  <Width>8.75532in</Width>
   <Page>
     <PageHeader>
       <Height>1.34375in</Height>
@@ -1537,10 +1619,6 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="IDVEHICULO">
-          <DataField>IDVEHICULO</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="FECHACOMPRA">
           <DataField>FECHACOMPRA</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -1551,10 +1629,6 @@
         </Field>
         <Field Name="VEHICULO">
           <DataField>VEHICULO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CHASIS">
-          <DataField>CHASIS</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TOTALPAGARRD">
@@ -1583,6 +1657,14 @@
         </Field>
         <Field Name="DIASVIGENTE">
           <DataField>DIASVIGENTE</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TRANSACCION">
+          <DataField>TRANSACCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CUENTAPAGAR">
+          <DataField>CUENTAPAGAR</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>

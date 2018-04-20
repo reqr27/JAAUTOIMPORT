@@ -42,15 +42,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tipoTransaccion_cb = new System.Windows.Forms.ComboBox();
             this.usdDinero_radiobtn = new System.Windows.Forms.RadioButton();
-            this.vin_text = new System.Windows.Forms.TextBox();
             this.rdDinero_radiobtn = new System.Windows.Forms.RadioButton();
-            this.label = new System.Windows.Forms.Label();
             this.reportes_cb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.reset_btn = new System.Windows.Forms.Button();
             this.buscar_btn = new System.Windows.Forms.Button();
+            this.vin_text = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.vehiculos_dtg = new System.Windows.Forms.DataGridView();
@@ -113,7 +115,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label3.Location = new System.Drawing.Point(419, 29);
+            this.label3.Location = new System.Drawing.Point(382, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 15);
             this.label3.TabIndex = 57;
@@ -129,7 +131,7 @@
             "En Proceso",
             "Terminado",
             "Vendido"});
-            this.estado_cb.Location = new System.Drawing.Point(504, 25);
+            this.estado_cb.Location = new System.Drawing.Point(488, 31);
             this.estado_cb.Name = "estado_cb";
             this.estado_cb.Size = new System.Drawing.Size(137, 23);
             this.estado_cb.TabIndex = 58;
@@ -145,7 +147,7 @@
             "En Proceso",
             "Terminado",
             "Vendido"});
-            this.propietario_cb.Location = new System.Drawing.Point(504, 51);
+            this.propietario_cb.Location = new System.Drawing.Point(488, 56);
             this.propietario_cb.Name = "propietario_cb";
             this.propietario_cb.Size = new System.Drawing.Size(137, 23);
             this.propietario_cb.TabIndex = 62;
@@ -157,7 +159,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label5.Location = new System.Drawing.Point(419, 55);
+            this.label5.Location = new System.Drawing.Point(382, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 15);
             this.label5.TabIndex = 61;
@@ -168,23 +170,25 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(36)))), ((int)(((byte)(97)))));
             this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.vin_text);
             this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.label);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.label27);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(878, 138);
+            this.panel3.Size = new System.Drawing.Size(878, 153);
             this.panel3.TabIndex = 88;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.tipoTransaccion_cb);
             this.panel2.Controls.Add(this.usdDinero_radiobtn);
-            this.panel2.Controls.Add(this.vin_text);
             this.panel2.Controls.Add(this.rdDinero_radiobtn);
-            this.panel2.Controls.Add(this.label);
             this.panel2.Controls.Add(this.reportes_cb);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.reset_btn);
@@ -200,15 +204,44 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(878, 102);
+            this.panel2.Size = new System.Drawing.Size(878, 117);
             this.panel2.TabIndex = 32;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(382, 89);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 15);
+            this.label6.TabIndex = 112;
+            this.label6.Text = "TRANSACCION: ";
+            this.label6.Visible = false;
+            // 
+            // tipoTransaccion_cb
+            // 
+            this.tipoTransaccion_cb.DropDownHeight = 180;
+            this.tipoTransaccion_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoTransaccion_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoTransaccion_cb.FormattingEnabled = true;
+            this.tipoTransaccion_cb.IntegralHeight = false;
+            this.tipoTransaccion_cb.Items.AddRange(new object[] {
+            "EFECTIVO",
+            "VEHICULO RECIBIDO"});
+            this.tipoTransaccion_cb.Location = new System.Drawing.Point(489, 85);
+            this.tipoTransaccion_cb.Name = "tipoTransaccion_cb";
+            this.tipoTransaccion_cb.Size = new System.Drawing.Size(136, 23);
+            this.tipoTransaccion_cb.TabIndex = 111;
+            this.tipoTransaccion_cb.Visible = false;
+            this.tipoTransaccion_cb.SelectionChangeCommitted += new System.EventHandler(this.tipoTransaccion_cb_SelectionChangeCommitted);
             // 
             // usdDinero_radiobtn
             // 
             this.usdDinero_radiobtn.AutoSize = true;
             this.usdDinero_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usdDinero_radiobtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.usdDinero_radiobtn.Location = new System.Drawing.Point(493, 3);
+            this.usdDinero_radiobtn.Location = new System.Drawing.Point(456, 8);
             this.usdDinero_radiobtn.Name = "usdDinero_radiobtn";
             this.usdDinero_radiobtn.Size = new System.Drawing.Size(57, 19);
             this.usdDinero_radiobtn.TabIndex = 109;
@@ -216,22 +249,13 @@
             this.usdDinero_radiobtn.UseVisualStyleBackColor = true;
             this.usdDinero_radiobtn.Visible = false;
             // 
-            // vin_text
-            // 
-            this.vin_text.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vin_text.Location = new System.Drawing.Point(504, 76);
-            this.vin_text.Name = "vin_text";
-            this.vin_text.Size = new System.Drawing.Size(137, 23);
-            this.vin_text.TabIndex = 66;
-            this.vin_text.Visible = false;
-            // 
             // rdDinero_radiobtn
             // 
             this.rdDinero_radiobtn.AutoSize = true;
             this.rdDinero_radiobtn.Checked = true;
             this.rdDinero_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdDinero_radiobtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.rdDinero_radiobtn.Location = new System.Drawing.Point(422, 3);
+            this.rdDinero_radiobtn.Location = new System.Drawing.Point(385, 8);
             this.rdDinero_radiobtn.Name = "rdDinero_radiobtn";
             this.rdDinero_radiobtn.Size = new System.Drawing.Size(49, 19);
             this.rdDinero_radiobtn.TabIndex = 110;
@@ -241,18 +265,6 @@
             this.rdDinero_radiobtn.UseVisualStyleBackColor = true;
             this.rdDinero_radiobtn.Visible = false;
             this.rdDinero_radiobtn.CheckedChanged += new System.EventHandler(this.rdDinero_radiobtn_CheckedChanged);
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label.Location = new System.Drawing.Point(419, 80);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(32, 15);
-            this.label.TabIndex = 65;
-            this.label.Text = "VIN:";
-            this.label.Visible = false;
             // 
             // reportes_cb
             // 
@@ -318,6 +330,15 @@
             this.buscar_btn.UseVisualStyleBackColor = true;
             this.buscar_btn.Click += new System.EventHandler(this.buscar_btn_Click);
             // 
+            // vin_text
+            // 
+            this.vin_text.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vin_text.Location = new System.Drawing.Point(504, 7);
+            this.vin_text.Name = "vin_text";
+            this.vin_text.Size = new System.Drawing.Size(137, 23);
+            this.vin_text.TabIndex = 66;
+            this.vin_text.Visible = false;
+            // 
             // button3
             // 
             this.button3.FlatAppearance.BorderSize = 0;
@@ -331,6 +352,18 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label.Location = new System.Drawing.Point(419, 11);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(32, 15);
+            this.label.TabIndex = 65;
+            this.label.Text = "VIN:";
+            this.label.Visible = false;
             // 
             // button2
             // 
@@ -509,5 +542,7 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.RadioButton usdDinero_radiobtn;
         private System.Windows.Forms.RadioButton rdDinero_radiobtn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox tipoTransaccion_cb;
     }
 }

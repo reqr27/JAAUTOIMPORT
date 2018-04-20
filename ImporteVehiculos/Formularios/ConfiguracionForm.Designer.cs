@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfiguracionForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
+            this.seguros_btn = new System.Windows.Forms.Button();
             this.suplidores_btn = new System.Windows.Forms.Button();
             this.ubicacion_btn = new System.Windows.Forms.Button();
             this.colores_btn = new System.Windows.Forms.Button();
@@ -72,6 +73,22 @@
             this.label27.Size = new System.Drawing.Size(164, 24);
             this.label27.TabIndex = 29;
             this.label27.Text = "Configuración";
+            // 
+            // seguros_btn
+            // 
+            this.seguros_btn.FlatAppearance.BorderSize = 0;
+            this.seguros_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seguros_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seguros_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.seguros_btn.Image = global::ImporteVehiculos.Properties.Resources.insurance;
+            this.seguros_btn.Location = new System.Drawing.Point(222, 508);
+            this.seguros_btn.Name = "seguros_btn";
+            this.seguros_btn.Size = new System.Drawing.Size(204, 139);
+            this.seguros_btn.TabIndex = 20;
+            this.seguros_btn.Text = "SEGUROS";
+            this.seguros_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.seguros_btn.UseVisualStyleBackColor = true;
+            this.seguros_btn.Click += new System.EventHandler(this.seguros_btn_Click);
             // 
             // suplidores_btn
             // 
@@ -315,6 +332,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(880, 656);
+            this.Controls.Add(this.seguros_btn);
             this.Controls.Add(this.suplidores_btn);
             this.Controls.Add(this.ubicacion_btn);
             this.Controls.Add(this.colores_btn);
@@ -360,5 +378,6 @@
         private System.Windows.Forms.Button colores_btn;
         private System.Windows.Forms.Button ubicacion_btn;
         private System.Windows.Forms.Button suplidores_btn;
+        private System.Windows.Forms.Button seguros_btn;
     }
 }

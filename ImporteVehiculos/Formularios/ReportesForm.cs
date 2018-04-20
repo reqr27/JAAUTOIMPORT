@@ -254,10 +254,19 @@ namespace ImporteVehiculos.Formularios
             lc.ReportPath = "Reportes\\ReporteCuentasPagar.rdlc";
             CarsImportDataSet ds = new CarsImportDataSet();
             CarsImportDataSetTableAdapters.reporte_cuentas_pagarTableAdapter rds = new CarsImportDataSetTableAdapters.reporte_cuentas_pagarTableAdapter();
-            rds.Fill(ds.reporte_cuentas_pagar, Program.Gdesde, Program.Ghasta);  //llenar reporte
+            rds.Fill(ds.reporte_cuentas_pagar,Program.Gdesde, Program.Ghasta, Program.GidTransaccionRpt);  //llenar reporte
             ReportDataSource rd = new ReportDataSource();
             rd.Name = "DataSet1";
             rd.Value = ds.Tables["reporte_cuentas_pagar"];
+
+            if(Program.GidTransaccionRpt == 2)
+            {
+                Program.Greporte = "Cuentas Pagar Compras";
+            }
+           else if (Program.GidTransaccionRpt == 4)
+            {
+                Program.Greporte = "Cuentas Pagar Seguros";
+            }
 
             parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
             parametros[1] = new ReportParameter("rptNombre", Program.Greporte);

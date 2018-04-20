@@ -1694,15 +1694,15 @@ namespace ImporteVehiculos {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class reporte_cuentas_pagarDataTable : global::System.Data.TypedTableBase<reporte_cuentas_pagarRow> {
             
-            private global::System.Data.DataColumn columnIDVEHICULO;
+            private global::System.Data.DataColumn columnCUENTAPAGAR;
+            
+            private global::System.Data.DataColumn columnTRANSACCION;
             
             private global::System.Data.DataColumn columnFECHACOMPRA;
             
             private global::System.Data.DataColumn columnPROPIETARIO;
             
             private global::System.Data.DataColumn columnVEHICULO;
-            
-            private global::System.Data.DataColumn columnCHASIS;
             
             private global::System.Data.DataColumn columnTOTALPAGARRD;
             
@@ -1753,9 +1753,17 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDVEHICULOColumn {
+            public global::System.Data.DataColumn CUENTAPAGARColumn {
                 get {
-                    return this.columnIDVEHICULO;
+                    return this.columnCUENTAPAGAR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TRANSACCIONColumn {
+                get {
+                    return this.columnTRANSACCION;
                 }
             }
             
@@ -1780,14 +1788,6 @@ namespace ImporteVehiculos {
             public global::System.Data.DataColumn VEHICULOColumn {
                 get {
                     return this.columnVEHICULO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CHASISColumn {
-                get {
-                    return this.columnCHASIS;
                 }
             }
             
@@ -1884,14 +1884,14 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public reporte_cuentas_pagarRow Addreporte_cuentas_pagarRow(System.DateTime FECHACOMPRA, string PROPIETARIO, string VEHICULO, string CHASIS, decimal TOTALPAGARRD, decimal TOTALPAGARUSD, decimal PAGADORD, decimal PAGADOUSD, decimal PENDIENTERD, decimal PENDIENTEUSD, int DIASVIGENTE) {
+            public reporte_cuentas_pagarRow Addreporte_cuentas_pagarRow(string TRANSACCION, System.DateTime FECHACOMPRA, string PROPIETARIO, string VEHICULO, decimal TOTALPAGARRD, decimal TOTALPAGARUSD, decimal PAGADORD, decimal PAGADOUSD, decimal PENDIENTERD, decimal PENDIENTEUSD, int DIASVIGENTE) {
                 reporte_cuentas_pagarRow rowreporte_cuentas_pagarRow = ((reporte_cuentas_pagarRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        TRANSACCION,
                         FECHACOMPRA,
                         PROPIETARIO,
                         VEHICULO,
-                        CHASIS,
                         TOTALPAGARRD,
                         TOTALPAGARUSD,
                         PAGADORD,
@@ -1906,9 +1906,9 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public reporte_cuentas_pagarRow FindByIDVEHICULO(int IDVEHICULO) {
+            public reporte_cuentas_pagarRow FindByCUENTAPAGAR(int CUENTAPAGAR) {
                 return ((reporte_cuentas_pagarRow)(this.Rows.Find(new object[] {
-                            IDVEHICULO})));
+                            CUENTAPAGAR})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1928,11 +1928,11 @@ namespace ImporteVehiculos {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnIDVEHICULO = base.Columns["IDVEHICULO"];
+                this.columnCUENTAPAGAR = base.Columns["CUENTAPAGAR"];
+                this.columnTRANSACCION = base.Columns["TRANSACCION"];
                 this.columnFECHACOMPRA = base.Columns["FECHACOMPRA"];
                 this.columnPROPIETARIO = base.Columns["PROPIETARIO"];
                 this.columnVEHICULO = base.Columns["VEHICULO"];
-                this.columnCHASIS = base.Columns["CHASIS"];
                 this.columnTOTALPAGARRD = base.Columns["TOTALPAGARRD"];
                 this.columnTOTALPAGARUSD = base.Columns["TOTALPAGARUSD"];
                 this.columnPAGADORD = base.Columns["PAGADORD"];
@@ -1945,16 +1945,16 @@ namespace ImporteVehiculos {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnIDVEHICULO = new global::System.Data.DataColumn("IDVEHICULO", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDVEHICULO);
+                this.columnCUENTAPAGAR = new global::System.Data.DataColumn("CUENTAPAGAR", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCUENTAPAGAR);
+                this.columnTRANSACCION = new global::System.Data.DataColumn("TRANSACCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTRANSACCION);
                 this.columnFECHACOMPRA = new global::System.Data.DataColumn("FECHACOMPRA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFECHACOMPRA);
                 this.columnPROPIETARIO = new global::System.Data.DataColumn("PROPIETARIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPROPIETARIO);
                 this.columnVEHICULO = new global::System.Data.DataColumn("VEHICULO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVEHICULO);
-                this.columnCHASIS = new global::System.Data.DataColumn("CHASIS", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCHASIS);
                 this.columnTOTALPAGARRD = new global::System.Data.DataColumn("TOTALPAGARRD", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTOTALPAGARRD);
                 this.columnTOTALPAGARUSD = new global::System.Data.DataColumn("TOTALPAGARUSD", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -1970,22 +1970,18 @@ namespace ImporteVehiculos {
                 this.columnDIASVIGENTE = new global::System.Data.DataColumn("DIASVIGENTE", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDIASVIGENTE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnIDVEHICULO}, true));
-                this.columnIDVEHICULO.AutoIncrement = true;
-                this.columnIDVEHICULO.AllowDBNull = false;
-                this.columnIDVEHICULO.ReadOnly = true;
-                this.columnIDVEHICULO.Unique = true;
+                                this.columnCUENTAPAGAR}, true));
+                this.columnCUENTAPAGAR.AutoIncrement = true;
+                this.columnCUENTAPAGAR.AllowDBNull = false;
+                this.columnCUENTAPAGAR.ReadOnly = true;
+                this.columnCUENTAPAGAR.Unique = true;
+                this.columnTRANSACCION.MaxLength = 100;
                 this.columnFECHACOMPRA.AllowDBNull = false;
-                this.columnPROPIETARIO.AllowDBNull = false;
-                this.columnPROPIETARIO.MaxLength = 50;
+                this.columnPROPIETARIO.MaxLength = 100;
                 this.columnVEHICULO.ReadOnly = true;
                 this.columnVEHICULO.MaxLength = 200;
-                this.columnCHASIS.AllowDBNull = false;
-                this.columnCHASIS.MaxLength = 50;
                 this.columnPAGADORD.ReadOnly = true;
                 this.columnPAGADOUSD.ReadOnly = true;
-                this.columnPENDIENTERD.ReadOnly = true;
-                this.columnPENDIENTEUSD.ReadOnly = true;
                 this.columnDIASVIGENTE.ReadOnly = true;
             }
             
@@ -10937,12 +10933,28 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int IDVEHICULO {
+            public int CUENTAPAGAR {
                 get {
-                    return ((int)(this[this.tablereporte_cuentas_pagar.IDVEHICULOColumn]));
+                    return ((int)(this[this.tablereporte_cuentas_pagar.CUENTAPAGARColumn]));
                 }
                 set {
-                    this[this.tablereporte_cuentas_pagar.IDVEHICULOColumn] = value;
+                    this[this.tablereporte_cuentas_pagar.CUENTAPAGARColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TRANSACCION {
+                get {
+                    try {
+                        return ((string)(this[this.tablereporte_cuentas_pagar.TRANSACCIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TRANSACCION\' in table \'reporte_cuentas_pagar\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_cuentas_pagar.TRANSACCIONColumn] = value;
                 }
             }
             
@@ -10961,7 +10973,12 @@ namespace ImporteVehiculos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string PROPIETARIO {
                 get {
-                    return ((string)(this[this.tablereporte_cuentas_pagar.PROPIETARIOColumn]));
+                    try {
+                        return ((string)(this[this.tablereporte_cuentas_pagar.PROPIETARIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PROPIETARIO\' in table \'reporte_cuentas_pagar\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablereporte_cuentas_pagar.PROPIETARIOColumn] = value;
@@ -10981,17 +10998,6 @@ namespace ImporteVehiculos {
                 }
                 set {
                     this[this.tablereporte_cuentas_pagar.VEHICULOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CHASIS {
-                get {
-                    return ((string)(this[this.tablereporte_cuentas_pagar.CHASISColumn]));
-                }
-                set {
-                    this[this.tablereporte_cuentas_pagar.CHASISColumn] = value;
                 }
             }
             
@@ -11105,6 +11111,30 @@ namespace ImporteVehiculos {
                 set {
                     this[this.tablereporte_cuentas_pagar.DIASVIGENTEColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTRANSACCIONNull() {
+                return this.IsNull(this.tablereporte_cuentas_pagar.TRANSACCIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTRANSACCIONNull() {
+                this[this.tablereporte_cuentas_pagar.TRANSACCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPROPIETARIONull() {
+                return this.IsNull(this.tablereporte_cuentas_pagar.PROPIETARIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPROPIETARIONull() {
+                this[this.tablereporte_cuentas_pagar.PROPIETARIOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16551,11 +16581,11 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "reporte_cuentas_pagar";
-            tableMapping.ColumnMappings.Add("IDVEHICULO", "IDVEHICULO");
+            tableMapping.ColumnMappings.Add("CUENTAPAGAR", "CUENTAPAGAR");
+            tableMapping.ColumnMappings.Add("TRANSACCION", "TRANSACCION");
             tableMapping.ColumnMappings.Add("FECHACOMPRA", "FECHACOMPRA");
             tableMapping.ColumnMappings.Add("PROPIETARIO", "PROPIETARIO");
             tableMapping.ColumnMappings.Add("VEHICULO", "VEHICULO");
-            tableMapping.ColumnMappings.Add("CHASIS", "CHASIS");
             tableMapping.ColumnMappings.Add("TOTALPAGARRD", "TOTALPAGARRD");
             tableMapping.ColumnMappings.Add("TOTALPAGARUSD", "TOTALPAGARUSD");
             tableMapping.ColumnMappings.Add("PAGADORD", "PAGADORD");
@@ -16584,13 +16614,14 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@desde", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hasta", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idTransaccion", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CarsImportDataSet.reporte_cuentas_pagarDataTable dataTable, global::System.Nullable<global::System.DateTime> desde, global::System.Nullable<global::System.DateTime> hasta) {
+        public virtual int Fill(CarsImportDataSet.reporte_cuentas_pagarDataTable dataTable, global::System.Nullable<global::System.DateTime> desde, global::System.Nullable<global::System.DateTime> hasta, global::System.Nullable<int> idTransaccion) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((desde.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(desde.Value));
@@ -16603,6 +16634,12 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((idTransaccion.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(idTransaccion.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -16615,7 +16652,7 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual CarsImportDataSet.reporte_cuentas_pagarDataTable GetData(global::System.Nullable<global::System.DateTime> desde, global::System.Nullable<global::System.DateTime> hasta) {
+        public virtual CarsImportDataSet.reporte_cuentas_pagarDataTable GetData(global::System.Nullable<global::System.DateTime> desde, global::System.Nullable<global::System.DateTime> hasta, global::System.Nullable<int> idTransaccion) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((desde.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(desde.Value));
@@ -16628,6 +16665,12 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((idTransaccion.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(idTransaccion.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             CarsImportDataSet.reporte_cuentas_pagarDataTable dataTable = new CarsImportDataSet.reporte_cuentas_pagarDataTable();
             this.Adapter.Fill(dataTable);

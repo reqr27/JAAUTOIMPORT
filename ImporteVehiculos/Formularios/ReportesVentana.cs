@@ -38,6 +38,17 @@ namespace ImporteVehiculos.Formularios
 
         }
 
+        public void LlenarTipoTransaccionCB()
+        {
+            tipoTransaccion_cb.DataSource = null;
+            DataTable dt = new DataTable();
+            dt = P.ObtenerTipoTransaccionCP();
+            tipoTransaccion_cb.DataSource = dt;
+            tipoTransaccion_cb.DisplayMember = "TRANSACCION";
+            tipoTransaccion_cb.ValueMember = "ID";
+            tipoTransaccion_cb.SelectedIndex = 0;
+        }
+
         private void buscar_btn_Click(object sender, EventArgs e)
         {
             LlenarDtg();
@@ -48,6 +59,7 @@ namespace ImporteVehiculos.Formularios
         {
             desde_dtp.Value = DateTime.Now.AddMonths(-1);
             LLenarPropietarioCb();
+            LlenarTipoTransaccionCB();
             estado_cb.SelectedIndex = 0;
             LlenarDtg();
             UpdateButtons();
@@ -116,9 +128,11 @@ namespace ImporteVehiculos.Formularios
 
             else if (reportes_cb.Text == "Cuentas por Pagar")
             {
-                //P.Desde = Convert.ToDateTime(desde_dtp.Value);
-                //P.Hasta = Convert.ToDateTime(hasta_dtp.Value);
+                P.IdTransaccion = Convert.ToInt32(tipoTransaccion_cb.SelectedValue);
+                P.Desde = Convert.ToDateTime(desde_dtp.Value);
+                P.Hasta = Convert.ToDateTime(hasta_dtp.Value);
                 P.Propietario = "";
+                
                 dt = P.ObtenerCuentasPorPagar();
                 vehiculos_dtg.DataSource = dt;
                 //facturas_dtg.Columns[0].Visible = false;
@@ -372,7 +386,7 @@ namespace ImporteVehiculos.Formularios
             {
                 if (vehiculos_dtg.Rows.Count > 0)
                 {
-                   
+                    Program.GidTransaccionRpt = Convert.ToInt32(tipoTransaccion_cb.SelectedValue);
                     Program.Greporte = "Cuentas por Pagar";
                     ReportesForm form1 = new ReportesForm();
                     form1.Show();
@@ -458,6 +472,19 @@ namespace ImporteVehiculos.Formularios
                 rdDinero_radiobtn.Visible = false;
                 usdDinero_radiobtn.Visible = false;
             }
+
+            if (reportes_cb.Text == "Cuentas por Pagar")
+            {
+               label6.Visible = true;
+               tipoTransaccion_cb.Visible = true;
+            }
+            else
+            {
+                label6.Visible = false;
+                tipoTransaccion_cb.Visible = false;
+            }
+
+
         }
 
         private void panel3_MouseDown(object sender, MouseEventArgs e)
@@ -472,6 +499,12 @@ namespace ImporteVehiculos.Formularios
         private void rdDinero_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
             LlenarDtg();
+        }
+
+        private void tipoTransaccion_cb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LlenarDtg();
+            filtrosReporte();
         }
     }
 }
