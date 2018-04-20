@@ -1,6 +1,469 @@
 --**************************************************UPDATE***********************************************************************
 --*********************************************************************************************************************************
 --*********************************************************************************************************************************
+GO
+ALTER procedure [dbo].[reporte_cuentas_cobrar]
+--@desde date, @hasta date
+as
+
+begin
+	select  V.id as IDVEHICULO,V.fecha_vendido as  FECHAVENTA ,C.cliente as CLIENTE,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO, V.vin as CHASIS,
+			CC.monto_rd as TOTALPAGARRD, CC.monto_usd as TOTALPAGARUSD, (CC.monto_rd - CC.balance_rd ) as PAGADORD,(CC.monto_usd - CC.balance_usd )as PAGADOUSD,
+			cc.balance_rd as PENDIENTERD, cc.balance_usd as PENDIENTEUSD,
+			ISNULL(DATEDIFF(DAY, format (v.fecha_vendido, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as DIASVIGENTE, CC.id as IDCUENTACOBRAR,
+			TP.transaccion as TRANSACCION, CC.id_factura as 'FACTURA'
+			from Vehiculos V 
+			join Clientes C on C.id = V.id_cliente join Fabricantes F on F.id = V.fabricante_id 
+			join Modelos M on M.id = V.modelo_id  
+			join CuentasCobrar CC on CC.id_vehiculo = V.id
+			join TipoTransaccion TP on TP.id = CC.id_transaccion
+			where V.vendido = 1 and (CC.balance_rd != 0 and CC.balance_usd !=0  )
+			
+			--and format(CC.fecha,'yyyy-MM-dd') between
+			--format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+			
+			GROUP BY C.cliente, CC.monto_rd, CC.monto_usd, CC.balance_rd, CC.balance_usd,
+			F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_vendido, CC.id, TP.transaccion,CC.id_factura
+			order by DATEDIFF(DAY, format (v.fecha_vendido, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+end
+
+GO
+ALTER procedure [dbo].[reporte_vehiculos_vendidos]
+@desde date, @hasta date
+as
+
+begin
+    -- FECHAVENDIDO
+
+	select  format(V.fecha_vendido,'dd/MM/yyyy') as FECHAVENDIDO, 
+	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+	V.precioVentaRD as PRECIORD, (sum(PCC.monto_rd) + (select sum(FV.monto_rd) from FormaVentaVehiculo FV join Vehiculos V on V.id=FV.id_vehiculo where FV.id_tipo_pago != 3)) as PAGADORD,
+	V.precioVentaUSD as PRECIOUSD, (sum(PCC.monto_usd)+(select sum(FV.monto_usd) from  FormaVentaVehiculo FV join Vehiculos V on V.id=FV.id_vehiculo where FV.id_tipo_pago != 3) ) as PAGADOUSD,
+	C.cliente as CLIENTE
+	from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
+	join Propietarios P on V.id_propietario = P.id join PagosCuentasCobrar PCC on V.id=PCC.id join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+	join Clientes C on V.id_cliente = C.id
+	where V.vendido = 1 and CC.id_transaccion = 1
+	and format(V.fecha_vendido,'yyyy-MM-dd') between
+	format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+	GROUP BY V.id, F.fabricante, M.modelo, V.año, V.total_invertido_usd,V.total_invertido_rd,V.precioVentaRD, V.precioVentaUSD ,V.fecha_vendido, C.cliente, V.color
+
+
+end
+
+GO
+
+ALTER procedure [dbo].[reporte_obtener_detalle_cobros]
+@idCC int, @tipoReporte varchar(50), @numeroRecibo int
+as
+
+begin 
+	if @tipoReporte = 'Recibo'
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, PCC.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, PCC.balance_rd as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
+			from PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+			where PCC.id_cuentaCobrar = @idCC
+		end
+	else
+		begin
+			
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, PCC.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, PCC.balance_rd  as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
+			from PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+			where PCC.id_cuentaCobrar = @idCC
+			and  PCC.id <= @numeroRecibo
+		end
+	
+	
+end
+
+GO
+ALTER procedure [dbo].[reporte_recibo_de_cobro]
+@idCC int, @tipoRecibo varchar(50), @numeroRecibo int
+as
+
+begin 
+    if @tipoRecibo = 'Recibo'
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			from 
+			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+	
+			where PCC.id = (SELECT MAX(id) From PagosCuentasCobrar) and CC.id = @idCC
+			
+
+		end
+	else
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			from 
+			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+	
+			where PCC.id = @numeroRecibo and CC.id = @idCC
+			
+			--group by DPV.id, DPV.montoRD, DPV.montoUSD,  DPV.fechaPago, TP.formaPago, TFC.balanceRD,
+			--TFC.balanceUSD 
+
+		end
+	
+	
+end
+
+GO
+ALTER procedure [dbo].[obtener_pagos_vehiculo]
+@idVehiculo int, @idTransaccion int
+as
+
+
+begin
+	select Format(V.fecha_importe,'dd/MM/yyyy') as 'FECHA DE PAGO', TP.formaPago as 'TIPO PAGO' ,
+	FC.monto_rd as 'PAGO($RD)', FC.monto_usd as 'PAGO($USD)', FC.nota as 'DETALLE'
+	from FormaCompraVehiculo FC join Vehiculos V on V.id = FC.id_vehiculo join TiposPago TP on TP.id = FC.id_tipo_pago
+	where FC.id_vehiculo = @idVehiculo and FC.id_transaccion = @idTransaccion 
+	
+end
+
+
+GO
+ALTER procedure [dbo].[obtener_detalle_cuenta_por_pagar]
+@idVehiculo int
+as
+
+begin
+	
+
+	select  distinct V.id as ID,
+	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
+	as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
+	Sup.suplidor as PROPIETARIO, Sup.direccion as DIRECCION, Sup.rnc_cedula as CEDULA, Sup.telefono as TEL ,
+	format(V.fecha_importe, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
+	V.precioRD as 'PRECIO ($RD)', V.precioUSD as 'PRECIO ($USD)', PS.precioRD as 'PRECIO SEGURO RD', PS.precioUSD as 'PRECIO SEGURO USD',
+	S.nombre as 'SEGURO NOMBRE', S.telefono as 'SEGURO TEL'
+	
+	from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
+	left join Suplidores Sup on V.id_suplidor = Sup.id left join PreciosSeguroVehiculo PS on PS.id_vehiculo = V.id
+	left join SeguroVehiculo SV on SV.id_vehiculo = V.id left join Seguros S on S.id = SV.id_seguro
+	
+	where V.id = 2
+		
+end
+
+
+GO
+ALTER procedure [dbo].[obtener_total_a_pagar_credito_vehiculo]
+@idCP int
+as
+
+begin
+	select monto_rd as 'CREDITO RD' , monto_usd as 'CREDITO USD' 
+	from CuentasPagar where id = @idCP
+		
+			
+end
+GO
+ALTER procedure [dbo].[registrar_pago_cuenta_pagar]
+@idVehiculo int, @montoRD float, @montoUSD float, @detalles varchar(200), @mensaje bit output, @fecha date,
+@idTipoPago int, @idCP int
+as
+set @mensaje = 0;
+begin
+
+	update CuentasPagar set balance_rd = balance_rd - @montoRD, balance_usd = balance_usd - @montoUSD where
+	id_vehiculo = @idVehiculo and id = @idCP
+	declare @balanceRD float= (Select balance_rd from CuentasPagar where id = @idCP)
+	declare @balanceUSD float= (Select balance_usd from CuentasPagar where id = @idCP)
+
+	insert into PagosCuentasPagar(id_cuentaPagar, monto_rd, monto_usd, nota, fecha, id_tipoPago, balance_rd, balance_usd)
+	VALUES (@idCP, @montoRD, @montoUSD, @detalles, @fecha, @idTipoPago, @balanceRD, @balanceUSD)
+	
+	
+
+	
+	
+	if @idTipoPago = 1
+		begin
+			insert into DetallesEfectivoGeneral(idVehiculo, tipoCuenta, montoRD, montoUSD, fecha, documento, numeroDocumento)
+			values (@idVehiculo, 1, @montoRD, @montoUSD, @fecha, 'CxP RECIBO PAGO', (select MAX(id) from CuentasPagar))
+		end
+
+	set @mensaje = 1;
+end
+
+GO
+ALTER procedure registrar_pago_cuenta_cobrar
+@idVehiculo int, @montoRD float, @montoUSD float, @detalles varchar(200), @mensaje bit output, @fecha date,
+@idTipoPago int, @idCC int
+as
+set @mensaje = 0;
+begin
+	
+	
+	update CuentasCobrar set balance_rd = balance_rd - @montoRD, balance_usd = balance_usd - @montoUSD where
+	id_vehiculo = @idVehiculo and id = @idCC
+	
+	declare @balanceRD float= (Select balance_rd from CuentasCobrar where id = @idCC)
+	declare @balanceUSD float= (Select balance_usd from CuentasCobrar where id = @idCC)
+
+	insert into PagosCuentasCobrar(id_cuentaCobrar, monto_rd, monto_usd, nota, fecha, id_tipoPago, balance_rd, balance_usd)
+	VALUES (@idCC, @montoRD, @montoUSD, @detalles, @fecha, @idTipoPago, @balanceRD, @balanceUSD)
+	
+	if @idTipoPago = 1
+			begin
+				 insert into DetallesEfectivoGeneral(idVehiculo, tipoCuenta, montoRD, montoUSD, fecha, documento, numeroDocumento)
+				 values (@idVehiculo, 2, @montoRD, @montoUSD, @fecha, 'CxC RECIBO PAGO', (select MAX(id) from CuentasCobrar))
+			end
+	set @mensaje = 1;
+end
+
+Go
+ALTER procedure [dbo].[obtener_cobros_vehiculo]
+@idVehiculo int, @idTransaccion int
+as
+
+
+begin
+	select Format(V.fecha_importe,'dd/MM/yyyy') as 'FECHA DE PAGO', TP.formaPago as 'TIPO PAGO' ,
+	FV.monto_rd as 'PAGO($RD)', FV.monto_usd as 'PAGO($USD)', FV.nota as 'DETALLE'
+	from FormaVentaVehiculo FV join Vehiculos V on V.id = FV.id_vehiculo join TiposPago TP on TP.id = FV.id_tipo_pago
+	where FV.id_vehiculo = @idVehiculo and FV.id_transaccion = @idTransaccion 
+	
+end
+
+
+
+GO
+ALTER procedure obtener_detalle_cuenta_por_cobrar
+@idVehiculo int
+as
+
+begin
+	
+	select V.id as ID,
+	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
+	as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_vendido, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
+	C.cliente as CLIENTE, C.direccion as DIRECCION, C.rnc_cedula as CEDULA, C.telefono as TEL ,
+	format(V.fecha_vendido, 'dd/MM/yyyy' )as 'FECHA VENTA', 
+	V.precioVentaRD as 'PRECIO ($RD)', V.precioVentaUSD as 'PRECIO ($USD)', PS.precioRD as 'PRECIO SEGURO RD',
+	PS.precioUSD as 'PRECIO SEGURO USD', PT.precioRD as 'PRECIO TRASPASO RD',
+	PT.precioUSD as 'PRECIO TRASPASO USD'
+	from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
+	join Clientes C on V.id_cliente = C.id join PreciosSeguroVehiculo PS on PS.id_vehiculo = V.id
+	join PreciosTraspasoVehiculo PT on PT.id_vehiculo = V.id
+	where V.id = @idVehiculo and V.vendido = 1
+		
+end
+Go
+
+ALTER procedure obtener_total_a_cobrar_credito_vehiculo
+@idCC int
+as
+
+begin
+	select monto_rd as 'CREDITO RD' , monto_usd as 'CREDITO USD' 
+	from CuentasCobrar where id = @idCC
+		
+			
+end
+
+GO
+ALTER procedure obtener_cobros_credito_vehiculo
+@idCC int
+as
+
+begin
+	
+			select format (PCC.fecha, 'dd/MM/yyyy') as 'FECHA PAGO', TP.formaPago as 'TIPO PAGO',PCC.monto_rd as 'PAGADO ($RD)', PCC.monto_usd as 'PAGADO ($USD)',
+			PCC.nota as 'NOTA'
+			from
+			PagosCuentasCobrar PCC join TiposPago TP on TP.id = PCC.id_tipoPago
+			where
+			PCC.id_cuentaCobrar= @idCC
+		
+end
+Go
+ALTER procedure [dbo].[obtener_pagos_credito_vehiculo]
+@idCP int
+as
+
+begin
+	
+		    select format (PCP.fecha, 'dd/MM/yyyy') as 'FECHA PAGO', TP.formaPago as 'TIPO PAGO',PCP.monto_rd as 'PAGADO ($RD)', PCP.monto_usd as 'PAGADO ($USD)',
+			PCP.nota as 'NOTA'
+			from PagosCuentasPagar PCP join TiposPago TP on TP.id = PCP.id_tipoPago
+			where
+			PCP.id_cuentaPagar = @idCP
+			
+
+
+		
+end
+
+GO
+ALTER procedure obtener_cuentas_por_pagar
+@propietario varchar(100), @desde date, @hasta date, @idTransaccion int
+as
+
+
+
+begin
+	if @propietario = ''
+		begin
+			
+			if @idTransaccion = 2
+				begin 
+					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.suplidor as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join Suplidores S on S.id = V.id_suplidor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+			
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0)
+					and format(V.fecha_importe,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = @idTransaccion
+					GROUP BY S.suplidor, CP.balance_rd, CP.balance_usd,
+					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
+					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+
+			else if @idTransaccion = 4
+				begin 
+					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.nombre as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join Seguros S on S.id = V.id_suplidor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+			
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0)
+					and format(V.fecha_importe,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = @idTransaccion
+					GROUP BY S.nombre, CP.balance_rd, CP.balance_usd,
+					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
+					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+				--S.suplidor LIKE '%' + @propietario + '%'
+			
+			
+		end
+	else
+		begin
+			if @idTransaccion = 2
+				begin 
+					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.suplidor as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join Suplidores S on S.id = V.id_suplidor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+			
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0)
+					and format(V.fecha_importe,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = @idTransaccion
+					and S.suplidor LIKE '%' + @propietario + '%'
+					GROUP BY S.suplidor, CP.balance_rd, CP.balance_usd,
+					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
+					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+
+			else if @idTransaccion = 4
+				begin 
+					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.nombre as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join Seguros S on S.id = V.id_suplidor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+			
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0)
+					and format(V.fecha_importe,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = @idTransaccion
+					and S.nombre LIKE '%' + @propietario + '%'
+					GROUP BY S.nombre, CP.balance_rd, CP.balance_usd,
+					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
+					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+		end
+end
+
+
+GO
+ALTER procedure obtener_cuentas_por_cobrar
+@cliente varchar(100), @desde date, @hasta date
+as
+
+begin
+	if @cliente = ''
+		begin
+
+			select  V.id as IDVEHICULO,V.fecha_vendido as  'FECHA VENTA' ,TP.transaccion as 'TRANSACCION',C.cliente as CLIENTE,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO, 
+			V.vin as CHASIS, 
+			CC.balance_rd as 'PENDIENTE ($RD)', CC.balance_usd as 'PENDIENTE ($USD)',
+			ISNULL(DATEDIFF(DAY, format (v.fecha_vendido, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',
+			CC.id as IDCUENTACOBRAR
+			from  Vehiculos V join facturas FAC on V.id = FAC.idVehiculo join CuentasCobrar CC on CC.id_factura = FAC.id
+			join Clientes C on C.id = V.id_cliente join Fabricantes F on F.id = V.fabricante_id 
+			join Modelos M on M.id = V.modelo_id join TipoTransaccion TP on TP.id = CC.id_transaccion
+			where V.vendido = 1
+			and (ISNULL(CC.balance_usd,0) > 0 or ISNULL(CC.balance_rd,0)>0)
+			and format(V.fecha_vendido,'yyyy-MM-dd') between
+			format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+			GROUP BY C.cliente, CC.balance_rd, CC.balance_usd, 
+			F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_vendido, TP.transaccion, CC.id
+			order by DATEDIFF(DAY, format (v.fecha_vendido, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+			 
+		end
+	else
+		begin
+			select  V.id as IDVEHICULO,V.fecha_vendido as  'FECHA VENTA' ,TP.transaccion as 'TRANSACCION', C.cliente as CLIENTE,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO, 
+			V.vin as CHASIS, 
+			CC.balance_rd as 'PENDIENTE ($RD)', CC.balance_usd as 'PENDIENTE ($USD)',
+			ISNULL(DATEDIFF(DAY, format (v.fecha_vendido, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',
+			CC.id as IDCUENTACOBRAR
+			from  Vehiculos V join facturas FAC on V.id = FAC.idVehiculo join CuentasCobrar CC on CC.id_factura = FAC.id
+			join Clientes C on C.id = V.id_cliente join Fabricantes F on F.id = V.fabricante_id 
+			join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CC.id_transaccion
+			
+			where V.vendido = 1 and C.cliente LIKE '%' + @cliente + '%'
+			and (ISNULL(CC.balance_usd,0) > 0 or ISNULL(CC.balance_rd,0)>0)
+			and format(V.fecha_vendido,'yyyy-MM-dd') between
+			format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
+			GROUP BY C.cliente, CC.balance_rd, CC.balance_usd, 
+			F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_vendido, TP.transaccion, CC.id
+			order by DATEDIFF(DAY, format (v.fecha_vendido, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+			
+
+		end
+end
+
+Go
+
 ALTER procedure reporte_factura_obtener_monto_pendiente
 @idVehiculo int
 as
@@ -90,11 +553,14 @@ begin
 			insert into PreciosSeguroVehiculo(id_vehiculo,precioRD, precioUSD )
 			Values (@idVehiculo, @precioSeguroRd, @precioSeguroUsd)
 			
-			 insert into CuentasPagar(id_factura, id_vendedor, id_transaccion, monto_rd, monto_usd,
-			 balance_rd, balance_usd, fecha, id_vehiculo)
-			 VALUES(0, @idCliente, 4, @precioSeguroRd, @precioSeguroUsd, @precioSeguroRd, @precioSeguroUsd,
-			 @fecha, @idVehiculo)
-			set @mensaje = 1	
+			insert into CuentasPagar(id_factura, id_vendedor, id_transaccion, monto_rd, monto_usd,
+			balance_rd, balance_usd, fecha, id_vehiculo)
+			VALUES(0, @idCliente, 4, @precioSeguroRd, @precioSeguroUsd, @precioSeguroRd, @precioSeguroUsd,
+			@fecha, @idVehiculo)
+
+			insert into FormaCompraVehiculo (id_vehiculo, id_transaccion, id_tipo_pago, id_factura, monto_rd, monto_usd, nota, fecha)
+			VALUES (@idVehiculo, 4, 3, 0, @precioSeguroRd, @precioSeguroUsd, 'CUENTA PAGAR SEGURO', @fecha)
+		set @mensaje = 1	
 
 		 end
 				
@@ -1080,7 +1546,10 @@ if not exists (select * from sysobjects where name='PagosCuentasCobrar' and xtyp
 		id_tipoPago int,
 		monto_rd decimal (18,2),
 		monto_usd decimal (18,2),
-		fecha date
+		fecha date,
+		nota varchar(100),
+		balance_rd decimal (18,2),
+		balance_usd decimal (18,2)
 		);
 		
 	END
@@ -1096,7 +1565,10 @@ if not exists (select * from sysobjects where name='PagosCuentasPagar' and xtype
 		id_tipoPago int,
 		monto_rd decimal (18,2),
 		monto_usd decimal (18,2),
-		fecha date
+		fecha date,
+		nota varchar(100),
+		balance_rd decimal (18,2),
+		balance_usd decimal (18,2)
 		);
 		
 	END
@@ -1200,7 +1672,7 @@ IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertarFormaTransaccionesF
 		if @idTipoPago = 1
 			begin
 				 insert into DetallesEfectivoGeneral(idVehiculo, tipoCuenta, montoRD, montoUSD, fecha, documento, numeroDocumento,id_transaccion)
-				 values (@idVehiculo, 2, @montoRD, @montoRD, @fecha, 'Factura', @idFactura, @idTransaccion)
+				 values (@idVehiculo, 2, @montoRD, @montoUSD, @fecha, 'Factura', @idFactura, @idTransaccion)
 			end
 		
 		set @mensaje = 1;
@@ -1336,7 +1808,7 @@ begin
 		select S.nombre as SEGURO, PS.precioRD as PRECIORD, PS.precioUSD as PRECIOUSD
 		from PreciosSeguroVehiculo PS join SeguroVehiculo SV on SV.id_vehiculo = PS.id_vehiculo
 		join Seguros S on S.id = SV.id_seguro
-		where PS.id_vehiculo =@idVehiculo
+		where PS.id_vehiculo = @idVehiculo
 		Group by S.nombre, PS.precioRD , PS.precioUSD
 		
 	end
@@ -1362,5 +1834,235 @@ begin
 	end
 	
 end
+Go
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_tipos_transacciones_cp' AND type = 'P')
+	DROP PROCEDURE obtener_tipos_transacciones_cp
+	GO
+	create procedure obtener_tipos_transacciones_cp
+	
+	as
+	
+	begin
+		select id as ID, transaccion as TRANSACCION from TipoTransaccion
+		where id != 1 and id != 3
+		 
+	end
+Go
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_detalle_traspaso' AND type = 'P')
+	DROP PROCEDURE reporte_detalle_traspaso
+	GO
+create procedure reporte_detalle_traspaso
+@idVehiculo int
+as
+-- PAGOS VENTA
+begin
+	
+	begin
+		
+		select P.monto_usd as PAGO, format(P.fecha,'dd/MM/yyyy') as FECHAPAGO, P.monto_rd as PAGORD,
+		P.nota as DETALLEPAGO, TP.formaPago as TIPOPAGO
+		from Vehiculos V join FormaVentaVehiculo P on V.id = P.id_vehiculo left join TiposPago TP on TP.id = P.id_tipo_pago
+		where V.id = @idVehiculo and P.id_transaccion = 3	
+	end
+	
+end
+
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_detalle_seguro' AND type = 'P')
+	DROP PROCEDURE reporte_detalle_seguro
+	GO
+create procedure reporte_detalle_seguro
+@idVehiculo int
+as
+-- PAGOS VENTA
+begin
+	
+	begin
+		
+		select P.monto_usd as PAGO, format(P.fecha,'dd/MM/yyyy') as FECHAPAGO, P.monto_rd as PAGORD,
+		P.nota as DETALLEPAGO, TP.formaPago as TIPOPAGO
+		from Vehiculos V join FormaVentaVehiculo P on V.id = P.id_vehiculo left join TiposPago TP on TP.id = P.id_tipo_pago
+		where V.id = @idVehiculo and P.id_transaccion = 4	
+	end
+	
+end
+
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_recibo_de_cobro_traspaso' AND type = 'P')
+	DROP PROCEDURE reporte_recibo_de_cobro_traspaso
+	GO
+
+create procedure [dbo].[reporte_recibo_de_cobro_traspaso]
+@idCC int, @tipoRecibo varchar(50), @numeroRecibo int
+as
+
+begin 
+    if @tipoRecibo = 'Recibo'
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			from 
+			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+	
+			where PCC.id = (SELECT MAX(id) From PagosCuentasCobrar) and CC.id = @idCC
+			
+
+		end
+	else
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			from 
+			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+	
+			where PCC.id = @numeroRecibo and CC.id = @idCC
+		end
+	
+	
+end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_recibo_de_cobro_seguro' AND type = 'P')
+	DROP PROCEDURE reporte_recibo_de_cobro_seguro
+	GO
+
+create procedure [dbo].[reporte_recibo_de_cobro_seguro]
+@idCC int, @tipoRecibo varchar(50), @numeroRecibo int
+as
+
+begin 
+    if @tipoRecibo = 'Recibo'
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			from 
+			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+	
+			where PCC.id = (SELECT MAX(id) From PagosCuentasCobrar) and CC.id = @idCC
+			
+
+		end
+	else
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			from 
+			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+	
+			where PCC.id = @numeroRecibo and CC.id = @idCC
+		end
+	
+	
+end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_obtener_detalle_cobros_traspaso' AND type = 'P')
+	DROP PROCEDURE reporte_obtener_detalle_cobros_traspaso
+	GO
+
+create procedure [dbo].[reporte_obtener_detalle_cobros_traspaso]
+@idCC int, @tipoReporte varchar(50), @numeroRecibo int
+as
+
+begin 
+	if @tipoReporte = 'Recibo'
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, PCC.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, PCC.balance_rd as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
+			from PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+			where PCC.id_cuentaCobrar = @idCC
+		end
+	else
+		begin
+			
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, PCC.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, PCC.balance_rd as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
+			from PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+			where PCC.id_cuentaCobrar = @idCC
+			and  PCC.id <= @numeroRecibo
+		end
+	
+	
+end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_obtener_detalle_cobros_seguro' AND type = 'P')
+	DROP PROCEDURE reporte_obtener_detalle_cobros_seguro
+	GO
+
+create procedure [dbo].[reporte_obtener_detalle_cobros_seguro]
+@idCC int, @tipoReporte varchar(50), @numeroRecibo int
+as
+
+begin 
+	if @tipoReporte = 'Recibo'
+		begin
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, PCC.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, PCC.balance_rd as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
+			from PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+			where PCC.id_cuentaCobrar = @idCC
+		end
+	else
+		begin
+			
+			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, PCC.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
+			TP.formaPago as FORMAPAGO, PCC.balance_rd as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
+			from PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
+			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
+			where PCC.id_cuentaCobrar = @idCC
+			and  PCC.id <= @numeroRecibo
+		end
+	
+	
+end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_precio_total_traspaso' AND type = 'P')
+	DROP PROCEDURE reporte_precio_total_traspaso
+	GO
+create procedure reporte_precio_total_traspaso
+@idVehiculo int
+as
+-- PAGOS VENTA
+begin
+	
+	begin
+		
+		select precioRD as PRECIOSEGURORD, precioUSD as PRECIOSEGUROUSD from PreciosTraspasoVehiculo
+		where id_vehiculo = @idVehiculo
+	end
+	
+end
+
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'reporte_precio_total_seguro' AND type = 'P')
+	DROP PROCEDURE reporte_precio_total_seguro
+	GO
+create procedure reporte_precio_total_seguro
+@idVehiculo int
+as
+-- PAGOS VENTA
+begin
+	
+	begin
+		
+		select Distinct S.nombre, PS.precioRD as PRECIOSEGURORD, PS.precioUSD as PRECIOSEGUROUSD from 
+		PreciosSeguroVehiculo PS join SeguroVehiculo SV on SV.id_vehiculo = PS.id_vehiculo join Seguros S on S.id = SV.id_seguro
+		where PS.id_vehiculo = @idVehiculo
+	end
+	
+end
+
+Go
 
 

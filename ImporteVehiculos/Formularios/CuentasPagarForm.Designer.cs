@@ -48,6 +48,8 @@
             this.restante_USD_lbl = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.restante_RD_lbl = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tipoTransaccion_cb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasPagar_dtg)).BeginInit();
@@ -64,13 +66,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 111);
+            this.panel1.Size = new System.Drawing.Size(665, 129);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.tipoTransaccion_cb);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.hasta_dtp);
             this.panel3.Controls.Add(this.desde_dtp);
@@ -79,9 +83,9 @@
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.verDetalles_btn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 55);
+            this.panel3.Location = new System.Drawing.Point(0, 45);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(665, 56);
+            this.panel3.Size = new System.Drawing.Size(665, 84);
             this.panel3.TabIndex = 60;
             // 
             // label2
@@ -90,7 +94,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label2.Location = new System.Drawing.Point(12, 38);
+            this.label2.Location = new System.Drawing.Point(12, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 15);
             this.label2.TabIndex = 60;
@@ -101,7 +105,7 @@
             this.hasta_dtp.CustomFormat = "dd/MM/yyyy";
             this.hasta_dtp.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hasta_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.hasta_dtp.Location = new System.Drawing.Point(59, 34);
+            this.hasta_dtp.Location = new System.Drawing.Point(59, 50);
             this.hasta_dtp.Name = "hasta_dtp";
             this.hasta_dtp.Size = new System.Drawing.Size(102, 20);
             this.hasta_dtp.TabIndex = 59;
@@ -112,7 +116,7 @@
             this.desde_dtp.CustomFormat = "dd/MM/yyyy";
             this.desde_dtp.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.desde_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.desde_dtp.Location = new System.Drawing.Point(59, 4);
+            this.desde_dtp.Location = new System.Drawing.Point(59, 20);
             this.desde_dtp.Name = "desde_dtp";
             this.desde_dtp.Size = new System.Drawing.Size(102, 20);
             this.desde_dtp.TabIndex = 57;
@@ -124,7 +128,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label1.Location = new System.Drawing.Point(12, 8);
+            this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 15);
             this.label1.TabIndex = 58;
@@ -133,9 +137,9 @@
             // propietario_txt
             // 
             this.propietario_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.propietario_txt.Location = new System.Drawing.Point(325, 23);
+            this.propietario_txt.Location = new System.Drawing.Point(316, 47);
             this.propietario_txt.Name = "propietario_txt";
-            this.propietario_txt.Size = new System.Drawing.Size(211, 20);
+            this.propietario_txt.Size = new System.Drawing.Size(207, 20);
             this.propietario_txt.TabIndex = 51;
             this.propietario_txt.TextChanged += new System.EventHandler(this.propietario_txt_TextChanged);
             // 
@@ -144,11 +148,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label3.Location = new System.Drawing.Point(217, 26);
+            this.label3.Location = new System.Drawing.Point(209, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 15);
+            this.label3.Size = new System.Drawing.Size(64, 15);
             this.label3.TabIndex = 52;
-            this.label3.Text = "PROPIETARIO:";
+            this.label3.Text = "PAGAR A:";
             // 
             // verDetalles_btn
             // 
@@ -222,12 +226,12 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.cuentasPagar_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.cuentasPagar_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cuentasPagar_dtg.Location = new System.Drawing.Point(15, 127);
+            this.cuentasPagar_dtg.Location = new System.Drawing.Point(15, 153);
             this.cuentasPagar_dtg.MultiSelect = false;
             this.cuentasPagar_dtg.Name = "cuentasPagar_dtg";
             this.cuentasPagar_dtg.ReadOnly = true;
             this.cuentasPagar_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cuentasPagar_dtg.Size = new System.Drawing.Size(629, 281);
+            this.cuentasPagar_dtg.Size = new System.Drawing.Size(629, 255);
             this.cuentasPagar_dtg.TabIndex = 41;
             this.cuentasPagar_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cuentasPagar_dtg_CellDoubleClick);
             // 
@@ -288,6 +292,33 @@
             this.restante_RD_lbl.TabIndex = 119;
             this.restante_RD_lbl.Text = "pv";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(209, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 15);
+            this.label4.TabIndex = 103;
+            this.label4.Text = "TRANSACCION: ";
+            // 
+            // tipoTransaccion_cb
+            // 
+            this.tipoTransaccion_cb.DropDownHeight = 180;
+            this.tipoTransaccion_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoTransaccion_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoTransaccion_cb.FormattingEnabled = true;
+            this.tipoTransaccion_cb.IntegralHeight = false;
+            this.tipoTransaccion_cb.Items.AddRange(new object[] {
+            "EFECTIVO",
+            "VEHICULO RECIBIDO"});
+            this.tipoTransaccion_cb.Location = new System.Drawing.Point(316, 16);
+            this.tipoTransaccion_cb.Name = "tipoTransaccion_cb";
+            this.tipoTransaccion_cb.Size = new System.Drawing.Size(207, 23);
+            this.tipoTransaccion_cb.TabIndex = 102;
+            this.tipoTransaccion_cb.SelectionChangeCommitted += new System.EventHandler(this.tipoTransaccion_cb_SelectionChangeCommitted);
+            // 
             // CuentasPagarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,5 +364,7 @@
         private System.Windows.Forms.Label restante_USD_lbl;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label restante_RD_lbl;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox tipoTransaccion_cb;
     }
 }

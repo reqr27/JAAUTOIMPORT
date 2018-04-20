@@ -27,7 +27,11 @@ namespace ImporteVehiculos
         public static string GnombreVehiculo;
         public static int GnumeroRecibo;
         public static string GtipoRecibo;
-       
+        public static string Gtransaccion;
+        public static int GidCC;
+        public static int GidCP;
+        public static int GidCCRpt;
+
 
         /// <summary>
         /// The main entry point for the application.

@@ -30,9 +30,21 @@ namespace ImporteVehiculos.Formularios
 
         private void CuentasPagarForm_Load(object sender, EventArgs e)
         {
+            LlenarTipoTransaccionCB();
             desde_dtp.Value = DateTime.Now.AddMonths(-1);
             LlenarDtgCuentasPagar();
             CalcularTotal();
+        }
+
+        public void LlenarTipoTransaccionCB()
+        {
+            tipoTransaccion_cb.DataSource = null;
+            DataTable dt = new DataTable();
+            dt = P.ObtenerTipoTransaccionCP();
+            tipoTransaccion_cb.DataSource = dt;
+            tipoTransaccion_cb.DisplayMember = "TRANSACCION";
+            tipoTransaccion_cb.ValueMember = "ID";
+            tipoTransaccion_cb.SelectedIndex = 0;
         }
         public void LlenarDtgCuentasPagar()
         {
@@ -41,11 +53,16 @@ namespace ImporteVehiculos.Formularios
             P.Propietario = propietario_txt.Text;
             P.Desde = desde_dtp.Value;
             P.Hasta = hasta_dtp.Value;
+            P.IdTransaccion = Convert.ToInt32(tipoTransaccion_cb.SelectedValue);
             dt = P.ObtenerCuentasPorPagar();
             cuentasPagar_dtg.DataSource = dt;
             //cuentasPagar_dtg.Columns[0].Visible = false;
-            cuentasPagar_dtg.Columns[5].DefaultCellStyle.Format = "N2";
-            cuentasPagar_dtg.Columns[6].DefaultCellStyle.Format = "N2";
+            if(dt.Rows.Count > 0)
+            {
+                cuentasPagar_dtg.Columns[6].DefaultCellStyle.Format = "N2";
+                cuentasPagar_dtg.Columns[7].DefaultCellStyle.Format = "N2";
+            }
+            
             
 
         }
@@ -89,8 +106,8 @@ namespace ImporteVehiculos.Formularios
             {
                 foreach (DataGridViewRow row in cuentasPagar_dtg.Rows)
                 {
-                    pendienteRD += Convert.ToDouble(row.Cells[5].Value);
-                    pendienteUSD += Convert.ToDouble(row.Cells[6].Value);
+                    pendienteRD += Convert.ToDouble(row.Cells[6].Value);
+                    pendienteUSD += Convert.ToDouble(row.Cells[7].Value);
 
 
 
@@ -116,6 +133,8 @@ namespace ImporteVehiculos.Formularios
         {
             if(cuentasPagar_dtg.Rows.Count > 0)
             {
+                Program.GidCP = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[9].Value);
+                Program.Gtransaccion = cuentasPagar_dtg.CurrentRow.Cells[2].Value.ToString();
                 Program.GidVehiculo = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[0].Value);
                 PagosCuentasPagarForm frm = new PagosCuentasPagarForm();
                 frm.ShowDialog();
@@ -129,6 +148,8 @@ namespace ImporteVehiculos.Formularios
         {
             if (cuentasPagar_dtg.Rows.Count > 0)
             {
+                Program.GidCP = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[9].Value);
+                Program.Gtransaccion = cuentasPagar_dtg.CurrentRow.Cells[2].Value.ToString();
                 Program.GidVehiculo = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[0].Value);
                 PagosCuentasPagarForm frm = new PagosCuentasPagarForm();
                 frm.ShowDialog();
@@ -144,6 +165,12 @@ namespace ImporteVehiculos.Formularios
                 hasta_dtp.Value = DateTime.Now.Date;
             }
             LlenarDtgCuentasPagar();
+        }
+
+        private void tipoTransaccion_cb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LlenarDtgCuentasPagar();
+            CalcularTotal();
         }
     }
 }

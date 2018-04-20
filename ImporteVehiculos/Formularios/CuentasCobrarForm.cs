@@ -81,8 +81,8 @@ namespace ImporteVehiculos.Formularios
             {
                 foreach (DataGridViewRow row in cuentasCobrar_dtg.Rows)
                 {
-                    pendienteRD += Convert.ToDouble(row.Cells[5].Value);
-                    pendienteUSD += Convert.ToDouble(row.Cells[6].Value);
+                    pendienteRD += Convert.ToDouble(row.Cells[6].Value);
+                    pendienteUSD += Convert.ToDouble(row.Cells[7].Value);
                     
 
 
@@ -109,6 +109,8 @@ namespace ImporteVehiculos.Formularios
         {
             if (cuentasCobrar_dtg.Rows.Count > 0)
             {
+                Program.GidCC = Convert.ToInt32(cuentasCobrar_dtg.CurrentRow.Cells[9].Value);
+                Program.Gtransaccion = cuentasCobrar_dtg.CurrentRow.Cells[2].Value.ToString();
                 Program.GidVehiculo = Convert.ToInt32(cuentasCobrar_dtg.CurrentRow.Cells[0].Value);
                 CobrosCuentasCobrarForm frm = new CobrosCuentasCobrarForm();
                 frm.ShowDialog();
@@ -136,6 +138,8 @@ namespace ImporteVehiculos.Formularios
         {
             if (cuentasCobrar_dtg.Rows.Count > 0)
             {
+                Program.GidCC = Convert.ToInt32(cuentasCobrar_dtg.CurrentRow.Cells[9].Value);
+                Program.Gtransaccion = cuentasCobrar_dtg.CurrentRow.Cells[2].Value.ToString();
                 Program.GidVehiculo = Convert.ToInt32(cuentasCobrar_dtg.CurrentRow.Cells[0].Value);
                 CobrosCuentasCobrarForm frm = new CobrosCuentasCobrarForm();
                 frm.ShowDialog();

@@ -23,7 +23,10 @@ namespace ImporteVehiculos.Formularios
         Procedimientos P = new Procedimientos();
         GlobalFunctions GF = new GlobalFunctions();
         int idVehiculo = Program.GidVehiculo;
-        public CobrosCuentasCobrarForm()
+        string transaccion = Program.Gtransaccion;
+        int idCC = Program.GidCC;
+        int idTransaccion;
+         public CobrosCuentasCobrarForm()
         {
             InitializeComponent();
         }
@@ -49,6 +52,22 @@ namespace ImporteVehiculos.Formularios
 
         private void CobrosCuentasCobrarForm_Load(object sender, EventArgs e)
         {
+            if(transaccion == "VENTA")
+            {
+                idTransaccion = 1;
+            }
+            else if(transaccion == "TRASPASO")
+            {
+                idTransaccion = 3;
+            }
+
+            else if (transaccion == "SEGURO")
+            {
+                idTransaccion = 4;
+                
+            }
+
+            cc_lbl.Text = "# CC: " + idCC.ToString("0000000");
             LLenarTipoPagoCb();
             LlenarDtgCobrosCredito();
             ObtenerDetalleCuentaCobrar();
@@ -76,14 +95,33 @@ namespace ImporteVehiculos.Formularios
             cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
             cliente_lbl.Text = dt.Rows[0]["CLIENTE"].ToString();
             dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
+            if(transaccion == "VENTA")
+            {
+                transaccion_lbl.Text = "VENTA";
+                precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+                precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
 
-            precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
-            precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+            }
+            else if (transaccion == "TRASPASO")
+            {
+                transaccion_lbl.Text = "TRASPASO";
+                precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO TRASPASO RD"])).ToString("#,###.00");
+                precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO TRASPASO USD"])).ToString("#,###.00");
+
+            }
+
+            else if (transaccion == "SEGURO")
+            {
+                transaccion_lbl.Text = "SEGURO";
+                precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO RD"])).ToString("#,###.00");
+                precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO USD"])).ToString("#,###.00");
+
+            }
 
             direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
             telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
 
-            
+            P.Id = idCC;
             dt = P.ObtenerTotalCobrarCredito();
             creditoRd_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO RD"]).ToString("N2");
             creditoUSD_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO USD"]).ToString("N2");
@@ -120,7 +158,8 @@ namespace ImporteVehiculos.Formularios
         {
             DataTable dt = new DataTable();
             detalleVenta_dtg.DataSource = null;
-            P.IdVehiculo = Program.GidVehiculo;
+            P.IdVehiculo = idVehiculo;
+            P.Id = idTransaccion;
             dt = P.ObtenerCobrosVehiculo();
             detalleVenta_dtg.DataSource = dt;
             detalleVenta_dtg.Columns[0].Visible = false;
@@ -134,7 +173,7 @@ namespace ImporteVehiculos.Formularios
         {
             DataTable dt = new DataTable();
             pagos_dtg.DataSource = null;
-            P.IdVehiculo = idVehiculo;
+            P.Id = idCC;
             dt = P.ObtenerCobrosCreditoVehiculo();
             pagos_dtg.DataSource = dt;
             pagos_dtg.Columns[2].DefaultCellStyle.Format = "N2";
@@ -194,6 +233,7 @@ namespace ImporteVehiculos.Formularios
             {
                 if (validarPago())
                 {
+                    P.Id = idCC;
                     P.IdVehiculo = idVehiculo;
                     P.Descripcion = nota_txt.Text.ToString();
                     P.Fecha = fecha_dtp.Value;
@@ -216,16 +256,9 @@ namespace ImporteVehiculos.Formularios
                         LlenarDtgCobrosCredito();
                         CalcularTotales();
 
-                        Program.GnumeroRecibo = 0;
-                        Program.GtipoRecibo = "Recibo";
-                        Program.Greporte = "Recibo de Pago";
-                        Program.GidVehiculoRpt = idVehiculo;
-
-                        ReportesForm form1 = new ReportesForm();
-                        form1.Show();
-
-
-
+                        GenerarRecibo();
+                        
+         
                     }
 
                     else
@@ -241,6 +274,40 @@ namespace ImporteVehiculos.Formularios
 
                 
             }
+        }
+
+        public void GenerarRecibo()
+        {
+            if(transaccion == "VENTA")
+            {
+                Program.GnumeroRecibo = 0;
+                Program.GtipoRecibo = "Recibo";
+                Program.Greporte = "Recibo de Pago";
+                Program.GidVehiculoRpt = idVehiculo;
+                Program.GidCCRpt = idCC;
+            }
+
+            else if (transaccion == "TRASPASO")
+            {
+                Program.GnumeroRecibo = 0;
+                Program.GtipoRecibo = "Recibo";
+                Program.Greporte = "Recibo de Pago Traspaso";
+                Program.GidVehiculoRpt = idVehiculo;
+                Program.GidCCRpt = idCC;
+            }
+
+            else if (transaccion == "SEGURO")
+            {
+                Program.GnumeroRecibo = 0;
+                Program.GtipoRecibo = "Recibo";
+                Program.Greporte = "Recibo de Pago Seguro";
+                Program.GidVehiculoRpt = idVehiculo;
+                Program.GidCCRpt = idCC;
+            }
+
+
+            ReportesForm form1 = new ReportesForm();
+            form1.Show();
         }
 
         private void guardar_btn_Click(object sender, EventArgs e)

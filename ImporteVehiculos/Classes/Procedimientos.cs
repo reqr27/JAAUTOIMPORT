@@ -901,6 +901,7 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@fecha", Mfecha));
             lst.Add(new clsParametros("@detalles", Mdescripcion));
             lst.Add(new clsParametros("@idTipoPago", MidTipoPago));
+            lst.Add(new clsParametros("@idCP", Mid));
 
             C.EjecutarSP("registrar_pago_cuenta_pagar", ref lst);
             mensaje = lst[0].Valor.ToString();
@@ -919,6 +920,7 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@fecha", Mfecha));
             lst.Add(new clsParametros("@detalles", Mdescripcion));
             lst.Add(new clsParametros("@idTipoPago", MidTipoPago));
+            lst.Add(new clsParametros("@idCC", Mid));
 
             C.EjecutarSP("registrar_pago_cuenta_cobrar", ref lst);
             mensaje = lst[0].Valor.ToString();
@@ -1559,6 +1561,8 @@ namespace ImporteVehiculos.Classes
             return dt = C.Listado("obtener_detalle_cuenta_por_cobrar", lst);
         }
 
+
+
         public DataTable ObtenerComponentesVehiculoEspecifico()
         {
             DataTable dt = new DataTable();
@@ -1605,6 +1609,7 @@ namespace ImporteVehiculos.Classes
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idTransaccion", Mid));
             return dt = C.Listado("obtener_pagos_vehiculo", lst);
         }
 
@@ -1613,6 +1618,7 @@ namespace ImporteVehiculos.Classes
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idTransaccion", Mid));
             return dt = C.Listado("obtener_cobros_vehiculo", lst);
         }
 
@@ -1620,7 +1626,7 @@ namespace ImporteVehiculos.Classes
         {
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
-            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idCP", Mid));
             return dt = C.Listado("obtener_total_a_pagar_credito_vehiculo", lst);
         }
 
@@ -1628,7 +1634,7 @@ namespace ImporteVehiculos.Classes
         {
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
-            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idCC", Mid));
             return dt = C.Listado("obtener_total_a_cobrar_credito_vehiculo", lst);
         }
 
@@ -1636,7 +1642,7 @@ namespace ImporteVehiculos.Classes
         {
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
-            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idCP", Mid));
             return dt = C.Listado("obtener_pagos_credito_vehiculo", lst);
         }
 
@@ -1644,7 +1650,7 @@ namespace ImporteVehiculos.Classes
         {
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
-            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idCC", Mid));
             return dt = C.Listado("obtener_cobros_credito_vehiculo", lst);
         }
 
@@ -1794,6 +1800,8 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@propietario", Mpropietario));
             lst.Add(new clsParametros("@desde", Mdesde));
             lst.Add(new clsParametros("@hasta", Mhasta));
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+
             return dt = C.Listado("obtener_cuentas_por_pagar", lst);
 
         }
@@ -2234,6 +2242,11 @@ namespace ImporteVehiculos.Classes
             return mensaje;
         }
 
-
+        public DataTable ObtenerTipoTransaccionCP()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_tipos_transacciones_cp", lst);
+        }
     }
 }

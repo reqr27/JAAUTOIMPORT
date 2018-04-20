@@ -23,6 +23,10 @@ namespace ImporteVehiculos.Formularios
         int idVehiculo = Program.GidVehiculo;
         Procedimientos P = new Procedimientos();
         GlobalFunctions GF = new GlobalFunctions();
+
+        int idCP = Program.GidCP;
+        string transaccion = Program.Gtransaccion;
+        int idTransaccion;
         public PagosCuentasPagarForm()
         {
             InitializeComponent();
@@ -30,6 +34,30 @@ namespace ImporteVehiculos.Formularios
 
         private void PagosForm_Load(object sender, EventArgs e)
         {
+            if (transaccion == "COMPRA")
+            {
+                idTransaccion = 2;
+            }
+            
+            else if (transaccion == "SEGURO")
+            {
+                idTransaccion = 4;
+                //detalleCompra_dtg.Visible = false;
+                //label3.Visible = false;
+                //pagos_dtg.Left = 10;
+                //label22.Left = 10;
+            }
+
+            else if (transaccion == "PIEZAS")
+            {
+                idTransaccion = 5;
+            }
+
+            else if (transaccion == "TALLER MECANICO")
+            {
+                idTransaccion = 6;
+            }
+            cp_lbl.Text = "# CP: " + idCP.ToString("0000000");
             LLenarTipoPagoCb();
             LlenarDtgPagosCredito();
             ObtenerDetalleCuentaPagar();
@@ -56,15 +84,40 @@ namespace ImporteVehiculos.Formularios
             chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
             fechaCompra_lbl.Text = dt.Rows[0]["FECHA COMPRADO"].ToString();
             cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
-            propietario_lbl.Text = dt.Rows[0]["PROPIETARIO"].ToString();
+           
             dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
 
-            precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
-            precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
-          
-            direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
-            telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
+            if (transaccion == "COMPRA")
+            {
+                telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
+                propietario_lbl.Text = dt.Rows[0]["PROPIETARIO"].ToString();
+                transaccion_lbl.Text = "COMPRA";
+                precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+                precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
 
+            }
+            
+
+            else if (transaccion == "SEGURO")
+            {
+                telefono_lbl.Text = dt.Rows[0]["SEGURO TEL"].ToString();
+                propietario_lbl.Text = dt.Rows[0]["SEGURO NOMBRE"].ToString();
+                label17.Visible = false;
+                cedula_lbl.Visible = false;
+                label20.Visible = false;
+                direccion_lbl.Visible = false;
+                transaccion_lbl.Text = "SEGURO";
+                precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO RD"])).ToString("#,###.00");
+                precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO USD"])).ToString("#,###.00");
+
+            }
+
+            
+            direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
+            
+
+
+            P.Id = idCP;
             dt = P.ObtenerTotalPagarCredito();
             creditoRd_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO RD"]).ToString("N2");
             creditoUSD_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO USD"]).ToString("N2");
@@ -100,7 +153,8 @@ namespace ImporteVehiculos.Formularios
         {
             DataTable dt = new DataTable();
             detalleCompra_dtg.DataSource = null;
-            P.IdVehiculo = Program.GidVehiculo;
+            P.IdVehiculo = idVehiculo;
+            P.Id = idTransaccion;
             dt = P.ObtenerPagosVehiculo();
             detalleCompra_dtg.DataSource = dt;
             //detalleCompra_dtg.Columns[0].Visible = false;
@@ -114,7 +168,7 @@ namespace ImporteVehiculos.Formularios
         {
             DataTable dt = new DataTable();
             pagos_dtg.DataSource = null;
-            P.IdVehiculo = idVehiculo;
+            P.Id = idCP;
             dt = P.ObtenerPagosCreditoVehiculo();
             pagos_dtg.DataSource = dt;
             pagos_dtg.Columns[2].DefaultCellStyle.Format = "N2";
@@ -175,6 +229,7 @@ namespace ImporteVehiculos.Formularios
             {
                 if (validarPago())
                 {
+                    P.Id = idCP;
                     P.IdVehiculo = idVehiculo;
                     P.Descripcion = nota_txt.Text.ToString();
                     P.Fecha = fecha_dtp.Value;

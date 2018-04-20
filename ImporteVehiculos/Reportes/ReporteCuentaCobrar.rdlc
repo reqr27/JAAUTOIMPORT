@@ -9,7 +9,7 @@
               <Width>0.85417in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.13943in</Width>
+              <Width>0.81081in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.81745in</Width>
@@ -84,7 +84,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cliente</Value>
+                              <Value>#Cuenta Cobrar </Value>
                               <Style>
                                 <FontFamily>Bookman Old Style</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -426,24 +426,25 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CLIENTE">
+                    <Textbox Name="IDCUENTACOBRAR">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!CLIENTE.Value</Value>
+                              <Value>=Fields!IDCUENTACOBRAR.Value</Value>
                               <Style>
                                 <FontFamily>Bookman Old Style</FontFamily>
                                 <FontSize>8pt</FontSize>
+                                <Format>D7</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>CLIENTE</rd:DefaultName>
+                      <rd:DefaultName>IDCUENTACOBRAR</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#ecf0f1</Color>
@@ -834,7 +835,7 @@
         <Top>0.11458in</Top>
         <Left>0.14248in</Left>
         <Height>0.625in</Height>
-        <Width>8.11504in</Width>
+        <Width>7.78642in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -998,46 +999,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox23">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Parameters!rptDesde.Value</Value>
-                  <Style />
-                </TextRun>
-                <TextRun>
-                  <Value> a </Value>
-                  <Style />
-                </TextRun>
-                <TextRun>
-                  <Value>=Parameters!rptHasta.Value</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox22</rd:DefaultName>
-          <Top>0.82639in</Top>
-          <Left>3.15802in</Left>
-          <Height>0.25in</Height>
-          <Width>2.08396in</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox19">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1071,7 +1032,7 @@
           <Left>6.26311in</Left>
           <Height>0.25in</Height>
           <Width>1.80207in</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1592,6 +1553,18 @@
         </Field>
         <Field Name="DIASVIGENTE">
           <DataField>DIASVIGENTE</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IDCUENTACOBRAR">
+          <DataField>IDCUENTACOBRAR</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TRANSACCION">
+          <DataField>TRANSACCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FACTURA">
+          <DataField>FACTURA</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
