@@ -206,6 +206,11 @@ namespace ImporteVehiculos.Classes
                 {
                     acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR UBICACIONES"]);
                 }
+
+                else if ((transaccion == "AGREGAR SEGUROS"))
+                {
+                    acceso = Convert.ToBoolean(dt.Rows[0]["AGREGAR SEGUROS"]);
+                }
             }
 
 

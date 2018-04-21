@@ -125,6 +125,7 @@ namespace ImporteVehiculos.Formularios
                 P.CrearColor = colores_chbox.Checked;
                 P.CrearSuplidor = suplidores_chbox.Checked;
                 P.CrearUbicacion = ubicaciones_chbox.Checked;
+                P.CrearSeguro = seguros_chbox.Checked;
                 string respuesta = P.RegistrarUsuario();
                 if (respuesta == "1")
                 {
@@ -202,6 +203,7 @@ namespace ImporteVehiculos.Formularios
                 P.CrearSuplidor = suplidores_chbox.Checked;
                 P.CrearUbicacion = ubicaciones_chbox.Checked;
                 P.ActualizarTasaDiario = actualizarTasaDiario_chbox.Checked;
+                P.CrearSeguro = seguros_chbox.Checked;
                 string respuesta = P.ActualizarUsuario();
 
                 if (respuesta == "1")
@@ -260,6 +262,7 @@ namespace ImporteVehiculos.Formularios
             colores_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[26].Value.ToString());
             ubicaciones_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[27].Value.ToString());
             suplidores_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[28].Value.ToString());
+            seguros_chbox.Checked = Convert.ToBoolean(usuarios_dtg.CurrentRow.Cells[29].Value.ToString());
 
 
             //estadoCliente_chbox.Checked = Convert.ToBoolean(cliente_dtg.CurrentRow.Cells[4].Value);

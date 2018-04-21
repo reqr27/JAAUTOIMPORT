@@ -67,12 +67,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
             this.paises_chbox = new System.Windows.Forms.CheckBox();
             this.ciudades_chbox = new System.Windows.Forms.CheckBox();
             this.ubicaciones_chbox = new System.Windows.Forms.CheckBox();
             this.colores_chbox = new System.Windows.Forms.CheckBox();
             this.suplidores_chbox = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.seguros_chbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -542,21 +543,12 @@
             this.flowLayoutPanel1.Controls.Add(this.ubicaciones_chbox);
             this.flowLayoutPanel1.Controls.Add(this.colores_chbox);
             this.flowLayoutPanel1.Controls.Add(this.suplidores_chbox);
+            this.flowLayoutPanel1.Controls.Add(this.seguros_chbox);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(424, 94);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(393, 207);
             this.flowLayoutPanel1.TabIndex = 48;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(424, 60);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(171, 18);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Permisos del Usuario";
             // 
             // paises_chbox
             // 
@@ -617,6 +609,28 @@
             this.suplidores_chbox.TabIndex = 30;
             this.suplidores_chbox.Text = "Agregar Suplidores";
             this.suplidores_chbox.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(424, 60);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(171, 18);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Permisos del Usuario";
+            // 
+            // seguros_chbox
+            // 
+            this.seguros_chbox.AutoSize = true;
+            this.seguros_chbox.Checked = true;
+            this.seguros_chbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.seguros_chbox.Location = new System.Drawing.Point(490, 26);
+            this.seguros_chbox.Name = "seguros_chbox";
+            this.seguros_chbox.Size = new System.Drawing.Size(105, 17);
+            this.seguros_chbox.TabIndex = 31;
+            this.seguros_chbox.Text = "Agregar Seguros";
+            this.seguros_chbox.UseVisualStyleBackColor = true;
             // 
             // UsuariosForm
             // 
@@ -702,5 +716,6 @@
         private System.Windows.Forms.CheckBox colores_chbox;
         private System.Windows.Forms.CheckBox suplidores_chbox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox seguros_chbox;
     }
 }

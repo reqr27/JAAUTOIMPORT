@@ -1,14 +1,124 @@
 --**************************************************UPDATE***********************************************************************
 --*********************************************************************************************************************************
 --*********************************************************************************************************************************
+GO
+ALTER procedure [dbo].[eliminar_gasto_reparacion_vehiculo]
+@idVehiculo int, @idGasto int,@mensaje int output
+as
+set @mensaje = 0
+begin
+	
+	declare @precioRD float
+	set @precioRD = (select monto_rd from GastoVehiculo where id_gasto  = @idGasto and id_vehiculo =  @idVehiculo)
+	declare @precioUSD float 
+	set @precioUSD = (select monto_usd from GastoVehiculo where id_gasto  = @idGasto and id_vehiculo =  @idVehiculo)
+	
 
+	update Vehiculos set total_invertido_rd = total_invertido_rd - @precioRD, total_invertido_usd = total_invertido_usd - @precioUSD
+	where id = @idVehiculo
+
+	delete from GastoVehiculo where id = @idGasto and id =  @idVehiculo
+	set @mensaje = 1
+		
+end
+
+GO
+ALTER procedure [dbo].[eliminar_componente_vehiculo]
+@idVehiculo int, @idComponente int, @mensaje int output
+as
+set @mensaje = 0
+
+begin
+
+	declare @precioRD float
+	set @precioRD = (select monto_rd from GastoVehiculo where id_gasto  = @idComponente and id_vehiculo =  @idVehiculo)
+	declare @precioUSD float 
+	set @precioUSD = (select monto_usd from GastoVehiculo where id_gasto  = @idComponente and id_vehiculo =  @idVehiculo)
+	
+
+	update Vehiculos set total_invertido_rd = total_invertido_rd - @precioRD, total_invertido_usd = total_invertido_usd - @precioUSD
+	where id = @idVehiculo
+
+	delete from GastoVehiculo where id = @idComponente and id =  @idVehiculo
+	
+	set @mensaje = 1
+		
+end
+
+GO
+ALTER procedure [dbo].[eliminar_gasto_aduanal_vehiculo]
+@idVehiculo int, @idGasto int,@mensaje int output
+as
+set @mensaje = 0
+begin
+	
+	declare @precioRD float
+	set @precioRD = (select monto_rd from GastoVehiculo where id_gasto  = @idGasto and id_vehiculo =  @idVehiculo)
+	declare @precioUSD float 
+	set @precioUSD = (select monto_usd from GastoVehiculo where id_gasto  = @idGasto and id_vehiculo =  @idVehiculo)
+	
+
+	update Vehiculos set total_invertido_rd = total_invertido_rd - @precioRD, total_invertido_usd = total_invertido_usd - @precioUSD
+	where id = @idVehiculo
+
+	delete from GastoVehiculo where id = @idGasto and id =  @idVehiculo
+	set @mensaje = 1
+		
+end
+
+GO
+ALTER procedure [dbo].[obtener_vehiculo_gastos_aduanales]
+@idVehiculo int
+as
+
+
+begin
+
+	select G.descripcion as DESCRIPCION, TR.taller as TALLER ,GV.monto_rd as'PRECIO ($RD)', Gv.monto_usd as 'PRECIO ($USD)' , GV.id as ID,
+	GV.fecha as FECHA
+	from GastoVehiculo GV join Gastos G on GV.id_gasto = G.id join TalleresRepuestos TR on GV.id_proveedor = TR.id
+	where GV.id_vehiculo = @idVehiculo and GV.id_transaccion = 7
+	
+end
+
+
+GO
+ALTER procedure [dbo].[obtener_vehiculo_gastos_reparacion]
+@idVehiculo int
+as
+
+
+begin
+
+	select G.descripcion as DESCRIPCION, TR.taller as TALLER ,GV.monto_rd as'PRECIO ($RD)', Gv.monto_usd as 'PRECIO ($USD)' , GV.id as ID,
+	GV.fecha as FECHA
+	from GastoVehiculo GV join Gastos G on GV.id_gasto = G.id join TalleresRepuestos TR on GV.id_proveedor = TR.id
+	where GV.id_vehiculo = @idVehiculo and GV.id_transaccion = 6
+	
+end
+GO
+
+ALTER procedure [dbo].[obtener_vehiculo_componentes]
+@idVehiculo int
+as
+
+begin
+	
+	select C.componente as DESCRIPCION, GV.monto_rd as'PRECIO ($RD)',GV.monto_usd 'PRECIO ($USD)' , GV.id as ID,
+	GV.fecha as FECHA
+	from GastoVehiculo GV join Componentes C on C.id = GV.id_gasto
+	where GV.id_vehiculo = @idVehiculo and GV.id_transaccion = 5
+	
+end
+
+
+GO
 ALTER procedure [dbo].[reporte_resultados_usd]
 @desde date, @hasta date
 as
 
 begin
-
-
+	
 	select format(V.fecha_vendido,'dd/MM/yyyy') as FECHAVENDIDO, 
 	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
 	V.precioVentaUSD as PRECIOUSD,  V.total_invertido_usd as COSTOUSD,
@@ -487,7 +597,28 @@ begin
 					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
 					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
 				end
-				--S.suplidor LIKE '%' + @propietario + '%'
+
+			else if @idTransaccion = 5
+				begin 
+					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.taller as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join TalleresRepuestos S on S.id = CP.id_vendedor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+			
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0) and CP.id_transaccion = 5
+					--and format(V.fecha_importe,'yyyy-MM-dd') between
+					--format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') 
+					GROUP BY S.taller, CP.balance_rd, CP.balance_usd,
+					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
+					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+				
 			
 			
 		end
@@ -736,6 +867,7 @@ begin
 	Delete from SeguroVehiculo where id_vehiculo = @idVehiculo
 	Delete from PreciosTraspasoVehiculo where id_vehiculo = @idVehiculo
 	Delete from PreciosSeguroVehiculo where id_vehiculo = @idVehiculo
+	Delete from CuentasPagar where id_vehiculo = @idVehiculo and id_transaccion = 4
 	 
 
 end
@@ -926,7 +1058,8 @@ if Not Exists(select * from sys.columns where Name = N'agregar_paises'  and Obje
 		agregar_ciudades bit NOT NULL DEFAULT 1,
 		agregar_colores bit NOT NULL DEFAULT 1,
 		agregar_ubicaciones bit NOT NULL DEFAULT 1,
-		agregar_suplidores bit NOT NULL DEFAULT 1
+		agregar_suplidores bit NOT NULL DEFAULT 1,
+		agregar_seguros bit NOT NULL DEFAULT 1
 		
 	end
 
@@ -938,7 +1071,7 @@ ALTER procedure registrar_usuarios
 @crearGastos bit, @importarVehiculos bit, @compras bit, @cambiarEstadosVehiculos bit, @agregarGastos bit,
 @agregarPiezas bit, @facturacion bit, @reportes bit, @estado bit, @mensaje int output, @modificarVehiculo bit, 
 @cuentasPagar bit, @cuentasCobrar bit, @actualizarTasaDiario bit, @crearPais bit, @crearCiudad bit, @crearSuplidor bit,
-@crearColor bit, @crearUbicacion bit
+@crearColor bit, @crearUbicacion bit, @crearSeguros bit
 as
 set @mensaje = 0
 
@@ -950,12 +1083,12 @@ begin
 			 piezasRepuestos, crearTaller, crearPropietarios, crearClientes, crearGastos, importarVehiculo, 
 			 compras, cambiarEstadosVehiculo, agreagarGastos, agregarPiezas, facturacion, reportes, estadoUsuario,
 			 modificarVehiculo, cuentasCobrar, cuentasPagar, actualizarDiarioTasa, agregar_paises, agregar_ciudades,
-			 agregar_suplidores, agregar_colores, agregar_ubicaciones) 
+			 agregar_suplidores, agregar_colores, agregar_ubicaciones, agregar_seguros) 
 			VALUES(@usuario, @clave, @nombre, @tasaDolar, @crearUsuarios, @fabricantesModelos, @piezasRepuestos,
 			@crearTaller, @crearPropietarios, @crearClientes, @crearGastos, @importarVehiculos, @compras,
 			@cambiarEstadosVehiculos, @agregarGastos, @agregarPiezas, @facturacion, @reportes, @estado, @modificarVehiculo,
 			@cuentasCobrar, @cuentasPagar, @actualizarTasaDiario, @crearPais, @crearCiudad, @crearSuplidor, @crearColor,
-			@crearUbicacion) 
+			@crearUbicacion, @crearSeguros) 
 			set @mensaje = 1
 
 		end
@@ -973,7 +1106,7 @@ ALTER procedure actualizar_usuarios
 @crearGastos bit, @importarVehiculos bit, @compras bit, @cambiarEstadosVehiculos bit, @agregarGastos bit,
 @agregarPiezas bit, @facturacion bit, @reportes bit, @estado bit, @mensaje int output, @idUsuario int,
 @modificarVehiculo bit, @cuentasPagar bit, @cuentasCobrar bit, @actualizarTasaDiario bit, @crearPais bit, @crearCiudad bit, @crearSuplidor bit,
-@crearColor bit, @crearUbicacion bit
+@crearColor bit, @crearUbicacion bit, @crearSeguros bit
 as
 set @mensaje = 0
 
@@ -989,7 +1122,7 @@ begin
 			facturacion = @facturacion, reportes = @reportes, estadoUsuario = @estado, modificarVehiculo = @modificarVehiculo,
 			cuentasCobrar = @cuentasCobrar, cuentasPagar = @cuentasPagar, actualizarDiarioTasa = @actualizarTasaDiario,
 			agregar_paises = @crearPais, agregar_ciudades = @crearCiudad, agregar_suplidores = @crearSuplidor,
-			agregar_colores = @crearColor, agregar_ubicaciones = @crearUbicacion
+			agregar_colores = @crearColor, agregar_ubicaciones = @crearUbicacion, agregar_seguros = @crearSeguros
 			
 			where id = @idUsuario
 			set @mensaje = 1
@@ -1017,7 +1150,7 @@ begin
 	facturacion as 'FACTURACION',modificarVehiculo as 'MODIFICAR VEHICULO', cuentasPagar as 'CUENTAS PAGAR' ,cuentasCobrar as 'CUENTAS COBRAR',
 	reportes as REPORTES, actualizarDiarioTasa as 'ACTUALIZAR TASA DIARIO' ,estadoUsuario as 'ESTADO USUARIO', clave as CLAVE,
 	agregar_paises as 'AGREGAR PAISES', agregar_ciudades as 'AGREGAR CIUDADES', agregar_colores as 'AGREGAR COLORES',
-	agregar_ubicaciones as 'AGREGAR UBICACIONES', agregar_suplidores as 'AGREGAR SUPLIDORES'
+	agregar_ubicaciones as 'AGREGAR UBICACIONES', agregar_suplidores as 'AGREGAR SUPLIDORES', agregar_seguros as 'AGREGAR SEGUROS'
 	from Usuarios where id != 1
 	
 end
@@ -1039,7 +1172,7 @@ begin
 	facturacion as 'FACTURACION', reportes as REPORTES, estadoUsuario as 'ESTADO USUARIO', modificarVehiculo as 'MODIFICAR VEHICULO',
 	cuentasCobrar as 'CUENTAS COBRAR', cuentasPagar as 'CUENTAS PAGAR', actualizarDiarioTasa 'ACTUALIZAR TASA DIARIO',
 	agregar_paises as 'AGREGAR PAISES', agregar_ciudades as 'AGREGAR CIUDADES', agregar_colores as 'AGREGAR COLORES',
-	agregar_ubicaciones as 'AGREGAR UBICACIONES', agregar_suplidores as 'AGREGAR SUPLIDORES'
+	agregar_ubicaciones as 'AGREGAR UBICACIONES', agregar_suplidores as 'AGREGAR SUPLIDORES', agregar_seguros as 'AGREGAR SEGUROS'
 	from Usuarios where id = @idUsuario
 	
 end
@@ -1584,7 +1717,7 @@ if not exists (select * from sysobjects where name='TipoTransaccion' and xtype='
 		transaccion varchar(100)
 		);
 		insert into TipoTransaccion(transaccion)
-		Values ('VENTA'),('COMPRA'),('TRASPASO'), ('SEGURO'), ('PIEZAS'),('TALLER MECANICO' )
+		Values ('VENTA'),('COMPRA'),('TRASPASO'), ('SEGURO'), ('PIEZAS'),('TALLER MECANICO'), ('OTROS')
 	END
 Go
 
@@ -1658,6 +1791,7 @@ if not exists (select * from sysobjects where name='CuentasPagar' and xtype='U')
 		id_factura int,
 		id_vendedor int,
 		id_transaccion int,
+		id_gasto int default 0,
 		monto_rd decimal (18,2),
 		monto_usd decimal (18,2),
 		balance_rd decimal (18,2),
@@ -1830,12 +1964,18 @@ IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertarFormaTransaccionesC
 		
 		declare @idSuplidor int = (select id_suplidor from Vehiculos where id = (select MAX(id) from Vehiculos))
 		
-		if @idTipoPago = 3
+		if @idTipoPago = 3 
 			begin
 				 insert into CuentasPagar (id_factura, id_vendedor, id_transaccion, monto_rd, monto_usd,
 				  balance_rd, balance_usd, fecha, id_vehiculo)
 				  VALUES(@idFactura, @idSuplidor, @idTransaccion, @montoRD, @montoUSD, @montoRD, @montoUSD,
 				  @fecha, @idVehiculo)
+
+				  if @idTransaccion = 5 or @idTransaccion = 6 or @idTransaccion = 7
+					begin
+						update CuentasPagar set id_gasto = ((select MAX(id) from GastoVehiculo) + 1)
+						where id = (select Max(id) from CuentasPagar)
+					end
 			end
 
 		--if @idTipoPago = 1
@@ -2239,4 +2379,59 @@ Go
 	end
 	Go
 
+Drop table TiposGastos
+go
+if not exists (select * from sysobjects where name='TiposGastos' and xtype='U')
+	BEGIN
+		CREATE TABLE TiposGastos (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		gasto varchar(100)
+		);
+		insert into TiposGastos (gasto)
+		Values ('REPARACION'),('OTROS')
+	END
+Go
+
+
+
+Drop table GastoVehiculo
+go
+if not exists (select * from sysobjects where name='GastoVehiculo' and xtype='U')
+	BEGIN
+		CREATE TABLE GastoVehiculo (
+		id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		id_vehiculo int,
+		id_gasto int,
+		id_proveedor int,
+		id_transaccion int,
+		monto_rd decimal(18,2),
+		monto_usd decimal(18,2),
+		fecha date
+		);
+		
+	END
+
+Go
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertar_gasto_vehiculo' AND type = 'P')
+	DROP PROCEDURE insertar_gasto_vehiculo
+	GO
+
+	create procedure  insertar_gasto_vehiculo
+	@idGasto int, @idProveedor int, @idVehiculo int, @montoRD float, @montoUSD float, @fecha date,
+	@mensaje int output, @idTransaccion int
+	as
+	set @mensaje = 0;
+	begin
+		insert into GastoVehiculo(id_gasto, id_proveedor, id_vehiculo, monto_rd, monto_usd, fecha, id_transaccion)
+		VALUES (@idGasto, @idProveedor, @idVehiculo, @montoRD, @montoUSD, @fecha, @idTransaccion)
+		
+		update Vehiculos set total_invertido_rd = total_invertido_rd + @montoRD, total_invertido_usd = total_invertido_usd + @montoUSD
+		where id = @idVehiculo
+
+		set @mensaje = 1;
+	end
+
+	GO
+
+	
 

@@ -103,6 +103,12 @@ namespace ImporteVehiculos.Formularios
             {
                 ubicacion_btn.Enabled = false;
             }
+
+            permiso = GF.ValidarPermisoTransaccion("AGREGAR SEGUROS");
+            if (!permiso)
+            {
+                seguros_btn.Enabled = false;
+            }
         }
 
         private void crearUsuarios_btn_Click(object sender, EventArgs e)

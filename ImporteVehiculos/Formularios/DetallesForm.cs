@@ -167,12 +167,14 @@ namespace ImporteVehiculos.Formularios
 
         private void agregarComponente_btn_Click(object sender, EventArgs e)
         {
+            Program.GidVehiculo2 = idVehiculo;
             Program.Gventana = "componentes";
             AbrirVentanaAgregarComponentesGastos();
         }
 
         private void agregarGastos_btn_Click(object sender, EventArgs e)
         {
+            Program.GidVehiculo2 = idVehiculo;
             Program.Gventana = "reparacion";
             AbrirVentanaAgregarComponentesGastos();
         }
@@ -247,8 +249,8 @@ namespace ImporteVehiculos.Formularios
             {
                 foreach (DataGridViewRow row in gastosAduanales_dtg.Rows)
                 {
-                    gastoAdu_sub_totalRD += Convert.ToDouble(row.Cells[1].Value);
-                    gastoAdu_sub_totalUSD += Convert.ToDouble(row.Cells[2].Value);
+                    gastoAdu_sub_totalRD += Convert.ToDouble(row.Cells[2].Value);
+                    gastoAdu_sub_totalUSD += Convert.ToDouble(row.Cells[3].Value);
 
                 }
                 subTotalAduanaRD_lbl.Text = gastoAdu_sub_totalRD.ToString("N2");
@@ -419,6 +421,7 @@ namespace ImporteVehiculos.Formularios
 
         private void agregarGastosAduana_btn_Click(object sender, EventArgs e)
         {
+            Program.GidVehiculo2 = idVehiculo;
             Program.Gventana = "aduanas";
             AbrirVentanaAgregarComponentesGastos();
         }
@@ -435,13 +438,13 @@ namespace ImporteVehiculos.Formularios
                     string msj = P.EliminarGastoAduanalVehiculo();
                     if (msj == "1")
                     {
-                        MessageBox.Show("Gasto Aduanal Eliminado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Eliminado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LLenarDtgAduanales();
                         CalcularTotales();
                     }
                     else
                     {
-                        MessageBox.Show("Gasto Aduanal no pudo ser eliminado", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("No se Pudo eliminar Registro!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                 }

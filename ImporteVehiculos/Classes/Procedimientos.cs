@@ -110,6 +110,7 @@ namespace ImporteVehiculos.Classes
         bool McrearSuplidor;
         bool McrearUbicacion;
         bool McrearColor;
+        bool McrearSeguro;
 
 
         //double Msubtotal;
@@ -217,6 +218,12 @@ namespace ImporteVehiculos.Classes
         {
             get { return MestadoCiudad; }
             set { MestadoCiudad = value; }
+        }
+    
+        public bool CrearSeguro
+        {
+            get { return McrearSeguro; }
+            set { McrearSeguro = value; }
         }
 
         public bool EstadoPais
@@ -1041,6 +1048,8 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@crearColor", McrearColor));
             lst.Add(new clsParametros("@crearUbicacion", McrearUbicacion));
 
+            lst.Add(new clsParametros("@crearSeguros", McrearSeguro));
+
 
 
             lst.Add(new clsParametros("@estado", MestadoUsuario));
@@ -1317,6 +1326,7 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@crearSuplidor", McrearSuplidor));
             lst.Add(new clsParametros("@crearColor", McrearColor));
             lst.Add(new clsParametros("@crearUbicacion", McrearUbicacion));
+            lst.Add(new clsParametros("@crearSeguros", McrearSeguro));
 
             lst.Add(new clsParametros("@estado", MestadoUsuario));
             C.EjecutarSP("actualizar_usuarios", ref lst);
@@ -2286,5 +2296,27 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             return dt = C.Listado("obtener_todos_Seguros", lst);
         }
+
+        public string InsertarGastosVehiculo()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+            // @idVehiculo,, , @fecha
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idGasto", Mid));
+            lst.Add(new clsParametros("@idProveedor", MidSuplidor));
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@montoRD", MprecioRD));
+            lst.Add(new clsParametros("@montoUSD", MprecioUSD));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+
+
+            C.EjecutarSP("insertar_gasto_vehiculo", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
     }
 }
