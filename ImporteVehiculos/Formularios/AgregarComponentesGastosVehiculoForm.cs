@@ -785,16 +785,17 @@ namespace ImporteVehiculos.Formularios
             {
 
 
-                P.IdVehiculo = 0;
+                P.IdVehiculo = Program.GidVehiculo2;
                 P.Fecha = fecha_dtp.Value;
                 P.Nota = row.Cells[3].Value.ToString();
                 P.IdTipoPago = Convert.ToInt32(row.Cells[5].Value);
                 P.MontoRD = Convert.ToDouble(row.Cells[1].Value); // pago rd
                 P.MontoUSD = Convert.ToDouble(row.Cells[2].Value); // pago usd
                 P.IdTransaccion = idTransaccion;
+                P.IdSuplidor = Convert.ToInt32(taller_cb.SelectedValue);
 
 
-                string respuesta = P.InsertarDetalleTransaccionCompras();
+                string respuesta = P.InsertarDetalleTransaccionGastos();
 
                 if (respuesta != "1")
                 {

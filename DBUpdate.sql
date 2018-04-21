@@ -9,15 +9,20 @@ set @mensaje = 0
 begin
 	
 	declare @precioRD float
-	set @precioRD = (select monto_rd from GastoVehiculo where id_gasto  = @idGasto and id_vehiculo =  @idVehiculo)
+	set @precioRD = (select monto_rd from GastoVehiculo where id  = @idGasto and id_vehiculo =  @idVehiculo)
 	declare @precioUSD float 
-	set @precioUSD = (select monto_usd from GastoVehiculo where id_gasto  = @idGasto and id_vehiculo =  @idVehiculo)
+	set @precioUSD = (select monto_usd from GastoVehiculo where id  = @idGasto and id_vehiculo =  @idVehiculo)
 	
 
 	update Vehiculos set total_invertido_rd = total_invertido_rd - @precioRD, total_invertido_usd = total_invertido_usd - @precioUSD
 	where id = @idVehiculo
-
-	delete from GastoVehiculo where id = @idGasto and id =  @idVehiculo
+	
+	declare @idCP int= (select id from CuentasPagar where id_gasto = @idGasto)
+	
+	delete from PagosCuentasPagar where id = @idCP
+	delete from FormaCompraVehiculo where id_vehiculo = @idVehiculo and id_transaccion = 6
+	delete from CuentasPagar where id = @idCP
+	delete from GastoVehiculo where id = @idGasto and id_vehiculo =  @idVehiculo
 	set @mensaje = 1
 		
 end
@@ -31,15 +36,21 @@ set @mensaje = 0
 begin
 
 	declare @precioRD float
-	set @precioRD = (select monto_rd from GastoVehiculo where id_gasto  = @idComponente and id_vehiculo =  @idVehiculo)
+	set @precioRD = (select monto_rd from GastoVehiculo where id  = @idComponente and id_vehiculo =  @idVehiculo)
 	declare @precioUSD float 
-	set @precioUSD = (select monto_usd from GastoVehiculo where id_gasto  = @idComponente and id_vehiculo =  @idVehiculo)
+	set @precioUSD = (select monto_usd from GastoVehiculo where id  = @idComponente and id_vehiculo =  @idVehiculo)
 	
 
 	update Vehiculos set total_invertido_rd = total_invertido_rd - @precioRD, total_invertido_usd = total_invertido_usd - @precioUSD
 	where id = @idVehiculo
 
-	delete from GastoVehiculo where id = @idComponente and id =  @idVehiculo
+	declare @idCP int= (select id from CuentasPagar where id_gasto = @idComponente)
+	
+	delete from PagosCuentasPagar where id = @idCP
+	delete from FormaCompraVehiculo where id_vehiculo = @idVehiculo and id_transaccion = 5
+	delete from CuentasPagar where id = @idCP
+
+	delete from GastoVehiculo where id = @idComponente and id_vehiculo =  @idVehiculo
 	
 	set @mensaje = 1
 		
@@ -53,15 +64,21 @@ set @mensaje = 0
 begin
 	
 	declare @precioRD float
-	set @precioRD = (select monto_rd from GastoVehiculo where id_gasto  = @idGasto and id_vehiculo =  @idVehiculo)
+	set @precioRD = (select monto_rd from GastoVehiculo where id  = @idGasto and id_vehiculo =  @idVehiculo)
 	declare @precioUSD float 
-	set @precioUSD = (select monto_usd from GastoVehiculo where id_gasto  = @idGasto and id_vehiculo =  @idVehiculo)
+	set @precioUSD = (select monto_usd from GastoVehiculo where id  = @idGasto and id_vehiculo =  @idVehiculo)
 	
 
 	update Vehiculos set total_invertido_rd = total_invertido_rd - @precioRD, total_invertido_usd = total_invertido_usd - @precioUSD
 	where id = @idVehiculo
 
-	delete from GastoVehiculo where id = @idGasto and id =  @idVehiculo
+	declare @idCP int= (select id from CuentasPagar where id_gasto = @idGasto)
+	
+	delete from PagosCuentasPagar where id = @idCP
+	delete from FormaCompraVehiculo where id_vehiculo = @idVehiculo and id_transaccion = 7
+	delete from CuentasPagar where id = @idCP
+
+	delete from GastoVehiculo where id = @idGasto and id_vehiculo =  @idVehiculo
 	set @mensaje = 1
 		
 end
@@ -558,67 +575,103 @@ begin
 			
 			if @idTransaccion = 2
 				begin 
-					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.suplidor as 'PAGAR A',
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.suplidor as 'PAGAR A',
 					CONVERT(varchar(200),
 					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
 					V.vin as CHASIS,
 					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
-					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
 					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
 					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
 					join Suplidores S on S.id = V.id_suplidor join Fabricantes F on F.id = V.fabricante_id 
 					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
 			
 					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0)
-					and format(V.fecha_importe,'yyyy-MM-dd') between
+					and format(CP.fecha,'yyyy-MM-dd') between
 					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = @idTransaccion
-					GROUP BY S.suplidor, CP.balance_rd, CP.balance_usd,
-					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
-					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
 				end
 
 			else if @idTransaccion = 4
 				begin 
-					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.nombre as 'PAGAR A',
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.nombre as 'PAGAR A',
 					CONVERT(varchar(200),
 					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
 					V.vin as CHASIS,
 					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
-					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
 					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
 					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
 					join Seguros S on S.id = V.id_suplidor join Fabricantes F on F.id = V.fabricante_id 
 					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
 			
 					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0)
-					and format(V.fecha_importe,'yyyy-MM-dd') between
+					and format(CP.fecha,'yyyy-MM-dd') between
 					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = @idTransaccion
-					GROUP BY S.nombre, CP.balance_rd, CP.balance_usd,
-					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
-					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+					
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
 				end
 
 			else if @idTransaccion = 5
 				begin 
-					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.taller as 'PAGAR A',
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.taller as 'PAGAR A',
 					CONVERT(varchar(200),
 					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
 					V.vin as CHASIS,
 					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
-					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join TalleresRepuestos S on S.id = CP.id_vendedor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+					
+			
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0) and CP.id_transaccion = 5
+					and format(CP.fecha,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') 
+					
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+			else if @idTransaccion = 6 
+				begin 
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.taller as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join TalleresRepuestos S on S.id = CP.id_vendedor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+					
+
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0) and CP.id_transaccion = 6
+					and format(CP.fecha,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') 
+					
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+				
+			else if @idTransaccion = 7
+				begin 
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.taller as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
 					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
 					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
 					join TalleresRepuestos S on S.id = CP.id_vendedor join Fabricantes F on F.id = V.fabricante_id 
 					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
 			
-					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0) and CP.id_transaccion = 5
-					--and format(V.fecha_importe,'yyyy-MM-dd') between
-					--format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') 
-					GROUP BY S.taller, CP.balance_rd, CP.balance_usd,
-					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
-					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0) and CP.id_transaccion = 7
+					and format(CP.fecha,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') 
+					
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
 				end
-				
 			
 			
 		end
@@ -626,46 +679,104 @@ begin
 		begin
 			if @idTransaccion = 2
 				begin 
-					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.suplidor as 'PAGAR A',
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.suplidor as 'PAGAR A',
 					CONVERT(varchar(200),
 					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
 					V.vin as CHASIS,
 					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
-					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
 					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
 					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
 					join Suplidores S on S.id = V.id_suplidor join Fabricantes F on F.id = V.fabricante_id 
 					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
-			
+					
 					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0)
-					and format(V.fecha_importe,'yyyy-MM-dd') between
+					and format(CP.fecha,'yyyy-MM-dd') between
 					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = @idTransaccion
 					and S.suplidor LIKE '%' + @propietario + '%'
-					GROUP BY S.suplidor, CP.balance_rd, CP.balance_usd,
-					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
-					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
 				end
 
 			else if @idTransaccion = 4
 				begin 
-					select  V.id as IDVEHICULO, V.fecha_importe as  'FECHA COMPRA' ,TP.transaccion as TRANSACCION ,S.nombre as 'PAGAR A',
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.nombre as 'PAGAR A',
 					CONVERT(varchar(200),
 					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
 					V.vin as CHASIS,
 					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
-					ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
 					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
 					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
 					join Seguros S on S.id = V.id_suplidor join Fabricantes F on F.id = V.fabricante_id 
 					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
 			
 					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0)
-					and format(V.fecha_importe,'yyyy-MM-dd') between
+					and format(CP.fecha,'yyyy-MM-dd') between
 					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = @idTransaccion
 					and S.nombre LIKE '%' + @propietario + '%'
-					GROUP BY S.nombre, CP.balance_rd, CP.balance_usd,
-					F.fabricante, M.modelo, V.año, V.color, V.id, V.vin,V.fecha_importe, TP.transaccion, CP.id
-					order by DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+					
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+
+			else if @idTransaccion = 5
+				begin 
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.taller as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join TalleresRepuestos S on S.id = CP.id_vendedor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+					
+			
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0) and CP.id_transaccion = 5
+					and format(CP.fecha,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') 
+					and S.taller LIKE '%' + @propietario + '%'
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+			else if @idTransaccion = 6 
+				begin 
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.taller as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join TalleresRepuestos S on S.id = CP.id_vendedor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+					
+
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0) and CP.id_transaccion = 6
+					and format(CP.fecha,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') 
+					and S.taller LIKE '%' + @propietario + '%'
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
+				end
+				
+			else if @idTransaccion = 7
+				begin 
+					select  V.id as IDVEHICULO, CP.fecha as  'FECHA' ,TP.transaccion as TRANSACCION ,S.taller as 'PAGAR A',
+					CONVERT(varchar(200),
+					(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+					V.vin as CHASIS,
+					ISNULL(CP.balance_rd, 0) as 'PENDIENTE ($RD)', ISNULL(CP.balance_usd, 0) as 'PENDIENTE ($USD)',
+					ISNULL(DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'),
+					 format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE', CP.id as IDCUENTAPAGAR
+					from Vehiculos V  join CuentasPagar CP on CP.id_vehiculo = V.id
+					join TalleresRepuestos S on S.id = CP.id_vendedor join Fabricantes F on F.id = V.fabricante_id 
+					join Modelos M on M.id = V.modelo_id  join TipoTransaccion TP on TP.id = CP.id_transaccion
+			
+					where (ISNULL(CP.balance_usd,0) > 0 or ISNULL(CP.balance_rd,0)>0) and CP.id_transaccion = 7
+					and format(CP.fecha,'yyyy-MM-dd') between
+					format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') 
+					and S.taller LIKE '%' + @propietario + '%'
+					order by DATEDIFF(DAY, format (CP.fecha, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')) DESC
 				end
 		end
 end
@@ -1970,12 +2081,6 @@ IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertarFormaTransaccionesC
 				  balance_rd, balance_usd, fecha, id_vehiculo)
 				  VALUES(@idFactura, @idSuplidor, @idTransaccion, @montoRD, @montoUSD, @montoRD, @montoUSD,
 				  @fecha, @idVehiculo)
-
-				  if @idTransaccion = 5 or @idTransaccion = 6 or @idTransaccion = 7
-					begin
-						update CuentasPagar set id_gasto = ((select MAX(id) from GastoVehiculo) + 1)
-						where id = (select Max(id) from CuentasPagar)
-					end
 			end
 
 		--if @idTipoPago = 1
@@ -1983,6 +2088,42 @@ IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertarFormaTransaccionesC
 		--		 insert into DetallesEfectivoGeneral(idVehiculo, tipoCuenta, montoRD, montoUSD, fecha, documento, numeroDocumento,id_transaccion)
 		--		 values (@idVehiculo, 2, @montoRD, @montoRD, @fecha, 'Factura', @idFactura, @idTransaccion)
 		--	end
+		
+		set @mensaje = 1;
+		 
+	end
+Go
+
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertarFormaGastos' AND type = 'P')
+	DROP PROCEDURE insertarFormaGastos
+	GO
+	create procedure insertarFormaGastos
+	@idVehiculo int, @idTransaccion int, @idTipoPago int, @montoRD float, @montoUSD float,
+	@nota varchar(100), @fecha date, @mensaje int output, @idSuplidor int
+	as
+	declare @idFactura int = 0
+	set @mensaje = 0;
+	begin
+		insert into FormaCompraVehiculo (id_vehiculo, id_transaccion, id_tipo_pago, id_factura, monto_rd, monto_usd, nota, fecha)
+		VALUES (@idVehiculo, @idTransaccion, @idTipoPago, @idFactura, @montoRD, @montoUSD, @nota, @fecha)
+		
+		
+		
+		
+		if @idTipoPago = 3 
+			begin
+				 insert into CuentasPagar (id_factura, id_vendedor, id_transaccion, monto_rd, monto_usd,
+				  balance_rd, balance_usd, fecha, id_vehiculo)
+				  VALUES(@idFactura, @idSuplidor, @idTransaccion, @montoRD, @montoUSD, @montoRD, @montoUSD,
+				  @fecha, @idVehiculo)
+
+				  if @idTransaccion = 5 or @idTransaccion = 6 or @idTransaccion = 7
+					begin
+						update CuentasPagar set id_gasto = ((select IsNull(MAX(id), 0) from GastoVehiculo) + 1)
+						where id = (select Max(id) from CuentasPagar)
+					end
+			end
+
 		
 		set @mensaje = 1;
 		 

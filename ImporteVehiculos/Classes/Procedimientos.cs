@@ -2230,6 +2230,26 @@ namespace ImporteVehiculos.Classes
             return mensaje;
         }
 
+        public string InsertarDetalleTransaccionGastos()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+            lst.Add(new clsParametros("@idTipoPago", MidTipoPago));
+            lst.Add(new clsParametros("@montoRD", MmontoRD));
+            lst.Add(new clsParametros("@montoUSD", MmontoUSD));
+            lst.Add(new clsParametros("@nota", Mnota));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+            lst.Add(new clsParametros("@idSuplidor", MidSuplidor));
+
+            C.EjecutarSP("insertarFormaGastos", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
 
         public DataTable ObtenerSegurosActivos()
         {

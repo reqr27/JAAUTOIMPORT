@@ -357,7 +357,7 @@ namespace ImporteVehiculos.Formularios
         {
             if(gastos_dtg.Rows.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar?", Program.Gtitulo, MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar? Esta Acción Elimina Cuenta por Pagar si Existe", Program.Gtitulo, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     P.Id = Convert.ToInt32(gastos_dtg.CurrentRow.Cells[4].Value);
@@ -385,7 +385,7 @@ namespace ImporteVehiculos.Formularios
         {
             if (Componentes_dtg.Rows.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar?", Program.Gtitulo, MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar? Esta Acción Elimina cuenta por Pagar si Existe", Program.Gtitulo, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     P.Id = Convert.ToInt32(Componentes_dtg.CurrentRow.Cells[3].Value);
@@ -430,10 +430,10 @@ namespace ImporteVehiculos.Formularios
         {
             if (gastosAduanales_dtg.Rows.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar?", Program.Gtitulo, MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Está seguro que desea eliminar? Esta Acción Elimina cuenta por Pagar si Existe", Program.Gtitulo, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    P.Id = Convert.ToInt32(gastosAduanales_dtg.CurrentRow.Cells[3].Value);
+                    P.Id = Convert.ToInt32(gastosAduanales_dtg.CurrentRow.Cells[4].Value);
                     P.IdVehiculo = idVehiculo;
                     string msj = P.EliminarGastoAduanalVehiculo();
                     if (msj == "1")
