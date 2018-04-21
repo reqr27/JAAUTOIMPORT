@@ -390,25 +390,87 @@ end
 
 GO
 ALTER procedure [dbo].[obtener_detalle_cuenta_por_pagar]
-@idVehiculo int
+@idVehiculo int, @idTransaccion int
 as
 
 begin
 	
+	if @idTransaccion = 2 -- Compra
+		begin 
+			select V.id as ID,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
+			as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
+			Sup.suplidor as PROPIETARIO,Sup.direccion as DIRECCION, Sup.rnc_cedula as CEDULA, Sup.telefono as TEL ,
+			format(CP.fecha, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
+			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)',
+			P.pais as PAIS, C.ciudad as CIUDAD
+	
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
+			join Suplidores Sup on V.id_suplidor = Sup.id
+			join Paises P on P.id = Sup.id_pais join Ciudades C on C.id = Sup.id_ciudad
+	
+			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 2
+		end
+	else if @idTransaccion = 4 --Seguro
+		begin 
+			select V.id as ID,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
+			as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
+			seg.nombre as PROPIETARIO, Seg.telefono as TEL ,
+			format(CP.fecha, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
+			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)'
+			
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
+			join Seguros Seg on V.id_suplidor = Seg.id 
 
-	select  distinct V.id as ID,
-	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
-	as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
-	Sup.suplidor as PROPIETARIO, Sup.direccion as DIRECCION, Sup.rnc_cedula as CEDULA, Sup.telefono as TEL ,
-	format(V.fecha_importe, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
-	V.precioRD as 'PRECIO ($RD)', V.precioUSD as 'PRECIO ($USD)', PS.precioRD as 'PRECIO SEGURO RD', PS.precioUSD as 'PRECIO SEGURO USD',
-	S.nombre as 'SEGURO NOMBRE', S.telefono as 'SEGURO TEL'
+			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 4
+		end
+
+	 else if @idTransaccion = 5 -- Pieza
+		begin 
+			select V.id as ID,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
+			as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
+			TR.taller as PROPIETARIO, TR.telefono1 as TEL, TR.direccion as DIRECCION ,
+			format(CP.fecha, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
+			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)', C.componente as PIEZA
+			
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
+			join TalleresRepuestos TR on TR.id = CP.id_vendedor join GastoVehiculo GV on GV.id = CP.id join Componentes C on C.id = GV.id_gasto
+
+			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 5
+		end
+	else if @idTransaccion = 6 -- MECANICA
+		begin 
+			select V.id as ID,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
+			as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
+			TR.taller as PROPIETARIO, TR.telefono1 as TEL, TR.direccion as DIRECCION ,
+			format(CP.fecha, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
+			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)', G.descripcion as GASTO
+			
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
+			join TalleresRepuestos TR on TR.id = CP.id_vendedor join GastoVehiculo GV on GV.id = CP.id join Gastos G on G.id = GV.id_gasto
+
+			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 6
+		end
+
+	else if @idTransaccion = 7 -- OTROS
+		begin 
+			select V.id as ID,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
+			as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
+			TR.taller as PROPIETARIO, TR.telefono1 as TEL, TR.direccion as DIRECCION ,
+			format(CP.fecha, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
+			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)', G.descripcion as GASTO
+			
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
+			join TalleresRepuestos TR on TR.id = CP.id_vendedor join GastoVehiculo GV on GV.id = CP.id join Gastos G on G.id = GV.id_gasto
+
+			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 6
+		end
 	
-	from Vehiculos V join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
-	left join Suplidores Sup on V.id_suplidor = Sup.id left join PreciosSeguroVehiculo PS on PS.id_vehiculo = V.id
-	left join SeguroVehiculo SV on SV.id_vehiculo = V.id left join Seguros S on S.id = SV.id_seguro
 	
-	where V.id = @idVehiculo
 		
 end
 

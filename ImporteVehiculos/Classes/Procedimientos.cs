@@ -1560,6 +1560,7 @@ namespace ImporteVehiculos.Classes
             DataTable dt = new DataTable();
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idVehiculo", Mid));
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
             return dt = C.Listado("obtener_detalle_cuenta_por_pagar", lst);
         }
 

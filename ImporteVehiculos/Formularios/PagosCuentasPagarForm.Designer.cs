@@ -42,7 +42,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cp_lbl = new System.Windows.Forms.Label();
-            this.transaccion_lbl = new System.Windows.Forms.Label();
             this.dias_lbl = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.fechaCompra_lbl = new System.Windows.Forms.Label();
@@ -61,7 +60,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.propietario_lbl = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.suplidor_lbl = new System.Windows.Forms.Label();
             this.vehiculo_lbl = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -91,6 +90,7 @@
             this.tipoPago_cb = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.pagos_dtg = new System.Windows.Forms.DataGridView();
+            this.label28 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompra_dtg)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -215,8 +215,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel4.Controls.Add(this.label28);
             this.panel4.Controls.Add(this.cp_lbl);
-            this.panel4.Controls.Add(this.transaccion_lbl);
             this.panel4.Controls.Add(this.dias_lbl);
             this.panel4.Controls.Add(this.label25);
             this.panel4.Controls.Add(this.fechaCompra_lbl);
@@ -235,7 +235,7 @@
             this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.propietario_lbl);
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.label12);
+            this.panel4.Controls.Add(this.suplidor_lbl);
             this.panel4.Controls.Add(this.vehiculo_lbl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 49);
@@ -248,22 +248,11 @@
             this.cp_lbl.AutoSize = true;
             this.cp_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cp_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.cp_lbl.Location = new System.Drawing.Point(707, 10);
+            this.cp_lbl.Location = new System.Drawing.Point(785, 13);
             this.cp_lbl.Name = "cp_lbl";
-            this.cp_lbl.Size = new System.Drawing.Size(193, 19);
+            this.cp_lbl.Size = new System.Drawing.Size(95, 19);
             this.cp_lbl.TabIndex = 128;
-            this.cp_lbl.Text = "AGREGAR VEHICULO";
-            // 
-            // transaccion_lbl
-            // 
-            this.transaccion_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transaccion_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.transaccion_lbl.Location = new System.Drawing.Point(-4, 10);
-            this.transaccion_lbl.Name = "transaccion_lbl";
-            this.transaccion_lbl.Size = new System.Drawing.Size(933, 19);
-            this.transaccion_lbl.TabIndex = 127;
-            this.transaccion_lbl.Text = "AGREGAR VEHICULO";
-            this.transaccion_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cp_lbl.Text = "# CUENTA";
             // 
             // dias_lbl
             // 
@@ -292,7 +281,7 @@
             this.fechaCompra_lbl.AutoSize = true;
             this.fechaCompra_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaCompra_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.fechaCompra_lbl.Location = new System.Drawing.Point(480, 60);
+            this.fechaCompra_lbl.Location = new System.Drawing.Point(73, 59);
             this.fechaCompra_lbl.Name = "fechaCompra_lbl";
             this.fechaCompra_lbl.Size = new System.Drawing.Size(37, 15);
             this.fechaCompra_lbl.TabIndex = 122;
@@ -303,18 +292,18 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label24.Location = new System.Drawing.Point(357, 60);
+            this.label24.Location = new System.Drawing.Point(13, 59);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(104, 15);
+            this.label24.Size = new System.Drawing.Size(54, 15);
             this.label24.TabIndex = 121;
-            this.label24.Text = "Fecha Compra:";
+            this.label24.Text = "Fecha :";
             // 
             // chasis_lbl
             // 
             this.chasis_lbl.AutoSize = true;
             this.chasis_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chasis_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.chasis_lbl.Location = new System.Drawing.Point(73, 60);
+            this.chasis_lbl.Location = new System.Drawing.Point(261, 59);
             this.chasis_lbl.Name = "chasis_lbl";
             this.chasis_lbl.Size = new System.Drawing.Size(62, 15);
             this.chasis_lbl.TabIndex = 120;
@@ -325,7 +314,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label26.Location = new System.Drawing.Point(13, 60);
+            this.label26.Location = new System.Drawing.Point(201, 59);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(54, 15);
             this.label26.TabIndex = 119;
@@ -382,9 +371,9 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label21.Location = new System.Drawing.Point(356, 86);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(192, 19);
+            this.label21.Size = new System.Drawing.Size(166, 19);
             this.label21.TabIndex = 114;
-            this.label21.Text = "Precio Compra($USD):";
+            this.label21.Text = "Precio total($USD):";
             // 
             // label19
             // 
@@ -393,16 +382,16 @@
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.label19.Location = new System.Drawing.Point(12, 86);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(182, 19);
+            this.label19.Size = new System.Drawing.Size(160, 19);
             this.label19.TabIndex = 113;
-            this.label19.Text = "Precio Compra($RD):";
+            this.label19.Text = "Precio Total($RD):";
             // 
             // direccion_lbl
             // 
             this.direccion_lbl.AutoSize = true;
             this.direccion_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.direccion_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.direccion_lbl.Location = new System.Drawing.Point(391, 158);
+            this.direccion_lbl.Location = new System.Drawing.Point(81, 158);
             this.direccion_lbl.Name = "direccion_lbl";
             this.direccion_lbl.Size = new System.Drawing.Size(59, 15);
             this.direccion_lbl.TabIndex = 112;
@@ -413,7 +402,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label20.Location = new System.Drawing.Point(323, 158);
+            this.label20.Location = new System.Drawing.Point(13, 158);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(72, 15);
             this.label20.TabIndex = 111;
@@ -424,7 +413,7 @@
             this.cedula_lbl.AutoSize = true;
             this.cedula_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cedula_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.cedula_lbl.Location = new System.Drawing.Point(115, 158);
+            this.cedula_lbl.Location = new System.Drawing.Point(642, 158);
             this.cedula_lbl.Name = "cedula_lbl";
             this.cedula_lbl.Size = new System.Drawing.Size(88, 15);
             this.cedula_lbl.TabIndex = 110;
@@ -435,7 +424,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label17.Location = new System.Drawing.Point(13, 158);
+            this.label17.Location = new System.Drawing.Point(540, 158);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(101, 15);
             this.label17.TabIndex = 109;
@@ -463,25 +452,25 @@
             this.label13.TabIndex = 107;
             this.label13.Text = "Nombre:";
             // 
-            // label12
+            // suplidor_lbl
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label12.Location = new System.Drawing.Point(13, 115);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(141, 15);
-            this.label12.TabIndex = 106;
-            this.label12.Text = "Información Suplidor";
+            this.suplidor_lbl.AutoSize = true;
+            this.suplidor_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suplidor_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.suplidor_lbl.Location = new System.Drawing.Point(13, 115);
+            this.suplidor_lbl.Name = "suplidor_lbl";
+            this.suplidor_lbl.Size = new System.Drawing.Size(141, 15);
+            this.suplidor_lbl.TabIndex = 106;
+            this.suplidor_lbl.Text = "Información Suplidor";
             // 
             // vehiculo_lbl
             // 
             this.vehiculo_lbl.AutoSize = true;
-            this.vehiculo_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vehiculo_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vehiculo_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.vehiculo_lbl.Location = new System.Drawing.Point(10, 38);
+            this.vehiculo_lbl.Location = new System.Drawing.Point(135, 22);
             this.vehiculo_lbl.Name = "vehiculo_lbl";
-            this.vehiculo_lbl.Size = new System.Drawing.Size(193, 19);
+            this.vehiculo_lbl.Size = new System.Drawing.Size(153, 16);
             this.vehiculo_lbl.TabIndex = 27;
             this.vehiculo_lbl.Text = "AGREGAR VEHICULO";
             // 
@@ -830,6 +819,17 @@
             this.pagos_dtg.Size = new System.Drawing.Size(306, 228);
             this.pagos_dtg.TabIndex = 102;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label28.Location = new System.Drawing.Point(13, 22);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(104, 15);
+            this.label28.TabIndex = 129;
+            this.label28.Text = "DESCRIPCION:";
+            // 
             // PagosCuentasPagarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -913,7 +913,7 @@
         private System.Windows.Forms.ComboBox tipoPago_cb;
         private System.Windows.Forms.Label propietario_lbl;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label suplidor_lbl;
         private System.Windows.Forms.Label cedula_lbl;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label precioCompraUSD_lbl;
@@ -933,6 +933,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DataGridView pagos_dtg;
         private System.Windows.Forms.Label cp_lbl;
-        private System.Windows.Forms.Label transaccion_lbl;
+        private System.Windows.Forms.Label label28;
     }
 }
