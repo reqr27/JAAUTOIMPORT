@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ImporteVehiculos.Classes;
 using System.Security;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace ImporteVehiculos.Formularios
 {
@@ -87,6 +88,8 @@ namespace ImporteVehiculos.Formularios
 
         private void VenderForm_Load(object sender, EventArgs e)
         {
+            duracion_seguro.Maximum = Int32.MaxValue;
+            duracion_seguro.Value = 365;
             this.openFileDialog1.Filter =
           "Images (*.BMP;*.JPG;*.GIF;*.png)|*.BMP;*.JPG;*.GIF;*.PNG|" +
           "All files (*.*)|*.*";
@@ -286,6 +289,8 @@ namespace ImporteVehiculos.Formularios
                             {
                                 if (MarcarVehiculoVendio())
                                 {
+                                    InsertarImagenes();
+                                    RemoveAllPhotos();
                                     GenerarFactura();
                                     clearFields();
                                 }
@@ -647,6 +652,19 @@ namespace ImporteVehiculos.Formularios
 
         }
 
+        public void RemoveAllPhotos()
+        {
+            List<Control> listControls = flowLayoutPanel1.Controls.Cast<Control>().ToList();
+            
+            foreach (Control control in listControls)
+            {
+                flowLayoutPanel1.Controls.Remove(control);
+                control.Dispose();
+            }
+
+            
+        }
+
         private void pagos_dtg_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex == pagos_dtg.NewRowIndex || e.RowIndex < 0)
@@ -977,8 +995,9 @@ namespace ImporteVehiculos.Formularios
         protected void newButton_click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            //MessageBox.Show();
-            
+            int index = Convert.ToInt32(Regex.Replace(button.Tag.ToString(), "[^0-9 _]", "")) - 1;
+            imgsList.RemoveAt(index);
+
             foreach (PictureBox pic_box in flowLayoutPanel1.Controls.OfType<PictureBox>())
             {
                 if (pic_box.Tag != null && pic_box.Tag.ToString() == button.Tag.ToString())
@@ -1582,6 +1601,52 @@ namespace ImporteVehiculos.Formularios
                 }
 
             }
+        }
+
+        public void InsertarImagenes()
+        {
+            string errors = "";
+            foreach (var img1 in imgsList)
+            {
+                byte[] img = null;
+                FileStream fs = new FileStream(img1, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                img = br.ReadBytes((int)fs.Length);
+                P.Img = img;
+                P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+                string msj2 = P.InsertarImagenTraspaso();
+                if (msj2 == "0")
+                {
+                    errors += img1 + "\n";
+                }
+
+            }
+            imgsList.Clear();
+            if (errors == "")
+            {
+                MessageBox.Show("Registrado!", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("No se pudieron guardar las siguientes imágenes: \n" + errors, Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void VenderForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.OpenForms["ProcesosForm"].WindowState = FormWindowState.Normal;
+                Application.OpenForms["ProcesosForm"].BringToFront();
+            }
+            catch (Exception)
+            {
+
+               
+            }
+            
         }
     }
 }

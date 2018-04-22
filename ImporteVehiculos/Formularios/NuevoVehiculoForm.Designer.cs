@@ -1129,6 +1129,7 @@
             this.Name = "NuevoVehiculoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "COMPRAS";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NuevoVehiculoForm_FormClosed);
             this.Load += new System.EventHandler(this.NuevoVehiculoForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

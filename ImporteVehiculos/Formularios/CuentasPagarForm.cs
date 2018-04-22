@@ -172,5 +172,21 @@ namespace ImporteVehiculos.Formularios
             LlenarDtgCuentasPagar();
             CalcularTotal();
         }
+
+        private void CuentasPagarForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.OpenForms["ProcesosForm"].WindowState = FormWindowState.Normal;
+                Application.OpenForms["ProcesosForm"].BringToFront();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+
+            
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace ImporteVehiculos.Formularios
         {
             evento = false;
             pieza_txt.Text = "";
-            usdDinero_radiobtn.Checked = true;
+            rdDinero_radiobtn.Checked = true;
             precio_txt.Text = "";
             fabricante_cbox.Enabled = true;
             modelo_cb.Enabled = true;

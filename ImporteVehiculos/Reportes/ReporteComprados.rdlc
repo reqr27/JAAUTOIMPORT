@@ -113,7 +113,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>VIN</Value>
+                              <Value>CHASIS</Value>
                               <Style>
                                 <FontFamily>Bookman Old Style</FontFamily>
                                 <FontSize>8pt</FontSize>

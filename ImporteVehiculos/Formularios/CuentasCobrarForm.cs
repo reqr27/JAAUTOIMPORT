@@ -147,5 +147,19 @@ namespace ImporteVehiculos.Formularios
                 CalcularTotal();
             }
         }
+
+        private void CuentasCobrarForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.OpenForms["ProcesosForm"].WindowState = FormWindowState.Normal;
+                Application.OpenForms["ProcesosForm"].BringToFront();
+            }
+            catch
+            {
+
+            }
+            
+        }
     }
 }

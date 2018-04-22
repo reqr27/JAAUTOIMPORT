@@ -295,5 +295,19 @@ namespace ImporteVehiculos.Formularios
             }
             LlenarDtgVehiculos();
         }
+
+        private void ImporteForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.OpenForms["ProcesosForm"].WindowState = FormWindowState.Normal;
+                Application.OpenForms["ProcesosForm"].BringToFront();
+            }
+            catch (Exception)
+            {
+
+            }
+            
+        }
     }
 }

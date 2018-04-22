@@ -42,6 +42,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tipoPago_cb = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.guardar_btn = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.nota_txt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,9 +59,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.precioEstimadoVentaUSD_txt = new System.Windows.Forms.TextBox();
             this.tasa_lbl = new System.Windows.Forms.LinkLabel();
@@ -81,6 +81,48 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.precio_txt = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.restante_USD_lbl = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.totalUSD_lbl = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.restante_RD_lbl = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.totalRD_lbl = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.precioVentaUSD_lbl = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.precioVentaRd_lbl = new System.Windows.Forms.Label();
+            this.agregar_btn = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.restanteTraspaso_USD_lbl = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.totalTraspasoUSD_lbl = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.restanteTraspaso_RD_lbl = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.totalTraspasoRD_lbl = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.precioTraspasoUsd_lbl = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.precioTraspasoRd_lbl = new System.Windows.Forms.Label();
+            this.agregarImg_btn = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.precioTraspaso_txt = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rdDineroTraspaso_radiobtn = new System.Windows.Forms.RadioButton();
@@ -96,18 +138,31 @@
             this.montoTraspaso_txt = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.tipoPagoTraspaso_cb = new System.Windows.Forms.ComboBox();
+            this.agregarPagoTraspaso_btn = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.notaPagoTraspaso_txt = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.precioTraspaso_txt = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.agregar_btn = new System.Windows.Forms.Button();
-            this.agregarImg_btn = new System.Windows.Forms.Button();
-            this.agregarPagoTraspaso_btn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.restanteSeguro_USD_lbl = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.totalSeguroUSD_lbl = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.restanteSeguro_RD_lbl = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.totalSeguroRD_lbl = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.precioSeguroUsd_lbl = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.precioSeguroRd_lbl = new System.Windows.Forms.Label();
+            this.duracion_seguro = new System.Windows.Forms.NumericUpDown();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.seguro_cb = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.precioSeguro_txt = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -128,79 +183,24 @@
             this.agregarPagosSeguros_btn = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.notaPagoSeguros_txt = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.seguro_cb = new System.Windows.Forms.ComboBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.duracion_seguro = new System.Windows.Forms.NumericUpDown();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.guardar_btn = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.restante_USD_lbl = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.totalUSD_lbl = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.restante_RD_lbl = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.totalRD_lbl = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.precioVentaUSD_lbl = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.precioVentaRd_lbl = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.restanteTraspaso_USD_lbl = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.totalTraspasoUSD_lbl = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.restanteTraspaso_RD_lbl = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.totalTraspasoRD_lbl = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.precioTraspasoUsd_lbl = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.precioTraspasoRd_lbl = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.restanteSeguro_USD_lbl = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.totalSeguroUSD_lbl = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.restanteSeguro_RD_lbl = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.totalSeguroRD_lbl = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.precioSeguroUsd_lbl = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.precioSeguroRd_lbl = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagos_dtg)).BeginInit();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagosTraspaso_dtg)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.duracion_seguro)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seguros_dtg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.duracion_seguro)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // usdDinero_radiobtn
@@ -283,6 +283,51 @@
             this.panel3.Size = new System.Drawing.Size(896, 48);
             this.panel3.TabIndex = 88;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(827, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 26);
+            this.button3.TabIndex = 31;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // guardar_btn
+            // 
+            this.guardar_btn.FlatAppearance.BorderSize = 0;
+            this.guardar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardar_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.guardar_btn.Image = global::ImporteVehiculos.Properties.Resources.vendido;
+            this.guardar_btn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.guardar_btn.Location = new System.Drawing.Point(671, 3);
+            this.guardar_btn.Name = "guardar_btn";
+            this.guardar_btn.Size = new System.Drawing.Size(123, 42);
+            this.guardar_btn.TabIndex = 40;
+            this.guardar_btn.Text = "Registrar Venta";
+            this.guardar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.guardar_btn.UseVisualStyleBackColor = true;
+            this.guardar_btn.Click += new System.EventHandler(this.guardar_btn_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.Location = new System.Drawing.Point(858, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 26);
+            this.button2.TabIndex = 30;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label27
             // 
@@ -452,80 +497,6 @@
             this.tabPage1.Size = new System.Drawing.Size(888, 469);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GENERALES";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.pagos_dtg);
-            this.tabPage2.Controls.Add(this.pago_txt);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.tipoPago_cb);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.nota_txt);
-            this.tabPage2.Controls.Add(this.agregar_btn);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(888, 469);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "DETALLE VENTA";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.tabPage3.Controls.Add(this.panel7);
-            this.tabPage3.Controls.Add(this.agregarImg_btn);
-            this.tabPage3.Controls.Add(this.label29);
-            this.tabPage3.Controls.Add(this.flowLayoutPanel1);
-            this.tabPage3.Controls.Add(this.label28);
-            this.tabPage3.Controls.Add(this.precioTraspaso_txt);
-            this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Controls.Add(this.panel5);
-            this.tabPage3.Controls.Add(this.label24);
-            this.tabPage3.Controls.Add(this.pagosTraspaso_dtg);
-            this.tabPage3.Controls.Add(this.montoTraspaso_txt);
-            this.tabPage3.Controls.Add(this.label25);
-            this.tabPage3.Controls.Add(this.tipoPagoTraspaso_cb);
-            this.tabPage3.Controls.Add(this.agregarPagoTraspaso_btn);
-            this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Controls.Add(this.notaPagoTraspaso_txt);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(888, 469);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "TRASPASO";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.tabPage4.Controls.Add(this.panel8);
-            this.tabPage4.Controls.Add(this.duracion_seguro);
-            this.tabPage4.Controls.Add(this.label36);
-            this.tabPage4.Controls.Add(this.label35);
-            this.tabPage4.Controls.Add(this.seguro_cb);
-            this.tabPage4.Controls.Add(this.label30);
-            this.tabPage4.Controls.Add(this.precioSeguro_txt);
-            this.tabPage4.Controls.Add(this.label31);
-            this.tabPage4.Controls.Add(this.panel6);
-            this.tabPage4.Controls.Add(this.label32);
-            this.tabPage4.Controls.Add(this.seguros_dtg);
-            this.tabPage4.Controls.Add(this.montoSeguros_txt);
-            this.tabPage4.Controls.Add(this.label33);
-            this.tabPage4.Controls.Add(this.tipoPagoSeguros_cb);
-            this.tabPage4.Controls.Add(this.agregarPagosSeguros_btn);
-            this.tabPage4.Controls.Add(this.label34);
-            this.tabPage4.Controls.Add(this.notaPagoSeguros_txt);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(888, 469);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "SEGURO";
             // 
             // label12
             // 
@@ -755,6 +726,519 @@
             this.precio_txt.TabIndex = 135;
             this.precio_txt.TextChanged += new System.EventHandler(this.precio_txt_TextChanged);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.panel4);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.pagos_dtg);
+            this.tabPage2.Controls.Add(this.pago_txt);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.tipoPago_cb);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.nota_txt);
+            this.tabPage2.Controls.Add(this.agregar_btn);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(888, 469);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "DETALLE VENTA";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.restante_USD_lbl);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.totalUSD_lbl);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.restante_RD_lbl);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.totalRD_lbl);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.precioVentaUSD_lbl);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.precioVentaRd_lbl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 354);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(882, 112);
+            this.panel1.TabIndex = 122;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(673, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(145, 13);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "_______________________";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(656, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 25);
+            this.label10.TabIndex = 94;
+            this.label10.Text = "-";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(267, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 25);
+            this.label6.TabIndex = 93;
+            this.label6.Text = "-";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label14.Location = new System.Drawing.Point(458, 87);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(164, 19);
+            this.label14.TabIndex = 90;
+            this.label14.Text = "RESTANTE($USD):";
+            // 
+            // restante_USD_lbl
+            // 
+            this.restante_USD_lbl.AutoSize = true;
+            this.restante_USD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restante_USD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.restante_USD_lbl.Location = new System.Drawing.Point(675, 87);
+            this.restante_USD_lbl.Name = "restante_USD_lbl";
+            this.restante_USD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.restante_USD_lbl.TabIndex = 91;
+            this.restante_USD_lbl.Text = "pv";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label18.Location = new System.Drawing.Point(458, 42);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(120, 19);
+            this.label18.TabIndex = 88;
+            this.label18.Text = "PAGO($USD):";
+            // 
+            // totalUSD_lbl
+            // 
+            this.totalUSD_lbl.AutoSize = true;
+            this.totalUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.totalUSD_lbl.Location = new System.Drawing.Point(675, 42);
+            this.totalUSD_lbl.Name = "totalUSD_lbl";
+            this.totalUSD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.totalUSD_lbl.TabIndex = 89;
+            this.totalUSD_lbl.Text = "pv";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Location = new System.Drawing.Point(277, 62);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(145, 13);
+            this.label11.TabIndex = 87;
+            this.label11.Text = "_______________________";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label7.Location = new System.Drawing.Point(84, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 19);
+            this.label7.TabIndex = 85;
+            this.label7.Text = "RESTANTE($RD):";
+            // 
+            // restante_RD_lbl
+            // 
+            this.restante_RD_lbl.AutoSize = true;
+            this.restante_RD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restante_RD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.restante_RD_lbl.Location = new System.Drawing.Point(284, 87);
+            this.restante_RD_lbl.Name = "restante_RD_lbl";
+            this.restante_RD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.restante_RD_lbl.TabIndex = 86;
+            this.restante_RD_lbl.Text = "pv";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label5.Location = new System.Drawing.Point(84, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 19);
+            this.label5.TabIndex = 83;
+            this.label5.Text = "PAGO($RD):";
+            // 
+            // totalRD_lbl
+            // 
+            this.totalRD_lbl.AutoSize = true;
+            this.totalRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.totalRD_lbl.Location = new System.Drawing.Point(287, 42);
+            this.totalRD_lbl.Name = "totalRD_lbl";
+            this.totalRD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.totalRD_lbl.TabIndex = 84;
+            this.totalRD_lbl.Text = "pv";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label16.Location = new System.Drawing.Point(84, 12);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(192, 19);
+            this.label16.TabIndex = 79;
+            this.label16.Text = "PRECIO VENTA($RD):";
+            // 
+            // precioVentaUSD_lbl
+            // 
+            this.precioVentaUSD_lbl.AutoSize = true;
+            this.precioVentaUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioVentaUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.precioVentaUSD_lbl.Location = new System.Drawing.Point(675, 12);
+            this.precioVentaUSD_lbl.Name = "precioVentaUSD_lbl";
+            this.precioVentaUSD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.precioVentaUSD_lbl.TabIndex = 82;
+            this.precioVentaUSD_lbl.Text = "pv";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label15.Location = new System.Drawing.Point(458, 12);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(202, 19);
+            this.label15.TabIndex = 80;
+            this.label15.Text = "PRECIO VENTA($USD):";
+            // 
+            // precioVentaRd_lbl
+            // 
+            this.precioVentaRd_lbl.AutoSize = true;
+            this.precioVentaRd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioVentaRd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.precioVentaRd_lbl.Location = new System.Drawing.Point(287, 12);
+            this.precioVentaRd_lbl.Name = "precioVentaRd_lbl";
+            this.precioVentaRd_lbl.Size = new System.Drawing.Size(29, 19);
+            this.precioVentaRd_lbl.TabIndex = 81;
+            this.precioVentaRd_lbl.Text = "pv";
+            // 
+            // agregar_btn
+            // 
+            this.agregar_btn.FlatAppearance.BorderSize = 0;
+            this.agregar_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.agregar_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.agregar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregar_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregar_btn.Image = global::ImporteVehiculos.Properties.Resources.circulo_de_suma;
+            this.agregar_btn.Location = new System.Drawing.Point(291, 135);
+            this.agregar_btn.Name = "agregar_btn";
+            this.agregar_btn.Size = new System.Drawing.Size(58, 42);
+            this.agregar_btn.TabIndex = 94;
+            this.agregar_btn.UseVisualStyleBackColor = true;
+            this.agregar_btn.Click += new System.EventHandler(this.agregar_btn_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.tabPage3.Controls.Add(this.panel7);
+            this.tabPage3.Controls.Add(this.agregarImg_btn);
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.flowLayoutPanel1);
+            this.tabPage3.Controls.Add(this.label28);
+            this.tabPage3.Controls.Add(this.precioTraspaso_txt);
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.panel5);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.pagosTraspaso_dtg);
+            this.tabPage3.Controls.Add(this.montoTraspaso_txt);
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.tipoPagoTraspaso_cb);
+            this.tabPage3.Controls.Add(this.agregarPagoTraspaso_btn);
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.notaPagoTraspaso_txt);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(888, 469);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "TRASPASO";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.panel7.Controls.Add(this.label37);
+            this.panel7.Controls.Add(this.label38);
+            this.panel7.Controls.Add(this.label39);
+            this.panel7.Controls.Add(this.label40);
+            this.panel7.Controls.Add(this.restanteTraspaso_USD_lbl);
+            this.panel7.Controls.Add(this.label42);
+            this.panel7.Controls.Add(this.totalTraspasoUSD_lbl);
+            this.panel7.Controls.Add(this.label44);
+            this.panel7.Controls.Add(this.label45);
+            this.panel7.Controls.Add(this.restanteTraspaso_RD_lbl);
+            this.panel7.Controls.Add(this.label47);
+            this.panel7.Controls.Add(this.totalTraspasoRD_lbl);
+            this.panel7.Controls.Add(this.label49);
+            this.panel7.Controls.Add(this.precioTraspasoUsd_lbl);
+            this.panel7.Controls.Add(this.label51);
+            this.panel7.Controls.Add(this.precioTraspasoRd_lbl);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(3, 354);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(882, 112);
+            this.panel7.TabIndex = 137;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label37.Location = new System.Drawing.Point(673, 67);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(145, 13);
+            this.label37.TabIndex = 95;
+            this.label37.Text = "_______________________";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label38.Location = new System.Drawing.Point(656, 37);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(19, 25);
+            this.label38.TabIndex = 94;
+            this.label38.Text = "-";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label39.Location = new System.Drawing.Point(267, 37);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(19, 25);
+            this.label39.TabIndex = 93;
+            this.label39.Text = "-";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label40.Location = new System.Drawing.Point(437, 87);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(164, 19);
+            this.label40.TabIndex = 90;
+            this.label40.Text = "RESTANTE($USD):";
+            // 
+            // restanteTraspaso_USD_lbl
+            // 
+            this.restanteTraspaso_USD_lbl.AutoSize = true;
+            this.restanteTraspaso_USD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restanteTraspaso_USD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.restanteTraspaso_USD_lbl.Location = new System.Drawing.Point(675, 87);
+            this.restanteTraspaso_USD_lbl.Name = "restanteTraspaso_USD_lbl";
+            this.restanteTraspaso_USD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.restanteTraspaso_USD_lbl.TabIndex = 91;
+            this.restanteTraspaso_USD_lbl.Text = "pv";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label42.Location = new System.Drawing.Point(437, 42);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(120, 19);
+            this.label42.TabIndex = 88;
+            this.label42.Text = "PAGO($USD):";
+            // 
+            // totalTraspasoUSD_lbl
+            // 
+            this.totalTraspasoUSD_lbl.AutoSize = true;
+            this.totalTraspasoUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalTraspasoUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.totalTraspasoUSD_lbl.Location = new System.Drawing.Point(675, 42);
+            this.totalTraspasoUSD_lbl.Name = "totalTraspasoUSD_lbl";
+            this.totalTraspasoUSD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.totalTraspasoUSD_lbl.TabIndex = 89;
+            this.totalTraspasoUSD_lbl.Text = "pv";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label44.Location = new System.Drawing.Point(277, 62);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(145, 13);
+            this.label44.TabIndex = 87;
+            this.label44.Text = "_______________________";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label45.Location = new System.Drawing.Point(50, 87);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(154, 19);
+            this.label45.TabIndex = 85;
+            this.label45.Text = "RESTANTE($RD):";
+            // 
+            // restanteTraspaso_RD_lbl
+            // 
+            this.restanteTraspaso_RD_lbl.AutoSize = true;
+            this.restanteTraspaso_RD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restanteTraspaso_RD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.restanteTraspaso_RD_lbl.Location = new System.Drawing.Point(284, 87);
+            this.restanteTraspaso_RD_lbl.Name = "restanteTraspaso_RD_lbl";
+            this.restanteTraspaso_RD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.restanteTraspaso_RD_lbl.TabIndex = 86;
+            this.restanteTraspaso_RD_lbl.Text = "pv";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label47.Location = new System.Drawing.Point(50, 42);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(110, 19);
+            this.label47.TabIndex = 83;
+            this.label47.Text = "PAGO($RD):";
+            // 
+            // totalTraspasoRD_lbl
+            // 
+            this.totalTraspasoRD_lbl.AutoSize = true;
+            this.totalTraspasoRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalTraspasoRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.totalTraspasoRD_lbl.Location = new System.Drawing.Point(287, 42);
+            this.totalTraspasoRD_lbl.Name = "totalTraspasoRD_lbl";
+            this.totalTraspasoRD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.totalTraspasoRD_lbl.TabIndex = 84;
+            this.totalTraspasoRD_lbl.Text = "pv";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label49.Location = new System.Drawing.Point(50, 12);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(228, 19);
+            this.label49.TabIndex = 79;
+            this.label49.Text = "PRECIO TRASPASO($RD):";
+            // 
+            // precioTraspasoUsd_lbl
+            // 
+            this.precioTraspasoUsd_lbl.AutoSize = true;
+            this.precioTraspasoUsd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioTraspasoUsd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.precioTraspasoUsd_lbl.Location = new System.Drawing.Point(675, 12);
+            this.precioTraspasoUsd_lbl.Name = "precioTraspasoUsd_lbl";
+            this.precioTraspasoUsd_lbl.Size = new System.Drawing.Size(29, 19);
+            this.precioTraspasoUsd_lbl.TabIndex = 82;
+            this.precioTraspasoUsd_lbl.Text = "pv";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label51.Location = new System.Drawing.Point(437, 12);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(238, 19);
+            this.label51.TabIndex = 80;
+            this.label51.Text = "PRECIO TRASPASO($USD):";
+            // 
+            // precioTraspasoRd_lbl
+            // 
+            this.precioTraspasoRd_lbl.AutoSize = true;
+            this.precioTraspasoRd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioTraspasoRd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.precioTraspasoRd_lbl.Location = new System.Drawing.Point(287, 12);
+            this.precioTraspasoRd_lbl.Name = "precioTraspasoRd_lbl";
+            this.precioTraspasoRd_lbl.Size = new System.Drawing.Size(29, 19);
+            this.precioTraspasoRd_lbl.TabIndex = 81;
+            this.precioTraspasoRd_lbl.Text = "pv";
+            // 
+            // agregarImg_btn
+            // 
+            this.agregarImg_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.agregarImg_btn.FlatAppearance.BorderSize = 0;
+            this.agregarImg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarImg_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarImg_btn.Image = global::ImporteVehiculos.Properties.Resources.browsing;
+            this.agregarImg_btn.Location = new System.Drawing.Point(561, 3);
+            this.agregarImg_btn.Name = "agregarImg_btn";
+            this.agregarImg_btn.Size = new System.Drawing.Size(44, 38);
+            this.agregarImg_btn.TabIndex = 136;
+            this.agregarImg_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.agregarImg_btn.UseVisualStyleBackColor = false;
+            this.agregarImg_btn.Click += new System.EventHandler(this.agregarImg_btn_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(433, 17);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(107, 14);
+            this.label29.TabIndex = 135;
+            this.label29.Text = "Agregar Imágen";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(436, 41);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(433, 290);
+            this.flowLayoutPanel1.TabIndex = 134;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(30, 44);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(57, 14);
+            this.label28.TabIndex = 132;
+            this.label28.Text = "PRECIO:";
+            // 
+            // precioTraspaso_txt
+            // 
+            this.precioTraspaso_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioTraspaso_txt.Location = new System.Drawing.Point(131, 41);
+            this.precioTraspaso_txt.Name = "precioTraspaso_txt";
+            this.precioTraspaso_txt.Size = new System.Drawing.Size(246, 20);
+            this.precioTraspaso_txt.TabIndex = 133;
+            this.precioTraspaso_txt.TextChanged += new System.EventHandler(this.precioTraspaso_txt_TextChanged);
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -919,6 +1403,21 @@
             this.tipoPagoTraspaso_cb.Size = new System.Drawing.Size(246, 22);
             this.tipoPagoTraspaso_cb.TabIndex = 124;
             // 
+            // agregarPagoTraspaso_btn
+            // 
+            this.agregarPagoTraspaso_btn.FlatAppearance.BorderSize = 0;
+            this.agregarPagoTraspaso_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.agregarPagoTraspaso_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.agregarPagoTraspaso_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarPagoTraspaso_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarPagoTraspaso_btn.Image = global::ImporteVehiculos.Properties.Resources.circulo_de_suma;
+            this.agregarPagoTraspaso_btn.Location = new System.Drawing.Point(304, 148);
+            this.agregarPagoTraspaso_btn.Name = "agregarPagoTraspaso_btn";
+            this.agregarPagoTraspaso_btn.Size = new System.Drawing.Size(58, 42);
+            this.agregarPagoTraspaso_btn.TabIndex = 128;
+            this.agregarPagoTraspaso_btn.UseVisualStyleBackColor = true;
+            this.agregarPagoTraspaso_btn.Click += new System.EventHandler(this.agregarPagoTraspaso_btn_Click);
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -938,120 +1437,271 @@
             this.notaPagoTraspaso_txt.Size = new System.Drawing.Size(256, 36);
             this.notaPagoTraspaso_txt.TabIndex = 127;
             // 
-            // label28
+            // tabPage4
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(30, 44);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(57, 14);
-            this.label28.TabIndex = 132;
-            this.label28.Text = "PRECIO:";
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.tabPage4.Controls.Add(this.panel8);
+            this.tabPage4.Controls.Add(this.duracion_seguro);
+            this.tabPage4.Controls.Add(this.label36);
+            this.tabPage4.Controls.Add(this.label35);
+            this.tabPage4.Controls.Add(this.seguro_cb);
+            this.tabPage4.Controls.Add(this.label30);
+            this.tabPage4.Controls.Add(this.precioSeguro_txt);
+            this.tabPage4.Controls.Add(this.label31);
+            this.tabPage4.Controls.Add(this.panel6);
+            this.tabPage4.Controls.Add(this.label32);
+            this.tabPage4.Controls.Add(this.seguros_dtg);
+            this.tabPage4.Controls.Add(this.montoSeguros_txt);
+            this.tabPage4.Controls.Add(this.label33);
+            this.tabPage4.Controls.Add(this.tipoPagoSeguros_cb);
+            this.tabPage4.Controls.Add(this.agregarPagosSeguros_btn);
+            this.tabPage4.Controls.Add(this.label34);
+            this.tabPage4.Controls.Add(this.notaPagoSeguros_txt);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(888, 469);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "SEGURO";
             // 
-            // precioTraspaso_txt
+            // panel8
             // 
-            this.precioTraspaso_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioTraspaso_txt.Location = new System.Drawing.Point(131, 41);
-            this.precioTraspaso_txt.Name = "precioTraspaso_txt";
-            this.precioTraspaso_txt.Size = new System.Drawing.Size(246, 20);
-            this.precioTraspaso_txt.TabIndex = 133;
-            this.precioTraspaso_txt.TextChanged += new System.EventHandler(this.precioTraspaso_txt_TextChanged);
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.panel8.Controls.Add(this.label53);
+            this.panel8.Controls.Add(this.label54);
+            this.panel8.Controls.Add(this.label55);
+            this.panel8.Controls.Add(this.label56);
+            this.panel8.Controls.Add(this.restanteSeguro_USD_lbl);
+            this.panel8.Controls.Add(this.label58);
+            this.panel8.Controls.Add(this.totalSeguroUSD_lbl);
+            this.panel8.Controls.Add(this.label60);
+            this.panel8.Controls.Add(this.label61);
+            this.panel8.Controls.Add(this.restanteSeguro_RD_lbl);
+            this.panel8.Controls.Add(this.label63);
+            this.panel8.Controls.Add(this.totalSeguroRD_lbl);
+            this.panel8.Controls.Add(this.label65);
+            this.panel8.Controls.Add(this.precioSeguroUsd_lbl);
+            this.panel8.Controls.Add(this.label67);
+            this.panel8.Controls.Add(this.precioSeguroRd_lbl);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(3, 354);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(882, 112);
+            this.panel8.TabIndex = 150;
             // 
-            // label29
+            // label53
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(433, 17);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(107, 14);
-            this.label29.TabIndex = 135;
-            this.label29.Text = "Agregar Imágen";
+            this.label53.AutoSize = true;
+            this.label53.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label53.Location = new System.Drawing.Point(673, 67);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(145, 13);
+            this.label53.TabIndex = 95;
+            this.label53.Text = "_______________________";
             // 
-            // flowLayoutPanel1
+            // label54
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(436, 41);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(433, 290);
-            this.flowLayoutPanel1.TabIndex = 134;
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label54.Location = new System.Drawing.Point(656, 37);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(19, 25);
+            this.label54.TabIndex = 94;
+            this.label54.Text = "-";
             // 
-            // openFileDialog1
+            // label55
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label55.Location = new System.Drawing.Point(267, 37);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(19, 25);
+            this.label55.TabIndex = 93;
+            this.label55.Text = "-";
             // 
-            // agregar_btn
+            // label56
             // 
-            this.agregar_btn.FlatAppearance.BorderSize = 0;
-            this.agregar_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.agregar_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.agregar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregar_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregar_btn.Image = global::ImporteVehiculos.Properties.Resources.circulo_de_suma;
-            this.agregar_btn.Location = new System.Drawing.Point(291, 135);
-            this.agregar_btn.Name = "agregar_btn";
-            this.agregar_btn.Size = new System.Drawing.Size(58, 42);
-            this.agregar_btn.TabIndex = 94;
-            this.agregar_btn.UseVisualStyleBackColor = true;
-            this.agregar_btn.Click += new System.EventHandler(this.agregar_btn_Click);
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label56.Location = new System.Drawing.Point(439, 87);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(164, 19);
+            this.label56.TabIndex = 90;
+            this.label56.Text = "RESTANTE($USD):";
             // 
-            // agregarImg_btn
+            // restanteSeguro_USD_lbl
             // 
-            this.agregarImg_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.agregarImg_btn.FlatAppearance.BorderSize = 0;
-            this.agregarImg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarImg_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarImg_btn.Image = global::ImporteVehiculos.Properties.Resources.browsing;
-            this.agregarImg_btn.Location = new System.Drawing.Point(561, 3);
-            this.agregarImg_btn.Name = "agregarImg_btn";
-            this.agregarImg_btn.Size = new System.Drawing.Size(44, 38);
-            this.agregarImg_btn.TabIndex = 136;
-            this.agregarImg_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.agregarImg_btn.UseVisualStyleBackColor = false;
-            this.agregarImg_btn.Click += new System.EventHandler(this.agregarImg_btn_Click);
+            this.restanteSeguro_USD_lbl.AutoSize = true;
+            this.restanteSeguro_USD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restanteSeguro_USD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.restanteSeguro_USD_lbl.Location = new System.Drawing.Point(675, 87);
+            this.restanteSeguro_USD_lbl.Name = "restanteSeguro_USD_lbl";
+            this.restanteSeguro_USD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.restanteSeguro_USD_lbl.TabIndex = 91;
+            this.restanteSeguro_USD_lbl.Text = "pv";
             // 
-            // agregarPagoTraspaso_btn
+            // label58
             // 
-            this.agregarPagoTraspaso_btn.FlatAppearance.BorderSize = 0;
-            this.agregarPagoTraspaso_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.agregarPagoTraspaso_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.agregarPagoTraspaso_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarPagoTraspaso_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarPagoTraspaso_btn.Image = global::ImporteVehiculos.Properties.Resources.circulo_de_suma;
-            this.agregarPagoTraspaso_btn.Location = new System.Drawing.Point(304, 148);
-            this.agregarPagoTraspaso_btn.Name = "agregarPagoTraspaso_btn";
-            this.agregarPagoTraspaso_btn.Size = new System.Drawing.Size(58, 42);
-            this.agregarPagoTraspaso_btn.TabIndex = 128;
-            this.agregarPagoTraspaso_btn.UseVisualStyleBackColor = true;
-            this.agregarPagoTraspaso_btn.Click += new System.EventHandler(this.agregarPagoTraspaso_btn_Click);
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label58.Location = new System.Drawing.Point(439, 42);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(120, 19);
+            this.label58.TabIndex = 88;
+            this.label58.Text = "PAGO($USD):";
             // 
-            // button3
+            // totalSeguroUSD_lbl
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(827, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 26);
-            this.button3.TabIndex = 31;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.totalSeguroUSD_lbl.AutoSize = true;
+            this.totalSeguroUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalSeguroUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.totalSeguroUSD_lbl.Location = new System.Drawing.Point(675, 42);
+            this.totalSeguroUSD_lbl.Name = "totalSeguroUSD_lbl";
+            this.totalSeguroUSD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.totalSeguroUSD_lbl.TabIndex = 89;
+            this.totalSeguroUSD_lbl.Text = "pv";
             // 
-            // button2
+            // label60
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(858, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
-            this.button2.TabIndex = 30;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label60.AutoSize = true;
+            this.label60.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label60.Location = new System.Drawing.Point(277, 62);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(145, 13);
+            this.label60.TabIndex = 87;
+            this.label60.Text = "_______________________";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label61.Location = new System.Drawing.Point(62, 87);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(154, 19);
+            this.label61.TabIndex = 85;
+            this.label61.Text = "RESTANTE($RD):";
+            // 
+            // restanteSeguro_RD_lbl
+            // 
+            this.restanteSeguro_RD_lbl.AutoSize = true;
+            this.restanteSeguro_RD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restanteSeguro_RD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.restanteSeguro_RD_lbl.Location = new System.Drawing.Point(284, 87);
+            this.restanteSeguro_RD_lbl.Name = "restanteSeguro_RD_lbl";
+            this.restanteSeguro_RD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.restanteSeguro_RD_lbl.TabIndex = 86;
+            this.restanteSeguro_RD_lbl.Text = "pv";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label63.Location = new System.Drawing.Point(62, 42);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(110, 19);
+            this.label63.TabIndex = 83;
+            this.label63.Text = "PAGO($RD):";
+            // 
+            // totalSeguroRD_lbl
+            // 
+            this.totalSeguroRD_lbl.AutoSize = true;
+            this.totalSeguroRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalSeguroRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.totalSeguroRD_lbl.Location = new System.Drawing.Point(287, 42);
+            this.totalSeguroRD_lbl.Name = "totalSeguroRD_lbl";
+            this.totalSeguroRD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.totalSeguroRD_lbl.TabIndex = 84;
+            this.totalSeguroRD_lbl.Text = "pv";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label65.Location = new System.Drawing.Point(62, 12);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(207, 19);
+            this.label65.TabIndex = 79;
+            this.label65.Text = "PRECIO SEGURO($RD):";
+            // 
+            // precioSeguroUsd_lbl
+            // 
+            this.precioSeguroUsd_lbl.AutoSize = true;
+            this.precioSeguroUsd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioSeguroUsd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.precioSeguroUsd_lbl.Location = new System.Drawing.Point(675, 12);
+            this.precioSeguroUsd_lbl.Name = "precioSeguroUsd_lbl";
+            this.precioSeguroUsd_lbl.Size = new System.Drawing.Size(29, 19);
+            this.precioSeguroUsd_lbl.TabIndex = 82;
+            this.precioSeguroUsd_lbl.Text = "pv";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label67.Location = new System.Drawing.Point(439, 12);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(217, 19);
+            this.label67.TabIndex = 80;
+            this.label67.Text = "PRECIO SEGURO($USD):";
+            // 
+            // precioSeguroRd_lbl
+            // 
+            this.precioSeguroRd_lbl.AutoSize = true;
+            this.precioSeguroRd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioSeguroRd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.precioSeguroRd_lbl.Location = new System.Drawing.Point(287, 12);
+            this.precioSeguroRd_lbl.Name = "precioSeguroRd_lbl";
+            this.precioSeguroRd_lbl.Size = new System.Drawing.Size(29, 19);
+            this.precioSeguroRd_lbl.TabIndex = 81;
+            this.precioSeguroRd_lbl.Text = "pv";
+            // 
+            // duracion_seguro
+            // 
+            this.duracion_seguro.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.duracion_seguro.Location = new System.Drawing.Point(158, 52);
+            this.duracion_seguro.Name = "duracion_seguro";
+            this.duracion_seguro.Size = new System.Drawing.Size(114, 20);
+            this.duracion_seguro.TabIndex = 149;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(30, 54);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(115, 14);
+            this.label36.TabIndex = 148;
+            this.label36.Text = "DURACION (DIAS):";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(30, 17);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(65, 14);
+            this.label35.TabIndex = 147;
+            this.label35.Text = "SEGURO: ";
+            // 
+            // seguro_cb
+            // 
+            this.seguro_cb.DropDownHeight = 180;
+            this.seguro_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.seguro_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seguro_cb.FormattingEnabled = true;
+            this.seguro_cb.IntegralHeight = false;
+            this.seguro_cb.Location = new System.Drawing.Point(131, 13);
+            this.seguro_cb.Name = "seguro_cb";
+            this.seguro_cb.Size = new System.Drawing.Size(246, 22);
+            this.seguro_cb.TabIndex = 146;
             // 
             // label30
             // 
@@ -1270,659 +1920,9 @@
             this.notaPagoSeguros_txt.Size = new System.Drawing.Size(256, 46);
             this.notaPagoSeguros_txt.TabIndex = 139;
             // 
-            // label35
+            // openFileDialog1
             // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(30, 17);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(65, 14);
-            this.label35.TabIndex = 147;
-            this.label35.Text = "SEGURO: ";
-            // 
-            // seguro_cb
-            // 
-            this.seguro_cb.DropDownHeight = 180;
-            this.seguro_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.seguro_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seguro_cb.FormattingEnabled = true;
-            this.seguro_cb.IntegralHeight = false;
-            this.seguro_cb.Location = new System.Drawing.Point(131, 13);
-            this.seguro_cb.Name = "seguro_cb";
-            this.seguro_cb.Size = new System.Drawing.Size(246, 22);
-            this.seguro_cb.TabIndex = 146;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(30, 54);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(115, 14);
-            this.label36.TabIndex = 148;
-            this.label36.Text = "DURACION (DIAS):";
-            // 
-            // duracion_seguro
-            // 
-            this.duracion_seguro.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.duracion_seguro.Location = new System.Drawing.Point(158, 52);
-            this.duracion_seguro.Name = "duracion_seguro";
-            this.duracion_seguro.Size = new System.Drawing.Size(77, 20);
-            this.duracion_seguro.TabIndex = 149;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.restante_USD_lbl);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.totalUSD_lbl);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.restante_RD_lbl);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.totalRD_lbl);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.precioVentaUSD_lbl);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.precioVentaRd_lbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 354);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(882, 112);
-            this.panel1.TabIndex = 122;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(673, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 13);
-            this.label4.TabIndex = 95;
-            this.label4.Text = "_______________________";
-            // 
-            // guardar_btn
-            // 
-            this.guardar_btn.FlatAppearance.BorderSize = 0;
-            this.guardar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guardar_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.guardar_btn.Image = global::ImporteVehiculos.Properties.Resources.vendido;
-            this.guardar_btn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.guardar_btn.Location = new System.Drawing.Point(671, 3);
-            this.guardar_btn.Name = "guardar_btn";
-            this.guardar_btn.Size = new System.Drawing.Size(123, 42);
-            this.guardar_btn.TabIndex = 40;
-            this.guardar_btn.Text = "Registrar Venta";
-            this.guardar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.guardar_btn.UseVisualStyleBackColor = true;
-            this.guardar_btn.Click += new System.EventHandler(this.guardar_btn_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(656, 37);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 25);
-            this.label10.TabIndex = 94;
-            this.label10.Text = "-";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(267, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 25);
-            this.label6.TabIndex = 93;
-            this.label6.Text = "-";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label14.Location = new System.Drawing.Point(458, 87);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(164, 19);
-            this.label14.TabIndex = 90;
-            this.label14.Text = "RESTANTE($USD):";
-            // 
-            // restante_USD_lbl
-            // 
-            this.restante_USD_lbl.AutoSize = true;
-            this.restante_USD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restante_USD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restante_USD_lbl.Location = new System.Drawing.Point(675, 87);
-            this.restante_USD_lbl.Name = "restante_USD_lbl";
-            this.restante_USD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.restante_USD_lbl.TabIndex = 91;
-            this.restante_USD_lbl.Text = "pv";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label18.Location = new System.Drawing.Point(458, 42);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(120, 19);
-            this.label18.TabIndex = 88;
-            this.label18.Text = "PAGO($USD):";
-            // 
-            // totalUSD_lbl
-            // 
-            this.totalUSD_lbl.AutoSize = true;
-            this.totalUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalUSD_lbl.Location = new System.Drawing.Point(675, 42);
-            this.totalUSD_lbl.Name = "totalUSD_lbl";
-            this.totalUSD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.totalUSD_lbl.TabIndex = 89;
-            this.totalUSD_lbl.Text = "pv";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(277, 62);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 13);
-            this.label11.TabIndex = 87;
-            this.label11.Text = "_______________________";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label7.Location = new System.Drawing.Point(84, 87);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 19);
-            this.label7.TabIndex = 85;
-            this.label7.Text = "RESTANTE($RD):";
-            // 
-            // restante_RD_lbl
-            // 
-            this.restante_RD_lbl.AutoSize = true;
-            this.restante_RD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restante_RD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restante_RD_lbl.Location = new System.Drawing.Point(284, 87);
-            this.restante_RD_lbl.Name = "restante_RD_lbl";
-            this.restante_RD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.restante_RD_lbl.TabIndex = 86;
-            this.restante_RD_lbl.Text = "pv";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label5.Location = new System.Drawing.Point(84, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 19);
-            this.label5.TabIndex = 83;
-            this.label5.Text = "PAGO($RD):";
-            // 
-            // totalRD_lbl
-            // 
-            this.totalRD_lbl.AutoSize = true;
-            this.totalRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalRD_lbl.Location = new System.Drawing.Point(287, 42);
-            this.totalRD_lbl.Name = "totalRD_lbl";
-            this.totalRD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.totalRD_lbl.TabIndex = 84;
-            this.totalRD_lbl.Text = "pv";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label16.Location = new System.Drawing.Point(84, 12);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(192, 19);
-            this.label16.TabIndex = 79;
-            this.label16.Text = "PRECIO VENTA($RD):";
-            // 
-            // precioVentaUSD_lbl
-            // 
-            this.precioVentaUSD_lbl.AutoSize = true;
-            this.precioVentaUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioVentaUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioVentaUSD_lbl.Location = new System.Drawing.Point(675, 12);
-            this.precioVentaUSD_lbl.Name = "precioVentaUSD_lbl";
-            this.precioVentaUSD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.precioVentaUSD_lbl.TabIndex = 82;
-            this.precioVentaUSD_lbl.Text = "pv";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label15.Location = new System.Drawing.Point(458, 12);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(202, 19);
-            this.label15.TabIndex = 80;
-            this.label15.Text = "PRECIO VENTA($USD):";
-            // 
-            // precioVentaRd_lbl
-            // 
-            this.precioVentaRd_lbl.AutoSize = true;
-            this.precioVentaRd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioVentaRd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioVentaRd_lbl.Location = new System.Drawing.Point(287, 12);
-            this.precioVentaRd_lbl.Name = "precioVentaRd_lbl";
-            this.precioVentaRd_lbl.Size = new System.Drawing.Size(29, 19);
-            this.precioVentaRd_lbl.TabIndex = 81;
-            this.precioVentaRd_lbl.Text = "pv";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.panel7.Controls.Add(this.label37);
-            this.panel7.Controls.Add(this.label38);
-            this.panel7.Controls.Add(this.label39);
-            this.panel7.Controls.Add(this.label40);
-            this.panel7.Controls.Add(this.restanteTraspaso_USD_lbl);
-            this.panel7.Controls.Add(this.label42);
-            this.panel7.Controls.Add(this.totalTraspasoUSD_lbl);
-            this.panel7.Controls.Add(this.label44);
-            this.panel7.Controls.Add(this.label45);
-            this.panel7.Controls.Add(this.restanteTraspaso_RD_lbl);
-            this.panel7.Controls.Add(this.label47);
-            this.panel7.Controls.Add(this.totalTraspasoRD_lbl);
-            this.panel7.Controls.Add(this.label49);
-            this.panel7.Controls.Add(this.precioTraspasoUsd_lbl);
-            this.panel7.Controls.Add(this.label51);
-            this.panel7.Controls.Add(this.precioTraspasoRd_lbl);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(3, 354);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(882, 112);
-            this.panel7.TabIndex = 137;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label37.Location = new System.Drawing.Point(673, 67);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(145, 13);
-            this.label37.TabIndex = 95;
-            this.label37.Text = "_______________________";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label38.Location = new System.Drawing.Point(656, 37);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(19, 25);
-            this.label38.TabIndex = 94;
-            this.label38.Text = "-";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label39.Location = new System.Drawing.Point(267, 37);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(19, 25);
-            this.label39.TabIndex = 93;
-            this.label39.Text = "-";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label40.Location = new System.Drawing.Point(437, 87);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(164, 19);
-            this.label40.TabIndex = 90;
-            this.label40.Text = "RESTANTE($USD):";
-            // 
-            // restanteTraspaso_USD_lbl
-            // 
-            this.restanteTraspaso_USD_lbl.AutoSize = true;
-            this.restanteTraspaso_USD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restanteTraspaso_USD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restanteTraspaso_USD_lbl.Location = new System.Drawing.Point(675, 87);
-            this.restanteTraspaso_USD_lbl.Name = "restanteTraspaso_USD_lbl";
-            this.restanteTraspaso_USD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.restanteTraspaso_USD_lbl.TabIndex = 91;
-            this.restanteTraspaso_USD_lbl.Text = "pv";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label42.Location = new System.Drawing.Point(437, 42);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(120, 19);
-            this.label42.TabIndex = 88;
-            this.label42.Text = "PAGO($USD):";
-            // 
-            // totalTraspasoUSD_lbl
-            // 
-            this.totalTraspasoUSD_lbl.AutoSize = true;
-            this.totalTraspasoUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalTraspasoUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalTraspasoUSD_lbl.Location = new System.Drawing.Point(675, 42);
-            this.totalTraspasoUSD_lbl.Name = "totalTraspasoUSD_lbl";
-            this.totalTraspasoUSD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.totalTraspasoUSD_lbl.TabIndex = 89;
-            this.totalTraspasoUSD_lbl.Text = "pv";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label44.Location = new System.Drawing.Point(277, 62);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(145, 13);
-            this.label44.TabIndex = 87;
-            this.label44.Text = "_______________________";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label45.Location = new System.Drawing.Point(50, 87);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(154, 19);
-            this.label45.TabIndex = 85;
-            this.label45.Text = "RESTANTE($RD):";
-            // 
-            // restanteTraspaso_RD_lbl
-            // 
-            this.restanteTraspaso_RD_lbl.AutoSize = true;
-            this.restanteTraspaso_RD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restanteTraspaso_RD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restanteTraspaso_RD_lbl.Location = new System.Drawing.Point(284, 87);
-            this.restanteTraspaso_RD_lbl.Name = "restanteTraspaso_RD_lbl";
-            this.restanteTraspaso_RD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.restanteTraspaso_RD_lbl.TabIndex = 86;
-            this.restanteTraspaso_RD_lbl.Text = "pv";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label47.Location = new System.Drawing.Point(50, 42);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(110, 19);
-            this.label47.TabIndex = 83;
-            this.label47.Text = "PAGO($RD):";
-            // 
-            // totalTraspasoRD_lbl
-            // 
-            this.totalTraspasoRD_lbl.AutoSize = true;
-            this.totalTraspasoRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalTraspasoRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalTraspasoRD_lbl.Location = new System.Drawing.Point(287, 42);
-            this.totalTraspasoRD_lbl.Name = "totalTraspasoRD_lbl";
-            this.totalTraspasoRD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.totalTraspasoRD_lbl.TabIndex = 84;
-            this.totalTraspasoRD_lbl.Text = "pv";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label49.Location = new System.Drawing.Point(50, 12);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(228, 19);
-            this.label49.TabIndex = 79;
-            this.label49.Text = "PRECIO TRASPASO($RD):";
-            // 
-            // precioTraspasoUsd_lbl
-            // 
-            this.precioTraspasoUsd_lbl.AutoSize = true;
-            this.precioTraspasoUsd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioTraspasoUsd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioTraspasoUsd_lbl.Location = new System.Drawing.Point(675, 12);
-            this.precioTraspasoUsd_lbl.Name = "precioTraspasoUsd_lbl";
-            this.precioTraspasoUsd_lbl.Size = new System.Drawing.Size(29, 19);
-            this.precioTraspasoUsd_lbl.TabIndex = 82;
-            this.precioTraspasoUsd_lbl.Text = "pv";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label51.Location = new System.Drawing.Point(437, 12);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(238, 19);
-            this.label51.TabIndex = 80;
-            this.label51.Text = "PRECIO TRASPASO($USD):";
-            // 
-            // precioTraspasoRd_lbl
-            // 
-            this.precioTraspasoRd_lbl.AutoSize = true;
-            this.precioTraspasoRd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioTraspasoRd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioTraspasoRd_lbl.Location = new System.Drawing.Point(287, 12);
-            this.precioTraspasoRd_lbl.Name = "precioTraspasoRd_lbl";
-            this.precioTraspasoRd_lbl.Size = new System.Drawing.Size(29, 19);
-            this.precioTraspasoRd_lbl.TabIndex = 81;
-            this.precioTraspasoRd_lbl.Text = "pv";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.panel8.Controls.Add(this.label53);
-            this.panel8.Controls.Add(this.label54);
-            this.panel8.Controls.Add(this.label55);
-            this.panel8.Controls.Add(this.label56);
-            this.panel8.Controls.Add(this.restanteSeguro_USD_lbl);
-            this.panel8.Controls.Add(this.label58);
-            this.panel8.Controls.Add(this.totalSeguroUSD_lbl);
-            this.panel8.Controls.Add(this.label60);
-            this.panel8.Controls.Add(this.label61);
-            this.panel8.Controls.Add(this.restanteSeguro_RD_lbl);
-            this.panel8.Controls.Add(this.label63);
-            this.panel8.Controls.Add(this.totalSeguroRD_lbl);
-            this.panel8.Controls.Add(this.label65);
-            this.panel8.Controls.Add(this.precioSeguroUsd_lbl);
-            this.panel8.Controls.Add(this.label67);
-            this.panel8.Controls.Add(this.precioSeguroRd_lbl);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(3, 354);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(882, 112);
-            this.panel8.TabIndex = 150;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label53.Location = new System.Drawing.Point(673, 67);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(145, 13);
-            this.label53.TabIndex = 95;
-            this.label53.Text = "_______________________";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label54.Location = new System.Drawing.Point(656, 37);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(19, 25);
-            this.label54.TabIndex = 94;
-            this.label54.Text = "-";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label55.Location = new System.Drawing.Point(267, 37);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(19, 25);
-            this.label55.TabIndex = 93;
-            this.label55.Text = "-";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label56.Location = new System.Drawing.Point(439, 87);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(164, 19);
-            this.label56.TabIndex = 90;
-            this.label56.Text = "RESTANTE($USD):";
-            // 
-            // restanteSeguro_USD_lbl
-            // 
-            this.restanteSeguro_USD_lbl.AutoSize = true;
-            this.restanteSeguro_USD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restanteSeguro_USD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restanteSeguro_USD_lbl.Location = new System.Drawing.Point(675, 87);
-            this.restanteSeguro_USD_lbl.Name = "restanteSeguro_USD_lbl";
-            this.restanteSeguro_USD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.restanteSeguro_USD_lbl.TabIndex = 91;
-            this.restanteSeguro_USD_lbl.Text = "pv";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label58.Location = new System.Drawing.Point(439, 42);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(120, 19);
-            this.label58.TabIndex = 88;
-            this.label58.Text = "PAGO($USD):";
-            // 
-            // totalSeguroUSD_lbl
-            // 
-            this.totalSeguroUSD_lbl.AutoSize = true;
-            this.totalSeguroUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalSeguroUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalSeguroUSD_lbl.Location = new System.Drawing.Point(675, 42);
-            this.totalSeguroUSD_lbl.Name = "totalSeguroUSD_lbl";
-            this.totalSeguroUSD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.totalSeguroUSD_lbl.TabIndex = 89;
-            this.totalSeguroUSD_lbl.Text = "pv";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label60.Location = new System.Drawing.Point(277, 62);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(145, 13);
-            this.label60.TabIndex = 87;
-            this.label60.Text = "_______________________";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label61.Location = new System.Drawing.Point(62, 87);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(154, 19);
-            this.label61.TabIndex = 85;
-            this.label61.Text = "RESTANTE($RD):";
-            // 
-            // restanteSeguro_RD_lbl
-            // 
-            this.restanteSeguro_RD_lbl.AutoSize = true;
-            this.restanteSeguro_RD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.restanteSeguro_RD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restanteSeguro_RD_lbl.Location = new System.Drawing.Point(284, 87);
-            this.restanteSeguro_RD_lbl.Name = "restanteSeguro_RD_lbl";
-            this.restanteSeguro_RD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.restanteSeguro_RD_lbl.TabIndex = 86;
-            this.restanteSeguro_RD_lbl.Text = "pv";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label63.Location = new System.Drawing.Point(62, 42);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(110, 19);
-            this.label63.TabIndex = 83;
-            this.label63.Text = "PAGO($RD):";
-            // 
-            // totalSeguroRD_lbl
-            // 
-            this.totalSeguroRD_lbl.AutoSize = true;
-            this.totalSeguroRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalSeguroRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalSeguroRD_lbl.Location = new System.Drawing.Point(287, 42);
-            this.totalSeguroRD_lbl.Name = "totalSeguroRD_lbl";
-            this.totalSeguroRD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.totalSeguroRD_lbl.TabIndex = 84;
-            this.totalSeguroRD_lbl.Text = "pv";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label65.Location = new System.Drawing.Point(62, 12);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(207, 19);
-            this.label65.TabIndex = 79;
-            this.label65.Text = "PRECIO SEGURO($RD):";
-            // 
-            // precioSeguroUsd_lbl
-            // 
-            this.precioSeguroUsd_lbl.AutoSize = true;
-            this.precioSeguroUsd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioSeguroUsd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioSeguroUsd_lbl.Location = new System.Drawing.Point(675, 12);
-            this.precioSeguroUsd_lbl.Name = "precioSeguroUsd_lbl";
-            this.precioSeguroUsd_lbl.Size = new System.Drawing.Size(29, 19);
-            this.precioSeguroUsd_lbl.TabIndex = 82;
-            this.precioSeguroUsd_lbl.Text = "pv";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label67.Location = new System.Drawing.Point(439, 12);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(217, 19);
-            this.label67.TabIndex = 80;
-            this.label67.Text = "PRECIO SEGURO($USD):";
-            // 
-            // precioSeguroRd_lbl
-            // 
-            this.precioSeguroRd_lbl.AutoSize = true;
-            this.precioSeguroRd_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.precioSeguroRd_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioSeguroRd_lbl.Location = new System.Drawing.Point(287, 12);
-            this.precioSeguroRd_lbl.Name = "precioSeguroRd_lbl";
-            this.precioSeguroRd_lbl.Size = new System.Drawing.Size(29, 19);
-            this.precioSeguroRd_lbl.TabIndex = 81;
-            this.precioSeguroRd_lbl.Text = "pv";
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // VenderForm
             // 
@@ -1937,6 +1937,7 @@
             this.Name = "VenderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FACTURACION";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VenderForm_FormClosed);
             this.Load += new System.EventHandler(this.VenderForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1946,27 +1947,27 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagosTraspaso_dtg)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.duracion_seguro)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seguros_dtg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.duracion_seguro)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }

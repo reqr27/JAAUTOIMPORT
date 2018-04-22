@@ -484,6 +484,7 @@
             this.Name = "ImporteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventario Vehículos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ImporteForm_FormClosed);
             this.Load += new System.EventHandler(this.ImporteForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).EndInit();
             this.leyenda_panel.ResumeLayout(false);

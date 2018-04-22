@@ -221,6 +221,58 @@ begin
 			and format(CP.fecha,'yyyy-MM-dd') between
 			format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
 		end
+	
+	else if @idTransaccion = 5
+		begin
+			select CP.id as CUENTAPAGAR,TP.transaccion as TRANSACCION ,V.fecha_importe as  FECHACOMPRA ,S.taller as PROPIETARIO,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+			CP.monto_rd as TOTALPAGARRD, CP.monto_usd as TOTALPAGARUSD,
+			(CP.monto_rd - CP.balance_rd) as PAGADORD, (CP.monto_usd - CP.balance_usd) as PAGADOUSD,
+			CP.balance_rd as PENDIENTERD, CP.balance_usd as PENDIENTEUSD,
+			ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+			format (GETDATE(), 'yyyy-MM-dd')), 0) as DIASVIGENTE
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join TalleresRepuestos S on S.id = CP.id_vendedor
+			join Fabricantes F on F.id = V.fabricante_id join Modelos M on M.id = V.modelo_id
+			join TipoTransaccion TP on TP.id = CP.id_transaccion
+			where CP.balance_rd > 0 and CP.balance_usd > 0 
+			and format(CP.fecha,'yyyy-MM-dd') between
+			format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = 5
+		end
+
+	 else if @idTransaccion = 6
+		begin
+			select CP.id as CUENTAPAGAR,TP.transaccion as TRANSACCION ,V.fecha_importe as  FECHACOMPRA ,S.taller as PROPIETARIO,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+			CP.monto_rd as TOTALPAGARRD, CP.monto_usd as TOTALPAGARUSD,
+			(CP.monto_rd - CP.balance_rd) as PAGADORD, (CP.monto_usd - CP.balance_usd) as PAGADOUSD,
+			CP.balance_rd as PENDIENTERD, CP.balance_usd as PENDIENTEUSD,
+			ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+			format (GETDATE(), 'yyyy-MM-dd')), 0) as DIASVIGENTE
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join TalleresRepuestos S on S.id = CP.id_vendedor
+			join Fabricantes F on F.id = V.fabricante_id join Modelos M on M.id = V.modelo_id
+			join TipoTransaccion TP on TP.id = CP.id_transaccion
+			where CP.balance_rd > 0 and CP.balance_usd > 0 
+			and format(CP.fecha,'yyyy-MM-dd') between
+			format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = 6
+		end
+
+	else 
+		begin
+			select CP.id as CUENTAPAGAR,TP.transaccion as TRANSACCION ,V.fecha_importe as  FECHACOMPRA ,S.taller as PROPIETARIO,
+			CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
+			CP.monto_rd as TOTALPAGARRD, CP.monto_usd as TOTALPAGARUSD,
+			(CP.monto_rd - CP.balance_rd) as PAGADORD, (CP.monto_usd - CP.balance_usd) as PAGADOUSD,
+			CP.balance_rd as PENDIENTERD, CP.balance_usd as PENDIENTEUSD,
+			ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'),
+			format (GETDATE(), 'yyyy-MM-dd')), 0) as DIASVIGENTE
+			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join TalleresRepuestos S on S.id = CP.id_vendedor
+			join Fabricantes F on F.id = V.fabricante_id join Modelos M on M.id = V.modelo_id
+			join TipoTransaccion TP on TP.id = CP.id_transaccion
+			where CP.balance_rd > 0 and CP.balance_usd > 0 
+			and format(CP.fecha,'yyyy-MM-dd') between
+			format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd') and CP.id_transaccion = 7
+		end
+
 end
 	
 
@@ -294,17 +346,19 @@ begin
 	Select format(V.fecha_vendido,'dd/MM/yyyy') as FECHAVENDIDO, 
 	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) as VEHICULO,
 	V.precioVentaRD as PRECIORD,
-	(ISNULL(SUM(PCC.monto_rd), 0) + (select sum(monto_rd) from FormaVentaVehiculo FV where FV.id_transaccion = 1 and Fv.id_tipo_pago !=3)) as PAGADORD ,
+	((select ISNULL(SUM(PCC.monto_rd),0) from PagosCuentasCobrar PCC join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar) + (select sum(monto_rd) from FormaVentaVehiculo FV where FV.id_transaccion = 1 and Fv.id_tipo_pago !=3) ) as PAGADORD ,
 	V.precioVentaUSD as PRECIOUSD,
-	(ISNULL(SUM(PCC.monto_usd), 0) + (select sum(monto_usd) from FormaVentaVehiculo FV where FV.id_transaccion = 1 and Fv.id_tipo_pago !=3)) as PAGADOUSD,
+	((select ISNULL(SUM(PCC.monto_usd),0) from PagosCuentasCobrar PCC join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar) + (select sum(monto_usd) from FormaVentaVehiculo FV where FV.id_transaccion = 1 and Fv.id_tipo_pago !=3) ) as PAGADOUSD ,
 	C.cliente as CLIENTE
-	from
-	PagosCuentasCobrar PCC join CuentasCobrar CC on PCC.id_cuentaCobrar  = CC.id join Vehiculos V on V.id = CC.id_vehiculo
+	from 
+
+	Vehiculos V join CuentasCobrar CC on CC.id_vehiculo = V.id
+	
 	join Modelos M on M.id = V.modelo_id join Fabricantes F on F.id = V.fabricante_id join Clientes C on C.id = V.id_cliente
 	where V.vendido = 1
 	and format(V.fecha_vendido,'yyyy-MM-dd') between
 	format (@desde, 'yyyy-MM-dd') and format (@hasta, 'yyyy-MM-dd')
-	Group by V.fecha_vendido, F.fabricante, M.modelo, V.año, V.color, V.precioVentaRD, V.precioVentaUSD, C.cliente
+	Group by V.fecha_vendido, F.fabricante, M.modelo, V.año, V.color, V.precioVentaRD, V.precioVentaUSD, C.cliente, V.id
 
 end
 
@@ -433,10 +487,12 @@ begin
 			as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
 			TR.taller as PROPIETARIO, TR.telefono1 as TEL, TR.direccion as DIRECCION ,
 			format(CP.fecha, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
-			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)', C.componente as PIEZA
+			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)',
+			(select  C.componente from Componentes C join GastoVehiculo GV on GV.id_gasto = C.id join CuentasPagar CP on CP.id_gasto = GV.id where CP.id_transaccion = @idTransaccion) as PIEZA
 			
 			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
-			join TalleresRepuestos TR on TR.id = CP.id_vendedor join GastoVehiculo GV on GV.id = CP.id join Componentes C on C.id = GV.id_gasto
+			join TalleresRepuestos TR on TR.id = CP.id_vendedor 
+			
 
 			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 5
 		end
@@ -447,10 +503,12 @@ begin
 			as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
 			TR.taller as PROPIETARIO, TR.telefono1 as TEL, TR.direccion as DIRECCION ,
 			format(CP.fecha, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
-			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)', G.descripcion as GASTO
+			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)', 
+			(select  G.descripcion from Gastos G join GastoVehiculo GV on GV.id_gasto = G.id join CuentasPagar CP on CP.id_gasto = GV.id where CP.id_transaccion = 6) as GASTO
+			
 			
 			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
-			join TalleresRepuestos TR on TR.id = CP.id_vendedor join GastoVehiculo GV on GV.id = CP.id join Gastos G on G.id = GV.id_gasto
+			join TalleresRepuestos TR on TR.id = CP.id_vendedor 
 
 			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 6
 		end
@@ -462,12 +520,14 @@ begin
 			as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_importe, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
 			TR.taller as PROPIETARIO, TR.telefono1 as TEL, TR.direccion as DIRECCION ,
 			format(CP.fecha, 'dd/MM/yyyy' )as 'FECHA COMPRADO', 
-			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)', G.descripcion as GASTO
+			CP.monto_rd as 'PRECIO ($RD)', CP.monto_usd as 'PRECIO ($USD)', 
+			(select  G.descripcion from Gastos G join GastoVehiculo GV on GV.id_gasto = G.id join CuentasPagar CP on CP.id_gasto = GV.id where CP.id_transaccion = 7) as GASTO
+			
 			
 			from CuentasPagar CP join Vehiculos V on V.id = CP.id_vehiculo join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id 
-			join TalleresRepuestos TR on TR.id = CP.id_vendedor join GastoVehiculo GV on GV.id = CP.id join Gastos G on G.id = GV.id_gasto
+			join TalleresRepuestos TR on TR.id = CP.id_vendedor 
 
-			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 6
+			where CP.id_vehiculo = @idVehiculo and CP.id_transaccion = 7
 		end
 	
 	
@@ -567,7 +627,7 @@ begin
 	select V.id as ID,
 	CONVERT(varchar(200),(F.fabricante + ' ' + M.modelo + ' ' + CONVERT(varchar(10), V.año) + ' ' + V.color)) 
 	as VEHICULO, V.vin as CHASIS, ISNULL(DATEDIFF(DAY, format (v.fecha_vendido, 'yyyy-MM-dd'), format (GETDATE(), 'yyyy-MM-dd')), 0) as 'DIAS VIGENTE',	
-	C.cliente as CLIENTE, C.direccion as DIRECCION, C.rnc_cedula as CEDULA, C.telefono as TEL ,
+	C.cliente as CLIENTE, C.direccion as DIRECCION, C.rnc_cedula as CEDULA, C.telefono as TEL , C.id as IDCLIENTE,
 	format(V.fecha_vendido, 'dd/MM/yyyy' )as 'FECHA VENTA', 
 	V.precioVentaRD as 'PRECIO ($RD)', V.precioVentaUSD as 'PRECIO ($USD)', PS.precioRD as 'PRECIO SEGURO RD',
 	PS.precioUSD as 'PRECIO SEGURO USD', PT.precioRD as 'PRECIO TRASPASO RD',
@@ -900,7 +960,7 @@ begin
 		
 		select ISNULL(sum(monto_rd), 0) as PENDIENTERD, ISNULL(sum(monto_usd), 0) as PENDIENTEUSD 
 		from FormaVentaVehiculo
-		where id_vehiculo = 1 and id_tipo_pago = 3
+		where id_vehiculo = @idVehiculo and id_tipo_pago = 3
 				
 					
 	
@@ -2636,5 +2696,14 @@ IF EXISTS (SELECT name FROM sysobjects WHERE name = 'insertar_gasto_vehiculo' AN
 
 	GO
 
+IF EXISTS (SELECT name FROM sysobjects WHERE name = 'obtener_imagenes_traspasos' AND type = 'P')
+DROP PROCEDURE obtener_imagenes_traspasos
+GO
+create procedure obtener_imagenes_traspasos 
+@idVehiculo  int
+as
+begin
+	select id,img from ImagenesTraspasos where id_vehiculo = @idVehiculo
 	
+end
 

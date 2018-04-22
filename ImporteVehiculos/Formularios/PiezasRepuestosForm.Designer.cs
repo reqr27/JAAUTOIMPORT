@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PiezasRepuestosForm));
             this.label5 = new System.Windows.Forms.Label();
             this.fabricante_cbox = new System.Windows.Forms.ComboBox();
@@ -37,6 +37,7 @@
             this.estadoComponente_chbox = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cancelarEditar_btn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Componentes_dtg = new System.Windows.Forms.DataGridView();
             this.modelo_cb = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,6 @@
             this.usdDinero_radiobtn = new System.Windows.Forms.RadioButton();
             this.año_cb = new System.Windows.Forms.ComboBox();
             this.tasa_lbl = new System.Windows.Forms.LinkLabel();
-            this.cancelarEditar_btn = new System.Windows.Forms.Button();
             this.guardarComponente_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Componentes_dtg)).BeginInit();
@@ -127,6 +127,19 @@
             this.panel1.Size = new System.Drawing.Size(465, 38);
             this.panel1.TabIndex = 19;
             // 
+            // cancelarEditar_btn
+            // 
+            this.cancelarEditar_btn.Enabled = false;
+            this.cancelarEditar_btn.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
+            this.cancelarEditar_btn.Location = new System.Drawing.Point(340, 3);
+            this.cancelarEditar_btn.Name = "cancelarEditar_btn";
+            this.cancelarEditar_btn.Size = new System.Drawing.Size(118, 28);
+            this.cancelarEditar_btn.TabIndex = 1;
+            this.cancelarEditar_btn.Text = "Cancelar Editar";
+            this.cancelarEditar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cancelarEditar_btn.UseVisualStyleBackColor = true;
+            this.cancelarEditar_btn.Click += new System.EventHandler(this.cancelarEditar_btn_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -143,14 +156,14 @@
             this.Componentes_dtg.AllowUserToDeleteRows = false;
             this.Componentes_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Componentes_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Componentes_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Componentes_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Componentes_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Componentes_dtg.Location = new System.Drawing.Point(301, 53);
             this.Componentes_dtg.MultiSelect = false;
@@ -206,11 +219,13 @@
             // rdDinero_radiobtn
             // 
             this.rdDinero_radiobtn.AutoSize = true;
+            this.rdDinero_radiobtn.Checked = true;
             this.rdDinero_radiobtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdDinero_radiobtn.Location = new System.Drawing.Point(10, 163);
             this.rdDinero_radiobtn.Name = "rdDinero_radiobtn";
             this.rdDinero_radiobtn.Size = new System.Drawing.Size(59, 22);
             this.rdDinero_radiobtn.TabIndex = 23;
+            this.rdDinero_radiobtn.TabStop = true;
             this.rdDinero_radiobtn.Tag = "4";
             this.rdDinero_radiobtn.Text = "RD$";
             this.rdDinero_radiobtn.UseVisualStyleBackColor = true;
@@ -218,13 +233,11 @@
             // usdDinero_radiobtn
             // 
             this.usdDinero_radiobtn.AutoSize = true;
-            this.usdDinero_radiobtn.Checked = true;
             this.usdDinero_radiobtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usdDinero_radiobtn.Location = new System.Drawing.Point(81, 163);
             this.usdDinero_radiobtn.Name = "usdDinero_radiobtn";
             this.usdDinero_radiobtn.Size = new System.Drawing.Size(70, 22);
             this.usdDinero_radiobtn.TabIndex = 5;
-            this.usdDinero_radiobtn.TabStop = true;
             this.usdDinero_radiobtn.Text = "USD$";
             this.usdDinero_radiobtn.UseVisualStyleBackColor = true;
             // 
@@ -251,19 +264,6 @@
             this.tasa_lbl.TabStop = true;
             this.tasa_lbl.Text = "1.00 USD$ ->";
             this.tasa_lbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.tasa_lbl_LinkClicked);
-            // 
-            // cancelarEditar_btn
-            // 
-            this.cancelarEditar_btn.Enabled = false;
-            this.cancelarEditar_btn.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.cancelarEditar_btn.Location = new System.Drawing.Point(340, 3);
-            this.cancelarEditar_btn.Name = "cancelarEditar_btn";
-            this.cancelarEditar_btn.Size = new System.Drawing.Size(118, 28);
-            this.cancelarEditar_btn.TabIndex = 1;
-            this.cancelarEditar_btn.Text = "Cancelar Editar";
-            this.cancelarEditar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cancelarEditar_btn.UseVisualStyleBackColor = true;
-            this.cancelarEditar_btn.Click += new System.EventHandler(this.cancelarEditar_btn_Click);
             // 
             // guardarComponente_btn
             // 

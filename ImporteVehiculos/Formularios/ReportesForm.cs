@@ -268,6 +268,20 @@ namespace ImporteVehiculos.Formularios
                 Program.Greporte = "Cuentas Pagar Seguros";
             }
 
+            else if (Program.GidTransaccionRpt == 5)
+            {
+                Program.Greporte = "Cuentas Pagar Piezas/Repuestos";
+            }
+
+            else if (Program.GidTransaccionRpt == 6)
+            {
+                Program.Greporte = "Cuentas Pagar Mantenimientos";
+            }
+            else
+            {
+                Program.Greporte = "Cuentas Pagar Otros";
+            }
+
             parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
             parametros[1] = new ReportParameter("rptNombre", Program.Greporte);
             parametros[2] = new ReportParameter("rptDesde", Program.Gdesde.ToString("dd/MM/yyyy"));

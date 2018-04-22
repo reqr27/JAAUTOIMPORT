@@ -237,6 +237,12 @@
     <Compile Include="Formularios\ModificarVehiculoForm.Designer.cs">
       <DependentUpon>ModificarVehiculoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\MostrarImagenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\MostrarImagenForm.Designer.cs">
+      <DependentUpon>MostrarImagenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\NuevoVehiculoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\ModificarVehiculoForm.resx">
       <DependentUpon>ModificarVehiculoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\MostrarImagenForm.resx">
+      <DependentUpon>MostrarImagenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\NuevoVehiculoForm.resx">
       <DependentUpon>NuevoVehiculoForm.cs</DependentUpon>

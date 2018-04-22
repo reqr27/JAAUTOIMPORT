@@ -190,6 +190,7 @@
             this.Name = "ProcesosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Procesos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProcesosForm_FormClosed);
             this.Load += new System.EventHandler(this.ProcesosForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

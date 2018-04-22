@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ImporteVehiculos.Classes;
 using System.Security;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace ImporteVehiculos.Formularios
 {
@@ -353,8 +354,11 @@ namespace ImporteVehiculos.Formularios
 
         protected void newButton_click(object sender, EventArgs e)
         {
+           
+            
             Button button = sender as Button;
-            //MessageBox.Show();
+            int index = Convert.ToInt32(Regex.Replace(button.Tag.ToString(), "[^0-9 _]", "")) - 1;
+            imgsList.RemoveAt(index);
             if (evento == false)
             {
                 foreach (PictureBox pic_box in flowLayoutPanel1.Controls.OfType<PictureBox>())

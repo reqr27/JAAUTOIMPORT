@@ -504,6 +504,7 @@
             this.Name = "ReportesVentana";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reportes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReportesVentana_FormClosed);
             this.Load += new System.EventHandler(this.ReportesVentana_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

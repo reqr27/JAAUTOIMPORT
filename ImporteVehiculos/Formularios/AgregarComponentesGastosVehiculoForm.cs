@@ -59,7 +59,7 @@ namespace ImporteVehiculos.Formularios
         {
             tipoPago_cb.DataSource = null;
             DataTable dt = new DataTable();
-            dt = P.ObtenerTiposPagos();
+            dt = P.ObtenerTiposPagosSinVehiculo();
             tipoPago_cb.DataSource = dt;
             tipoPago_cb.DisplayMember = "TIPOPAGO";
             tipoPago_cb.ValueMember = "ID";

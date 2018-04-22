@@ -1922,6 +1922,19 @@ namespace ImporteVehiculos.Classes
             return mensaje;
         }
 
+        public string InsertarImagenTraspaso()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@img", Mimg));
+            
+            C.EjecutarSP("insertar_imagenes_traspaso", ref lst);
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
         public string ActualizarImagenCliente()
         {
             string mensaje = "";
@@ -1943,6 +1956,14 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idCliente", Mid));
             return dt = C.Listado("obtener_imagenes_clientes ", lst);
+        }
+
+        public DataTable ObtenerImagenesTraspasos()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idVehiculo", Mid));
+            return dt = C.Listado("obtener_imagenes_traspasos", lst);
         }
 
         public string RegistrarPais()
@@ -2260,18 +2281,7 @@ namespace ImporteVehiculos.Classes
             return dt = C.Listado("obtener_seguros_activos", lst);
         }
 
-        public string InsertarImagenTraspaso()
-        {
-            string mensaje = "";
-            List<clsParametros> lst = new List<clsParametros>();
-
-            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
-            lst.Add(new clsParametros("@img", Mimg));
-
-            C.EjecutarSP("insertar_imagenes_trasapso", ref lst);
-            mensaje = lst[0].Valor.ToString();
-            return mensaje;
-        }
+       
 
         public DataTable ObtenerTipoTransaccionCP()
         {

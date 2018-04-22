@@ -26,6 +26,8 @@ namespace ImporteVehiculos.Formularios
         string transaccion = Program.Gtransaccion;
         int idCC = Program.GidCC;
         int idTransaccion;
+        public int idCliente = 0;
+        
          public CobrosCuentasCobrarForm()
         {
             InitializeComponent();
@@ -55,6 +57,7 @@ namespace ImporteVehiculos.Formularios
             if(transaccion == "VENTA")
             {
                 idTransaccion = 1;
+                traspasoImg_btn.Visible = false;
             }
             else if(transaccion == "TRASPASO")
             {
@@ -64,6 +67,7 @@ namespace ImporteVehiculos.Formularios
             else if (transaccion == "SEGURO")
             {
                 idTransaccion = 4;
+                traspasoImg_btn.Visible = false;
                 
             }
 
@@ -89,6 +93,7 @@ namespace ImporteVehiculos.Formularios
 
             P.Id = idVehiculo;
             dt = P.ObtenerDetallesCuentaCobrar();
+            idCliente = Convert.ToInt32(dt.Rows[0]["IDCLIENTE"].ToString());
             vehiculo_lbl.Text = dt.Rows[0]["VEHICULO"].ToString();
             chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
             fechaCompra_lbl.Text = dt.Rows[0]["FECHA VENTA"].ToString();
@@ -97,6 +102,7 @@ namespace ImporteVehiculos.Formularios
             dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
             if(transaccion == "VENTA")
             {
+                
                 transaccion_lbl.Text = "VENTA";
                 precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
                 precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
@@ -104,6 +110,7 @@ namespace ImporteVehiculos.Formularios
             }
             else if (transaccion == "TRASPASO")
             {
+                
                 transaccion_lbl.Text = "TRASPASO";
                 precioVentaRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO TRASPASO RD"])).ToString("#,###.00");
                 precioVentaUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO TRASPASO USD"])).ToString("#,###.00");
@@ -383,6 +390,25 @@ namespace ImporteVehiculos.Formularios
             }
             return result;
 
+        }
+
+        private void traspasoImg_btn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Program.Gventana = "TRASPASO";
+            Program.Gid = idCliente;
+            Program.GidVehiculo = idVehiculo;
+            MostrarImagenForm frm = new MostrarImagenForm();
+            frm.Show();
+
+        }
+
+        private void clienteImg_btn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Program.Gventana = "CLIENTE";
+            Program.Gid = idCliente;
+            Program.GidVehiculo = idVehiculo;
+            MostrarImagenForm frm = new MostrarImagenForm();
+            frm.Show();
         }
     }
 }

@@ -301,6 +301,7 @@
             this.Name = "CuentasCobrarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CUENTAS POR COBRAR";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CuentasCobrarForm_FormClosed);
             this.Load += new System.EventHandler(this.CuentasCobrarForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

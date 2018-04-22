@@ -506,5 +506,19 @@ namespace ImporteVehiculos.Formularios
             LlenarDtg();
             filtrosReporte();
         }
+
+        private void ReportesVentana_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.OpenForms["FormVentanaPrincipal"].WindowState = FormWindowState.Normal;
+                Application.OpenForms["FormVentanaPrincipal"].BringToFront();
+            }
+            catch
+            {
+
+            }
+            
+        }
     }
 }

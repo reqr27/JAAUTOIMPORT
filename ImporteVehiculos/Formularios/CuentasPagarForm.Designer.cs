@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuentasPagarForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tipoTransaccion_cb = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.hasta_dtp = new System.Windows.Forms.DateTimePicker();
             this.desde_dtp = new System.Windows.Forms.DateTimePicker();
@@ -48,8 +50,6 @@
             this.restante_USD_lbl = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.restante_RD_lbl = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tipoTransaccion_cb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasPagar_dtg)).BeginInit();
@@ -87,6 +87,33 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(665, 84);
             this.panel3.TabIndex = 60;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(209, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 15);
+            this.label4.TabIndex = 103;
+            this.label4.Text = "TRANSACCION: ";
+            // 
+            // tipoTransaccion_cb
+            // 
+            this.tipoTransaccion_cb.DropDownHeight = 180;
+            this.tipoTransaccion_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoTransaccion_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoTransaccion_cb.FormattingEnabled = true;
+            this.tipoTransaccion_cb.IntegralHeight = false;
+            this.tipoTransaccion_cb.Items.AddRange(new object[] {
+            "EFECTIVO",
+            "VEHICULO RECIBIDO"});
+            this.tipoTransaccion_cb.Location = new System.Drawing.Point(316, 16);
+            this.tipoTransaccion_cb.Name = "tipoTransaccion_cb";
+            this.tipoTransaccion_cb.Size = new System.Drawing.Size(207, 23);
+            this.tipoTransaccion_cb.TabIndex = 102;
+            this.tipoTransaccion_cb.SelectionChangeCommitted += new System.EventHandler(this.tipoTransaccion_cb_SelectionChangeCommitted);
             // 
             // label2
             // 
@@ -292,33 +319,6 @@
             this.restante_RD_lbl.TabIndex = 119;
             this.restante_RD_lbl.Text = "pv";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(209, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 15);
-            this.label4.TabIndex = 103;
-            this.label4.Text = "TRANSACCION: ";
-            // 
-            // tipoTransaccion_cb
-            // 
-            this.tipoTransaccion_cb.DropDownHeight = 180;
-            this.tipoTransaccion_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tipoTransaccion_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tipoTransaccion_cb.FormattingEnabled = true;
-            this.tipoTransaccion_cb.IntegralHeight = false;
-            this.tipoTransaccion_cb.Items.AddRange(new object[] {
-            "EFECTIVO",
-            "VEHICULO RECIBIDO"});
-            this.tipoTransaccion_cb.Location = new System.Drawing.Point(316, 16);
-            this.tipoTransaccion_cb.Name = "tipoTransaccion_cb";
-            this.tipoTransaccion_cb.Size = new System.Drawing.Size(207, 23);
-            this.tipoTransaccion_cb.TabIndex = 102;
-            this.tipoTransaccion_cb.SelectionChangeCommitted += new System.EventHandler(this.tipoTransaccion_cb_SelectionChangeCommitted);
-            // 
             // CuentasPagarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,6 +332,7 @@
             this.Name = "CuentasPagarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CUENTAS POR PAGAR";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CuentasPagarForm_FormClosed);
             this.Load += new System.EventHandler(this.CuentasPagarForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -277,5 +277,19 @@ namespace ImporteVehiculos.Formularios
                 frm.Show();
             }
         }
+
+        private void ConfiguracionForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.OpenForms["FormVentanaPrincipal"].WindowState = FormWindowState.Normal;
+                Application.OpenForms["FormVentanaPrincipal"].BringToFront();
+            }
+            catch
+            {
+
+            }
+           
+        }
     }
 }

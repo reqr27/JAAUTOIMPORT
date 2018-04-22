@@ -163,5 +163,20 @@ namespace ImporteVehiculos.Formularios
             }
 
         }
+
+        private void ProcesosForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.OpenForms["FormVentanaPrincipal"].WindowState = FormWindowState.Normal;
+                Application.OpenForms["FormVentanaPrincipal"].BringToFront();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
     }
 }

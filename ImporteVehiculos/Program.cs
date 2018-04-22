@@ -33,6 +33,8 @@ namespace ImporteVehiculos
         public static int GidCCRpt;
         public static int GidTransaccionRpt;
         public static int GidVehiculo2;
+        public static int Gid;
+
 
 
 
