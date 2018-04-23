@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_02DBD23E01C748749BFFF94D4063A5E3"
+        "MsmKey" = "8:_0313082520FF46189F2FC647A755F22C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -27,7 +27,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1CDDB6A385B84086A5F42794103B5565"
+        "MsmKey" = "8:_0D6C8862DA4E4EFDA4C7E759F177BBC0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_112F6C6B8DFD4D6D87BAE7CF454CCC26"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,31 +57,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_381EF73044E9433B84991C4E6E386471"
+        "MsmKey" = "8:_26D85E95322D477A84B5AB4DEE218DBA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3C131D203BAB4F949BD1E3EAEBACAB65"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3E97A6396B434AF1817DC038FE184EC8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_42D77845E2714CB8AC1E1BB278D03E08"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_44BBAFC0ED0142F2833F3D26CC69ADB4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -99,7 +87,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_524D1196A25B485B93D9DA81157B99D3"
+        "MsmKey" = "8:_51E25ED318DB4896B0703F23FFA3A7EE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -112,6 +100,12 @@
         "Entry"
         {
         "MsmKey" = "8:_556B43629642475FB59DF0585DAEFDD5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_594C1DB663BB428897B0F130BC92F299"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -147,13 +141,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_76AC8748C57748E1BC710822CAD73B6B"
+        "MsmKey" = "8:_78D738B449FB47FD9E440F4A5BFD1AEB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_84546B50B52C42399B7252F670F1EBC6"
+        "MsmKey" = "8:_7D21CE77B46142B984A7D7F8814B4AB6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -166,18 +160,6 @@
         "Entry"
         {
         "MsmKey" = "8:_899725F16B0C40AE9FAB824588AD7F40"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8C0BED89A6CF455BA08AA48EB10E4B3B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8C58E7A910D7424EAC86738B97CF499B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -207,19 +189,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A491592829B04B3090A471BA93D71494"
+        "MsmKey" = "8:_A3172DC7F83243EFAF0E290A97B8D0DE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A72B8E6B19DA4CD790ABD4E9B01F585B"
+        "MsmKey" = "8:_B3506546BBE443F9936E9F40BB42AD9E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B0D050050664476E8CCEEEE056813E82"
+        "MsmKey" = "8:_B99209E88F21463EA04C8DE775619654"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BC3AB9F589664D39B64C633A3E79408E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -231,13 +219,31 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BEDEA608C60F428AB4207C68D10C704A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D00CF1EFCC914EA584CCF85EC12EE67C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D5F8D55ECFD84AA99B58E91F17F9127C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D605A1A88ACE4C25A07373DEABDC3026"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DBC397A34EFF476CAF67F2329DA93145"
+        "MsmKey" = "8:_D6ECCE94CC6C41B49B8E32FE006B865A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -250,12 +256,6 @@
         "Entry"
         {
         "MsmKey" = "8:_EE9635C3A558415AA3FE91ABE9EA1586"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F2B6B8CE3C344BD69517151B6DA765FF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -460,10 +460,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_02DBD23E01C748749BFFF94D4063A5E3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0313082520FF46189F2FC647A755F22C"
             {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReciboCobro.rdlc"
-            "TargetName" = "8:ReciboCobro.rdlc"
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteEfectivo.rdlc"
+            "TargetName" = "8:ReporteEfectivo.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
@@ -511,10 +511,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1CDDB6A385B84086A5F42794103B5565"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0D6C8862DA4E4EFDA4C7E759F177BBC0"
             {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteCuentaCobrar.rdlc"
-            "TargetName" = "8:ReporteCuentaCobrar.rdlc"
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVehiculoIndividual.rdlc"
+            "TargetName" = "8:ReporteVehiculoIndividual.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_112F6C6B8DFD4D6D87BAE7CF454CCC26"
+            {
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVendidos.rdlc"
+            "TargetName" = "8:ReporteVendidos.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
@@ -593,10 +613,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_381EF73044E9433B84991C4E6E386471"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_26D85E95322D477A84B5AB4DEE218DBA"
             {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\Factura.rdlc"
-            "TargetName" = "8:Factura.rdlc"
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteReciboTraspaso.rdlc"
+            "TargetName" = "8:ReporteReciboTraspaso.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
@@ -619,66 +639,6 @@
             "TargetName" = "8:car.ico"
             "Tag" = "8:"
             "Folder" = "8:_47F0A30C99254764850809BB5A77883E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E97A6396B434AF1817DC038FE184EC8"
-            {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteResultadoUSD.rdlc"
-            "TargetName" = "8:ReporteResultadoUSD.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42D77845E2714CB8AC1E1BB278D03E08"
-            {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVendidos.rdlc"
-            "TargetName" = "8:ReporteVendidos.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_44BBAFC0ED0142F2833F3D26CC69ADB4"
-            {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteReciboTraspaso.rdlc"
-            "TargetName" = "8:ReporteReciboTraspaso.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -755,10 +715,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_524D1196A25B485B93D9DA81157B99D3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_51E25ED318DB4896B0703F23FFA3A7EE"
             {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVehiculosProceso.rdlc"
-            "TargetName" = "8:ReporteVehiculosProceso.rdlc"
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteComprados.rdlc"
+            "TargetName" = "8:ReporteComprados.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
@@ -837,6 +797,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_594C1DB663BB428897B0F130BC92F299"
+            {
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteCuentaCobrar.rdlc"
+            "TargetName" = "8:ReporteCuentaCobrar.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_60E220A20EA85E1B540FE61084586E86"
             {
             "AssemblyRegister" = "3:1"
@@ -899,7 +879,7 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_76AC8748C57748E1BC710822CAD73B6B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_78D738B449FB47FD9E440F4A5BFD1AEB"
             {
             "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteReciboSeguro.rdlc"
             "TargetName" = "8:ReporteReciboSeguro.rdlc"
@@ -919,10 +899,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_84546B50B52C42399B7252F670F1EBC6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D21CE77B46142B984A7D7F8814B4AB6"
             {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteInventario.rdlc"
-            "TargetName" = "8:ReporteInventario.rdlc"
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVehiculosProceso.rdlc"
+            "TargetName" = "8:ReporteVehiculosProceso.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
@@ -987,46 +967,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_47F0A30C99254764850809BB5A77883E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C0BED89A6CF455BA08AA48EB10E4B3B"
-            {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteEfectivo.rdlc"
-            "TargetName" = "8:ReporteEfectivo.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C58E7A910D7424EAC86738B97CF499B"
-            {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteResultadosRD.rdlc"
-            "TargetName" = "8:ReporteResultadosRD.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1134,50 +1074,70 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A491592829B04B3090A471BA93D71494"
-            {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVehiculoIndividual.rdlc"
-            "TargetName" = "8:ReporteVehiculoIndividual.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A72B8E6B19DA4CD790ABD4E9B01F585B"
-            {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVehiculosTerminados.rdlc"
-            "TargetName" = "8:ReporteVehiculosTerminados.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0D050050664476E8CCEEEE056813E82"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3172DC7F83243EFAF0E290A97B8D0DE"
             {
             "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteCuentasPagar.rdlc"
             "TargetName" = "8:ReporteCuentasPagar.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B3506546BBE443F9936E9F40BB42AD9E"
+            {
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteResultadosRD.rdlc"
+            "TargetName" = "8:ReporteResultadosRD.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B99209E88F21463EA04C8DE775619654"
+            {
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteResultadoUSD.rdlc"
+            "TargetName" = "8:ReporteResultadoUSD.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC3AB9F589664D39B64C633A3E79408E"
+            {
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\Factura.rdlc"
+            "TargetName" = "8:Factura.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
@@ -1225,6 +1185,66 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BEDEA608C60F428AB4207C68D10C704A"
+            {
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteInventario.rdlc"
+            "TargetName" = "8:ReporteInventario.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D00CF1EFCC914EA584CCF85EC12EE67C"
+            {
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVehiculosVendidos.rdlc"
+            "TargetName" = "8:ReporteVehiculosVendidos.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D5F8D55ECFD84AA99B58E91F17F9127C"
+            {
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReciboCobro.rdlc"
+            "TargetName" = "8:ReciboCobro.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D605A1A88ACE4C25A07373DEABDC3026"
             {
             "AssemblyRegister" = "3:1"
@@ -1256,10 +1276,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DBC397A34EFF476CAF67F2329DA93145"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6ECCE94CC6C41B49B8E32FE006B865A"
             {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVehiculosVendidos.rdlc"
-            "TargetName" = "8:ReporteVehiculosVendidos.rdlc"
+            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteVehiculosTerminados.rdlc"
+            "TargetName" = "8:ReporteVehiculosTerminados.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
@@ -1324,26 +1344,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_47F0A30C99254764850809BB5A77883E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2B6B8CE3C344BD69517151B6DA765FF"
-            {
-            "SourcePath" = "8:..\\ImporteVehiculos\\Reportes\\ReporteComprados.rdlc"
-            "TargetName" = "8:ReporteComprados.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_BC55D0874BAE49C18810ACE8AC2CAAED"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1426,7 +1426,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:JAautoImport"
         "ProductCode" = "8:{07B4E148-5D52-42CB-9FD8-BE51AA1554E2}"
-        "PackageCode" = "8:{14281167-CAF7-401C-8A50-0B1BCF808144}"
+        "PackageCode" = "8:{EE05CC21-89B4-4404-86DF-D64C7DC6D83A}"
         "UpgradeCode" = "8:{EE0321B2-D09A-4529-B214-5C8C68C2ADC7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -412,7 +412,7 @@ begin
 	else
 		begin
 			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
-			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			TP.formaPago as FORMAPAGO, PCC.balance_rd  as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
 			from 
 			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
 			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
@@ -2438,7 +2438,7 @@ begin
 	else
 		begin
 			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
-			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			TP.formaPago as FORMAPAGO, PCC.balance_rd  as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
 			from 
 			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
 			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
@@ -2462,7 +2462,7 @@ begin
     if @tipoRecibo = 'Recibo'
 		begin
 			select PCC.id as NUMERORECIBO, PCC.monto_rd as MONTORD, pcc.monto_usd as MONTOUSD, PCC.fecha as FECHACOBRO,
-			TP.formaPago as FORMAPAGO, CC.balance_rd  as PENDIENTERD, CC.balance_usd as PENDIENTEUSD
+			TP.formaPago as FORMAPAGO, PCC.balance_rd  as PENDIENTERD, PCC.balance_usd as PENDIENTEUSD
 			from 
 			PagosCuentasCobrar PCC join TiposPago TP on Tp.id = PCC.id_tipoPago
 			join CuentasCobrar CC on CC.id = PCC.id_cuentaCobrar
