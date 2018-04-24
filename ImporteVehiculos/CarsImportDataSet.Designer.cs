@@ -3936,6 +3936,8 @@ namespace ImporteVehiculos {
             
             private global::System.Data.DataColumn columnPRECIOUSD;
             
+            private global::System.Data.DataColumn columnDURACION;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public reporte_factura_seguro_precioDataTable() {
@@ -3995,6 +3997,14 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DURACIONColumn {
+                get {
+                    return this.columnDURACION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4030,12 +4040,13 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public reporte_factura_seguro_precioRow Addreporte_factura_seguro_precioRow(string SEGURO, decimal PRECIORD, decimal PRECIOUSD) {
+            public reporte_factura_seguro_precioRow Addreporte_factura_seguro_precioRow(string SEGURO, decimal PRECIORD, decimal PRECIOUSD, int DURACION) {
                 reporte_factura_seguro_precioRow rowreporte_factura_seguro_precioRow = ((reporte_factura_seguro_precioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SEGURO,
                         PRECIORD,
-                        PRECIOUSD};
+                        PRECIOUSD,
+                        DURACION};
                 rowreporte_factura_seguro_precioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowreporte_factura_seguro_precioRow);
                 return rowreporte_factura_seguro_precioRow;
@@ -4061,6 +4072,7 @@ namespace ImporteVehiculos {
                 this.columnSEGURO = base.Columns["SEGURO"];
                 this.columnPRECIORD = base.Columns["PRECIORD"];
                 this.columnPRECIOUSD = base.Columns["PRECIOUSD"];
+                this.columnDURACION = base.Columns["DURACION"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4072,6 +4084,8 @@ namespace ImporteVehiculos {
                 base.Columns.Add(this.columnPRECIORD);
                 this.columnPRECIOUSD = new global::System.Data.DataColumn("PRECIOUSD", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPRECIOUSD);
+                this.columnDURACION = new global::System.Data.DataColumn("DURACION", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDURACION);
                 this.columnSEGURO.MaxLength = 100;
             }
             
@@ -7181,6 +7195,8 @@ namespace ImporteVehiculos {
             
             private global::System.Data.DataColumn columnPRECIOSEGUROUSD;
             
+            private global::System.Data.DataColumn columnDURACION;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public reporte_precio_total_seguroDataTable() {
@@ -7240,6 +7256,14 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DURACIONColumn {
+                get {
+                    return this.columnDURACION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7275,12 +7299,13 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public reporte_precio_total_seguroRow Addreporte_precio_total_seguroRow(string nombre, decimal PRECIOSEGURORD, decimal PRECIOSEGUROUSD) {
+            public reporte_precio_total_seguroRow Addreporte_precio_total_seguroRow(string nombre, decimal PRECIOSEGURORD, decimal PRECIOSEGUROUSD, int DURACION) {
                 reporte_precio_total_seguroRow rowreporte_precio_total_seguroRow = ((reporte_precio_total_seguroRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
                         PRECIOSEGURORD,
-                        PRECIOSEGUROUSD};
+                        PRECIOSEGUROUSD,
+                        DURACION};
                 rowreporte_precio_total_seguroRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowreporte_precio_total_seguroRow);
                 return rowreporte_precio_total_seguroRow;
@@ -7306,6 +7331,7 @@ namespace ImporteVehiculos {
                 this.columnnombre = base.Columns["nombre"];
                 this.columnPRECIOSEGURORD = base.Columns["PRECIOSEGURORD"];
                 this.columnPRECIOSEGUROUSD = base.Columns["PRECIOSEGUROUSD"];
+                this.columnDURACION = base.Columns["DURACION"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7317,6 +7343,8 @@ namespace ImporteVehiculos {
                 base.Columns.Add(this.columnPRECIOSEGURORD);
                 this.columnPRECIOSEGUROUSD = new global::System.Data.DataColumn("PRECIOSEGUROUSD", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPRECIOSEGUROUSD);
+                this.columnDURACION = new global::System.Data.DataColumn("DURACION", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDURACION);
                 this.columnnombre.MaxLength = 100;
             }
             
@@ -12154,6 +12182,23 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int DURACION {
+                get {
+                    try {
+                        return ((int)(this[this.tablereporte_factura_seguro_precio.DURACIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DURACION\' in table \'reporte_factura_seguro_precio\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_factura_seguro_precio.DURACIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSEGURONull() {
                 return this.IsNull(this.tablereporte_factura_seguro_precio.SEGUROColumn);
             }
@@ -12186,6 +12231,18 @@ namespace ImporteVehiculos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPRECIOUSDNull() {
                 this[this.tablereporte_factura_seguro_precio.PRECIOUSDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDURACIONNull() {
+                return this.IsNull(this.tablereporte_factura_seguro_precio.DURACIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDURACIONNull() {
+                this[this.tablereporte_factura_seguro_precio.DURACIONColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -13616,6 +13673,23 @@ namespace ImporteVehiculos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int DURACION {
+                get {
+                    try {
+                        return ((int)(this[this.tablereporte_precio_total_seguro.DURACIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DURACION\' in table \'reporte_precio_total_seguro\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablereporte_precio_total_seguro.DURACIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsnombreNull() {
                 return this.IsNull(this.tablereporte_precio_total_seguro.nombreColumn);
             }
@@ -13648,6 +13722,18 @@ namespace ImporteVehiculos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPRECIOSEGUROUSDNull() {
                 this[this.tablereporte_precio_total_seguro.PRECIOSEGUROUSDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDURACIONNull() {
+                return this.IsNull(this.tablereporte_precio_total_seguro.DURACIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDURACIONNull() {
+                this[this.tablereporte_precio_total_seguro.DURACIONColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -17923,6 +18009,7 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("SEGURO", "SEGURO");
             tableMapping.ColumnMappings.Add("PRECIORD", "PRECIORD");
             tableMapping.ColumnMappings.Add("PRECIOUSD", "PRECIOUSD");
+            tableMapping.ColumnMappings.Add("DURACION", "DURACION");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -19859,6 +19946,7 @@ namespace ImporteVehiculos.CarsImportDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("PRECIOSEGURORD", "PRECIOSEGURORD");
             tableMapping.ColumnMappings.Add("PRECIOSEGUROUSD", "PRECIOSEGUROUSD");
+            tableMapping.ColumnMappings.Add("DURACION", "DURACION");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
