@@ -941,7 +941,7 @@ namespace ImporteVehiculos.Classes
 
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
-            lst.Add(new clsParametros("@idCliente", Mid));
+            lst.Add(new clsParametros("@idCliente", MidCliente));
             lst.Add(new clsParametros("@idSeguro", MidSeguro));
             lst.Add(new clsParametros("@duracion", Mduracion));
             lst.Add(new clsParametros("@fecha", Mfecha));
