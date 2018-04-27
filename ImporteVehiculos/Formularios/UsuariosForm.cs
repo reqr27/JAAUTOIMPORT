@@ -33,6 +33,8 @@ namespace ImporteVehiculos.Formularios
         private void UsuariosForm_Load(object sender, EventArgs e)
         {
             LlenarDtgUsuarios();
+            agregarEditarUsuario_btn.NotifyDefault(false);
+            nombre_txt.Focus();
         }
 
         public void LlenarDtgUsuarios()
@@ -79,6 +81,7 @@ namespace ImporteVehiculos.Formularios
             agregarEditarUsuario_btn.Image = Properties.Resources.rotacion;
             agregarEditarUsuario_btn.Text = "Registrar";
             idEvento = 0;
+            nombre_txt.Focus();
         }
         public void registrarUsuario()
         {

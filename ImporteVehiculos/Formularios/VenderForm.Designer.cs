@@ -589,13 +589,14 @@
             this.cliente_cb.Name = "cliente_cb";
             this.cliente_cb.Size = new System.Drawing.Size(287, 22);
             this.cliente_cb.TabIndex = 126;
+            this.cliente_cb.DropDown += new System.EventHandler(this.cliente_cb_DropDown);
             // 
             // label
             // 
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.ForeColor = System.Drawing.Color.Black;
-            this.label.Location = new System.Drawing.Point(256, 318);
+            this.label.Location = new System.Drawing.Point(256, 327);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(64, 14);
             this.label.TabIndex = 127;
@@ -648,6 +649,7 @@
             this.vehiculos_cb.Name = "vehiculos_cb";
             this.vehiculos_cb.Size = new System.Drawing.Size(271, 22);
             this.vehiculos_cb.TabIndex = 131;
+            this.vehiculos_cb.DropDown += new System.EventHandler(this.vehiculos_cb_DropDown);
             this.vehiculos_cb.SelectionChangeCommitted += new System.EventHandler(this.vehiculos_cb_SelectionChangeCommitted);
             // 
             // costoUSD_txt
@@ -1702,6 +1704,7 @@
             this.seguro_cb.Name = "seguro_cb";
             this.seguro_cb.Size = new System.Drawing.Size(246, 22);
             this.seguro_cb.TabIndex = 146;
+            this.seguro_cb.DropDown += new System.EventHandler(this.seguro_cb_DropDown);
             // 
             // label30
             // 
@@ -1926,6 +1929,7 @@
             // 
             // VenderForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 543);

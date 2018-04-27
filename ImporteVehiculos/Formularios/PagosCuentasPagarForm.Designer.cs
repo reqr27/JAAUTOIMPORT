@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
             this.cp_lbl = new System.Windows.Forms.Label();
             this.dias_lbl = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@
             this.tipoPago_cb = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.pagos_dtg = new System.Windows.Forms.DataGridView();
-            this.label28 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompra_dtg)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -242,6 +242,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(929, 190);
             this.panel4.TabIndex = 59;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label28.Location = new System.Drawing.Point(13, 22);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(104, 15);
+            this.label28.TabIndex = 129;
+            this.label28.Text = "DESCRIPCION:";
             // 
             // cp_lbl
             // 
@@ -819,19 +830,9 @@
             this.pagos_dtg.Size = new System.Drawing.Size(306, 228);
             this.pagos_dtg.TabIndex = 102;
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label28.Location = new System.Drawing.Point(13, 22);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(104, 15);
-            this.label28.TabIndex = 129;
-            this.label28.Text = "DESCRIPCION:";
-            // 
             // PagosCuentasPagarForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 569);

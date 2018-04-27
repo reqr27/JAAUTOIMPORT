@@ -70,6 +70,8 @@ namespace ImporteVehiculos.Formularios
             textBox1.MaxLength = 4;
             textBox2.MaxLength = 4;
             txt1.Focus();
+            activar_btn.NotifyDefault(false);
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -162,6 +164,14 @@ namespace ImporteVehiculos.Formularios
                 MessageBox.Show("Código incorrecto", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void ActivationForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                MessageBox.Show("Enter key pressed");
+            }
         }
     }
 }

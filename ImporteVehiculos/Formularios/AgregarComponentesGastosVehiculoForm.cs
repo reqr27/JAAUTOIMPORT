@@ -39,6 +39,8 @@ namespace ImporteVehiculos.Formularios
             LLenarTipoPagoCb();
             CargarVentana();
             Permisos();
+            guardar_btn.NotifyDefault(false);
+            descripcion_cb.Focus();
         }
 
         public void clearFields()
@@ -53,6 +55,7 @@ namespace ImporteVehiculos.Formularios
             restante_USD_lbl.Text = "0.00";
             totalRD_lbl.Text = "0.00";
             totalRD_lbl.Text = "0.00";
+            descripcion_cb.Focus();
         }
 
         public void LLenarTipoPagoCb()
@@ -830,6 +833,16 @@ namespace ImporteVehiculos.Formularios
                 result = true;
             }
             return result;
+        }
+
+        private void descripcion_cb_DropDown(object sender, EventArgs e)
+        {
+
+        }
+
+        private void taller_cb_DropDown(object sender, EventArgs e)
+        {
+            LlenarTallerCb();
         }
     }
 }

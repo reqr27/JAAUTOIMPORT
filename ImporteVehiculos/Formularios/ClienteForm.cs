@@ -38,6 +38,8 @@ namespace ImporteVehiculos.Formularios
 
         private void ClienteForm_Load(object sender, EventArgs e)
         {
+            guardarCliente_btn.NotifyDefault(false);
+            cliente_txt.Focus();
             LLenarPaisesCB();
             LlenarDtgClientes();
             resetCampos();
@@ -104,6 +106,7 @@ namespace ImporteVehiculos.Formularios
             estadoCliente_chbox.Checked = true;
             guardarCliente_btn.Text = "Guardar";
             guardarCliente_btn.Image = Properties.Resources.disquete;
+            cliente_txt.Focus();
         }
 
         private void guardarCliente_btn_Click(object sender, EventArgs e)
@@ -493,6 +496,16 @@ namespace ImporteVehiculos.Formularios
                 LLenarCiudadCB();
 
             }
+        }
+
+        private void pais_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarPaisesCB();
+        }
+
+        private void ciudad_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarCiudadCB();
         }
     }
 }

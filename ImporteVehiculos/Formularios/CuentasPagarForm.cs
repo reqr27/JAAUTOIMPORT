@@ -34,6 +34,9 @@ namespace ImporteVehiculos.Formularios
             desde_dtp.Value = DateTime.Now.AddMonths(-1);
             LlenarDtgCuentasPagar();
             CalcularTotal();
+            verDetalles_btn.NotifyDefault(false);
+            propietario_txt.Focus();
+            
         }
 
         public void LlenarTipoTransaccionCB()

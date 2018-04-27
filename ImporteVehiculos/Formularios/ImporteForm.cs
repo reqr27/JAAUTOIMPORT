@@ -37,6 +37,8 @@ namespace ImporteVehiculos.Formularios
             LlenarDtgVehiculos();
             Permisos();
             CalcularTotal();
+            verDetalles_btn.NotifyDefault(false);
+           
         }
 
         public void LlenarDtgVehiculos()

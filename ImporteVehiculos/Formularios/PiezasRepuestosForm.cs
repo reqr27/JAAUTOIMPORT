@@ -32,6 +32,8 @@ namespace ImporteVehiculos.Formularios
             LlenarAñoCb();
             LLenarFabricanteCb();
             Permisos();
+            guardarComponente_btn.NotifyDefault(false);
+            fabricante_cbox.Focus();
         }
         public void Permisos()
         {
@@ -54,6 +56,7 @@ namespace ImporteVehiculos.Formularios
             guardarComponente_btn.Text = "Guardar";
             guardarComponente_btn.Image = Properties.Resources.disquete;
             cancelarEditar_btn.Enabled = false;
+            fabricante_cbox.Focus();
         }
 
         public void LlenarDtgComponentes()
@@ -278,6 +281,16 @@ namespace ImporteVehiculos.Formularios
             dt1 = P.ObtenerTasaDolarYFecha();
             tasa_lbl.Text = "";
             tasa_lbl.Text = "1.00 $USD = " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2") + "$RD";
+        }
+
+        private void fabricante_cbox_DropDown(object sender, EventArgs e)
+        {
+            LLenarFabricanteCb();
+        }
+
+        private void modelo_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarModeloCb();
         }
     }
 }

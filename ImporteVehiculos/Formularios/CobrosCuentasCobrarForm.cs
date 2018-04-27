@@ -79,12 +79,15 @@ namespace ImporteVehiculos.Formularios
             CalcularTotales();
 
             Permisos();
+            guardar_btn.NotifyDefault(false);
+            pago_txt.Focus();
         }
 
         public void clearFields()
         {
             pago_txt.Text = "";
             nota_txt.Text = "";
+            pago_txt.Focus();
         }
 
         public void ObtenerDetalleCuentaCobrar()

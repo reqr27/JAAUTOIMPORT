@@ -136,6 +136,7 @@
             this.año_cb.Name = "año_cb";
             this.año_cb.Size = new System.Drawing.Size(232, 22);
             this.año_cb.TabIndex = 2;
+            this.año_cb.DropDown += new System.EventHandler(this.año_cb_DropDown);
             // 
             // label1
             // 
@@ -160,6 +161,7 @@
             this.modelo_cb.Name = "modelo_cb";
             this.modelo_cb.Size = new System.Drawing.Size(232, 22);
             this.modelo_cb.TabIndex = 1;
+            this.modelo_cb.DropDown += new System.EventHandler(this.modelo_cb_DropDown);
             // 
             // label5
             // 
@@ -183,6 +185,7 @@
             this.fabricante_cbox.Name = "fabricante_cbox";
             this.fabricante_cbox.Size = new System.Drawing.Size(232, 22);
             this.fabricante_cbox.TabIndex = 0;
+            this.fabricante_cbox.DropDown += new System.EventHandler(this.fabricante_cbox_DropDown);
             this.fabricante_cbox.SelectedIndexChanged += new System.EventHandler(this.fabricante_cbox_SelectedIndexChanged);
             // 
             // label4
@@ -670,6 +673,7 @@
             this.propietario_cb.Name = "propietario_cb";
             this.propietario_cb.Size = new System.Drawing.Size(233, 22);
             this.propietario_cb.TabIndex = 10;
+            this.propietario_cb.DropDown += new System.EventHandler(this.propietario_cb_DropDown);
             // 
             // label7
             // 
@@ -894,6 +898,7 @@
             this.color_cb.Name = "color_cb";
             this.color_cb.Size = new System.Drawing.Size(232, 22);
             this.color_cb.TabIndex = 3;
+            this.color_cb.DropDown += new System.EventHandler(this.color_cb_DropDown);
             // 
             // ubicacion_cb
             // 
@@ -907,6 +912,7 @@
             this.ubicacion_cb.Name = "ubicacion_cb";
             this.ubicacion_cb.Size = new System.Drawing.Size(233, 22);
             this.ubicacion_cb.TabIndex = 11;
+            this.ubicacion_cb.DropDown += new System.EventHandler(this.ubicacion_cb_DropDown);
             // 
             // suplidor_cb
             // 
@@ -921,6 +927,7 @@
             this.suplidor_cb.Name = "suplidor_cb";
             this.suplidor_cb.Size = new System.Drawing.Size(233, 22);
             this.suplidor_cb.TabIndex = 9;
+            this.suplidor_cb.DropDown += new System.EventHandler(this.suplidor_cb_DropDown);
             // 
             // label25
             // 
@@ -1069,6 +1076,7 @@
             // 
             // NuevoVehiculoForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));

@@ -321,7 +321,7 @@
             this.buscar_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buscar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.buscar_btn.Image = global::ImporteVehiculos.Properties.Resources.icono_de_lupa;
-            this.buscar_btn.Location = new System.Drawing.Point(668, 2);
+            this.buscar_btn.Location = new System.Drawing.Point(675, 2);
             this.buscar_btn.Name = "buscar_btn";
             this.buscar_btn.Size = new System.Drawing.Size(98, 98);
             this.buscar_btn.TabIndex = 56;
@@ -493,6 +493,7 @@
             // 
             // ReportesVentana
             // 
+            this.AcceptButton = this.reporte_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 560);

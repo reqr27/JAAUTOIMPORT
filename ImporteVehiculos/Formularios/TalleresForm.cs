@@ -43,6 +43,7 @@ namespace ImporteVehiculos.Formularios
             estadoTaller_chbox.Checked = true;
             guardarTaller_btn.Text = "Guardar";
             guardarTaller_btn.Image = Properties.Resources.disquete;
+            taller_txt.Focus();
         }
         private void guardarTaller_btn_Click(object sender, EventArgs e)
         {
@@ -135,6 +136,8 @@ namespace ImporteVehiculos.Formularios
         {
             LlenarDtgTalleres();
             resetCampos();
+            guardarTaller_btn.NotifyDefault(false);
+            taller_txt.Focus();
         }
 
         private void talleres_dtg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

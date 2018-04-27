@@ -43,7 +43,9 @@ namespace ImporteVehiculos.Formularios
             CalcularTotales();
             
             Permisos();
-            
+            guardar_btn.NotifyDefault(false);
+            pago_txt.Focus();
+
         }
 
         public void CargarVentana()
@@ -77,6 +79,7 @@ namespace ImporteVehiculos.Formularios
         {
             pago_txt.Text = "";
             nota_txt.Text = "";
+            pago_txt.Focus();
         }
 
         public void ObtenerDetalleCuentaPagar()

@@ -43,6 +43,8 @@ namespace ImporteVehiculos.Formularios
         private void PaisesForm_Load(object sender, EventArgs e)
         {
             LlenarDtgPais();
+            agregar_btn.NotifyDefault(false);
+            pais_txt.Focus();
         }
 
         public void LlenarDtgPais()
@@ -69,6 +71,7 @@ namespace ImporteVehiculos.Formularios
             pais_txt.Text = "";
             agregar_btn.Text = "Registrar";
             agregar_btn.Image = Properties.Resources.disquete;
+            pais_txt.Focus();
         }
 
         private void paises_dtg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

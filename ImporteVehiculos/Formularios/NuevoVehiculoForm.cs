@@ -63,6 +63,9 @@ namespace ImporteVehiculos.Formularios
             }
             var selectedYear = DateTime.Now.Year - 5;
             año_cb.Text = selectedYear.ToString();
+
+            agregar_btn.NotifyDefault(false);
+            fabricante_cbox.Focus();
         }
 
         public void LLenarColoresCb()
@@ -310,6 +313,7 @@ namespace ImporteVehiculos.Formularios
             totalUSD_lbl.Text = "0.00";
             nota_txt.Text = "";
             ubicacion_cb.Text = "";
+            fabricante_cbox.Focus();
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -722,6 +726,41 @@ namespace ImporteVehiculos.Formularios
 
                 
             }
+        }
+
+        private void fabricante_cbox_DropDown(object sender, EventArgs e)
+        {
+            LLenarFabricanteCb();
+        }
+
+        private void modelo_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarModeloCb();
+        }
+
+        private void año_cb_DropDown(object sender, EventArgs e)
+        {
+            LlenarAñoCb();
+        }
+
+        private void color_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarColoresCb();
+        }
+
+        private void suplidor_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarSuplidorCb();
+        }
+
+        private void propietario_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarPropietarioCb();
+        }
+
+        private void ubicacion_cb_DropDown(object sender, EventArgs e)
+        {
+            LLenarUbicacionCb();
         }
     }
 }

@@ -26,6 +26,9 @@ namespace ImporteVehiculos.Formularios
             dt = P.ObtenerTasaDolarYFecha();
 
             tasa_txt.Text = (Convert.ToDouble(dt.Rows[0]["TASA"])).ToString("N2");
+
+            guardar_btn.NotifyDefault(false);
+            tasa_txt.Focus();
         }
 
         private void guardar_btn_Click(object sender, EventArgs e)

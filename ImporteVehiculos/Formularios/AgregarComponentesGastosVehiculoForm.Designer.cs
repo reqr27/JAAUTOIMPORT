@@ -97,6 +97,7 @@
             this.descripcion_cb.Name = "descripcion_cb";
             this.descripcion_cb.Size = new System.Drawing.Size(301, 22);
             this.descripcion_cb.TabIndex = 5;
+            this.descripcion_cb.DropDown += new System.EventHandler(this.descripcion_cb_DropDown);
             this.descripcion_cb.SelectedIndexChanged += new System.EventHandler(this.descripcion_cb_SelectedIndexChanged);
             // 
             // descripcion_lbl
@@ -187,6 +188,7 @@
             this.taller_cb.Name = "taller_cb";
             this.taller_cb.Size = new System.Drawing.Size(301, 22);
             this.taller_cb.TabIndex = 34;
+            this.taller_cb.DropDown += new System.EventHandler(this.taller_cb_DropDown);
             // 
             // guardar_btn
             // 
@@ -662,6 +664,7 @@
             // 
             // AgregarComponentesGastosVehiculoForm
             // 
+            this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 544);

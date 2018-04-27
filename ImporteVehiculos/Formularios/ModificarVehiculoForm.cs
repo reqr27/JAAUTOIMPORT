@@ -37,6 +37,7 @@ namespace ImporteVehiculos.Formularios
         private void guardar_btn_Click(object sender, EventArgs e)
         {
             ActualizarVehiculo();
+            precio_estimado_venta_txt.Focus();
         }
 
         public void LlenarAñoCb()
@@ -184,6 +185,8 @@ namespace ImporteVehiculos.Formularios
             {
                 VerTodosDetallesVentana();
             }
+            guardar_btn.NotifyDefault(false);
+            precio_estimado_venta_txt.Focus();
 
         }
 

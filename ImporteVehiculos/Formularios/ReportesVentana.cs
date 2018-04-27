@@ -63,6 +63,8 @@ namespace ImporteVehiculos.Formularios
             estado_cb.SelectedIndex = 0;
             LlenarDtg();
             UpdateButtons();
+            reporte_btn.NotifyDefault(false);
+            
         }
         public void UpdateButtons()
         {
