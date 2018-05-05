@@ -430,6 +430,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
     }
@@ -1425,15 +1433,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:JAautoImport"
-        "ProductCode" = "8:{07B4E148-5D52-42CB-9FD8-BE51AA1554E2}"
-        "PackageCode" = "8:{EE05CC21-89B4-4404-86DF-D64C7DC6D83A}"
+        "ProductCode" = "8:{26AD6702-A665-470D-A425-578C64F1819D}"
+        "PackageCode" = "8:{A1472350-D552-4D56-9D93-B6F93650A2C2}"
         "UpgradeCode" = "8:{EE0321B2-D09A-4529-B214-5C8C68C2ADC7}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.2.2"
         "Manufacturer" = "8:reqr27"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

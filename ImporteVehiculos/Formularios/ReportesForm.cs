@@ -464,7 +464,7 @@ namespace ImporteVehiculos.Formularios
             rds5.Fill(ds5.reporte_precio_total_traspaso, Program.GidVehiculoRpt);  //llenar reporte
             ReportDataSource rd5 = new ReportDataSource();
             rd5.Name = "DataSet5";
-            rd5.Value = ds4.Tables["reporte_precio_total_traspaso"];
+            rd5.Value = ds5.Tables["reporte_precio_total_traspaso"];
 
 
 

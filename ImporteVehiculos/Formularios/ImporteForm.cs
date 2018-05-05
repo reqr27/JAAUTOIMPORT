@@ -136,6 +136,7 @@ namespace ImporteVehiculos.Formularios
         private void buscar_btn_Click(object sender, EventArgs e)
         {
             LlenarDtgVehiculos();
+            CalcularTotal();
         }
 
         public void IdentificarPagadoNoPagado()
@@ -296,6 +297,7 @@ namespace ImporteVehiculos.Formularios
                 hasta_dtp.Value = DateTime.Now.Date;
             }
             LlenarDtgVehiculos();
+            CalcularTotal();
         }
 
         private void ImporteForm_FormClosed(object sender, FormClosedEventArgs e)

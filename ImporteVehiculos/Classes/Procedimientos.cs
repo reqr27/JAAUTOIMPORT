@@ -2349,5 +2349,13 @@ namespace ImporteVehiculos.Classes
             return mensaje;
         }
 
+        public DataTable ObtenerTipoCC()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idCC", Mid));
+            return dt = C.Listado("obtener_tipo_cuenta_cobrar", lst);
+        }
+
     }
 }
