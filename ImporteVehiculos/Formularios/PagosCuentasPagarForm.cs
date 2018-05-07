@@ -39,12 +39,22 @@ namespace ImporteVehiculos.Formularios
             LLenarTipoPagoCb();
             LlenarDtgPagosCredito();
             ObtenerDetalleCuentaPagar();
-            LlenarDtgDetallesCompra();
+            if (Program.GnuevaCP) // cuenta nueva
+            {
+                LlenarDtgDetallesCompra();
+               
+
+                
+            }
+            else
+            {
+                detalleCompra_dtg.Visible = false;
+            }
             CalcularTotales();
-            
             Permisos();
             guardar_btn.NotifyDefault(false);
             pago_txt.Focus();
+
 
         }
 
@@ -86,26 +96,60 @@ namespace ImporteVehiculos.Formularios
         {
             if(idTransaccion == 2)//Compras
             {
-                Compras();
+                if (Program.GnuevaCP)
+                {
+                    Compras();
+                }
+                else
+                {
+                    ComprasAntiguo();
+                }
+                
             }
 
             else if (idTransaccion == 4)//Seguros
             {
-                Seguros();
+                if (Program.GnuevaCP)
+                {
+                    Seguros();
+                }
+                else
+                {
+                    SegurosAntiguo();
+                }
+                
             }
 
             else if(idTransaccion == 5)
             {
-                Piezas();
+                if (Program.GnuevaCP)
+                {
+                    Piezas();
+                }
+                else
+                {
+                    PiezasAntiguo();
+                }
+                
             }
             else
             {
-                Gastos();
+                if (Program.GnuevaCP)
+                {
+                    Gastos();
+                }
+                else
+                {
+                    GastosAntiguo();
+                }
+                
             }
 
 
 
         }
+
+ 
 
         public void Compras()
         {
@@ -136,29 +180,61 @@ namespace ImporteVehiculos.Formularios
 
         }
 
+        public void ComprasAntiguo()
+        {
+            DataTable dt = new DataTable();
+
+            P.Id = idCP;
+            P.IdTransaccion = idTransaccion;
+            dt = P.ObtenerDetallesCuentaPagarAntiguo();
+            notaVenta_txt.Text = dt.Rows[0]["NOTA"].ToString();
+            vehiculo_lbl.Text = "Compra de --> " + dt.Rows[0]["VEHICULO"].ToString();
+            chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
+            fechaCompra_lbl.Text = dt.Rows[0]["FECHA COMPRADO"].ToString();
+            cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
+
+            dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
+            telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
+            propietario_lbl.Text = dt.Rows[0]["PROPIETARIO"].ToString();
+            suplidor_lbl.Text = "Información Suplidor";
+
+            precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+            precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+            creditoRd_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+            creditoUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+            direccion_lbl.Text = dt.Rows[0]["PAIS"].ToString() + ", " + dt.Rows[0]["CIUDAD"].ToString() + ", " + dt.Rows[0]["DIRECCION"].ToString();
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
+            tasa_lbl.Text = tasa_lbl.Text + " " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2");
+
+
+        }
+
+
         public void Seguros()
         {
             DataTable dt = new DataTable();
 
             P.Id = idVehiculo;
+            P.IdTransaccion = idTransaccion;
             dt = P.ObtenerDetallesCuentaPagar();
             vehiculo_lbl.Text = "Compra de --> Seguro Para" + dt.Rows[0]["VEHICULO"].ToString();
             chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
             fechaCompra_lbl.Text = dt.Rows[0]["FECHA COMPRADO"].ToString();
-            cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
+            //cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
 
             suplidor_lbl.Text = "Información de la Aseguradora";
-            telefono_lbl.Text = dt.Rows[0]["SEGURO TEL"].ToString();
-            propietario_lbl.Text = dt.Rows[0]["SEGURO NOMBRE"].ToString();
+            telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
+            propietario_lbl.Text = dt.Rows[0]["PROPIETARIO"].ToString();
             label17.Visible = false;
             cedula_lbl.Visible = false;
             label20.Visible = false;
             direccion_lbl.Visible = false;
-           
-            precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO RD"])).ToString("#,###.00");
-            precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO USD"])).ToString("#,###.00");
+            dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
+            //precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO RD"])).ToString("#,###.00");
+            //precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO USD"])).ToString("#,###.00");
 
-            direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
+            //direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
 
 
 
@@ -166,6 +242,51 @@ namespace ImporteVehiculos.Formularios
             dt = P.ObtenerTotalPagarCredito();
             creditoRd_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO RD"]).ToString("N2");
             creditoUSD_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO USD"]).ToString("N2");
+            precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["CREDITO RD"])).ToString("#,###.00");
+            precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["CREDITO USD"])).ToString("#,###.00");
+
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
+            tasa_lbl.Text = tasa_lbl.Text + " " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2");
+
+
+        }
+
+        public void SegurosAntiguo()
+        {
+            DataTable dt = new DataTable();
+
+            P.Id = idCP;
+            P.IdTransaccion = idTransaccion; 
+            dt = P.ObtenerDetallesCuentaPagarAntiguo();
+            notaVenta_txt.Text = dt.Rows[0]["NOTA"].ToString();
+            vehiculo_lbl.Text = "Compra de --> Seguro Para" + dt.Rows[0]["VEHICULO"].ToString();
+            chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
+            fechaCompra_lbl.Text = dt.Rows[0]["FECHA COMPRADO"].ToString();
+            //cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
+
+            suplidor_lbl.Text = "Información de la Aseguradora";
+            telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
+            propietario_lbl.Text = dt.Rows[0]["PROPIETARIO"].ToString();
+            label17.Visible = false;
+            cedula_lbl.Visible = false;
+            label20.Visible = false;
+            direccion_lbl.Visible = false;
+            dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
+            //precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO RD"])).ToString("#,###.00");
+            //precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO SEGURO USD"])).ToString("#,###.00");
+
+            //direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
+
+
+
+            P.Id = idCP;
+            dt = P.ObtenerTotalPagarCredito();
+            creditoRd_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO RD"]).ToString("N2");
+            creditoUSD_lbl.Text = Convert.ToDouble(dt.Rows[0]["CREDITO USD"]).ToString("N2");
+            precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["CREDITO RD"])).ToString("#,###.00");
+            precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["CREDITO USD"])).ToString("#,###.00");
+
             DataTable dt1 = new DataTable();
             dt1 = P.ObtenerTasaDolarYFecha();
             tasa_lbl.Text = tasa_lbl.Text + " " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2");
@@ -203,6 +324,37 @@ namespace ImporteVehiculos.Formularios
 
         }
 
+        public void PiezasAntiguo()
+        {
+            DataTable dt = new DataTable();
+
+            P.Id = idCP;
+            P.IdTransaccion = idTransaccion;
+            dt = P.ObtenerDetallesCuentaPagarAntiguo();
+            vehiculo_lbl.Text = "Compra de --> " + " " + dt.Rows[0]["PIEZA"].ToString() + " Para " + dt.Rows[0]["VEHICULO"].ToString();
+            notaVenta_txt.Text = dt.Rows[0]["NOTA"].ToString();
+            chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
+            fechaCompra_lbl.Text = dt.Rows[0]["FECHA COMPRADO"].ToString();
+            //cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
+            label17.Visible = false;
+            cedula_lbl.Visible = false;
+            dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
+            telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
+            propietario_lbl.Text = dt.Rows[0]["PROPIETARIO"].ToString();
+            suplidor_lbl.Text = "Información Tienda o Repuesto";
+
+            precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+            precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+            creditoRd_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+            creditoUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+            direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
+            tasa_lbl.Text = tasa_lbl.Text + " " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2");
+
+
+        }
+
         public void Gastos()
         {
             DataTable dt = new DataTable();
@@ -211,6 +363,37 @@ namespace ImporteVehiculos.Formularios
             P.IdTransaccion = idTransaccion;
             dt = P.ObtenerDetallesCuentaPagar();
             vehiculo_lbl.Text = dt.Rows[0]["GASTO"].ToString() + " --> " + dt.Rows[0]["VEHICULO"].ToString();
+            chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
+            fechaCompra_lbl.Text = dt.Rows[0]["FECHA COMPRADO"].ToString();
+            //cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();
+            label17.Visible = false;
+            cedula_lbl.Visible = false;
+            dias_lbl.Text = dt.Rows[0]["DIAS VIGENTE"].ToString();
+            telefono_lbl.Text = dt.Rows[0]["TEL"].ToString();
+            propietario_lbl.Text = dt.Rows[0]["PROPIETARIO"].ToString();
+            suplidor_lbl.Text = "Información Taller";
+
+            precioCompraRD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+            precioCompraUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+            creditoRd_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($RD)"])).ToString("#,###.00");
+            creditoUSD_lbl.Text = (Convert.ToDouble(dt.Rows[0]["PRECIO ($USD)"])).ToString("#,###.00");
+            direccion_lbl.Text = dt.Rows[0]["DIRECCION"].ToString();
+            DataTable dt1 = new DataTable();
+            dt1 = P.ObtenerTasaDolarYFecha();
+            tasa_lbl.Text = tasa_lbl.Text + " " + (Convert.ToDouble(dt1.Rows[0]["TASA"])).ToString("N2");
+
+
+        }
+
+        public void GastosAntiguo()
+        {
+            DataTable dt = new DataTable();
+
+            P.Id = idCP;
+            P.IdTransaccion = idTransaccion;
+            dt = P.ObtenerDetallesCuentaPagarAntiguo();
+            vehiculo_lbl.Text = dt.Rows[0]["GASTO"].ToString() + " --> " + dt.Rows[0]["VEHICULO"].ToString();
+            notaVenta_txt.Text = dt.Rows[0]["NOTA"].ToString();
             chasis_lbl.Text = dt.Rows[0]["CHASIS"].ToString();
             fechaCompra_lbl.Text = dt.Rows[0]["FECHA COMPRADO"].ToString();
             //cedula_lbl.Text = dt.Rows[0]["CEDULA"].ToString();

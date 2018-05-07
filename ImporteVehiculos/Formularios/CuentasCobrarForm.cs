@@ -66,9 +66,11 @@ namespace ImporteVehiculos.Formularios
             P.Hasta = hasta_dtp.Value;
             dt = P.ObtenerCuentasPorCobrar();
             cuentasCobrar_dtg.DataSource = dt;
-            //cuentasCobrar_dtg.Columns[0].Visible = false;
-            cuentasCobrar_dtg.Columns[2].DefaultCellStyle.Format = "N2";
-            cuentasCobrar_dtg.Columns[3].DefaultCellStyle.Format = "N2";
+            cuentasCobrar_dtg.Columns[0].Visible = false; //idVehiculo
+            cuentasCobrar_dtg.Columns[9].Visible = false; // idcuentacobrar
+            cuentasCobrar_dtg.Columns[10].Visible = false; // nueva
+            cuentasCobrar_dtg.Columns[6].DefaultCellStyle.Format = "N2";
+            cuentasCobrar_dtg.Columns[7].DefaultCellStyle.Format = "N2";
            
 
             
@@ -112,6 +114,7 @@ namespace ImporteVehiculos.Formularios
         {
             if (cuentasCobrar_dtg.Rows.Count > 0)
             {
+                Program.GnuevaCC = Convert.ToBoolean(cuentasCobrar_dtg.CurrentRow.Cells[10].Value);
                 Program.GidCC = Convert.ToInt32(cuentasCobrar_dtg.CurrentRow.Cells[9].Value);
                 Program.Gtransaccion = cuentasCobrar_dtg.CurrentRow.Cells[2].Value.ToString();
                 Program.GidVehiculo = Convert.ToInt32(cuentasCobrar_dtg.CurrentRow.Cells[0].Value);
@@ -141,6 +144,7 @@ namespace ImporteVehiculos.Formularios
         {
             if (cuentasCobrar_dtg.Rows.Count > 0)
             {
+                Program.GnuevaCC = Convert.ToBoolean(cuentasCobrar_dtg.CurrentRow.Cells[10].Value);
                 Program.GidCC = Convert.ToInt32(cuentasCobrar_dtg.CurrentRow.Cells[9].Value);
                 Program.Gtransaccion = cuentasCobrar_dtg.CurrentRow.Cells[2].Value.ToString();
                 Program.GidVehiculo = Convert.ToInt32(cuentasCobrar_dtg.CurrentRow.Cells[0].Value);

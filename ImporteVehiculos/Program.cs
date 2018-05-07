@@ -34,6 +34,8 @@ namespace ImporteVehiculos
         public static int GidTransaccionRpt;
         public static int GidVehiculo2;
         public static int Gid;
+        public static bool GnuevaCC;
+        public static bool GnuevaCP;
 
 
 

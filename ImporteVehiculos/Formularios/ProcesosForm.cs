@@ -48,7 +48,7 @@ namespace ImporteVehiculos.Formularios
 
         private void ProcesosForm_Load(object sender, EventArgs e)
         {
-            
+            Permisos();
         }
 
         private void importar_btn_Click(object sender, EventArgs e)
@@ -161,6 +161,12 @@ namespace ImporteVehiculos.Formularios
             {
                 cuentasPagar_btn.Enabled = false;
             }
+           
+             permiso = GF.ValidarPermisoTransaccion("AGREGAR CUENTAS ANTIGUAS");
+            if (!permiso)
+            {
+                button1.Enabled = false;
+            }
 
         }
 
@@ -174,9 +180,24 @@ namespace ImporteVehiculos.Formularios
             catch (Exception)
             {
 
-                throw;
+                
             }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["CcCpAntiguasForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+                fc.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                CcCpAntiguasForm frm = new CcCpAntiguasForm();
+                frm.Show();
+            }
         }
     }
 }

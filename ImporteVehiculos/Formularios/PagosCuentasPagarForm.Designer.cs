@@ -91,6 +91,7 @@
             this.tipoPago_cb = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.pagos_dtg = new System.Windows.Forms.DataGridView();
+            this.notaVenta_txt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompra_dtg)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -113,7 +114,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.detalleCompra_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.detalleCompra_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.detalleCompra_dtg.Location = new System.Drawing.Point(6, 261);
+            this.detalleCompra_dtg.Location = new System.Drawing.Point(6, 260);
             this.detalleCompra_dtg.MultiSelect = false;
             this.detalleCompra_dtg.Name = "detalleCompra_dtg";
             this.detalleCompra_dtg.ReadOnly = true;
@@ -830,12 +831,24 @@
             this.pagos_dtg.Size = new System.Drawing.Size(306, 228);
             this.pagos_dtg.TabIndex = 102;
             // 
+            // notaVenta_txt
+            // 
+            this.notaVenta_txt.Enabled = false;
+            this.notaVenta_txt.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notaVenta_txt.Location = new System.Drawing.Point(6, 260);
+            this.notaVenta_txt.Multiline = true;
+            this.notaVenta_txt.Name = "notaVenta_txt";
+            this.notaVenta_txt.Size = new System.Drawing.Size(301, 227);
+            this.notaVenta_txt.TabIndex = 121;
+            // 
             // PagosCuentasPagarForm
             // 
             this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 569);
+            this.Controls.Add(this.detalleCompra_dtg);
+            this.Controls.Add(this.notaVenta_txt);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.pagos_dtg);
             this.Controls.Add(this.label1);
@@ -852,7 +865,6 @@
             this.Controls.Add(this.rdDinero_radiobtn);
             this.Controls.Add(this.pago_txt);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.detalleCompra_dtg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
@@ -935,5 +947,6 @@
         private System.Windows.Forms.DataGridView pagos_dtg;
         private System.Windows.Forms.Label cp_lbl;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox notaVenta_txt;
     }
 }
