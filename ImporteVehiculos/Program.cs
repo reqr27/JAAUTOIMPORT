@@ -37,9 +37,6 @@ namespace ImporteVehiculos
         public static bool GnuevaCC;
         public static bool GnuevaCP;
 
-
-
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
