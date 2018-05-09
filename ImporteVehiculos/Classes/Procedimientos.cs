@@ -1632,6 +1632,16 @@ namespace ImporteVehiculos.Classes
             return dt = C.Listado("obtener_componentes_vehiculo_FabricanteModeloAño", lst);
         }
 
+        public DataTable ObtenerCompoentesVehiculoFabricanteModeloAñoAntigua()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idFabricante", MidFabricante));
+            lst.Add(new clsParametros("@idModelo", MidModelo));
+            lst.Add(new clsParametros("@año", Maño));
+            return dt = C.Listado("obtener_componentes_vehiculo_FabricanteModeloAño_Antigua", lst);
+        }
+
         public DataTable ObtenerPrecioCompoenteSeleccionado()
         {
             DataTable dt = new DataTable();

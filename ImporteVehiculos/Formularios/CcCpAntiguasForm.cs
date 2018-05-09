@@ -309,14 +309,24 @@ namespace ImporteVehiculos.Formularios
 
         public void LlenarComponenteCb()
         {
-            descripcionCP_cb.DataSource = null;
-            DataTable dt = new DataTable();
-            P.IdVehiculo = Program.GidVehiculo;
-            dt = P.ObtenerCompoentesVehiculoFabricanteModeloAño();
-            descripcionCP_cb.DataSource = dt;
-            descripcionCP_cb.DisplayMember = "COMPONENTES";
-            descripcionCP_cb.ValueMember = "ID";
-            descripcionCP_cb.SelectedIndex = -1;
+            try
+            {
+                descripcionCP_cb.DataSource = null;
+                DataTable dt = new DataTable();
+                P.IdFabricante = Convert.ToInt32(fabricanteCP_cb.SelectedValue);
+                P.IdModelo = Convert.ToInt32(modeloCP_cb.SelectedValue);
+                P.Año = Convert.ToInt32(añoCP_cb.Text);
+                dt = P.ObtenerCompoentesVehiculoFabricanteModeloAñoAntigua();
+                descripcionCP_cb.DataSource = dt;
+                descripcionCP_cb.DisplayMember = "COMPONENTES";
+                descripcionCP_cb.ValueMember = "ID";
+                descripcionCP_cb.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
             
         }
 
@@ -389,7 +399,11 @@ namespace ImporteVehiculos.Formularios
                 }
                 else if (piezasCP_radiobtn.Checked)
                 {
-                    LlenarComponenteCb();
+                    if(modeloCP_cb.SelectedIndex != -1)
+                    {
+                        LlenarComponenteCb();
+                    }
+                    
                 }
                 else if (otrosCP_radiobtn.Checked)
                 {
@@ -717,6 +731,22 @@ namespace ImporteVehiculos.Formularios
                 }
             }
 
+        }
+
+        private void modeloCP_cb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (piezasCP_radiobtn.Checked)
+            {
+                LlenarComponenteCb();
+            }
+        }
+
+        private void añoCP_cb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (piezasCP_radiobtn.Checked)
+            {
+                LlenarComponenteCb();
+            }
         }
     }
 }

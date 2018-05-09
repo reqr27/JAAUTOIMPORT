@@ -918,6 +918,7 @@
             this.añoCP_cb.Name = "añoCP_cb";
             this.añoCP_cb.Size = new System.Drawing.Size(232, 22);
             this.añoCP_cb.TabIndex = 157;
+            this.añoCP_cb.SelectionChangeCommitted += new System.EventHandler(this.añoCP_cb_SelectionChangeCommitted);
             // 
             // label15
             // 
@@ -942,6 +943,7 @@
             this.modeloCP_cb.Name = "modeloCP_cb";
             this.modeloCP_cb.Size = new System.Drawing.Size(232, 22);
             this.modeloCP_cb.TabIndex = 156;
+            this.modeloCP_cb.SelectionChangeCommitted += new System.EventHandler(this.modeloCP_cb_SelectionChangeCommitted);
             // 
             // label16
             // 
