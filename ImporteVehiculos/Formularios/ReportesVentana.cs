@@ -376,7 +376,7 @@ namespace ImporteVehiculos.Formularios
             {
                 if(vehiculos_dtg.Rows.Count > 0)
                 {
-                    Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[0].Value);
+                    Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[6].Value);
                     Program.Greporte = "Factura Venta Vehículo";
                     ReportesForm form1 = new ReportesForm();
                     form1.Show();
@@ -443,6 +443,7 @@ namespace ImporteVehiculos.Formularios
             {
                 if (vehiculos_dtg.Rows.Count > 0)
                 {
+                   
                     DataTable dt = new DataTable();
                     Program.GidCCRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[5].Value);
                     P.Id = Program.GidCCRpt;
@@ -450,6 +451,7 @@ namespace ImporteVehiculos.Formularios
                     if(dt.Rows[0][0].ToString() == "VENTA")
                     {
                         Program.Greporte = "Recibo de Pago";
+                        
                     }
 
                     else if (dt.Rows[0][0].ToString() == "TRASPASO")
@@ -462,6 +464,7 @@ namespace ImporteVehiculos.Formularios
                         Program.Greporte = "Recibo de Pago Seguro";
                     }
 
+                    Program.GnuevaCC = Convert.ToBoolean(vehiculos_dtg.CurrentRow.Cells[6].Value);
                     Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[0].Value);
                     Program.GtipoRecibo = "Historial Recibo";
                     Program.GnumeroRecibo = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[1].Value);
@@ -494,8 +497,8 @@ namespace ImporteVehiculos.Formularios
 
             if (reportes_cb.Text == "Cuentas por Pagar")
             {
-               label6.Visible = true;
-               tipoTransaccion_cb.Visible = true;
+               //label6.Visible = true;
+               //tipoTransaccion_cb.Visible = true;
             }
             else
             {

@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(665, 129);
+            this.panel1.Size = new System.Drawing.Size(879, 129);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -85,7 +85,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 45);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(665, 84);
+            this.panel3.Size = new System.Drawing.Size(879, 84);
             this.panel3.TabIndex = 60;
             // 
             // label4
@@ -93,11 +93,12 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(209, 20);
+            this.label4.Location = new System.Drawing.Point(295, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 103;
             this.label4.Text = "TRANSACCION: ";
+            this.label4.Visible = false;
             // 
             // tipoTransaccion_cb
             // 
@@ -109,10 +110,11 @@
             this.tipoTransaccion_cb.Items.AddRange(new object[] {
             "EFECTIVO",
             "VEHICULO RECIBIDO"});
-            this.tipoTransaccion_cb.Location = new System.Drawing.Point(316, 16);
+            this.tipoTransaccion_cb.Location = new System.Drawing.Point(402, 51);
             this.tipoTransaccion_cb.Name = "tipoTransaccion_cb";
             this.tipoTransaccion_cb.Size = new System.Drawing.Size(207, 23);
             this.tipoTransaccion_cb.TabIndex = 102;
+            this.tipoTransaccion_cb.Visible = false;
             this.tipoTransaccion_cb.SelectionChangeCommitted += new System.EventHandler(this.tipoTransaccion_cb_SelectionChangeCommitted);
             // 
             // label2
@@ -164,7 +166,7 @@
             // propietario_txt
             // 
             this.propietario_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.propietario_txt.Location = new System.Drawing.Point(316, 47);
+            this.propietario_txt.Location = new System.Drawing.Point(402, 17);
             this.propietario_txt.Name = "propietario_txt";
             this.propietario_txt.Size = new System.Drawing.Size(207, 20);
             this.propietario_txt.TabIndex = 51;
@@ -175,7 +177,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.label3.Location = new System.Drawing.Point(209, 50);
+            this.label3.Location = new System.Drawing.Point(295, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 15);
             this.label3.TabIndex = 52;
@@ -189,7 +191,7 @@
             this.verDetalles_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
             this.verDetalles_btn.Image = global::ImporteVehiculos.Properties.Resources.portapapeles;
             this.verDetalles_btn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.verDetalles_btn.Location = new System.Drawing.Point(570, 3);
+            this.verDetalles_btn.Location = new System.Drawing.Point(784, 15);
             this.verDetalles_btn.Name = "verDetalles_btn";
             this.verDetalles_btn.Size = new System.Drawing.Size(92, 53);
             this.verDetalles_btn.TabIndex = 50;
@@ -216,7 +218,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(602, 3);
+            this.button3.Location = new System.Drawing.Point(814, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(26, 26);
             this.button3.TabIndex = 37;
@@ -230,7 +232,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(634, 3);
+            this.button2.Location = new System.Drawing.Point(846, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 26);
             this.button2.TabIndex = 36;
@@ -258,7 +260,7 @@
             this.cuentasPagar_dtg.Name = "cuentasPagar_dtg";
             this.cuentasPagar_dtg.ReadOnly = true;
             this.cuentasPagar_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cuentasPagar_dtg.Size = new System.Drawing.Size(629, 255);
+            this.cuentasPagar_dtg.Size = new System.Drawing.Size(852, 255);
             this.cuentasPagar_dtg.TabIndex = 41;
             this.cuentasPagar_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cuentasPagar_dtg_CellDoubleClick);
             // 
@@ -272,7 +274,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 438);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(665, 41);
+            this.panel2.Size = new System.Drawing.Size(879, 41);
             this.panel2.TabIndex = 61;
             // 
             // label18
@@ -280,7 +282,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label18.Location = new System.Drawing.Point(407, 13);
+            this.label18.Location = new System.Drawing.Point(644, 13);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(123, 13);
             this.label18.TabIndex = 123;
@@ -291,7 +293,7 @@
             this.restante_USD_lbl.AutoSize = true;
             this.restante_USD_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.restante_USD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.restante_USD_lbl.Location = new System.Drawing.Point(536, 13);
+            this.restante_USD_lbl.Location = new System.Drawing.Point(773, 13);
             this.restante_USD_lbl.Name = "restante_USD_lbl";
             this.restante_USD_lbl.Size = new System.Drawing.Size(21, 13);
             this.restante_USD_lbl.TabIndex = 124;
@@ -324,7 +326,7 @@
             this.AcceptButton = this.verDetalles_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 479);
+            this.ClientSize = new System.Drawing.Size(879, 479);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cuentasPagar_dtg);
             this.Controls.Add(this.panel1);

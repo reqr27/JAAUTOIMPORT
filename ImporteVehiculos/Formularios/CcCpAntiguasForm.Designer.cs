@@ -766,6 +766,7 @@
             this.otrosCP_radiobtn.TabIndex = 179;
             this.otrosCP_radiobtn.Text = "OTROS";
             this.otrosCP_radiobtn.UseVisualStyleBackColor = true;
+            this.otrosCP_radiobtn.Visible = false;
             this.otrosCP_radiobtn.CheckedChanged += new System.EventHandler(this.compra_radiobtn_CheckedChanged);
             // 
             // piezasCP_radiobtn
@@ -778,6 +779,7 @@
             this.piezasCP_radiobtn.TabIndex = 22;
             this.piezasCP_radiobtn.Text = "PIEZAS";
             this.piezasCP_radiobtn.UseVisualStyleBackColor = true;
+            this.piezasCP_radiobtn.Visible = false;
             this.piezasCP_radiobtn.CheckedChanged += new System.EventHandler(this.compra_radiobtn_CheckedChanged);
             // 
             // seguroCP_radiobtn
@@ -817,6 +819,7 @@
             this.mecanicaCP_radiobtn.TabIndex = 20;
             this.mecanicaCP_radiobtn.Text = "MECANICA";
             this.mecanicaCP_radiobtn.UseVisualStyleBackColor = true;
+            this.mecanicaCP_radiobtn.Visible = false;
             this.mecanicaCP_radiobtn.CheckedChanged += new System.EventHandler(this.compra_radiobtn_CheckedChanged);
             // 
             // panel5

@@ -30,13 +30,12 @@ namespace ImporteVehiculos.Formularios
 
         private void CuentasPagarForm_Load(object sender, EventArgs e)
         {
+            verDetalles_btn.NotifyDefault(false);
             LlenarTipoTransaccionCB();
             desde_dtp.Value = DateTime.Now.AddMonths(-1);
             LlenarDtgCuentasPagar();
             CalcularTotal();
-            verDetalles_btn.NotifyDefault(false);
             propietario_txt.Focus();
-            
         }
 
         public void LlenarTipoTransaccionCB()
@@ -52,18 +51,20 @@ namespace ImporteVehiculos.Formularios
         public void LlenarDtgCuentasPagar()
         {
             DataTable dt = new DataTable();
-           
+
             P.Propietario = propietario_txt.Text;
             P.Desde = desde_dtp.Value;
             P.Hasta = hasta_dtp.Value;
             P.IdTransaccion = Convert.ToInt32(tipoTransaccion_cb.SelectedValue);
             dt = P.ObtenerCuentasPorPagar();
             cuentasPagar_dtg.DataSource = dt;
-            cuentasPagar_dtg.Columns[0].Visible = false; //idVehiculo
-            cuentasPagar_dtg.Columns[9].Visible = false; // idcuentapagar
-            cuentasPagar_dtg.Columns[10].Visible = false; // nueva
-            cuentasPagar_dtg.Columns[6].DefaultCellStyle.Format = "N2";
-            cuentasPagar_dtg.Columns[7].DefaultCellStyle.Format = "N2";
+            cuentasPagar_dtg.Columns[0].Visible = false;
+            cuentasPagar_dtg.Columns[11].Visible = false;
+            if (dt.Rows.Count > 0)
+            {
+                cuentasPagar_dtg.Columns[7].DefaultCellStyle.Format = "N2";
+                cuentasPagar_dtg.Columns[8].DefaultCellStyle.Format = "N2";
+            }
 
 
 
@@ -108,8 +109,8 @@ namespace ImporteVehiculos.Formularios
             {
                 foreach (DataGridViewRow row in cuentasPagar_dtg.Rows)
                 {
-                    pendienteRD += Convert.ToDouble(row.Cells[6].Value);
-                    pendienteUSD += Convert.ToDouble(row.Cells[7].Value);
+                    pendienteRD += Convert.ToDouble(row.Cells[7].Value);
+                    pendienteUSD += Convert.ToDouble(row.Cells[8].Value);
 
 
 
@@ -133,28 +134,30 @@ namespace ImporteVehiculos.Formularios
 
         private void verDetalles_btn_Click(object sender, EventArgs e)
         {
-            if(cuentasPagar_dtg.Rows.Count > 0)
+            if (cuentasPagar_dtg.Rows.Count > 0)
             {
-                Program.GnuevaCP = Convert.ToBoolean(cuentasPagar_dtg.CurrentRow.Cells[10].Value);
-                Program.GidCP = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[9].Value);
+                Program.GnuevaCP = Convert.ToBoolean(cuentasPagar_dtg.CurrentRow.Cells[11].Value);
+                Program.GidCP = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[10].Value);
                 Program.Gtransaccion = cuentasPagar_dtg.CurrentRow.Cells[2].Value.ToString();
                 Program.GidVehiculo = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[0].Value);
+                Program.GnumeroFactura = cuentasPagar_dtg.CurrentRow.Cells[3].Value.ToString();
                 PagosCuentasPagarForm frm = new PagosCuentasPagarForm();
                 frm.ShowDialog();
                 LlenarDtgCuentasPagar();
                 CalcularTotal();
             }
-            
+
         }
 
         private void cuentasPagar_dtg_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (cuentasPagar_dtg.Rows.Count > 0)
             {
-                Program.GnuevaCP = Convert.ToBoolean(cuentasPagar_dtg.CurrentRow.Cells[10].Value);
-                Program.GidCP = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[9].Value);
+                Program.GnuevaCP = Convert.ToBoolean(cuentasPagar_dtg.CurrentRow.Cells[11].Value);
+                Program.GidCP = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[10].Value);
                 Program.Gtransaccion = cuentasPagar_dtg.CurrentRow.Cells[2].Value.ToString();
                 Program.GidVehiculo = Convert.ToInt32(cuentasPagar_dtg.CurrentRow.Cells[0].Value);
+                Program.GnumeroFactura = cuentasPagar_dtg.CurrentRow.Cells[3].Value.ToString();
                 PagosCuentasPagarForm frm = new PagosCuentasPagarForm();
                 frm.ShowDialog();
                 LlenarDtgCuentasPagar();

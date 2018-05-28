@@ -34,8 +34,11 @@ namespace ImporteVehiculos
         public static int GidTransaccionRpt;
         public static int GidVehiculo2;
         public static int Gid;
+        public static string GnumeroFactura;
+        public static int GidFacturaServicio;
         public static bool GnuevaCC;
         public static bool GnuevaCP;
+
 
         /// <summary>
         /// The main entry point for the application.

@@ -63,8 +63,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.suplidor_lbl = new System.Windows.Forms.Label();
             this.vehiculo_lbl = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,7 +81,6 @@
             this.creditoUSD_lbl = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.creditoRd_lbl = new System.Windows.Forms.Label();
-            this.guardar_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.nota_txt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -92,6 +89,12 @@
             this.label22 = new System.Windows.Forms.Label();
             this.pagos_dtg = new System.Windows.Forms.DataGridView();
             this.notaVenta_txt = new System.Windows.Forms.TextBox();
+            this.v_lbl = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.detalles_btn = new System.Windows.Forms.LinkLabel();
+            this.guardar_btn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.detalleCompra_dtg)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -114,7 +117,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.detalleCompra_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.detalleCompra_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.detalleCompra_dtg.Location = new System.Drawing.Point(6, 260);
+            this.detalleCompra_dtg.Location = new System.Drawing.Point(14, 279);
             this.detalleCompra_dtg.MultiSelect = false;
             this.detalleCompra_dtg.Name = "detalleCompra_dtg";
             this.detalleCompra_dtg.ReadOnly = true;
@@ -126,7 +129,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(643, 297);
+            this.label8.Location = new System.Drawing.Point(651, 316);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 15);
             this.label8.TabIndex = 89;
@@ -137,7 +140,7 @@
             this.fecha_dtp.CustomFormat = "dd/MM/yyyy";
             this.fecha_dtp.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fecha_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fecha_dtp.Location = new System.Drawing.Point(731, 295);
+            this.fecha_dtp.Location = new System.Drawing.Point(739, 314);
             this.fecha_dtp.Name = "fecha_dtp";
             this.fecha_dtp.Size = new System.Drawing.Size(91, 20);
             this.fecha_dtp.TabIndex = 88;
@@ -147,7 +150,7 @@
             // 
             this.tasa_lbl.AutoSize = true;
             this.tasa_lbl.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tasa_lbl.Location = new System.Drawing.Point(777, 321);
+            this.tasa_lbl.Location = new System.Drawing.Point(785, 340);
             this.tasa_lbl.Name = "tasa_lbl";
             this.tasa_lbl.Size = new System.Drawing.Size(83, 15);
             this.tasa_lbl.TabIndex = 87;
@@ -159,7 +162,7 @@
             // 
             this.usdDinero_radiobtn.AutoSize = true;
             this.usdDinero_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usdDinero_radiobtn.Location = new System.Drawing.Point(714, 319);
+            this.usdDinero_radiobtn.Location = new System.Drawing.Point(722, 338);
             this.usdDinero_radiobtn.Name = "usdDinero_radiobtn";
             this.usdDinero_radiobtn.Size = new System.Drawing.Size(57, 19);
             this.usdDinero_radiobtn.TabIndex = 84;
@@ -171,7 +174,7 @@
             this.rdDinero_radiobtn.AutoSize = true;
             this.rdDinero_radiobtn.Checked = true;
             this.rdDinero_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdDinero_radiobtn.Location = new System.Drawing.Point(643, 319);
+            this.rdDinero_radiobtn.Location = new System.Drawing.Point(651, 338);
             this.rdDinero_radiobtn.Name = "rdDinero_radiobtn";
             this.rdDinero_radiobtn.Size = new System.Drawing.Size(49, 19);
             this.rdDinero_radiobtn.TabIndex = 86;
@@ -183,7 +186,7 @@
             // pago_txt
             // 
             this.pago_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pago_txt.Location = new System.Drawing.Point(694, 353);
+            this.pago_txt.Location = new System.Drawing.Point(702, 372);
             this.pago_txt.Name = "pago_txt";
             this.pago_txt.Size = new System.Drawing.Size(101, 20);
             this.pago_txt.TabIndex = 85;
@@ -193,7 +196,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(643, 356);
+            this.label2.Location = new System.Drawing.Point(651, 375);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 15);
             this.label2.TabIndex = 83;
@@ -209,13 +212,16 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(929, 239);
+            this.panel3.Size = new System.Drawing.Size(929, 258);
             this.panel3.TabIndex = 95;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel4.Controls.Add(this.detalles_btn);
+            this.panel4.Controls.Add(this.v_lbl);
+            this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label28);
             this.panel4.Controls.Add(this.cp_lbl);
             this.panel4.Controls.Add(this.dias_lbl);
@@ -239,7 +245,7 @@
             this.panel4.Controls.Add(this.suplidor_lbl);
             this.panel4.Controls.Add(this.vehiculo_lbl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 49);
+            this.panel4.Location = new System.Drawing.Point(0, 68);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(929, 190);
             this.panel4.TabIndex = 59;
@@ -249,7 +255,7 @@
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label28.Location = new System.Drawing.Point(13, 22);
+            this.label28.Location = new System.Drawing.Point(13, 13);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(104, 15);
             this.label28.TabIndex = 129;
@@ -260,7 +266,7 @@
             this.cp_lbl.AutoSize = true;
             this.cp_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cp_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.cp_lbl.Location = new System.Drawing.Point(785, 13);
+            this.cp_lbl.Location = new System.Drawing.Point(785, 4);
             this.cp_lbl.Name = "cp_lbl";
             this.cp_lbl.Size = new System.Drawing.Size(95, 19);
             this.cp_lbl.TabIndex = 128;
@@ -271,7 +277,7 @@
             this.dias_lbl.AutoSize = true;
             this.dias_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dias_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.dias_lbl.Location = new System.Drawing.Point(668, 139);
+            this.dias_lbl.Location = new System.Drawing.Point(668, 130);
             this.dias_lbl.Name = "dias_lbl";
             this.dias_lbl.Size = new System.Drawing.Size(51, 15);
             this.dias_lbl.TabIndex = 124;
@@ -282,7 +288,7 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label25.Location = new System.Drawing.Point(540, 139);
+            this.label25.Location = new System.Drawing.Point(540, 130);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(122, 15);
             this.label25.TabIndex = 123;
@@ -293,7 +299,7 @@
             this.fechaCompra_lbl.AutoSize = true;
             this.fechaCompra_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaCompra_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.fechaCompra_lbl.Location = new System.Drawing.Point(73, 59);
+            this.fechaCompra_lbl.Location = new System.Drawing.Point(846, 47);
             this.fechaCompra_lbl.Name = "fechaCompra_lbl";
             this.fechaCompra_lbl.Size = new System.Drawing.Size(37, 15);
             this.fechaCompra_lbl.TabIndex = 122;
@@ -304,7 +310,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label24.Location = new System.Drawing.Point(13, 59);
+            this.label24.Location = new System.Drawing.Point(786, 47);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(54, 15);
             this.label24.TabIndex = 121;
@@ -315,7 +321,7 @@
             this.chasis_lbl.AutoSize = true;
             this.chasis_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chasis_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.chasis_lbl.Location = new System.Drawing.Point(261, 59);
+            this.chasis_lbl.Location = new System.Drawing.Point(417, 49);
             this.chasis_lbl.Name = "chasis_lbl";
             this.chasis_lbl.Size = new System.Drawing.Size(62, 15);
             this.chasis_lbl.TabIndex = 120;
@@ -326,7 +332,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label26.Location = new System.Drawing.Point(201, 59);
+            this.label26.Location = new System.Drawing.Point(357, 49);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(54, 15);
             this.label26.TabIndex = 119;
@@ -337,7 +343,7 @@
             this.telefono_lbl.AutoSize = true;
             this.telefono_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telefono_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.telefono_lbl.Location = new System.Drawing.Point(391, 139);
+            this.telefono_lbl.Location = new System.Drawing.Point(391, 130);
             this.telefono_lbl.Name = "telefono_lbl";
             this.telefono_lbl.Size = new System.Drawing.Size(51, 15);
             this.telefono_lbl.TabIndex = 118;
@@ -348,7 +354,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label23.Location = new System.Drawing.Point(323, 139);
+            this.label23.Location = new System.Drawing.Point(323, 130);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(67, 15);
             this.label23.TabIndex = 117;
@@ -359,7 +365,7 @@
             this.precioCompraUSD_lbl.AutoSize = true;
             this.precioCompraUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.precioCompraUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioCompraUSD_lbl.Location = new System.Drawing.Point(554, 86);
+            this.precioCompraUSD_lbl.Location = new System.Drawing.Point(554, 77);
             this.precioCompraUSD_lbl.Name = "precioCompraUSD_lbl";
             this.precioCompraUSD_lbl.Size = new System.Drawing.Size(134, 19);
             this.precioCompraUSD_lbl.TabIndex = 116;
@@ -370,7 +376,7 @@
             this.precioCompraRD_lbl.AutoSize = true;
             this.precioCompraRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.precioCompraRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.precioCompraRD_lbl.Location = new System.Drawing.Point(200, 86);
+            this.precioCompraRD_lbl.Location = new System.Drawing.Point(200, 77);
             this.precioCompraRD_lbl.Name = "precioCompraRD_lbl";
             this.precioCompraRD_lbl.Size = new System.Drawing.Size(124, 19);
             this.precioCompraRD_lbl.TabIndex = 115;
@@ -381,29 +387,29 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label21.Location = new System.Drawing.Point(356, 86);
+            this.label21.Location = new System.Drawing.Point(356, 77);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(166, 19);
+            this.label21.Size = new System.Drawing.Size(163, 19);
             this.label21.TabIndex = 114;
-            this.label21.Text = "Precio total($USD):";
+            this.label21.Text = "Total Pagar($USD):";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label19.Location = new System.Drawing.Point(12, 86);
+            this.label19.Location = new System.Drawing.Point(12, 77);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(160, 19);
+            this.label19.Size = new System.Drawing.Size(153, 19);
             this.label19.TabIndex = 113;
-            this.label19.Text = "Precio Total($RD):";
+            this.label19.Text = "Total Pagar($RD):";
             // 
             // direccion_lbl
             // 
             this.direccion_lbl.AutoSize = true;
             this.direccion_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.direccion_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.direccion_lbl.Location = new System.Drawing.Point(81, 158);
+            this.direccion_lbl.Location = new System.Drawing.Point(81, 149);
             this.direccion_lbl.Name = "direccion_lbl";
             this.direccion_lbl.Size = new System.Drawing.Size(59, 15);
             this.direccion_lbl.TabIndex = 112;
@@ -414,7 +420,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label20.Location = new System.Drawing.Point(13, 158);
+            this.label20.Location = new System.Drawing.Point(13, 149);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(72, 15);
             this.label20.TabIndex = 111;
@@ -425,7 +431,7 @@
             this.cedula_lbl.AutoSize = true;
             this.cedula_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cedula_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.cedula_lbl.Location = new System.Drawing.Point(642, 158);
+            this.cedula_lbl.Location = new System.Drawing.Point(115, 168);
             this.cedula_lbl.Name = "cedula_lbl";
             this.cedula_lbl.Size = new System.Drawing.Size(88, 15);
             this.cedula_lbl.TabIndex = 110;
@@ -436,7 +442,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label17.Location = new System.Drawing.Point(540, 158);
+            this.label17.Location = new System.Drawing.Point(13, 168);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(101, 15);
             this.label17.TabIndex = 109;
@@ -447,7 +453,7 @@
             this.propietario_lbl.AutoSize = true;
             this.propietario_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.propietario_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.propietario_lbl.Location = new System.Drawing.Point(81, 139);
+            this.propietario_lbl.Location = new System.Drawing.Point(81, 130);
             this.propietario_lbl.Name = "propietario_lbl";
             this.propietario_lbl.Size = new System.Drawing.Size(70, 15);
             this.propietario_lbl.TabIndex = 108;
@@ -458,7 +464,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label13.Location = new System.Drawing.Point(13, 139);
+            this.label13.Location = new System.Drawing.Point(13, 130);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(62, 15);
             this.label13.TabIndex = 107;
@@ -469,7 +475,7 @@
             this.suplidor_lbl.AutoSize = true;
             this.suplidor_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suplidor_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.suplidor_lbl.Location = new System.Drawing.Point(13, 115);
+            this.suplidor_lbl.Location = new System.Drawing.Point(13, 106);
             this.suplidor_lbl.Name = "suplidor_lbl";
             this.suplidor_lbl.Size = new System.Drawing.Size(141, 15);
             this.suplidor_lbl.TabIndex = 106;
@@ -480,39 +486,11 @@
             this.vehiculo_lbl.AutoSize = true;
             this.vehiculo_lbl.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vehiculo_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.vehiculo_lbl.Location = new System.Drawing.Point(135, 22);
+            this.vehiculo_lbl.Location = new System.Drawing.Point(135, 13);
             this.vehiculo_lbl.Name = "vehiculo_lbl";
             this.vehiculo_lbl.Size = new System.Drawing.Size(153, 16);
             this.vehiculo_lbl.TabIndex = 27;
             this.vehiculo_lbl.Text = "AGREGAR VEHICULO";
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(868, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 26);
-            this.button3.TabIndex = 31;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(900, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
-            this.button2.TabIndex = 30;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label27
             // 
@@ -546,7 +524,7 @@
             this.panel1.Controls.Add(this.creditoRd_lbl);
             this.panel1.Controls.Add(this.guardar_btn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 494);
+            this.panel1.Location = new System.Drawing.Point(0, 518);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(929, 75);
             this.panel1.TabIndex = 96;
@@ -727,27 +705,11 @@
             this.creditoRd_lbl.TabIndex = 98;
             this.creditoRd_lbl.Text = "pv";
             // 
-            // guardar_btn
-            // 
-            this.guardar_btn.FlatAppearance.BorderSize = 0;
-            this.guardar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guardar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.guardar_btn.Image = global::ImporteVehiculos.Properties.Resources.efectivo2;
-            this.guardar_btn.Location = new System.Drawing.Point(803, 3);
-            this.guardar_btn.Name = "guardar_btn";
-            this.guardar_btn.Size = new System.Drawing.Size(123, 68);
-            this.guardar_btn.TabIndex = 90;
-            this.guardar_btn.Text = "Agregar Pago";
-            this.guardar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.guardar_btn.UseVisualStyleBackColor = true;
-            this.guardar_btn.Click += new System.EventHandler(this.guardar_btn_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 242);
+            this.label3.Location = new System.Drawing.Point(12, 261);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 16);
             this.label3.TabIndex = 97;
@@ -756,7 +718,7 @@
             // nota_txt
             // 
             this.nota_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nota_txt.Location = new System.Drawing.Point(641, 399);
+            this.nota_txt.Location = new System.Drawing.Point(649, 418);
             this.nota_txt.Multiline = true;
             this.nota_txt.Name = "nota_txt";
             this.nota_txt.Size = new System.Drawing.Size(256, 90);
@@ -766,7 +728,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(643, 381);
+            this.label9.Location = new System.Drawing.Point(651, 400);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 15);
             this.label9.TabIndex = 98;
@@ -776,7 +738,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(644, 266);
+            this.label1.Location = new System.Drawing.Point(652, 285);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 15);
             this.label1.TabIndex = 101;
@@ -793,7 +755,7 @@
             this.tipoPago_cb.Items.AddRange(new object[] {
             "EFECTIVO",
             "VEHICULO RECIBIDO"});
-            this.tipoPago_cb.Location = new System.Drawing.Point(732, 262);
+            this.tipoPago_cb.Location = new System.Drawing.Point(740, 281);
             this.tipoPago_cb.Name = "tipoPago_cb";
             this.tipoPago_cb.Size = new System.Drawing.Size(165, 23);
             this.tipoPago_cb.TabIndex = 100;
@@ -802,7 +764,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(319, 242);
+            this.label22.Location = new System.Drawing.Point(327, 261);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(229, 16);
             this.label22.TabIndex = 103;
@@ -823,7 +785,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.pagos_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.pagos_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.pagos_dtg.Location = new System.Drawing.Point(321, 261);
+            this.pagos_dtg.Location = new System.Drawing.Point(329, 280);
             this.pagos_dtg.MultiSelect = false;
             this.pagos_dtg.Name = "pagos_dtg";
             this.pagos_dtg.ReadOnly = true;
@@ -835,18 +797,98 @@
             // 
             this.notaVenta_txt.Enabled = false;
             this.notaVenta_txt.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notaVenta_txt.Location = new System.Drawing.Point(6, 260);
+            this.notaVenta_txt.Location = new System.Drawing.Point(14, 279);
             this.notaVenta_txt.Multiline = true;
             this.notaVenta_txt.Name = "notaVenta_txt";
             this.notaVenta_txt.Size = new System.Drawing.Size(301, 227);
             this.notaVenta_txt.TabIndex = 121;
+            // 
+            // v_lbl
+            // 
+            this.v_lbl.AutoSize = true;
+            this.v_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.v_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.v_lbl.Location = new System.Drawing.Point(81, 49);
+            this.v_lbl.Name = "v_lbl";
+            this.v_lbl.Size = new System.Drawing.Size(48, 15);
+            this.v_lbl.TabIndex = 133;
+            this.v_lbl.Text = "label29";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label12.Location = new System.Drawing.Point(13, 49);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 15);
+            this.label12.TabIndex = 132;
+            this.label12.Text = "Vehículo:";
+            // 
+            // detalles_btn
+            // 
+            this.detalles_btn.AutoSize = true;
+            this.detalles_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detalles_btn.LinkColor = System.Drawing.Color.White;
+            this.detalles_btn.Location = new System.Drawing.Point(427, 15);
+            this.detalles_btn.Name = "detalles_btn";
+            this.detalles_btn.Size = new System.Drawing.Size(103, 14);
+            this.detalles_btn.TabIndex = 134;
+            this.detalles_btn.TabStop = true;
+            this.detalles_btn.Text = "Detalles Factura";
+            this.detalles_btn.Visible = false;
+            this.detalles_btn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.detalles_btn_LinkClicked);
+            // 
+            // guardar_btn
+            // 
+            this.guardar_btn.FlatAppearance.BorderSize = 0;
+            this.guardar_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardar_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.guardar_btn.Image = global::ImporteVehiculos.Properties.Resources.efectivo2;
+            this.guardar_btn.Location = new System.Drawing.Point(803, 3);
+            this.guardar_btn.Name = "guardar_btn";
+            this.guardar_btn.Size = new System.Drawing.Size(123, 68);
+            this.guardar_btn.TabIndex = 90;
+            this.guardar_btn.Text = "Agregar Pago";
+            this.guardar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.guardar_btn.UseVisualStyleBackColor = true;
+            this.guardar_btn.Click += new System.EventHandler(this.guardar_btn_Click);
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::ImporteVehiculos.Properties.Resources.minimizar;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(868, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 26);
+            this.button3.TabIndex = 31;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::ImporteVehiculos.Properties.Resources.cruzar;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.Location = new System.Drawing.Point(900, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 26);
+            this.button2.TabIndex = 30;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // PagosCuentasPagarForm
             // 
             this.AcceptButton = this.guardar_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 569);
+            this.ClientSize = new System.Drawing.Size(929, 593);
             this.Controls.Add(this.detalleCompra_dtg);
             this.Controls.Add(this.notaVenta_txt);
             this.Controls.Add(this.label22);
@@ -948,5 +990,8 @@
         private System.Windows.Forms.Label cp_lbl;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox notaVenta_txt;
+        private System.Windows.Forms.LinkLabel detalles_btn;
+        private System.Windows.Forms.Label v_lbl;
+        private System.Windows.Forms.Label label12;
     }
 }

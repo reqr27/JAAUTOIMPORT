@@ -285,25 +285,25 @@ namespace ImporteVehiculos.Formularios
 
             if(Program.GidTransaccionRpt == 2)
             {
-                Program.Greporte = "Cuentas Pagar Compras";
+                Program.Greporte = "Cuentas por Pagar";
             }
            else if (Program.GidTransaccionRpt == 4)
             {
-                Program.Greporte = "Cuentas Pagar Seguros";
+                Program.Greporte = "Cuentas por Pagar";
             }
 
             else if (Program.GidTransaccionRpt == 5)
             {
-                Program.Greporte = "Cuentas Pagar Piezas/Repuestos";
+                Program.Greporte = "Cuentas por Pagar";
             }
 
             else if (Program.GidTransaccionRpt == 6)
             {
-                Program.Greporte = "Cuentas Pagar Mantenimientos";
+                Program.Greporte = "Cuentas por Pagar";
             }
             else
             {
-                Program.Greporte = "Cuentas Pagar Otros";
+                Program.Greporte = "Cuentas por Pagar";
             }
 
             parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);

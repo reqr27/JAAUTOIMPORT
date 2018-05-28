@@ -198,13 +198,19 @@
     <Compile Include="Formularios\CuentasPagarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\CuentasPagarForm.Designer.cs">
+    <Compile Include="Formularios\CuentasPagarForm.designer.cs">
       <DependentUpon>CuentasPagarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\DetallesFacturaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\DetallesFacturaForm.designer.cs">
+      <DependentUpon>DetallesFacturaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\DetallesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\DetallesForm.Designer.cs">
+    <Compile Include="Formularios\DetallesForm.designer.cs">
       <DependentUpon>DetallesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\DolaresForm.cs">
@@ -367,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\CuentasPagarForm.resx">
       <DependentUpon>CuentasPagarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\DetallesFacturaForm.resx">
+      <DependentUpon>DetallesFacturaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\DetallesForm.resx">
       <DependentUpon>DetallesForm.cs</DependentUpon>
@@ -730,6 +739,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="car.ico" />
+    <None Include="Resources\bill.png" />
     <None Include="Resources\accounting-book.png" />
     <None Include="Resources\insurance.png" />
     <None Include="Resources\browsing.png" />

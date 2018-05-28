@@ -112,7 +112,10 @@ namespace ImporteVehiculos.Classes
         bool McrearColor;
         bool McrearSeguro;
         bool MagregarCCCPAntiguas;
-
+        int Mcantidad;
+        string MnumeroFactura;
+        int MidCp;
+        string MtipoActivacion;
 
         //double Msubtotal;
         //double Mtotal;
@@ -122,6 +125,30 @@ namespace ImporteVehiculos.Classes
         //string Mmantenimiento;
         //DateTime Mdesde;
         //DateTime Mhasta;
+
+        public string TipoActivacion
+        {
+            get { return MtipoActivacion; }
+            set { MtipoActivacion = value; }
+        }
+
+        public int IdCP
+        {
+            get { return MidCp; }
+            set { MidCp = value; }
+        }
+
+        public string NumeroFactura
+        {
+            get { return MnumeroFactura; }
+            set { MnumeroFactura = value; }
+        }
+
+        public int Cantidad
+        {
+            get { return Mcantidad; }
+            set { Mcantidad = value; }
+        }
 
         public byte[] Img
         {
@@ -1569,6 +1596,8 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idVehiculo", Mid));
             lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+            lst.Add(new clsParametros("@facturaSuplidor", MnumeroFactura));
+
             return dt = C.Listado("obtener_detalle_cuenta_por_pagar", lst);
         }
 
@@ -1656,6 +1685,8 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
             lst.Add(new clsParametros("@idTransaccion", Mid));
+            lst.Add(new clsParametros("@idCP", MidCp));
+
             return dt = C.Listado("obtener_pagos_vehiculo", lst);
         }
 
@@ -1890,7 +1921,7 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
 
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
-            C.EjecutarSP("validar_software_activado", ref lst);
+            C.EjecutarSP("revisarSoftwareActivado", ref lst);
             mensaje = lst[0].Valor.ToString();
             return mensaje;
 
@@ -1900,8 +1931,8 @@ namespace ImporteVehiculos.Classes
         {
             string mensaje = "";
             List<clsParametros> lst = new List<clsParametros>();
-
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@tipo", MtipoActivacion));
             C.EjecutarSP("activar_software", ref lst);
             mensaje = lst[0].Valor.ToString();
             return mensaje;
@@ -2376,7 +2407,7 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@montoUSD", MprecioUSD));
             lst.Add(new clsParametros("@fecha", Mfecha));
             lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
-
+            lst.Add(new clsParametros("@cantidad", Mcantidad));
 
             C.EjecutarSP("insertar_gasto_vehiculo", ref lst);
 
@@ -2431,6 +2462,57 @@ namespace ImporteVehiculos.Classes
 
             mensaje = lst[0].Valor.ToString();
             return mensaje;
+        }
+
+        public string InsertarFacturaServicios()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idSuplidor", MidSuplidor));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+            lst.Add(new clsParametros("@nota", Mnota));
+            lst.Add(new clsParametros("@montoRD", MmontoRD));
+            lst.Add(new clsParametros("@montoUSD", MmontoUSD));
+            lst.Add(new clsParametros("@numeroFactura", MnumeroFactura));
+
+            C.EjecutarSP("insertar_factura_servicios", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public DataTable ObtenerVehiculosNoFacturados()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_vehiculos_no_vendidos", lst);
+        }
+
+        public DataTable ObtenerFacturasServiciosVehiculoIndividual()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            return dt = C.Listado("obtener_facturas_servicio_vehiculo_individual", lst);
+        }
+
+        public DataTable ObtenerFacturasDetallesServicios()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idFactura", Mid));
+            return dt = C.Listado("obtener_detalles_factura_servicio", lst);
+        }
+
+        public DataTable ObtenerDiasActivo()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            //lst.Add(new clsParametros("@idFactura", Mid));
+            return dt = C.Listado("obtener_dias_activo", lst);
         }
     }
 }
