@@ -59,6 +59,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.verVenta_chbox = new System.Windows.Forms.CheckBox();
+            this.verSeguro_chbox = new System.Windows.Forms.CheckBox();
+            this.verTraspaso_chbox = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.precioEstimadoVentaUSD_txt = new System.Windows.Forms.TextBox();
             this.tasa_lbl = new System.Windows.Forms.LinkLabel();
@@ -82,6 +85,10 @@
             this.label19 = new System.Windows.Forms.Label();
             this.precio_txt = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label41 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.ventaRepRD_radiobtn = new System.Windows.Forms.RadioButton();
+            this.ventaRepUSD_radiobtn = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -101,6 +108,10 @@
             this.precioVentaRd_lbl = new System.Windows.Forms.Label();
             this.agregar_btn = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label43 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.traspasoRepRD_radiobtn = new System.Windows.Forms.RadioButton();
+            this.traspasoRepUSD_radiobtn = new System.Windows.Forms.RadioButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -118,7 +129,6 @@
             this.precioTraspasoUsd_lbl = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.precioTraspasoRd_lbl = new System.Windows.Forms.Label();
-            this.agregarImg_btn = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label28 = new System.Windows.Forms.Label();
@@ -138,10 +148,15 @@
             this.montoTraspaso_txt = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.tipoPagoTraspaso_cb = new System.Windows.Forms.ComboBox();
-            this.agregarPagoTraspaso_btn = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.notaPagoTraspaso_txt = new System.Windows.Forms.TextBox();
+            this.agregarImg_btn = new System.Windows.Forms.Button();
+            this.agregarPagoTraspaso_btn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label46 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.seguroRepRD_radiobtn = new System.Windows.Forms.RadioButton();
+            this.seguroRepUSD_radiobtn = new System.Windows.Forms.RadioButton();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -180,9 +195,9 @@
             this.montoSeguros_txt = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.tipoPagoSeguros_cb = new System.Windows.Forms.ComboBox();
-            this.agregarPagosSeguros_btn = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.notaPagoSeguros_txt = new System.Windows.Forms.TextBox();
+            this.agregarPagosSeguros_btn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagos_dtg)).BeginInit();
@@ -191,12 +206,15 @@
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagosTraspaso_dtg)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.duracion_seguro)).BeginInit();
             this.panel6.SuspendLayout();
@@ -471,6 +489,9 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.tabPage1.Controls.Add(this.verVenta_chbox);
+            this.tabPage1.Controls.Add(this.verSeguro_chbox);
+            this.tabPage1.Controls.Add(this.verTraspaso_chbox);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.precioEstimadoVentaUSD_txt);
             this.tabPage1.Controls.Add(this.tasa_lbl);
@@ -497,6 +518,45 @@
             this.tabPage1.Size = new System.Drawing.Size(888, 469);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GENERALES";
+            // 
+            // verVenta_chbox
+            // 
+            this.verVenta_chbox.AutoSize = true;
+            this.verVenta_chbox.Checked = true;
+            this.verVenta_chbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.verVenta_chbox.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verVenta_chbox.Location = new System.Drawing.Point(710, 181);
+            this.verVenta_chbox.Name = "verVenta_chbox";
+            this.verVenta_chbox.Size = new System.Drawing.Size(74, 20);
+            this.verVenta_chbox.TabIndex = 148;
+            this.verVenta_chbox.Text = "Ventas";
+            this.verVenta_chbox.UseVisualStyleBackColor = true;
+            this.verVenta_chbox.Visible = false;
+            this.verVenta_chbox.CheckedChanged += new System.EventHandler(this.verVenta_chbox_CheckedChanged);
+            // 
+            // verSeguro_chbox
+            // 
+            this.verSeguro_chbox.AutoSize = true;
+            this.verSeguro_chbox.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verSeguro_chbox.Location = new System.Drawing.Point(702, 51);
+            this.verSeguro_chbox.Name = "verSeguro_chbox";
+            this.verSeguro_chbox.Size = new System.Drawing.Size(82, 20);
+            this.verSeguro_chbox.TabIndex = 147;
+            this.verSeguro_chbox.Text = "Seguros";
+            this.verSeguro_chbox.UseVisualStyleBackColor = true;
+            this.verSeguro_chbox.CheckedChanged += new System.EventHandler(this.verSeguro_chbox_CheckedChanged);
+            // 
+            // verTraspaso_chbox
+            // 
+            this.verTraspaso_chbox.AutoSize = true;
+            this.verTraspaso_chbox.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verTraspaso_chbox.Location = new System.Drawing.Point(702, 29);
+            this.verTraspaso_chbox.Name = "verTraspaso_chbox";
+            this.verTraspaso_chbox.Size = new System.Drawing.Size(88, 20);
+            this.verTraspaso_chbox.TabIndex = 146;
+            this.verTraspaso_chbox.Text = "Traspaso";
+            this.verTraspaso_chbox.UseVisualStyleBackColor = true;
+            this.verTraspaso_chbox.CheckedChanged += new System.EventHandler(this.verTraspaso_chbox_CheckedChanged);
             // 
             // label12
             // 
@@ -731,6 +791,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.tabPage2.Controls.Add(this.label41);
+            this.tabPage2.Controls.Add(this.panel9);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.panel4);
@@ -748,6 +810,51 @@
             this.tabPage2.Size = new System.Drawing.Size(888, 469);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DETALLE VENTA";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(567, 17);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(105, 14);
+            this.label41.TabIndex = 124;
+            this.label41.Text = "TIPO FACTURA: ";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.ventaRepRD_radiobtn);
+            this.panel9.Controls.Add(this.ventaRepUSD_radiobtn);
+            this.panel9.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel9.Location = new System.Drawing.Point(567, 35);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(156, 60);
+            this.panel9.TabIndex = 123;
+            // 
+            // ventaRepRD_radiobtn
+            // 
+            this.ventaRepRD_radiobtn.AutoSize = true;
+            this.ventaRepRD_radiobtn.Checked = true;
+            this.ventaRepRD_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventaRepRD_radiobtn.Location = new System.Drawing.Point(3, 3);
+            this.ventaRepRD_radiobtn.Name = "ventaRepRD_radiobtn";
+            this.ventaRepRD_radiobtn.Size = new System.Drawing.Size(130, 19);
+            this.ventaRepRD_radiobtn.TabIndex = 38;
+            this.ventaRepRD_radiobtn.TabStop = true;
+            this.ventaRepRD_radiobtn.Tag = "4";
+            this.ventaRepRD_radiobtn.Text = "FACTURA EN $RD";
+            this.ventaRepRD_radiobtn.UseVisualStyleBackColor = true;
+            // 
+            // ventaRepUSD_radiobtn
+            // 
+            this.ventaRepUSD_radiobtn.AutoSize = true;
+            this.ventaRepUSD_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventaRepUSD_radiobtn.Location = new System.Drawing.Point(3, 28);
+            this.ventaRepUSD_radiobtn.Name = "ventaRepUSD_radiobtn";
+            this.ventaRepUSD_radiobtn.Size = new System.Drawing.Size(138, 19);
+            this.ventaRepUSD_radiobtn.TabIndex = 36;
+            this.ventaRepUSD_radiobtn.Text = "FACTURA EN $USD";
+            this.ventaRepUSD_radiobtn.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -966,8 +1073,9 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.tabPage3.Controls.Add(this.label43);
+            this.tabPage3.Controls.Add(this.panel10);
             this.tabPage3.Controls.Add(this.panel7);
-            this.tabPage3.Controls.Add(this.agregarImg_btn);
             this.tabPage3.Controls.Add(this.label29);
             this.tabPage3.Controls.Add(this.flowLayoutPanel1);
             this.tabPage3.Controls.Add(this.label28);
@@ -979,15 +1087,61 @@
             this.tabPage3.Controls.Add(this.montoTraspaso_txt);
             this.tabPage3.Controls.Add(this.label25);
             this.tabPage3.Controls.Add(this.tipoPagoTraspaso_cb);
-            this.tabPage3.Controls.Add(this.agregarPagoTraspaso_btn);
             this.tabPage3.Controls.Add(this.label26);
             this.tabPage3.Controls.Add(this.notaPagoTraspaso_txt);
+            this.tabPage3.Controls.Add(this.agregarImg_btn);
+            this.tabPage3.Controls.Add(this.agregarPagoTraspaso_btn);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(888, 469);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "TRASPASO";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(26, 300);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(105, 14);
+            this.label43.TabIndex = 139;
+            this.label43.Text = "TIPO FACTURA: ";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.traspasoRepRD_radiobtn);
+            this.panel10.Controls.Add(this.traspasoRepUSD_radiobtn);
+            this.panel10.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel10.Location = new System.Drawing.Point(26, 318);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(324, 30);
+            this.panel10.TabIndex = 138;
+            // 
+            // traspasoRepRD_radiobtn
+            // 
+            this.traspasoRepRD_radiobtn.AutoSize = true;
+            this.traspasoRepRD_radiobtn.Checked = true;
+            this.traspasoRepRD_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.traspasoRepRD_radiobtn.Location = new System.Drawing.Point(3, 3);
+            this.traspasoRepRD_radiobtn.Name = "traspasoRepRD_radiobtn";
+            this.traspasoRepRD_radiobtn.Size = new System.Drawing.Size(130, 19);
+            this.traspasoRepRD_radiobtn.TabIndex = 38;
+            this.traspasoRepRD_radiobtn.TabStop = true;
+            this.traspasoRepRD_radiobtn.Tag = "4";
+            this.traspasoRepRD_radiobtn.Text = "FACTURA EN $RD";
+            this.traspasoRepRD_radiobtn.UseVisualStyleBackColor = true;
+            // 
+            // traspasoRepUSD_radiobtn
+            // 
+            this.traspasoRepUSD_radiobtn.AutoSize = true;
+            this.traspasoRepUSD_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.traspasoRepUSD_radiobtn.Location = new System.Drawing.Point(167, 3);
+            this.traspasoRepUSD_radiobtn.Name = "traspasoRepUSD_radiobtn";
+            this.traspasoRepUSD_radiobtn.Size = new System.Drawing.Size(138, 19);
+            this.traspasoRepUSD_radiobtn.TabIndex = 36;
+            this.traspasoRepUSD_radiobtn.Text = "FACTURA EN $USD";
+            this.traspasoRepUSD_radiobtn.UseVisualStyleBackColor = true;
             // 
             // panel7
             // 
@@ -1188,21 +1342,6 @@
             this.precioTraspasoRd_lbl.TabIndex = 81;
             this.precioTraspasoRd_lbl.Text = "pv";
             // 
-            // agregarImg_btn
-            // 
-            this.agregarImg_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.agregarImg_btn.FlatAppearance.BorderSize = 0;
-            this.agregarImg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarImg_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarImg_btn.Image = global::ImporteVehiculos.Properties.Resources.browsing;
-            this.agregarImg_btn.Location = new System.Drawing.Point(561, 3);
-            this.agregarImg_btn.Name = "agregarImg_btn";
-            this.agregarImg_btn.Size = new System.Drawing.Size(44, 38);
-            this.agregarImg_btn.TabIndex = 136;
-            this.agregarImg_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.agregarImg_btn.UseVisualStyleBackColor = false;
-            this.agregarImg_btn.Click += new System.EventHandler(this.agregarImg_btn_Click);
-            // 
             // label29
             // 
             this.label29.AutoSize = true;
@@ -1226,7 +1365,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(30, 44);
+            this.label28.Location = new System.Drawing.Point(26, 44);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(57, 14);
             this.label28.TabIndex = 132;
@@ -1245,7 +1384,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(30, 73);
+            this.label23.Location = new System.Drawing.Point(26, 68);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(99, 14);
             this.label23.TabIndex = 125;
@@ -1256,7 +1395,7 @@
             this.panel5.Controls.Add(this.rdDineroTraspaso_radiobtn);
             this.panel5.Controls.Add(this.usdDineroTraspaso_radiobtn);
             this.panel5.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(33, 6);
+            this.panel5.Location = new System.Drawing.Point(29, 6);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(140, 24);
             this.panel5.TabIndex = 131;
@@ -1291,7 +1430,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(30, 105);
+            this.label24.Location = new System.Drawing.Point(26, 94);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(58, 14);
             this.label24.TabIndex = 122;
@@ -1311,7 +1450,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewButtonColumn1,
             this.dataGridViewTextBoxColumn5});
-            this.pagosTraspaso_dtg.Location = new System.Drawing.Point(29, 203);
+            this.pagosTraspaso_dtg.Location = new System.Drawing.Point(29, 186);
             this.pagosTraspaso_dtg.MultiSelect = false;
             this.pagosTraspaso_dtg.Name = "pagosTraspaso_dtg";
             this.pagosTraspaso_dtg.ReadOnly = true;
@@ -1377,7 +1516,7 @@
             // montoTraspaso_txt
             // 
             this.montoTraspaso_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.montoTraspaso_txt.Location = new System.Drawing.Point(131, 102);
+            this.montoTraspaso_txt.Location = new System.Drawing.Point(131, 91);
             this.montoTraspaso_txt.Name = "montoTraspaso_txt";
             this.montoTraspaso_txt.Size = new System.Drawing.Size(150, 20);
             this.montoTraspaso_txt.TabIndex = 123;
@@ -1387,7 +1526,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(29, 186);
+            this.label25.Location = new System.Drawing.Point(29, 169);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(105, 14);
             this.label25.TabIndex = 129;
@@ -1400,10 +1539,44 @@
             this.tipoPagoTraspaso_cb.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tipoPagoTraspaso_cb.FormattingEnabled = true;
             this.tipoPagoTraspaso_cb.IntegralHeight = false;
-            this.tipoPagoTraspaso_cb.Location = new System.Drawing.Point(131, 70);
+            this.tipoPagoTraspaso_cb.Location = new System.Drawing.Point(131, 65);
             this.tipoPagoTraspaso_cb.Name = "tipoPagoTraspaso_cb";
             this.tipoPagoTraspaso_cb.Size = new System.Drawing.Size(246, 22);
             this.tipoPagoTraspaso_cb.TabIndex = 124;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(26, 113);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(83, 14);
+            this.label26.TabIndex = 126;
+            this.label26.Text = "NOTA PAGO:";
+            // 
+            // notaPagoTraspaso_txt
+            // 
+            this.notaPagoTraspaso_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notaPagoTraspaso_txt.Location = new System.Drawing.Point(29, 130);
+            this.notaPagoTraspaso_txt.Multiline = true;
+            this.notaPagoTraspaso_txt.Name = "notaPagoTraspaso_txt";
+            this.notaPagoTraspaso_txt.Size = new System.Drawing.Size(256, 36);
+            this.notaPagoTraspaso_txt.TabIndex = 127;
+            // 
+            // agregarImg_btn
+            // 
+            this.agregarImg_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.agregarImg_btn.FlatAppearance.BorderSize = 0;
+            this.agregarImg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarImg_btn.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarImg_btn.Image = global::ImporteVehiculos.Properties.Resources.browsing;
+            this.agregarImg_btn.Location = new System.Drawing.Point(561, 3);
+            this.agregarImg_btn.Name = "agregarImg_btn";
+            this.agregarImg_btn.Size = new System.Drawing.Size(44, 38);
+            this.agregarImg_btn.TabIndex = 136;
+            this.agregarImg_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.agregarImg_btn.UseVisualStyleBackColor = false;
+            this.agregarImg_btn.Click += new System.EventHandler(this.agregarImg_btn_Click);
             // 
             // agregarPagoTraspaso_btn
             // 
@@ -1413,35 +1586,18 @@
             this.agregarPagoTraspaso_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.agregarPagoTraspaso_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agregarPagoTraspaso_btn.Image = global::ImporteVehiculos.Properties.Resources.circulo_de_suma;
-            this.agregarPagoTraspaso_btn.Location = new System.Drawing.Point(304, 148);
+            this.agregarPagoTraspaso_btn.Location = new System.Drawing.Point(306, 124);
             this.agregarPagoTraspaso_btn.Name = "agregarPagoTraspaso_btn";
             this.agregarPagoTraspaso_btn.Size = new System.Drawing.Size(58, 42);
             this.agregarPagoTraspaso_btn.TabIndex = 128;
             this.agregarPagoTraspaso_btn.UseVisualStyleBackColor = true;
             this.agregarPagoTraspaso_btn.Click += new System.EventHandler(this.agregarPagoTraspaso_btn_Click);
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(30, 126);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 14);
-            this.label26.TabIndex = 126;
-            this.label26.Text = "NOTA PAGO:";
-            // 
-            // notaPagoTraspaso_txt
-            // 
-            this.notaPagoTraspaso_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notaPagoTraspaso_txt.Location = new System.Drawing.Point(30, 144);
-            this.notaPagoTraspaso_txt.Multiline = true;
-            this.notaPagoTraspaso_txt.Name = "notaPagoTraspaso_txt";
-            this.notaPagoTraspaso_txt.Size = new System.Drawing.Size(256, 36);
-            this.notaPagoTraspaso_txt.TabIndex = 127;
-            // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.tabPage4.Controls.Add(this.label46);
+            this.tabPage4.Controls.Add(this.panel11);
             this.tabPage4.Controls.Add(this.panel8);
             this.tabPage4.Controls.Add(this.duracion_seguro);
             this.tabPage4.Controls.Add(this.label36);
@@ -1456,15 +1612,60 @@
             this.tabPage4.Controls.Add(this.montoSeguros_txt);
             this.tabPage4.Controls.Add(this.label33);
             this.tabPage4.Controls.Add(this.tipoPagoSeguros_cb);
-            this.tabPage4.Controls.Add(this.agregarPagosSeguros_btn);
             this.tabPage4.Controls.Add(this.label34);
             this.tabPage4.Controls.Add(this.notaPagoSeguros_txt);
+            this.tabPage4.Controls.Add(this.agregarPagosSeguros_btn);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(888, 469);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "SEGURO";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(27, 288);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(105, 14);
+            this.label46.TabIndex = 152;
+            this.label46.Text = "TIPO FACTURA: ";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.seguroRepRD_radiobtn);
+            this.panel11.Controls.Add(this.seguroRepUSD_radiobtn);
+            this.panel11.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel11.Location = new System.Drawing.Point(27, 306);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(324, 30);
+            this.panel11.TabIndex = 151;
+            // 
+            // seguroRepRD_radiobtn
+            // 
+            this.seguroRepRD_radiobtn.AutoSize = true;
+            this.seguroRepRD_radiobtn.Checked = true;
+            this.seguroRepRD_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seguroRepRD_radiobtn.Location = new System.Drawing.Point(3, 3);
+            this.seguroRepRD_radiobtn.Name = "seguroRepRD_radiobtn";
+            this.seguroRepRD_radiobtn.Size = new System.Drawing.Size(130, 19);
+            this.seguroRepRD_radiobtn.TabIndex = 38;
+            this.seguroRepRD_radiobtn.TabStop = true;
+            this.seguroRepRD_radiobtn.Tag = "4";
+            this.seguroRepRD_radiobtn.Text = "FACTURA EN $RD";
+            this.seguroRepRD_radiobtn.UseVisualStyleBackColor = true;
+            // 
+            // seguroRepUSD_radiobtn
+            // 
+            this.seguroRepUSD_radiobtn.AutoSize = true;
+            this.seguroRepUSD_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seguroRepUSD_radiobtn.Location = new System.Drawing.Point(167, 3);
+            this.seguroRepUSD_radiobtn.Name = "seguroRepUSD_radiobtn";
+            this.seguroRepUSD_radiobtn.Size = new System.Drawing.Size(138, 19);
+            this.seguroRepUSD_radiobtn.TabIndex = 36;
+            this.seguroRepUSD_radiobtn.Text = "FACTURA EN $USD";
+            this.seguroRepUSD_radiobtn.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
@@ -1889,21 +2090,6 @@
             this.tipoPagoSeguros_cb.Size = new System.Drawing.Size(246, 22);
             this.tipoPagoSeguros_cb.TabIndex = 136;
             // 
-            // agregarPagosSeguros_btn
-            // 
-            this.agregarPagosSeguros_btn.FlatAppearance.BorderSize = 0;
-            this.agregarPagosSeguros_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.agregarPagosSeguros_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.agregarPagosSeguros_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarPagosSeguros_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarPagosSeguros_btn.Image = global::ImporteVehiculos.Properties.Resources.circulo_de_suma;
-            this.agregarPagosSeguros_btn.Location = new System.Drawing.Point(301, 231);
-            this.agregarPagosSeguros_btn.Name = "agregarPagosSeguros_btn";
-            this.agregarPagosSeguros_btn.Size = new System.Drawing.Size(58, 42);
-            this.agregarPagosSeguros_btn.TabIndex = 140;
-            this.agregarPagosSeguros_btn.UseVisualStyleBackColor = true;
-            this.agregarPagosSeguros_btn.Click += new System.EventHandler(this.agregarPagosSeguros_btn_Click);
-            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1922,6 +2108,21 @@
             this.notaPagoSeguros_txt.Name = "notaPagoSeguros_txt";
             this.notaPagoSeguros_txt.Size = new System.Drawing.Size(256, 46);
             this.notaPagoSeguros_txt.TabIndex = 139;
+            // 
+            // agregarPagosSeguros_btn
+            // 
+            this.agregarPagosSeguros_btn.FlatAppearance.BorderSize = 0;
+            this.agregarPagosSeguros_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.agregarPagosSeguros_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.agregarPagosSeguros_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarPagosSeguros_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarPagosSeguros_btn.Image = global::ImporteVehiculos.Properties.Resources.circulo_de_suma;
+            this.agregarPagosSeguros_btn.Location = new System.Drawing.Point(301, 231);
+            this.agregarPagosSeguros_btn.Name = "agregarPagosSeguros_btn";
+            this.agregarPagosSeguros_btn.Size = new System.Drawing.Size(58, 42);
+            this.agregarPagosSeguros_btn.TabIndex = 140;
+            this.agregarPagosSeguros_btn.UseVisualStyleBackColor = true;
+            this.agregarPagosSeguros_btn.Click += new System.EventHandler(this.agregarPagosSeguros_btn_Click);
             // 
             // openFileDialog1
             // 
@@ -1955,10 +2156,14 @@
             this.panel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1966,6 +2171,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pagosTraspaso_dtg)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.duracion_seguro)).EndInit();
@@ -2126,5 +2333,20 @@
         private System.Windows.Forms.Label precioSeguroUsd_lbl;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label precioSeguroRd_lbl;
+        private System.Windows.Forms.CheckBox verSeguro_chbox;
+        private System.Windows.Forms.CheckBox verTraspaso_chbox;
+        private System.Windows.Forms.CheckBox verVenta_chbox;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.RadioButton ventaRepRD_radiobtn;
+        private System.Windows.Forms.RadioButton ventaRepUSD_radiobtn;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.RadioButton traspasoRepRD_radiobtn;
+        private System.Windows.Forms.RadioButton traspasoRepUSD_radiobtn;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.RadioButton seguroRepRD_radiobtn;
+        private System.Windows.Forms.RadioButton seguroRepUSD_radiobtn;
     }
 }

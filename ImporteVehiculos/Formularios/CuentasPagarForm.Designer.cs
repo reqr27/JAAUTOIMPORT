@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuentasPagarForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,16 +45,16 @@
             this.label27 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.cuentasPagar_dtg = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.restante_USD_lbl = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.restante_RD_lbl = new System.Windows.Forms.Label();
+            this.cuentasPagar_dtg = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cuentasPagar_dtg)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cuentasPagar_dtg)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -240,30 +241,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // cuentasPagar_dtg
-            // 
-            this.cuentasPagar_dtg.AllowUserToAddRows = false;
-            this.cuentasPagar_dtg.AllowUserToDeleteRows = false;
-            this.cuentasPagar_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.cuentasPagar_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cuentasPagar_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.cuentasPagar_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cuentasPagar_dtg.Location = new System.Drawing.Point(15, 153);
-            this.cuentasPagar_dtg.MultiSelect = false;
-            this.cuentasPagar_dtg.Name = "cuentasPagar_dtg";
-            this.cuentasPagar_dtg.ReadOnly = true;
-            this.cuentasPagar_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cuentasPagar_dtg.Size = new System.Drawing.Size(852, 255);
-            this.cuentasPagar_dtg.TabIndex = 41;
-            this.cuentasPagar_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cuentasPagar_dtg_CellDoubleClick);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
@@ -321,14 +298,52 @@
             this.restante_RD_lbl.TabIndex = 119;
             this.restante_RD_lbl.Text = "pv";
             // 
+            // cuentasPagar_dtg
+            // 
+            this.cuentasPagar_dtg.AllowUserToAddRows = false;
+            this.cuentasPagar_dtg.AllowUserToDeleteRows = false;
+            this.cuentasPagar_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.cuentasPagar_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.cuentasPagar_dtg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            this.cuentasPagar_dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cuentasPagar_dtg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.cuentasPagar_dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cuentasPagar_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.cuentasPagar_dtg.ColumnHeadersHeight = 30;
+            this.cuentasPagar_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.cuentasPagar_dtg.EnableHeadersVisualStyles = false;
+            this.cuentasPagar_dtg.GridColor = System.Drawing.Color.DimGray;
+            this.cuentasPagar_dtg.Location = new System.Drawing.Point(15, 153);
+            this.cuentasPagar_dtg.Name = "cuentasPagar_dtg";
+            this.cuentasPagar_dtg.ReadOnly = true;
+            this.cuentasPagar_dtg.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(133)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.cuentasPagar_dtg.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.cuentasPagar_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.cuentasPagar_dtg.Size = new System.Drawing.Size(852, 279);
+            this.cuentasPagar_dtg.TabIndex = 62;
+            this.cuentasPagar_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cuentasPagar_dtg_CellDoubleClick);
+            // 
             // CuentasPagarForm
             // 
             this.AcceptButton = this.verDetalles_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
             this.ClientSize = new System.Drawing.Size(879, 479);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.cuentasPagar_dtg);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -341,9 +356,9 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cuentasPagar_dtg)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cuentasPagar_dtg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,7 +370,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView cuentasPagar_dtg;
         private System.Windows.Forms.TextBox propietario_txt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button verDetalles_btn;
@@ -370,5 +384,6 @@
         private System.Windows.Forms.Label restante_RD_lbl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox tipoTransaccion_cb;
+        private System.Windows.Forms.DataGridView cuentasPagar_dtg;
     }
 }

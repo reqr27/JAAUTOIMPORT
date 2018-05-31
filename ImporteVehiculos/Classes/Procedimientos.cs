@@ -991,6 +991,43 @@ namespace ImporteVehiculos.Classes
             return mensaje;
         }
 
+        public string InsertarTraspasoVehiculo()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idCliente", MidCliente));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+            lst.Add(new clsParametros("@precioTraspasoRd", MprecioTraspasoRD));
+            lst.Add(new clsParametros("@precioTraspasoUsd", MprecioTraspasoUSD));
+           
+            C.EjecutarSP("insertar_traspaso_vehiculo", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
+        public string InsertarSeguroVehiculo()
+        {
+            string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            lst.Add(new clsParametros("@idCliente", MidCliente));
+            lst.Add(new clsParametros("@idSeguro", MidSeguro));
+            lst.Add(new clsParametros("@duracion", Mduracion));
+            lst.Add(new clsParametros("@fecha", Mfecha));
+            lst.Add(new clsParametros("@precioSeguroRd", MprecioSeguroRD));
+            lst.Add(new clsParametros("@precioSeguroUsd", MprecioSeguroUSD));
+            C.EjecutarSP("insertar_seguro_vehiculo", ref lst);
+
+            mensaje = lst[0].Valor.ToString();
+            return mensaje;
+        }
+
         public string DetallePagoComprasVehiculo()
         {
             string mensaje = "";
@@ -1024,7 +1061,8 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
 
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
-            C.EjecutarSP("borrar_compra_y_detalles_pagos", ref lst);
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+            C.EjecutarSP("borrar_venta_y_detalles_pagos", ref lst);
 
 
         }
@@ -1038,6 +1076,8 @@ namespace ImporteVehiculos.Classes
             lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
             lst.Add(new clsParametros("@idCliente", MidCliente));
             lst.Add(new clsParametros("@fecha", Mfecha));
+            lst.Add(new clsParametros("@idTransaccion", MidTransaccion));
+
 
             C.EjecutarSP("insertar_factura", ref lst);
 
@@ -1870,6 +1910,29 @@ namespace ImporteVehiculos.Classes
             List<clsParametros> lst = new List<clsParametros>();
             return dt = C.Listado("obtener_vehiculos_para_facturar", lst);
         }
+
+        public DataTable ObtenerVehiculosVendidosSinTraspaso()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_vehiculos_vendidos_sin_traspaso", lst);
+        }
+
+        public DataTable ObtenerClienteVehiculoVendido()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@idVehiculo", MidVehiculo));
+            return dt = C.Listado("obtener_cliente_vehiculo_vendido", lst);
+        }
+
+        public DataTable ObtenerVehiculosVendidosSinSeguro()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            return dt = C.Listado("obtener_vehiculos_vendidos_sin_seguro", lst);
+        }
+
         public DataTable ObtenerCuentasPorPagar()
         {
             DataTable dt = new DataTable();

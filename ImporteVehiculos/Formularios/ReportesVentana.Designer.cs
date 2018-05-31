@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportesVentana));
             this.desde_dtp = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,15 +54,15 @@
             this.label = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.vehiculos_dtg = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.repGeneral_btn = new System.Windows.Forms.Button();
             this.reporte_btn = new System.Windows.Forms.Button();
             this.repIndividual_btn = new System.Windows.Forms.Button();
+            this.vehiculos_dtg = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).BeginInit();
             this.SuspendLayout();
             // 
             // desde_dtp
@@ -390,45 +389,6 @@
             this.label27.TabIndex = 28;
             this.label27.Text = "REPORTES\r\n";
             // 
-            // vehiculos_dtg
-            // 
-            this.vehiculos_dtg.AllowUserToAddRows = false;
-            this.vehiculos_dtg.AllowUserToDeleteRows = false;
-            this.vehiculos_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.vehiculos_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.vehiculos_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.vehiculos_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.vehiculos_dtg.DefaultCellStyle = dataGridViewCellStyle2;
-            this.vehiculos_dtg.Location = new System.Drawing.Point(15, 159);
-            this.vehiculos_dtg.MultiSelect = false;
-            this.vehiculos_dtg.Name = "vehiculos_dtg";
-            this.vehiculos_dtg.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.vehiculos_dtg.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.vehiculos_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.vehiculos_dtg.Size = new System.Drawing.Size(856, 296);
-            this.vehiculos_dtg.TabIndex = 89;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(36)))), ((int)(((byte)(97)))));
@@ -491,14 +451,51 @@
             this.repIndividual_btn.Visible = false;
             this.repIndividual_btn.Click += new System.EventHandler(this.repIndividual_btn_Click);
             // 
+            // vehiculos_dtg
+            // 
+            this.vehiculos_dtg.AllowUserToAddRows = false;
+            this.vehiculos_dtg.AllowUserToDeleteRows = false;
+            this.vehiculos_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.vehiculos_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.vehiculos_dtg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            this.vehiculos_dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vehiculos_dtg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.vehiculos_dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.vehiculos_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.vehiculos_dtg.ColumnHeadersHeight = 30;
+            this.vehiculos_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.vehiculos_dtg.EnableHeadersVisualStyles = false;
+            this.vehiculos_dtg.GridColor = System.Drawing.Color.DimGray;
+            this.vehiculos_dtg.Location = new System.Drawing.Point(12, 159);
+            this.vehiculos_dtg.Name = "vehiculos_dtg";
+            this.vehiculos_dtg.ReadOnly = true;
+            this.vehiculos_dtg.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(133)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.vehiculos_dtg.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.vehiculos_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.vehiculos_dtg.Size = new System.Drawing.Size(854, 295);
+            this.vehiculos_dtg.TabIndex = 91;
+            // 
             // ReportesVentana
             // 
             this.AcceptButton = this.reporte_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
             this.ClientSize = new System.Drawing.Size(878, 560);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.vehiculos_dtg);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -511,8 +508,8 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,7 +533,6 @@
         private System.Windows.Forms.Button repGeneral_btn;
         private System.Windows.Forms.Button repIndividual_btn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView vehiculos_dtg;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button reporte_btn;
         private System.Windows.Forms.Button buscar_btn;
@@ -546,5 +542,6 @@
         private System.Windows.Forms.RadioButton rdDinero_radiobtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox tipoTransaccion_cb;
+        private System.Windows.Forms.DataGridView vehiculos_dtg;
     }
 }

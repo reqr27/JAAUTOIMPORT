@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImporteForm));
-            this.vehiculos_dtg = new System.Windows.Forms.DataGridView();
             this.proceso_radioBtn = new System.Windows.Forms.RadioButton();
             this.terminados_radioBtn = new System.Windows.Forms.RadioButton();
             this.vendidos_radioBtn = new System.Windows.Forms.RadioButton();
@@ -46,57 +46,37 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.habilitar_btn = new System.Windows.Forms.Button();
-            this.nuevoVehiculo_btn = new System.Windows.Forms.Button();
-            this.deshabilitar_btn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.buscar_btn = new System.Windows.Forms.Button();
-            this.verDetalles_btn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.totalUSD_lbl = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.totalRD_lbl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).BeginInit();
+            this.verDetalles_btn = new System.Windows.Forms.Button();
+            this.loading_picturebx = new System.Windows.Forms.PictureBox();
+            this.habilitar_btn = new System.Windows.Forms.Button();
+            this.nuevoVehiculo_btn = new System.Windows.Forms.Button();
+            this.deshabilitar_btn = new System.Windows.Forms.Button();
+            this.buscar_btn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.vehiculos_dtg = new System.Windows.Forms.DataGridView();
             this.leyenda_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loading_picturebx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).BeginInit();
             this.SuspendLayout();
-            // 
-            // vehiculos_dtg
-            // 
-            this.vehiculos_dtg.AllowUserToAddRows = false;
-            this.vehiculos_dtg.AllowUserToDeleteRows = false;
-            this.vehiculos_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.vehiculos_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.vehiculos_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.vehiculos_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.vehiculos_dtg.Location = new System.Drawing.Point(12, 189);
-            this.vehiculos_dtg.MultiSelect = false;
-            this.vehiculos_dtg.Name = "vehiculos_dtg";
-            this.vehiculos_dtg.ReadOnly = true;
-            this.vehiculos_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.vehiculos_dtg.Size = new System.Drawing.Size(910, 261);
-            this.vehiculos_dtg.TabIndex = 40;
-            this.vehiculos_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehiculos_dtg_CellDoubleClick);
             // 
             // proceso_radioBtn
             // 
             this.proceso_radioBtn.AutoSize = true;
             this.proceso_radioBtn.Checked = true;
             this.proceso_radioBtn.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proceso_radioBtn.Location = new System.Drawing.Point(14, 149);
+            this.proceso_radioBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.proceso_radioBtn.Location = new System.Drawing.Point(12, 123);
             this.proceso_radioBtn.Name = "proceso_radioBtn";
             this.proceso_radioBtn.Size = new System.Drawing.Size(189, 23);
             this.proceso_radioBtn.TabIndex = 41;
@@ -109,7 +89,8 @@
             // 
             this.terminados_radioBtn.AutoSize = true;
             this.terminados_radioBtn.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.terminados_radioBtn.Location = new System.Drawing.Point(220, 149);
+            this.terminados_radioBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.terminados_radioBtn.Location = new System.Drawing.Point(218, 123);
             this.terminados_radioBtn.Name = "terminados_radioBtn";
             this.terminados_radioBtn.Size = new System.Drawing.Size(185, 23);
             this.terminados_radioBtn.TabIndex = 42;
@@ -121,7 +102,7 @@
             // 
             this.vendidos_radioBtn.AutoSize = true;
             this.vendidos_radioBtn.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vendidos_radioBtn.Location = new System.Drawing.Point(460, 149);
+            this.vendidos_radioBtn.Location = new System.Drawing.Point(460, 26);
             this.vendidos_radioBtn.Name = "vendidos_radioBtn";
             this.vendidos_radioBtn.Size = new System.Drawing.Size(96, 23);
             this.vendidos_radioBtn.TabIndex = 43;
@@ -180,7 +161,7 @@
             // 
             this.deshabilitados_radiobtn.AutoSize = true;
             this.deshabilitados_radiobtn.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deshabilitados_radiobtn.Location = new System.Drawing.Point(562, 149);
+            this.deshabilitados_radiobtn.Location = new System.Drawing.Point(562, 26);
             this.deshabilitados_radiobtn.Name = "deshabilitados_radiobtn";
             this.deshabilitados_radiobtn.Size = new System.Drawing.Size(138, 23);
             this.deshabilitados_radiobtn.TabIndex = 51;
@@ -215,7 +196,7 @@
             this.leyenda_panel.Controls.Add(this.rojo_panel);
             this.leyenda_panel.Controls.Add(this.nnPago_lbl);
             this.leyenda_panel.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leyenda_panel.Location = new System.Drawing.Point(703, 123);
+            this.leyenda_panel.Location = new System.Drawing.Point(703, 0);
             this.leyenda_panel.Name = "leyenda_panel";
             this.leyenda_panel.Size = new System.Drawing.Size(219, 60);
             this.leyenda_panel.TabIndex = 57;
@@ -264,6 +245,121 @@
             this.panel1.Size = new System.Drawing.Size(934, 117);
             this.panel1.TabIndex = 58;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel3.Controls.Add(this.buscar_btn);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.leyenda_panel);
+            this.panel3.Controls.Add(this.deshabilitados_radiobtn);
+            this.panel3.Controls.Add(this.verDetalles_btn);
+            this.panel3.Controls.Add(this.vendidos_radioBtn);
+            this.panel3.Controls.Add(this.hasta_dtp);
+            this.panel3.Controls.Add(this.desde_dtp);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 61);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(934, 56);
+            this.panel3.TabIndex = 59;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label11.Location = new System.Drawing.Point(12, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(291, 24);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "INVENTARIO VEHICULOS";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Controls.Add(this.totalUSD_lbl);
+            this.panel4.Controls.Add(this.label22);
+            this.panel4.Controls.Add(this.totalRD_lbl);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 524);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(934, 48);
+            this.panel4.TabIndex = 59;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label19.Location = new System.Drawing.Point(520, 15);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(193, 19);
+            this.label19.TabIndex = 113;
+            this.label19.Text = "COSTO TOTAL($USD):";
+            // 
+            // totalUSD_lbl
+            // 
+            this.totalUSD_lbl.AutoSize = true;
+            this.totalUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.totalUSD_lbl.Location = new System.Drawing.Point(737, 15);
+            this.totalUSD_lbl.Name = "totalUSD_lbl";
+            this.totalUSD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.totalUSD_lbl.TabIndex = 114;
+            this.totalUSD_lbl.Text = "pv";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.label22.Location = new System.Drawing.Point(35, 15);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(183, 19);
+            this.label22.TabIndex = 111;
+            this.label22.Text = "COSTO TOTAL($RD):";
+            // 
+            // totalRD_lbl
+            // 
+            this.totalRD_lbl.AutoSize = true;
+            this.totalRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.totalRD_lbl.Location = new System.Drawing.Point(241, 15);
+            this.totalRD_lbl.Name = "totalRD_lbl";
+            this.totalRD_lbl.Size = new System.Drawing.Size(29, 19);
+            this.totalRD_lbl.TabIndex = 112;
+            this.totalRD_lbl.Text = "pv";
+            // 
+            // verDetalles_btn
+            // 
+            this.verDetalles_btn.FlatAppearance.BorderSize = 0;
+            this.verDetalles_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.verDetalles_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verDetalles_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.verDetalles_btn.Image = global::ImporteVehiculos.Properties.Resources.portapapeles;
+            this.verDetalles_btn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.verDetalles_btn.Location = new System.Drawing.Point(245, 5);
+            this.verDetalles_btn.Name = "verDetalles_btn";
+            this.verDetalles_btn.Size = new System.Drawing.Size(92, 47);
+            this.verDetalles_btn.TabIndex = 49;
+            this.verDetalles_btn.Text = "Ver Detalles";
+            this.verDetalles_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.verDetalles_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.verDetalles_btn.UseVisualStyleBackColor = true;
+            this.verDetalles_btn.Click += new System.EventHandler(this.verDetalles_btn_Click);
+            // 
+            // loading_picturebx
+            // 
+            this.loading_picturebx.Image = global::ImporteVehiculos.Properties.Resources.loading;
+            this.loading_picturebx.Location = new System.Drawing.Point(410, 241);
+            this.loading_picturebx.Name = "loading_picturebx";
+            this.loading_picturebx.Size = new System.Drawing.Size(114, 91);
+            this.loading_picturebx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loading_picturebx.TabIndex = 60;
+            this.loading_picturebx.TabStop = false;
+            this.loading_picturebx.Visible = false;
             // 
             // habilitar_btn
             // 
@@ -319,21 +415,6 @@
             this.deshabilitar_btn.Visible = false;
             this.deshabilitar_btn.Click += new System.EventHandler(this.deshabilitar_btn_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panel3.Controls.Add(this.buscar_btn);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.verDetalles_btn);
-            this.panel3.Controls.Add(this.hasta_dtp);
-            this.panel3.Controls.Add(this.desde_dtp);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 61);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(934, 56);
-            this.panel3.TabIndex = 59;
-            // 
             // buscar_btn
             // 
             this.buscar_btn.FlatAppearance.BorderSize = 0;
@@ -349,24 +430,6 @@
             this.buscar_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.buscar_btn.UseVisualStyleBackColor = true;
             this.buscar_btn.Click += new System.EventHandler(this.buscar_btn_Click);
-            // 
-            // verDetalles_btn
-            // 
-            this.verDetalles_btn.FlatAppearance.BorderSize = 0;
-            this.verDetalles_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.verDetalles_btn.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.verDetalles_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.verDetalles_btn.Image = global::ImporteVehiculos.Properties.Resources.portapapeles;
-            this.verDetalles_btn.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.verDetalles_btn.Location = new System.Drawing.Point(245, 5);
-            this.verDetalles_btn.Name = "verDetalles_btn";
-            this.verDetalles_btn.Size = new System.Drawing.Size(92, 47);
-            this.verDetalles_btn.TabIndex = 49;
-            this.verDetalles_btn.Text = "Ver Detalles";
-            this.verDetalles_btn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.verDetalles_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.verDetalles_btn.UseVisualStyleBackColor = true;
-            this.verDetalles_btn.Click += new System.EventHandler(this.verDetalles_btn_Click);
             // 
             // button3
             // 
@@ -396,89 +459,56 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label11
+            // vehiculos_dtg
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label11.Location = new System.Drawing.Point(12, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(291, 24);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "INVENTARIO VEHICULOS";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.panel4.Controls.Add(this.label19);
-            this.panel4.Controls.Add(this.totalUSD_lbl);
-            this.panel4.Controls.Add(this.label22);
-            this.panel4.Controls.Add(this.totalRD_lbl);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 476);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(934, 48);
-            this.panel4.TabIndex = 59;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label19.Location = new System.Drawing.Point(520, 15);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(193, 19);
-            this.label19.TabIndex = 113;
-            this.label19.Text = "COSTO TOTAL($USD):";
-            // 
-            // totalUSD_lbl
-            // 
-            this.totalUSD_lbl.AutoSize = true;
-            this.totalUSD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalUSD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalUSD_lbl.Location = new System.Drawing.Point(737, 15);
-            this.totalUSD_lbl.Name = "totalUSD_lbl";
-            this.totalUSD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.totalUSD_lbl.TabIndex = 114;
-            this.totalUSD_lbl.Text = "pv";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.label22.Location = new System.Drawing.Point(35, 15);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(183, 19);
-            this.label22.TabIndex = 111;
-            this.label22.Text = "COSTO TOTAL($RD):";
-            // 
-            // totalRD_lbl
-            // 
-            this.totalRD_lbl.AutoSize = true;
-            this.totalRD_lbl.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalRD_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.totalRD_lbl.Location = new System.Drawing.Point(241, 15);
-            this.totalRD_lbl.Name = "totalRD_lbl";
-            this.totalRD_lbl.Size = new System.Drawing.Size(29, 19);
-            this.totalRD_lbl.TabIndex = 112;
-            this.totalRD_lbl.Text = "pv";
+            this.vehiculos_dtg.AllowUserToAddRows = false;
+            this.vehiculos_dtg.AllowUserToDeleteRows = false;
+            this.vehiculos_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.vehiculos_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.vehiculos_dtg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            this.vehiculos_dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vehiculos_dtg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.vehiculos_dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.vehiculos_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.vehiculos_dtg.ColumnHeadersHeight = 30;
+            this.vehiculos_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.vehiculos_dtg.EnableHeadersVisualStyles = false;
+            this.vehiculos_dtg.GridColor = System.Drawing.Color.DimGray;
+            this.vehiculos_dtg.Location = new System.Drawing.Point(16, 169);
+            this.vehiculos_dtg.Name = "vehiculos_dtg";
+            this.vehiculos_dtg.ReadOnly = true;
+            this.vehiculos_dtg.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(133)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.vehiculos_dtg.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.vehiculos_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.vehiculos_dtg.Size = new System.Drawing.Size(899, 328);
+            this.vehiculos_dtg.TabIndex = 61;
+            this.vehiculos_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vehiculos_dtg_CellDoubleClick);
             // 
             // ImporteForm
             // 
             this.AcceptButton = this.verDetalles_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.ClientSize = new System.Drawing.Size(934, 524);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
+            this.ClientSize = new System.Drawing.Size(934, 572);
+            this.Controls.Add(this.vehiculos_dtg);
+            this.Controls.Add(this.loading_picturebx);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.leyenda_panel);
-            this.Controls.Add(this.deshabilitados_radiobtn);
-            this.Controls.Add(this.vendidos_radioBtn);
             this.Controls.Add(this.terminados_radioBtn);
             this.Controls.Add(this.proceso_radioBtn);
-            this.Controls.Add(this.vehiculos_dtg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -487,7 +517,6 @@
             this.Text = "Inventario Vehículos";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ImporteForm_FormClosed);
             this.Load += new System.EventHandler(this.ImporteForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).EndInit();
             this.leyenda_panel.ResumeLayout(false);
             this.leyenda_panel.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -496,14 +525,14 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loading_picturebx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculos_dtg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView vehiculos_dtg;
         private System.Windows.Forms.RadioButton proceso_radioBtn;
         private System.Windows.Forms.RadioButton terminados_radioBtn;
         private System.Windows.Forms.RadioButton vendidos_radioBtn;
@@ -533,5 +562,7 @@
         private System.Windows.Forms.Label totalUSD_lbl;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label totalRD_lbl;
+        private System.Windows.Forms.PictureBox loading_picturebx;
+        private System.Windows.Forms.DataGridView vehiculos_dtg;
     }
 }

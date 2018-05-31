@@ -38,6 +38,12 @@ namespace ImporteVehiculos
         public static int GidFacturaServicio;
         public static bool GnuevaCC;
         public static bool GnuevaCP;
+        public static string GtipoVentanaFacturar;
+        public static bool GtipoMonedaFacturaVentaRD =false;
+        public static bool GtipoMonedaFacturaTraspasoRD = false;
+        public static bool GtipoMonedaFacturaSeguroRD = false;
+        public static string GrptTipoFactura;
+
 
 
         /// <summary>

@@ -31,12 +31,14 @@ namespace ImporteVehiculos.Formularios
 
         private void ImporteForm_Load(object sender, EventArgs e)
         {
+
             habilitar_btn.Enabled = false;
-            desde_dtp.Value = DateTime.Now.Date.AddYears(-1);
+            desde_dtp.Value = DateTime.Now.Date.AddYears(-2);
             hasta_dtp.Value = DateTime.Now.Date;
-            LlenarDtgVehiculos();
-            Permisos();
+           LlenarDtgVehiculos();
             CalcularTotal();
+            Permisos();
+           
             verDetalles_btn.NotifyDefault(false);
            
         }
@@ -313,5 +315,7 @@ namespace ImporteVehiculos.Formularios
             }
             
         }
+
+       
     }
 }

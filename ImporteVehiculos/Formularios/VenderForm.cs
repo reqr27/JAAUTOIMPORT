@@ -34,19 +34,55 @@ namespace ImporteVehiculos.Formularios
         double precioTraspasoUSD = 0;
         double precioSeguroRD = 0;
         double precioSeguroUSD = 0;
+        public int idVehiculo;
+        public string TipoVentana = Program.GtipoVentanaFacturar;
         public VenderForm()
         {
             InitializeComponent();
         }
 
-        public void clearFields()
+        public void clearFields(string mode)
         {
-            
-            LLenarVehiculosCb();
-            costoRD_txt.Text = "";
-            chasis_txt.Text = "";
-            precio_txt.Text = "";
-            cliente_cb.Text = "";
+            if(TipoVentana == "Normal")
+            {
+                if(!verTraspaso_chbox.Checked && !verSeguro_chbox.Checked)
+                {
+                    ResetVentaFields();
+                }
+                else if (verSeguro_chbox.Checked && verTraspaso_chbox.Checked)
+                {
+                    if(mode == "Seguro")
+                    {
+                        ResetVentaFields();
+                        ResetTraspasoFields();
+                        ResetSegurosFields();
+                    }
+                }
+                else if (verTraspaso_chbox.Checked && !verSeguro_chbox.Checked)
+                {
+                    ResetVentaFields();
+                    ResetTraspasoFields();
+                }
+
+                else if (!verTraspaso_chbox.Checked && verSeguro_chbox.Checked)
+                {
+                    ResetVentaFields();
+                    ResetSegurosFields();
+                }
+            }
+            else if (TipoVentana == "Traspaso")
+            {
+                ResetTraspasoFields();
+            }
+
+            else if (TipoVentana == "Seguro")
+            {
+                ResetSegurosFields();
+            }
+        }
+
+        public void ResetVentaFields()
+        {
             pago_txt.Text = "";
             tipoPago_cb.SelectedIndex = 0;
             nota_txt.Text = "";
@@ -57,7 +93,21 @@ namespace ImporteVehiculos.Formularios
             restante_USD_lbl.Text = "0.00";
             totalRD_lbl.Text = "0.00";
             totalRD_lbl.Text = "0.00";
+            costoRD_txt.Text = "";
+            costoUSD_txt.Text = "";
+            chasis_txt.Text = "";
+            precio_txt.Text = "";
+            
+            vehiculos_cb.Focus();
+            tabControl1.SelectTab(0);
+            precioEstimadoVentaRD_txt.Text = "";
+            precioEstimadoVentaUSD_txt.Text = "";
+            cliente_cb.Text = "";
+            LLenarVehiculosCb();
+        }
 
+        public void ResetTraspasoFields()
+        {
             precioTraspaso_txt.Text = "";
             montoTraspaso_txt.Text = "";
             notaPagoTraspaso_txt.Text = "";
@@ -69,7 +119,26 @@ namespace ImporteVehiculos.Formularios
             restanteTraspaso_USD_lbl.Text = "0.00";
             totalTraspasoRD_lbl.Text = "0.00";
             totalTraspasoRD_lbl.Text = "0.00";
+            costoRD_txt.Text = "";
+            costoUSD_txt.Text = "";
+            chasis_txt.Text = "";
+            precio_txt.Text = "";
+            cliente_cb.Text = "";
+            vehiculos_cb.Focus();
+            tabControl1.SelectTab(0);
+            precioEstimadoVentaRD_txt.Text = "";
+            precioEstimadoVentaUSD_txt.Text = "";
+            cliente_cb.Text = "";
+            if(TipoVentana == "Traspaso")
+            {
+                LLenarVehiculosCbTraspaso();
+            }
+            
 
+        }
+
+        public void ResetSegurosFields()
+        {
             precioSeguro_txt.Text = "";
             montoSeguros_txt.Text = "";
             notaPagoSeguros_txt.Text = "";
@@ -81,14 +150,88 @@ namespace ImporteVehiculos.Formularios
             restanteSeguro_USD_lbl.Text = "0.00";
             totalSeguroRD_lbl.Text = "0.00";
             totalSeguroRD_lbl.Text = "0.00";
-
+            costoRD_txt.Text = "";
+            costoUSD_txt.Text = "";
+            chasis_txt.Text = "";
+            precio_txt.Text = "";
             vehiculos_cb.Focus();
             tabControl1.SelectTab(0);
+            precioEstimadoVentaRD_txt.Text = "";
+            precioEstimadoVentaUSD_txt.Text = "";
+            cliente_cb.Text = "";
+            LLenarSegurosCb();
+            if (TipoVentana == "Seguro")
+            {
+                LLenarVehiculosCbSeguro();
+            }
 
+        }
+
+        public void CargarVentana()
+        {
+            if (TipoVentana == "Normal")
+            {
+                verVenta_chbox.Visible = false;
+                tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.TabPages.Remove(tabPage4);
+                LLenarTipoPagoCb();
+                LLenarVehiculosCb();
+
+            }
+            else if (TipoVentana == "Traspaso")
+            {
+                ArreglarPosicion();
+                label27.Text = "FACTURACION TRASPASO";
+                verTraspaso_chbox.Checked = true;
+                verTraspaso_chbox.Visible = false;
+                verSeguro_chbox.Visible = false;
+                tabControl1.TabPages.Remove(tabPage2);
+                tabControl1.TabPages.Remove(tabPage4);
+                LLenarTipoPagoCbTraspaso();
+                LLenarVehiculosCbTraspaso();
+                
+
+
+            }
+
+            else if (TipoVentana == "Seguro")
+            {
+                ArreglarPosicion();
+                label27.Text = "FACTURACION SEGURO";
+                verSeguro_chbox.Checked = true;
+                verSeguro_chbox.Visible = false;
+                verTraspaso_chbox.Visible = false;
+                tabControl1.TabPages.Remove(tabPage2);
+                tabControl1.TabPages.Remove(tabPage3);
+                LLenarTipoPagoCbSeguros();
+                LLenarSegurosCb();
+                LLenarVehiculosCbSeguro();
+            }
+        }
+
+        public void ArreglarPosicion()
+        {
+            label17.Visible = false;
+            precio_txt.Visible = false;
+            panel2.Visible = false;
+            tasa_lbl.Visible = false;
+            label.Top = 252;
+            cliente_cb.Top = 250;
+            fecha_dtp.Top = 290;
+            label8.Top =292;
+        }
+
+        public void AsignarNombreCliente()
+        {
+            DataTable dt = new DataTable();
+            P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+            dt = P.ObtenerClienteVehiculoVendido();
+            cliente_cb.Text = Convert.ToString(dt.Rows[0][0].ToString());
         }
 
         private void VenderForm_Load(object sender, EventArgs e)
         {
+            
             duracion_seguro.Maximum = Int32.MaxValue;
             duracion_seguro.Value = 365;
             this.openFileDialog1.Filter =
@@ -116,16 +259,15 @@ namespace ImporteVehiculos.Formularios
             precioTraspasoUsd_lbl.Text = precioTraspasoUSD.ToString("N2");
             precioSeguroRd_lbl.Text = precioSeguroRD.ToString("N2");
             precioSeguroUsd_lbl.Text = precioSeguroUSD.ToString("N2");
-            LLenarVehiculosCb();
-            LLenarTipoPagoCb();
-            LLenarTipoPagoCbTraspaso();
-            LLenarTipoPagoCbSeguros();
-            LLenarSegurosCb();
+            
             Permisos();
             guardar_btn.NotifyDefault(false);
+            CargarVentana();
             vehiculos_cb.Focus();
+
            
         }
+
         public void Permisos()
         {
 
@@ -220,6 +362,32 @@ namespace ImporteVehiculos.Formularios
 
         }
 
+        public void LLenarVehiculosCbTraspaso()
+        {
+            vehiculos_cb.DataSource = null;
+            DataTable dt = new DataTable();
+            dt = P.ObtenerVehiculosVendidosSinTraspaso();
+            vehiculos_cb.DataSource = dt;
+            vehiculos_cb.DisplayMember = "VEHICULO";
+            vehiculos_cb.ValueMember = "ID";
+            vehiculos_cb.SelectedIndex = -1;
+
+
+        }
+
+        public void LLenarVehiculosCbSeguro()
+        {
+            vehiculos_cb.DataSource = null;
+            DataTable dt = new DataTable();
+            dt = P.ObtenerVehiculosVendidosSinSeguro();
+            vehiculos_cb.DataSource = dt;
+            vehiculos_cb.DisplayMember = "VEHICULO";
+            vehiculos_cb.ValueMember = "ID";
+            vehiculos_cb.SelectedIndex = -1;
+
+
+        }
+
         public void CambiarPago()
         {
             if (rdDinero_radiobtn.Checked)
@@ -240,98 +408,234 @@ namespace ImporteVehiculos.Formularios
 
         private void guardar_btn_Click(object sender, EventArgs e)
         {
-
+            
             DialogResult dialogResult = MessageBox.Show("Está seguro que desea realizar esta acción?", Program.Gtitulo, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (pagos_dtg.Rows.Count > 0 && pagosTraspaso_dtg.Rows.Count > 0 && seguros_dtg.Rows.Count > 0)
+                if(TipoVentana == "Normal")
                 {
-                    if ((Convert.ToDouble(restante_RD_lbl.Text) == 0 || Convert.ToDouble(restante_USD_lbl.Text) == 0) && (Convert.ToDouble(restanteTraspaso_RD_lbl.Text) == 0 || Convert.ToDouble(restanteTraspaso_USD_lbl.Text) == 0) && (Convert.ToDouble(restanteSeguro_RD_lbl.Text) == 0 || Convert.ToDouble(restanteSeguro_USD_lbl.Text) == 0))
+                    Venta();
+                    if (verTraspaso_chbox.Checked)
                     {
-                        VenderVehiculo();
+                        Traspaso();
                     }
-                    else
+                    if (verSeguro_chbox.Checked)
                     {
-                        MessageBox.Show("Montos restantes deben ser igual a cero", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        Seguros();
                     }
-
                 }
-                else
+                else if (TipoVentana == "Traspaso")
                 {
-                    MessageBox.Show("Agregar Detalles de Pagos Cada Categoría", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    Traspaso();
                 }
+
+                else if (TipoVentana == "Seguro")
+                {
+                    Seguros();
+                }
+
             }
         }
-
-        public void VenderVehiculo()
+        public void Venta()
         {
-            DataTable dt1 = new DataTable();
-            dt1 = P.ObtenerTasaDolarYFecha();
-            
-            string[] valores = { cliente_cb.Text, seguro_cb.Text, seguro_cb.Text };
-            string msj = GF.ValidarCampoString(valores);
-
-            if (msj != "OK")
+            if (pagos_dtg.Rows.Count > 0 )
             {
-                MessageBox.Show("Todos los Campos son necesarios.", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (pagos_dtg.Rows.Count < 1)
-            {
-                MessageBox.Show("Debe agregarse algún tipo de pago con un monto", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (InsertarFactura())
+                if ((Convert.ToDouble(restante_RD_lbl.Text) == 0 || Convert.ToDouble(restante_USD_lbl.Text) == 0))
                 {
-                    if (InsertarDetalleVenta())
+                    DataTable dt1 = new DataTable();
+                    dt1 = P.ObtenerTasaDolarYFecha();
+
+                    string[] valores = { cliente_cb.Text, vehiculos_cb.Text };
+                    string msj = GF.ValidarCampoString(valores);
+
+                    if (msj != "OK")
                     {
-                        if (InsertarDetalleTraspaso())
+                        MessageBox.Show("Todos los Campos son necesarios en tab generales.", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    else
+                    {
+                        if (InsertarFacturaVenta())
                         {
-                            if (InsertarDetalleSeguro())
+                            if (InsertarDetalleVenta())
                             {
-                                if (MarcarVehiculoVendio())
+                                if (MarcarVehiculoVendido())
                                 {
-                                    InsertarImagenes();
-                                    RemoveAllPhotos();
+                                   
                                     GenerarFactura();
-                                    clearFields();
+                                    clearFields("Venta");
                                 }
                                 else
                                 {
-                                    BorrarRegistrosBD();
+                                    BorrarRegistrosBD(1);
                                 }
                             }
-
                             else
                             {
-                                BorrarRegistrosBD();
+                                BorrarRegistrosBD(1);
                             }
                         }
-
                         else
                         {
-                            BorrarRegistrosBD();
+                            BorrarRegistrosBD(1);
                         }
-                    }
-                    else
-                    {
-                        BorrarRegistrosBD();
                     }
                 }
                 else
                 {
-                    BorrarRegistrosBD();
+                    MessageBox.Show("Montos restantes en Venta deben ser igual a cero", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
+
+            }
+            else
+            {
+                MessageBox.Show("Agregar detalles de pagos a categoría de Venta", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
-        public void BorrarRegistrosBD()
+        public void Traspaso()
+        {
+            if (pagosTraspaso_dtg.Rows.Count > 0 )
+            {
+                if ((Convert.ToDouble(restanteTraspaso_RD_lbl.Text) == 0 || Convert.ToDouble(restanteTraspaso_USD_lbl.Text) == 0))
+                {
+                    DataTable dt1 = new DataTable();
+                    dt1 = P.ObtenerTasaDolarYFecha();
+
+                    string[] valores = { cliente_cb.Text, vehiculos_cb.Text };
+                    string msj = GF.ValidarCampoString(valores);
+
+                    if (msj != "OK")
+                    {
+                        MessageBox.Show("Todos los Campos son necesarios en tab generales y traspaso.", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    else
+                    {
+                        if (InsertarFacturaTraspaso())
+                        {
+                            if (InsertarDetalleTraspaso())
+                            {
+                                if (InsertarTraspaso())
+                                {
+                                    InsertarImagenes();
+                                    RemoveAllPhotos();
+                                    GenerarFacturaTraspaso();
+                                    clearFields("Traspaso");
+                                    
+                                }
+                                else
+                                {
+                                    BorrarRegistrosBD(3);
+                                }
+
+                            }
+                            else
+                            {
+                                BorrarRegistrosBD(3);
+                            }
+                        }
+                        else
+                        {
+                            BorrarRegistrosBD(3);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Montos restantes en Traspaso deben ser igual a cero", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Agregar detalles de pagos para la venta del traspaso", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        public void Seguros()
+        {
+            if (seguros_dtg.Rows.Count > 0)
+            {
+                if ((Convert.ToDouble(restanteSeguro_RD_lbl.Text) == 0 || Convert.ToDouble(restanteSeguro_USD_lbl.Text) == 0))
+                {
+                    DataTable dt1 = new DataTable();
+                    dt1 = P.ObtenerTasaDolarYFecha();
+
+                    string[] valores = { cliente_cb.Text, vehiculos_cb.Text, seguro_cb.Text };
+                    string msj = GF.ValidarCampoString(valores);
+
+                    if (msj != "OK")
+                    {
+                        MessageBox.Show("Todos los Campos son necesarios en tab generales y seguros.", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    else
+                    {
+                        if (InsertarFacturaSeguro())
+                        {
+                            if (InsertarDetalleSeguro())
+                            {
+                                if (InsertarSeguro())
+                                {
+                                    GenerarFacturaSeguro();
+                                    clearFields("Seguro");
+                                }
+                                else
+                                {
+                                    BorrarRegistrosBD(4);
+                                }
+
+                            }
+                            else
+                            {
+                                BorrarRegistrosBD(4);
+                            }
+                        }
+                        else
+                        {
+                            BorrarRegistrosBD(4);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Montos restantes en Seguro deben ser igual a cero", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Agregar detalles de pagos para la venta del seguro", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        public void BorrarRegistrosBD(int idTransaccion)
         {
             P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+            P.IdTransaccion = idTransaccion;
             P.BorrarVentaYDetallePagoVehiculo();
-            MessageBox.Show("No se pudo facturar el vehículo", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if(idTransaccion == 1)
+            {
+                MessageBox.Show("No se pudo facturar venta", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else if (idTransaccion == 3)
+            {
+                MessageBox.Show("No se pudo facturar traspaso", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else if (idTransaccion == 4)
+            {
+                MessageBox.Show("No se pudo facturar seguro", Program.Gtitulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -428,12 +732,13 @@ namespace ImporteVehiculos.Formularios
 
         }
 
-        public bool InsertarFactura()
+        public bool InsertarFacturaVenta()
         {
             bool result = false;
             P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
             P.Fecha = fecha_dtp.Value;
             P.IdCliente = Convert.ToInt32(cliente_cb.SelectedValue);
+            P.IdTransaccion = 1;
             string msj = P.InsertarFactura();
             if(msj == "1")
             {
@@ -442,7 +747,38 @@ namespace ImporteVehiculos.Formularios
             return result;
         }
 
-        public bool MarcarVehiculoVendio()
+        public bool InsertarFacturaTraspaso()
+        {
+            bool result = false;
+            P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+            P.Fecha = fecha_dtp.Value;
+            P.IdCliente = Convert.ToInt32(cliente_cb.SelectedValue);
+            P.IdTransaccion = 3; //traspaso
+            string msj = P.InsertarFactura();
+            if (msj == "1")
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public bool InsertarFacturaSeguro()
+        {
+            bool result = false;
+            P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+            P.Fecha = fecha_dtp.Value;
+            P.IdCliente = Convert.ToInt32(cliente_cb.SelectedValue);
+            P.IdTransaccion = 4; //seguro
+            string msj = P.InsertarFactura();
+            if (msj == "1")
+            {
+                result = true;
+            }
+            return result;
+        }
+
+
+        public bool MarcarVehiculoVendido()
         {
             bool result = false;
             P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
@@ -458,6 +794,42 @@ namespace ImporteVehiculos.Formularios
             P.PrecioSeguroRD = precioSeguroRD;
             P.PrecioSeguroUSD = precioSeguroUSD;
             string msj = P.VenderVehiculo();
+            if (msj == "1")
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public bool InsertarTraspaso()
+        {
+            bool result = false;
+            P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+            P.Fecha = fecha_dtp.Value;
+            P.IdCliente = Convert.ToInt32(cliente_cb.SelectedValue);
+            
+            P.PrecioTraspasoRD = precioTraspasoRD;
+            P.PrecioTraspasoUSD = precioTraspasoUSD;
+           
+            string msj = P.InsertarTraspasoVehiculo();
+            if (msj == "1")
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public bool InsertarSeguro()
+        {
+            bool result = false;
+            P.IdVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+            P.Fecha = fecha_dtp.Value;
+            P.IdCliente = Convert.ToInt32(cliente_cb.SelectedValue);
+            P.Duracion = Convert.ToInt32(duracion_seguro.Value);
+            P.IdSeguro = Convert.ToInt32(seguro_cb.SelectedValue);
+            P.PrecioSeguroRD = precioSeguroRD;
+            P.PrecioSeguroUSD = precioSeguroUSD;
+            string msj = P.InsertarSeguroVehiculo();
             if (msj == "1")
             {
                 result = true;
@@ -734,6 +1106,11 @@ namespace ImporteVehiculos.Formularios
                 precioEstimadoVentaRD_txt.Text = Convert.ToDouble(dt.Rows[0]["PRECIO VENTA ESTIMADO RD"]).ToString("N2");
                 precioEstimadoVentaUSD_txt.Text = Convert.ToDouble(dt.Rows[0]["PRECIO VENTA ESTIMADO USD"]).ToString("N2");
                 chasis_txt.Text = dt.Rows[0]["VIN"].ToString();
+                if (TipoVentana != "Normal")
+                {
+                    AsignarNombreCliente();
+                }
+                
             }
             else
             {
@@ -906,6 +1283,54 @@ namespace ImporteVehiculos.Formularios
 
             Program.GidVehiculoRpt = idVehiculo;
             Program.Greporte = "Factura Venta Vehículo";
+            if (ventaRepRD_radiobtn.Checked)
+            {
+                Program.GtipoMonedaFacturaVentaRD = true; //factura en RD
+            }
+            else
+            {
+                Program.GtipoMonedaFacturaVentaRD = false; // factura en USD
+            }
+            ReportesForm form1 = new ReportesForm();
+            form1.Show();
+
+        }
+
+        public void GenerarFacturaTraspaso()
+        {
+            int idVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+
+
+            Program.GidVehiculoRpt = idVehiculo;
+            Program.Greporte = "Factura Traspaso Vehículo";
+            if (ventaRepRD_radiobtn.Checked)
+            {
+                Program.GtipoMonedaFacturaTraspasoRD = true; //factura en RD
+            }
+            else
+            {
+                Program.GtipoMonedaFacturaTraspasoRD = false; // factura en USD
+            }
+            ReportesForm form1 = new ReportesForm();
+            form1.Show();
+
+        }
+
+        public void GenerarFacturaSeguro()
+        {
+            int idVehiculo = Convert.ToInt32(vehiculos_cb.SelectedValue);
+
+
+            Program.GidVehiculoRpt = idVehiculo;
+            Program.Greporte = "Factura Seguro Vehículo";
+            if (ventaRepRD_radiobtn.Checked)
+            {
+                Program.GtipoMonedaFacturaSeguroRD = true; //factura en RD
+            }
+            else
+            {
+                Program.GtipoMonedaFacturaSeguroRD = false; // factura en USD
+            }
             ReportesForm form1 = new ReportesForm();
             form1.Show();
 
@@ -1655,7 +2080,20 @@ namespace ImporteVehiculos.Formularios
 
         private void vehiculos_cb_DropDown(object sender, EventArgs e)
         {
-            LLenarVehiculosCb();
+            if (TipoVentana == "Normal")
+            {
+                LLenarVehiculosCb();
+            }
+            else if(TipoVentana == "Traspaso")
+            {
+                LLenarVehiculosCbTraspaso();
+            }
+
+            else if (TipoVentana == "Seguro")
+            {
+                LLenarVehiculosCbSeguro();
+            }
+
         }
 
         private void cliente_cb_DropDown(object sender, EventArgs e)
@@ -1666,6 +2104,80 @@ namespace ImporteVehiculos.Formularios
         private void seguro_cb_DropDown(object sender, EventArgs e)
         {
             LLenarSegurosCb();
+        }
+
+        private void verTraspaso_chbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(TipoVentana == "Normal")
+            {
+                GuardarBtnStatus();
+                if (verTraspaso_chbox.Checked)
+                {
+                    tabControl1.TabPages.Add(tabPage3);
+                    LLenarTipoPagoCbTraspaso();
+
+                }
+                else
+                {
+                    tabControl1.TabPages.Remove(tabPage3);
+                }
+            }
+            
+        }
+
+        private void verSeguro_chbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(TipoVentana == "Normal")
+            {
+                GuardarBtnStatus();
+                if (verSeguro_chbox.Checked)
+                {
+                    tabControl1.TabPages.Add(tabPage4);
+                    //LLenarTipoPagoCbTraspaso();
+                    LLenarTipoPagoCbSeguros();
+                    LLenarSegurosCb();
+
+                }
+                else
+                {
+                    tabControl1.TabPages.Remove(tabPage4);
+                }
+
+            }
+            
+        }
+
+        private void verVenta_chbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(TipoVentana == "Normal")
+            {
+                GuardarBtnStatus();
+
+                if (verVenta_chbox.Checked)
+                {
+                    tabControl1.TabPages.Add(tabPage2);
+
+
+                }
+                else
+                {
+                    tabControl1.TabPages.Remove(tabPage2);
+                }
+            }
+            
+        }
+
+        public void GuardarBtnStatus()
+        {
+
+            if (verVenta_chbox.Checked || verTraspaso_chbox.Checked || verSeguro_chbox.Checked)
+            {
+                guardar_btn.Visible = true;
+            }
+            else
+            {
+                guardar_btn.Visible = false;
+            }
         }
     }
 }

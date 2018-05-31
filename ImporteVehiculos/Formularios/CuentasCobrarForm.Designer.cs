@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuentasCobrarForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -268,23 +269,36 @@
             // 
             this.cuentasCobrar_dtg.AllowUserToAddRows = false;
             this.cuentasCobrar_dtg.AllowUserToDeleteRows = false;
-            this.cuentasCobrar_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.cuentasCobrar_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cuentasCobrar_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.cuentasCobrar_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.cuentasCobrar_dtg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            this.cuentasCobrar_dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cuentasCobrar_dtg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.cuentasCobrar_dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.cuentasCobrar_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.cuentasCobrar_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cuentasCobrar_dtg.Location = new System.Drawing.Point(15, 128);
-            this.cuentasCobrar_dtg.MultiSelect = false;
+            this.cuentasCobrar_dtg.ColumnHeadersHeight = 30;
+            this.cuentasCobrar_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.cuentasCobrar_dtg.EnableHeadersVisualStyles = false;
+            this.cuentasCobrar_dtg.GridColor = System.Drawing.Color.DimGray;
+            this.cuentasCobrar_dtg.Location = new System.Drawing.Point(12, 131);
             this.cuentasCobrar_dtg.Name = "cuentasCobrar_dtg";
             this.cuentasCobrar_dtg.ReadOnly = true;
+            this.cuentasCobrar_dtg.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(133)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.cuentasCobrar_dtg.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.cuentasCobrar_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cuentasCobrar_dtg.Size = new System.Drawing.Size(629, 281);
+            this.cuentasCobrar_dtg.Size = new System.Drawing.Size(642, 273);
             this.cuentasCobrar_dtg.TabIndex = 63;
             this.cuentasCobrar_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cuentasCobrar_dtg_CellDoubleClick);
             // 
@@ -293,6 +307,7 @@
             this.AcceptButton = this.verDetalles_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(59)))), ((int)(((byte)(72)))));
             this.ClientSize = new System.Drawing.Size(669, 466);
             this.Controls.Add(this.cuentasCobrar_dtg);
             this.Controls.Add(this.panel2);
@@ -330,10 +345,10 @@
         private System.Windows.Forms.Label restante_USD_lbl;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label restante_RD_lbl;
-        private System.Windows.Forms.DataGridView cuentasCobrar_dtg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker hasta_dtp;
         private System.Windows.Forms.DateTimePicker desde_dtp;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView cuentasCobrar_dtg;
     }
 }

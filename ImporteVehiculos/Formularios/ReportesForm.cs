@@ -27,7 +27,21 @@ namespace ImporteVehiculos.Formularios
 
             if (Program.Greporte == "Factura Venta Vehículo")
             {
-                FacturaVehiculo();
+                FacturaVentaVehiculo();
+               
+                
+            }
+
+            else if (Program.Greporte == "Factura Traspaso Vehículo")
+            {
+                FacturaTraspasoVehiculo();
+                
+            }
+
+            else if (Program.Greporte == "Factura Seguro Vehículo")
+            {
+                FacturaSeguroVehiculo();
+
             }
 
             else if (Program.Greporte == "Reporte Vehículos Comprados")
@@ -111,12 +125,21 @@ namespace ImporteVehiculos.Formularios
 
         }
 
-        public void FacturaVehiculo()
+       
+        public void FacturaVentaVehiculo()
         {
             ReportParameter[] parametros = new ReportParameter[2];
             reportViewer1.ProcessingMode = ProcessingMode.Local;
             lc = reportViewer1.LocalReport;
-            lc.ReportPath = "Reportes\\Factura.rdlc";
+            if (Program.GtipoMonedaFacturaVentaRD)
+            {
+                lc.ReportPath = "Reportes\\FacturaVentaRD.rdlc";
+            }
+            else
+            {
+                lc.ReportPath = "Reportes\\FacturaVentaUSD.rdlc";
+            }
+           
 
             CarsImportDataSet ds = new CarsImportDataSet();
             CarsImportDataSetTableAdapters.reporte_factura_vehiculoTableAdapter rds = new CarsImportDataSetTableAdapters.reporte_factura_vehiculoTableAdapter();
@@ -134,39 +157,12 @@ namespace ImporteVehiculos.Formularios
 
             CarsImportDataSet ds3 = new CarsImportDataSet();
             CarsImportDataSetTableAdapters.reporte_factura_obtener_monto_pendienteTableAdapter rds3 = new CarsImportDataSetTableAdapters.reporte_factura_obtener_monto_pendienteTableAdapter();
-            rds3.Fill(ds3.reporte_factura_obtener_monto_pendiente, Program.GidVehiculoRpt);  //llenar reporte
+            rds3.Fill(ds3.reporte_factura_obtener_monto_pendiente, Program.GidVehiculoRpt, 1);  //llenar reporte, transaccion venta
             ReportDataSource rd3 = new ReportDataSource();
             rd3.Name = "DataSet3";
             rd3.Value = ds3.Tables["reporte_factura_obtener_monto_pendiente"];
 
-            CarsImportDataSet ds2 = new CarsImportDataSet();
-            CarsImportDataSetTableAdapters.reporte_detalle_traspaso_vehiculoTableAdapter rds2 = new CarsImportDataSetTableAdapters.reporte_detalle_traspaso_vehiculoTableAdapter();
-            rds2.Fill(ds2.reporte_detalle_traspaso_vehiculo, Program.GidVehiculoRpt);  //llenar reporte
-            ReportDataSource rd2 = new ReportDataSource();
-            rd2.Name = "DataSet4";
-            rd2.Value = ds2.Tables["reporte_detalle_traspaso_vehiculo"];
-
-            CarsImportDataSet ds5 = new CarsImportDataSet();
-            CarsImportDataSetTableAdapters.reporte_factura_traspaso_precioTableAdapter rds5 = new CarsImportDataSetTableAdapters.reporte_factura_traspaso_precioTableAdapter();
-            rds5.Fill(ds5.reporte_factura_traspaso_precio, Program.GidVehiculoRpt);  //llenar reporte
-            ReportDataSource rd5 = new ReportDataSource();
-            rd5.Name = "DataSet5";
-            rd5.Value = ds5.Tables["reporte_factura_traspaso_precio"];
-
-            CarsImportDataSet ds6 = new CarsImportDataSet();
-            CarsImportDataSetTableAdapters.reporte_factura_seguro_precioTableAdapter rds6 = new CarsImportDataSetTableAdapters.reporte_factura_seguro_precioTableAdapter();
-            rds6.Fill(ds6.reporte_factura_seguro_precio, Program.GidVehiculoRpt);  //llenar reporte
-            ReportDataSource rd6 = new ReportDataSource();
-            rd6.Name = "DataSet6";
-            rd6.Value = ds6.Tables["reporte_factura_seguro_precio"];
-
-
-            CarsImportDataSet ds7 = new CarsImportDataSet();
-            CarsImportDataSetTableAdapters.reporte_detalle_seguro_vehiculoTableAdapter rds7 = new CarsImportDataSetTableAdapters.reporte_detalle_seguro_vehiculoTableAdapter();
-            rds7.Fill(ds7.reporte_detalle_seguro_vehiculo, Program.GidVehiculoRpt);  //llenar reporte
-            ReportDataSource rd7 = new ReportDataSource();
-            rd7.Name = "DataSet7";
-            rd7.Value = ds7.Tables["reporte_detalle_seguro_vehiculo"];
+            
 
             parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
             parametros[1] = new ReportParameter("rptNombre", Program.Greporte);
@@ -177,10 +173,115 @@ namespace ImporteVehiculos.Formularios
             lc.DataSources.Add(rd);
             lc.DataSources.Add(rd4);
             lc.DataSources.Add(rd3);
+            //lc.DataSources.Add(rd2);
+            //lc.DataSources.Add(rd5);
+            //lc.DataSources.Add(rd6);
+            //lc.DataSources.Add(rd7);
+            this.reportViewer1.RefreshReport();
+
+
+        }
+
+        public void FacturaTraspasoVehiculo()
+        {
+            ReportParameter[] parametros = new ReportParameter[2];
+            reportViewer1.ProcessingMode = ProcessingMode.Local;
+            lc = reportViewer1.LocalReport;
+            if (Program.GtipoMonedaFacturaTraspasoRD)
+            {
+                lc.ReportPath = "Reportes\\FacturaTraspasoRD.rdlc";
+            }
+            else
+            {
+                lc.ReportPath = "Reportes\\FacturaTraspasoUSD.rdlc";
+            }
+            
+
+            CarsImportDataSet ds = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_factura_traspaso_precioTableAdapter rds = new CarsImportDataSetTableAdapters.reporte_factura_traspaso_precioTableAdapter();
+            rds.Fill(ds.reporte_factura_traspaso_precio, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd = new ReportDataSource();
+            rd.Name = "DataSet1";
+            rd.Value = ds.Tables["reporte_factura_traspaso_precio"];
+
+            CarsImportDataSet ds2 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_detalle_traspaso_vehiculoTableAdapter rds2 = new CarsImportDataSetTableAdapters.reporte_detalle_traspaso_vehiculoTableAdapter();
+            rds2.Fill(ds2.reporte_detalle_traspaso_vehiculo, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd2 = new ReportDataSource();
+            rd2.Name = "DataSet2";
+            rd2.Value = ds2.Tables["reporte_detalle_traspaso_vehiculo"];
+
+            CarsImportDataSet ds3 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_factura_obtener_monto_pendienteTableAdapter rds3 = new CarsImportDataSetTableAdapters.reporte_factura_obtener_monto_pendienteTableAdapter();
+            rds3.Fill(ds3.reporte_factura_obtener_monto_pendiente, Program.GidVehiculoRpt, 3);  //llenar reporte, transaccion traspaso
+            ReportDataSource rd3 = new ReportDataSource();
+            rd3.Name = "DataSet3";
+            rd3.Value = ds3.Tables["reporte_factura_obtener_monto_pendiente"];
+
+
+            parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
+            parametros[1] = new ReportParameter("rptNombre", Program.Greporte);
+
+
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.SetParameters(parametros);
+            lc.DataSources.Add(rd);
             lc.DataSources.Add(rd2);
-            lc.DataSources.Add(rd5);
-            lc.DataSources.Add(rd6);
-            lc.DataSources.Add(rd7);
+            lc.DataSources.Add(rd3);
+           
+            this.reportViewer1.RefreshReport();
+
+
+        }
+
+        public void FacturaSeguroVehiculo()
+        {
+            ReportParameter[] parametros = new ReportParameter[2];
+            reportViewer1.ProcessingMode = ProcessingMode.Local;
+            lc = reportViewer1.LocalReport;
+            if (Program.GtipoMonedaFacturaSeguroRD)
+            {
+                lc.ReportPath = "Reportes\\FacturaSeguroRD.rdlc";
+            }
+            else
+            {
+                lc.ReportPath = "Reportes\\FacturaSeguroUSD.rdlc";
+            }
+
+
+            CarsImportDataSet ds = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_factura_seguro_precioTableAdapter rds = new CarsImportDataSetTableAdapters.reporte_factura_seguro_precioTableAdapter();
+            rds.Fill(ds.reporte_factura_seguro_precio, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd = new ReportDataSource();
+            rd.Name = "DataSet1";
+            rd.Value = ds.Tables["reporte_factura_seguro_precio"];
+
+            CarsImportDataSet ds2 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_detalle_seguro_vehiculoTableAdapter rds2 = new CarsImportDataSetTableAdapters.reporte_detalle_seguro_vehiculoTableAdapter();
+            rds2.Fill(ds2.reporte_detalle_seguro_vehiculo, Program.GidVehiculoRpt);  //llenar reporte
+            ReportDataSource rd2 = new ReportDataSource();
+            rd2.Name = "DataSet2";
+            rd2.Value = ds2.Tables["reporte_detalle_seguro_vehiculo"];
+
+            CarsImportDataSet ds3 = new CarsImportDataSet();
+            CarsImportDataSetTableAdapters.reporte_factura_obtener_monto_pendienteTableAdapter rds3 = new CarsImportDataSetTableAdapters.reporte_factura_obtener_monto_pendienteTableAdapter();
+            rds3.Fill(ds3.reporte_factura_obtener_monto_pendiente, Program.GidVehiculoRpt, 4);  //llenar reporte, transaccion seguro
+            ReportDataSource rd3 = new ReportDataSource();
+            rd3.Name = "DataSet3";
+            rd3.Value = ds3.Tables["reporte_factura_obtener_monto_pendiente"];
+
+
+
+            parametros[0] = new ReportParameter("rptTitulo", Program.Gtitulo);
+            parametros[1] = new ReportParameter("rptNombre", Program.Greporte);
+
+
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.SetParameters(parametros);
+            lc.DataSources.Add(rd);
+            lc.DataSources.Add(rd2);
+            lc.DataSources.Add(rd3);
+
             this.reportViewer1.RefreshReport();
 
 

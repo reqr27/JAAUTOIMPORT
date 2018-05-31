@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcesosForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
+            this.seguro_btn = new System.Windows.Forms.Button();
+            this.traspaso_btn = new System.Windows.Forms.Button();
             this.servicios_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cuentasCobrar_btn = new System.Windows.Forms.Button();
@@ -67,6 +69,38 @@
             this.label27.TabIndex = 36;
             this.label27.Text = "PROCESOS";
             // 
+            // seguro_btn
+            // 
+            this.seguro_btn.FlatAppearance.BorderSize = 0;
+            this.seguro_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.seguro_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seguro_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.seguro_btn.Image = global::ImporteVehiculos.Properties.Resources.insurance1;
+            this.seguro_btn.Location = new System.Drawing.Point(283, 251);
+            this.seguro_btn.Name = "seguro_btn";
+            this.seguro_btn.Size = new System.Drawing.Size(149, 139);
+            this.seguro_btn.TabIndex = 16;
+            this.seguro_btn.Text = "FACTURAR SEGURO";
+            this.seguro_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.seguro_btn.UseVisualStyleBackColor = true;
+            this.seguro_btn.Click += new System.EventHandler(this.seguro_btn_Click);
+            // 
+            // traspaso_btn
+            // 
+            this.traspaso_btn.FlatAppearance.BorderSize = 0;
+            this.traspaso_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.traspaso_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.traspaso_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.traspaso_btn.Image = global::ImporteVehiculos.Properties.Resources.exchange;
+            this.traspaso_btn.Location = new System.Drawing.Point(39, 251);
+            this.traspaso_btn.Name = "traspaso_btn";
+            this.traspaso_btn.Size = new System.Drawing.Size(149, 139);
+            this.traspaso_btn.TabIndex = 15;
+            this.traspaso_btn.Text = "FACTURAR TRASPASO";
+            this.traspaso_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.traspaso_btn.UseVisualStyleBackColor = true;
+            this.traspaso_btn.Click += new System.EventHandler(this.traspaso_btn_Click);
+            // 
             // servicios_btn
             // 
             this.servicios_btn.FlatAppearance.BorderSize = 0;
@@ -74,7 +108,7 @@
             this.servicios_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.servicios_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.servicios_btn.Image = global::ImporteVehiculos.Properties.Resources.bill;
-            this.servicios_btn.Location = new System.Drawing.Point(526, 233);
+            this.servicios_btn.Location = new System.Drawing.Point(526, 396);
             this.servicios_btn.Name = "servicios_btn";
             this.servicios_btn.Size = new System.Drawing.Size(149, 139);
             this.servicios_btn.TabIndex = 14;
@@ -90,7 +124,7 @@
             this.button1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Image = global::ImporteVehiculos.Properties.Resources.accounting_book;
-            this.button1.Location = new System.Drawing.Point(39, 396);
+            this.button1.Location = new System.Drawing.Point(283, 396);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 139);
             this.button1.TabIndex = 13;
@@ -106,7 +140,7 @@
             this.cuentasCobrar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuentasCobrar_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cuentasCobrar_btn.Image = global::ImporteVehiculos.Properties.Resources.banco;
-            this.cuentasCobrar_btn.Location = new System.Drawing.Point(283, 233);
+            this.cuentasCobrar_btn.Location = new System.Drawing.Point(39, 396);
             this.cuentasCobrar_btn.Name = "cuentasCobrar_btn";
             this.cuentasCobrar_btn.Size = new System.Drawing.Size(149, 139);
             this.cuentasCobrar_btn.TabIndex = 12;
@@ -122,7 +156,7 @@
             this.cuentasPagar_btn.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuentasPagar_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cuentasPagar_btn.Image = global::ImporteVehiculos.Properties.Resources.proyecto_de_ley;
-            this.cuentasPagar_btn.Location = new System.Drawing.Point(39, 233);
+            this.cuentasPagar_btn.Location = new System.Drawing.Point(526, 251);
             this.cuentasPagar_btn.Name = "cuentasPagar_btn";
             this.cuentasPagar_btn.Size = new System.Drawing.Size(149, 139);
             this.cuentasPagar_btn.TabIndex = 11;
@@ -213,6 +247,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(726, 547);
+            this.Controls.Add(this.seguro_btn);
+            this.Controls.Add(this.traspaso_btn);
             this.Controls.Add(this.servicios_btn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cuentasCobrar_btn);
@@ -247,5 +283,7 @@
         private System.Windows.Forms.Button cuentasCobrar_btn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button servicios_btn;
+        private System.Windows.Forms.Button traspaso_btn;
+        private System.Windows.Forms.Button seguro_btn;
     }
 }

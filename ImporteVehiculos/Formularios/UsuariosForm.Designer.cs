@@ -73,8 +73,8 @@
             this.colores_chbox = new System.Windows.Forms.CheckBox();
             this.suplidores_chbox = new System.Windows.Forms.CheckBox();
             this.seguros_chbox = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.agregarCCCP_chbox = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,7 +88,7 @@
             this.usuarios_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.usuarios_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.usuarios_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usuarios_dtg.Location = new System.Drawing.Point(14, 327);
+            this.usuarios_dtg.Location = new System.Drawing.Point(15, 325);
             this.usuarios_dtg.MultiSelect = false;
             this.usuarios_dtg.Name = "usuarios_dtg";
             this.usuarios_dtg.ReadOnly = true;
@@ -624,16 +624,6 @@
             this.seguros_chbox.Text = "Agregar Seguros";
             this.seguros_chbox.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(424, 60);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(171, 18);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Permisos del Usuario";
-            // 
             // agregarCCCP_chbox
             // 
             this.agregarCCCP_chbox.AutoSize = true;
@@ -645,6 +635,16 @@
             this.agregarCCCP_chbox.TabIndex = 32;
             this.agregarCCCP_chbox.Text = "Agregar Cuentas Cobrar/Pagar Antiguas";
             this.agregarCCCP_chbox.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(424, 60);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(171, 18);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Permisos del Usuario";
             // 
             // UsuariosForm
             // 

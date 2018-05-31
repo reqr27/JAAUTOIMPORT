@@ -57,7 +57,7 @@ namespace ImporteVehiculos.Formularios
 
         private void ReportesVentana_Load(object sender, EventArgs e)
         {
-            desde_dtp.Value = DateTime.Now.AddMonths(-1);
+            desde_dtp.Value = DateTime.Now.AddMonths(-12);
             LLenarPropietarioCb();
             LlenarTipoTransaccionCB();
             estado_cb.SelectedIndex = 0;
@@ -376,8 +376,47 @@ namespace ImporteVehiculos.Formularios
             {
                 if(vehiculos_dtg.Rows.Count > 0)
                 {
-                    Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[6].Value);
-                    Program.Greporte = "Factura Venta Vehículo";
+                    Program.GidVehiculoRpt = Convert.ToInt32(vehiculos_dtg.CurrentRow.Cells[7].Value);
+                    Program.GrptTipoFactura = Convert.ToString(vehiculos_dtg.CurrentRow.Cells[2].Value);
+                    if(Program.GrptTipoFactura == "VENTA")
+                    {
+                        Program.Greporte = "Factura Venta Vehículo";
+                        if (rdDinero_radiobtn.Checked)
+                        {
+                            Program.GtipoMonedaFacturaVentaRD = true;
+                        }
+                        else
+                        {
+                            Program.GtipoMonedaFacturaVentaRD = false;
+                        }
+                    }
+
+                    else if (Program.GrptTipoFactura == "TRASPASO")
+                    {
+                        Program.Greporte = "Factura Traspaso Vehículo";
+                        if (rdDinero_radiobtn.Checked)
+                        {
+                            Program.GtipoMonedaFacturaTraspasoRD = true;
+                        }
+                        else
+                        {
+                            Program.GtipoMonedaFacturaTraspasoRD = false;
+                        }
+                    }
+
+                    else if (Program.GrptTipoFactura == "SEGURO")
+                    {
+                        Program.Greporte = "Factura Seguro Vehículo";
+                        if (rdDinero_radiobtn.Checked)
+                        {
+                            Program.GtipoMonedaFacturaSeguroRD = true;
+                        }
+                        else
+                        {
+                            Program.GtipoMonedaFacturaSeguroRD = false;
+                        }
+                    }
+
                     ReportesForm form1 = new ReportesForm();
                     form1.Show();
                 }
@@ -484,7 +523,7 @@ namespace ImporteVehiculos.Formularios
 
         public void filtrosReporte()
         {
-            if(reportes_cb.Text =="Reporte Resultados")
+            if(reportes_cb.Text =="Reporte Resultados" || reportes_cb.Text == "Historial Facturas")
             {
                 rdDinero_radiobtn.Visible = true;
                 usdDinero_radiobtn.Visible = true;

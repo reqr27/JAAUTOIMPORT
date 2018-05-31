@@ -94,6 +94,7 @@ namespace ImporteVehiculos.Formularios
             }
             else
             {
+                Program.GtipoVentanaFacturar = "Normal";
                 VenderForm frm = new VenderForm();
                 frm.Show();
             }
@@ -142,6 +143,8 @@ namespace ImporteVehiculos.Formularios
             if (!permiso)
             {
                 facturacion_btn.Enabled = false;
+                traspaso_btn.Enabled = false;
+                seguro_btn.Enabled = false;
             }
 
             permiso = GF.ValidarPermisoTransaccion("IMPORTAR VEHICULOS");
@@ -211,6 +214,38 @@ namespace ImporteVehiculos.Formularios
             else
             {
                 AgregarComponentesGastosVehiculoForm frm = new AgregarComponentesGastosVehiculoForm();
+                frm.Show();
+            }
+        }
+
+        private void traspaso_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["VenderForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+                fc.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                Program.GtipoVentanaFacturar = "Traspaso";
+                VenderForm frm = new VenderForm();
+                frm.Show();
+            }
+        }
+
+        private void seguro_btn_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["VenderForm"];
+            if (fc != null)
+            {
+                fc.BringToFront();
+                fc.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                Program.GtipoVentanaFacturar = "Seguro";
+                VenderForm frm = new VenderForm();
                 frm.Show();
             }
         }

@@ -32,7 +32,7 @@ namespace ImporteVehiculos.Formularios
         {
             verDetalles_btn.NotifyDefault(false);
             LlenarTipoTransaccionCB();
-            desde_dtp.Value = DateTime.Now.AddMonths(-1);
+            desde_dtp.Value = DateTime.Now.AddMonths(-12);
             LlenarDtgCuentasPagar();
             CalcularTotal();
             propietario_txt.Focus();
