@@ -1,4 +1,13 @@
 
+ALTER TABLE facturas
+ADD id_transaccion int;
+
+go
+
+update facturas set id_transaccion = 1 
+
+
+go
 insert into facturas (idVehiculo, id_cliente, id_transaccion, fecha)
 Values (1,2,3, '2018-04-25'),
 (1,2,4, '2018-04-25'),
@@ -12,16 +21,10 @@ Values (1,2,3, '2018-04-25'),
 (1008,34,4, '2018-05-12'),
 (1013,36,3, '2018-05-24'),
 (1013,36,4, '2018-05-24')
-go
-
-ALTER TABLE facturas
-ADD id_transaccion int;
 
 go
 
---update facturas set id_transaccion = 1 
 
-go
 
 ALTER procedure [dbo].[insertar_factura]
 @idVehiculo int, @mensaje int output, @idCliente int,
