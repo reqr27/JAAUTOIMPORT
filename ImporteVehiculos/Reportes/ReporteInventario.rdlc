@@ -1180,6 +1180,7 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
+  <Language>es-DO</Language>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>8f87756d-7d67-404f-8890-ced02d20d70b</rd:ReportID>
 </Report>

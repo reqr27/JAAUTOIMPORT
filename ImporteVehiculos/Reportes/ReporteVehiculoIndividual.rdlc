@@ -2651,6 +2651,7 @@ IIf(First(Fields!TERMINADO.Value, "DataSet1"), "Terminado", "En Proceso"))</Valu
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
+  <Language>es-DO</Language>
   <Variables>
     <Variable Name="subtotalAduanas">
       <Value>=Sum(Fields!PRECIO.Value, "DataSet3")</Value>

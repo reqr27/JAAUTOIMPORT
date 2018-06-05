@@ -102,7 +102,7 @@ begin
 		from facturas fac join PreciosTraspasoVehiculo PT on PT.id_vehiculo = fac.idVehiculo join Vehiculos V on PT.id_vehiculo = V.id
 		join Fabricantes F on V.fabricante_id = F.id join Modelos M on V.modelo_id = M.id
 		join Clientes C on fac.id_cliente = C.id
-		where fac.idVehiculo = 1022 and fac.id_transaccion = 3
+		where fac.idVehiculo = @idVehiculo and fac.id_transaccion = 3
 		
 	end
 	

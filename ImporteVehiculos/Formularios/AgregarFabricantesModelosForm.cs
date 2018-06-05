@@ -12,6 +12,15 @@ namespace ImporteVehiculos.Formularios
 {
     public partial class AgregarFabricantesModelosForm : Form
     {
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         public int idEvento = 0;
         public bool evento = false;
         public bool comboFilled = false;
@@ -25,9 +34,6 @@ namespace ImporteVehiculos.Formularios
         private void AgregarFabricantesModelosForm_Load(object sender, EventArgs e)
         {
 
-            hidePanels();
-            
-            fabricantes_panel.Visible = true;
             LlenarDtgFabricantesModelos();
         }
 
@@ -81,11 +87,7 @@ namespace ImporteVehiculos.Formularios
                 fabricante_cbox.Enabled = true;
             }
         }
-        public void hidePanels()
-        {
-            modelo_panel.Visible = false;
-            fabricantes_panel.Visible = false;
-        }
+       
         private void fabricante_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
             evento = false;
@@ -98,15 +100,13 @@ namespace ImporteVehiculos.Formularios
                 comboFilled = false;
                 fabricante_cbox.DataSource = null;
                 LlenarDtgFabricantesModelos();
-                hidePanels();
-                fabricantes_panel.Visible = true;
+                
                
             }
             else
             {
                 fabricantesModelos_dtg.DataSource = null;
-                hidePanels();
-                modelo_panel.Visible = true;
+                
                 LLenarFabricanteCb();
                 LlenarDtgFabricantesModelos();
             }
@@ -331,6 +331,30 @@ namespace ImporteVehiculos.Formularios
             idEvento = 0;
             resetCampos();
             resetButtons();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fabricante_radiobtn.Checked = !fabricante_radiobtn.Checked;
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

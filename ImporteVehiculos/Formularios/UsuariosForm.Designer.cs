@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuariosForm));
-            this.usuarios_dtg = new System.Windows.Forms.DataGridView();
             this.actualizarTasaDiario_chbox = new System.Windows.Forms.CheckBox();
             this.modificarVehiculo_chbox = new System.Windows.Forms.CheckBox();
             this.cuentasCobrar_chbox = new System.Windows.Forms.CheckBox();
@@ -75,27 +76,12 @@
             this.seguros_chbox = new System.Windows.Forms.CheckBox();
             this.agregarCCCP_chbox = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).BeginInit();
+            this.usuarios_dtg = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).BeginInit();
             this.SuspendLayout();
-            // 
-            // usuarios_dtg
-            // 
-            this.usuarios_dtg.AllowUserToAddRows = false;
-            this.usuarios_dtg.AllowUserToDeleteRows = false;
-            this.usuarios_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.usuarios_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.usuarios_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usuarios_dtg.Location = new System.Drawing.Point(15, 325);
-            this.usuarios_dtg.MultiSelect = false;
-            this.usuarios_dtg.Name = "usuarios_dtg";
-            this.usuarios_dtg.ReadOnly = true;
-            this.usuarios_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usuarios_dtg.Size = new System.Drawing.Size(841, 196);
-            this.usuarios_dtg.TabIndex = 32;
-            this.usuarios_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuarios_dtg_CellDoubleClick);
             // 
             // actualizarTasaDiario_chbox
             // 
@@ -336,6 +322,7 @@
             // nombre_txt
             // 
             this.nombre_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombre_txt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.nombre_txt.Location = new System.Drawing.Point(158, 64);
             this.nombre_txt.Name = "nombre_txt";
             this.nombre_txt.Size = new System.Drawing.Size(186, 20);
@@ -345,6 +332,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(14, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 15);
@@ -354,6 +342,7 @@
             // confirmarClave_txt
             // 
             this.confirmarClave_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmarClave_txt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.confirmarClave_txt.Location = new System.Drawing.Point(158, 247);
             this.confirmarClave_txt.Name = "confirmarClave_txt";
             this.confirmarClave_txt.PasswordChar = '*';
@@ -364,6 +353,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(14, 246);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
@@ -373,6 +363,7 @@
             // clave_txt
             // 
             this.clave_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clave_txt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.clave_txt.Location = new System.Drawing.Point(158, 189);
             this.clave_txt.Name = "clave_txt";
             this.clave_txt.PasswordChar = '*';
@@ -383,6 +374,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(14, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 15);
@@ -392,6 +384,7 @@
             // usuario_txt
             // 
             this.usuario_txt.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usuario_txt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.usuario_txt.Location = new System.Drawing.Point(158, 129);
             this.usuario_txt.Name = "usuario_txt";
             this.usuario_txt.Size = new System.Drawing.Size(186, 20);
@@ -401,6 +394,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(14, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 15);
@@ -547,6 +541,7 @@
             this.flowLayoutPanel1.Controls.Add(this.seguros_chbox);
             this.flowLayoutPanel1.Controls.Add(this.agregarCCCP_chbox);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(424, 94);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(393, 207);
@@ -640,24 +635,62 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
             this.label7.Location = new System.Drawing.Point(424, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(171, 18);
             this.label7.TabIndex = 49;
             this.label7.Text = "Permisos del Usuario";
             // 
+            // usuarios_dtg
+            // 
+            this.usuarios_dtg.AllowUserToAddRows = false;
+            this.usuarios_dtg.AllowUserToDeleteRows = false;
+            this.usuarios_dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.usuarios_dtg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.usuarios_dtg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            this.usuarios_dtg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usuarios_dtg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.usuarios_dtg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usuarios_dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.usuarios_dtg.ColumnHeadersHeight = 30;
+            this.usuarios_dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.usuarios_dtg.EnableHeadersVisualStyles = false;
+            this.usuarios_dtg.GridColor = System.Drawing.Color.DimGray;
+            this.usuarios_dtg.Location = new System.Drawing.Point(12, 318);
+            this.usuarios_dtg.Name = "usuarios_dtg";
+            this.usuarios_dtg.ReadOnly = true;
+            this.usuarios_dtg.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(133)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.usuarios_dtg.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.usuarios_dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.usuarios_dtg.Size = new System.Drawing.Size(838, 193);
+            this.usuarios_dtg.TabIndex = 62;
+            this.usuarios_dtg.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usuarios_dtg_CellDoubleClick);
+            // 
             // UsuariosForm
             // 
             this.AcceptButton = this.agregarEditarUsuario_btn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(84)))));
             this.ClientSize = new System.Drawing.Size(865, 609);
+            this.Controls.Add(this.usuarios_dtg);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.usuarios_dtg);
             this.Controls.Add(this.nombre_txt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.confirmarClave_txt);
@@ -673,13 +706,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.UsuariosForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarios_dtg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -689,7 +722,6 @@
 
         private System.Windows.Forms.Button cancelar_btn;
         private System.Windows.Forms.Button agregarEditarUsuario_btn;
-        private System.Windows.Forms.DataGridView usuarios_dtg;
         private System.Windows.Forms.CheckBox facturacion_chbx;
         private System.Windows.Forms.CheckBox agregarPiezas_chbx;
         private System.Windows.Forms.CheckBox cambiarEstadosVehiculos_chbx;
@@ -733,5 +765,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox seguros_chbox;
         private System.Windows.Forms.CheckBox agregarCCCP_chbox;
+        private System.Windows.Forms.DataGridView usuarios_dtg;
     }
 }
